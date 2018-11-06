@@ -1,65 +1,55 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
+class Sidebar extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            selectedTab: 1
+        }
+    }
 
-var tabList = [
-    { 'id': 1, 'name': 'Home', 'url': '/mike' },
-    { 'id': 2, 'name': 'Donnie', 'url': '/donnie' },
-    { 'id': 3, 'name': 'Raph', 'url': '/raph' },
-    { 'id': 4, 'name': 'Leo', 'url': '/leo' }
-];
+    isActive(id){
+        return this.state.selectedTab === id;
+    }
 
+    setActiveTab(selectedTabID){
+        this.setState({selectedTab:selectedTabID})
+    }
 
-class Sidebar extends Component {
-    render () {
-
-        return (
+    render(){
+        var allPages = this.props.pages,
+        tabs = allPages.map(function(el, i){
+            return <Tab
+                        key={i}
+                        pageTitle={el.name}
+                        url={el.url}
+                        isActive={this.isActive(el.id)}
+                        onActiveTab={this.setActiveTab.bind(this, el.id)}
+                    />
+        }, this)
+        return(
             <nav className="col-md-2 d-none d-md-block bg-dark sidebar">
                 <div className="sidebar-sticky">
-                    <Tabs tabList={tabList} />
+                    <ul className="nav flex-column">
+                        {tabs}
+                    </ul>
                 </div>
             </nav>
         )
     }
 }
 
-class Tabs extends Component {
-
-    constructor (props) {
+class Tab extends Component{
+    constructor(props){
         super(props)
-
-        this.state = {
-            currentPage: 1
-        }
     }
-
-    render (){
-        const { currentPage } = this.state
-        return (
-            <ul className="nav flex-column">
-            {this.props.tabList.map(function(tab) {
-                return (
-                    <Tab
-                        key={tab.id}
-                        id={tab.id}
-                        url={tab.url}
-                        name={tab.name}
-                        activeClass={currentPage}
-                    />
-                );
-            })}
-            </ul>
-        )
-    }
-}
-
-class Tab extends Component {
-    render (){
-        let classes = this.props.activeClass == this.props.id ? 'nav-item active': 'nav-item';
-        return (
-            <li key={this.props.id} className={classes}>
-                <a className="nav-link" href={this.props.url}>
-                      <i className=""></i>{this.props.name} <span className="sr-only">(current)</span>
-                  </a>
+    render(){
+        return(
+            <li className={this.props.isActive ? 'nav-item active': 'nav-item'} onClick={this.props.onActiveTab}>
+                <Link className="nav-link" to={this.props.url}>
+                    <i className="fas fa-tachometer-alt fa-fw"></i>{this.props.pageTitle} <span className="sr-only">(current)</span>
+                    </Link>
             </li>
         )
     }

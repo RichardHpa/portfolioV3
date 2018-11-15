@@ -24,13 +24,11 @@ class App extends Component {
                     pages={pages}
                 />
                 <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                    <div className="container">
-                        <Switch>
-                            <Route exact path='/admin' component={Home} />
-                            <Route exact path='/admin/invoices' component={Invoice} />
-                            <Route component={NoMatch} />
-                        </Switch>
-                    </div>
+                    <Switch>
+                        <Route exact path='/admin' component={Home} />
+                        <Route exact path='/admin/invoices' component={Invoice} />
+                        <Route component={NoMatch} />
+                    </Switch>
                 </main>
             </div>
           </div>

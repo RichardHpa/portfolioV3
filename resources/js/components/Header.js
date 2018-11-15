@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Header = () => (
     <nav className="navbar navbar-dark sticky-top bg-dark navbar-expand-lg pt-2">
 
-        <Link className='navbar-brand col-sm-3 col-md-2 mr-0' to='/'>Admin Dashboard</Link>
+        <a className='navbar-brand col-sm-3 col-md-2 mr-0' href='/'>Admin Dashboard</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>

@@ -4,5 +4,4 @@ $(document).ready(function(){
     }).blur(function(){
         $(this).removeClass("open");
     });
-
 })

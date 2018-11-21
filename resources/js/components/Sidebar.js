@@ -4,8 +4,17 @@ import { Link } from 'react-router-dom';
 class Sidebar extends Component{
     constructor(props){
         super(props)
+
+        var startingPath = window.location.pathname;
+        var allPages = this.props.pages;
+        var currentPage;
+        for (var i = 0; i < allPages.length; i++) {
+            if(startingPath.search(allPages[i].url) > -1){
+                currentPage = allPages[i].id;
+            }
+        }
         this.state = {
-            selectedTab: 1
+            selectedTab: currentPage
         }
     }
 
@@ -23,6 +32,7 @@ class Sidebar extends Component{
             return <Tab
                         key={i}
                         pageTitle={el.name}
+                        icon={el.icon}
                         url={el.url}
                         isActive={this.isActive(el.id)}
                         onActiveTab={this.setActiveTab.bind(this, el.id)}
@@ -45,11 +55,12 @@ class Tab extends Component{
         super(props)
     }
     render(){
+        var classes = 'fas fa-fw fa-' + this.props.icon;
         return(
             <li className={this.props.isActive ? 'nav-item active': 'nav-item'} onClick={this.props.onActiveTab}>
                 <Link className="nav-link" to={this.props.url}>
-                    <i className="fas fa-tachometer-alt fa-fw"></i>{this.props.pageTitle} <span className="sr-only">(current)</span>
-                    </Link>
+                    <i className={classes}></i> {this.props.pageTitle} <span className="sr-only">(current)</span>
+                </Link>
             </li>
         )
     }

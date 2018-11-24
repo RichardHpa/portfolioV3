@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactCrop from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css';
 
 class ProjectsCreate extends Component {
     constructor(props) {
@@ -8,16 +10,39 @@ class ProjectsCreate extends Component {
         this.handleModalCloseClick = this.handleModalCloseClick.bind(this);
 
         this.state = {
-            showModal: false
+            showModal: false,
+            src : null
         }
     }
 
 
     handleModalShowClick(e){
         e.preventDefault();
-        this.setState({
-            showModal: true
-        })
+
+      // reader.onload = function(r){
+      //     this.setState({
+      //         showModal: true,
+      //         srcURL:r.target.result
+      //     })
+      // }
+
+      if(window.FileReader){
+          const imageType = /^image\//;
+          let file = e.target.files[0], reader = new FileReader(), self = this;
+          if (!file || !imageType.test(file.type)) {
+            console.log("no file uploaded/supported")
+            return;
+        }
+          reader.onload = function(r){
+              self.setState({
+                 src: r.target.result,
+                 showModal: true
+             });
+          }
+          reader.readAsDataURL(file);
+
+
+      }
     }
 
     handleModalCloseClick(){
@@ -28,6 +53,7 @@ class ProjectsCreate extends Component {
 
     render () {
         const {showModal} = this.state;
+        const { accept, capture, multiple } = this.props, { src, value } = this.state;
         return (
             <div className="container ml-0">
                 <div className="row">
@@ -51,7 +77,11 @@ class ProjectsCreate extends Component {
                                 <div className="custom-file">
                                     <input type="file" className="custom-file-input" id="customFile" onChange={this.handleModalShowClick}/>
                                     <label className="custom-file-label">Choose file</label>
-                                    {showModal ? (<Modal handleModalCloseClick={this.handleModalCloseClick}/>):null}
+                                    {showModal ? (<Modal
+                                        handleModalCloseClick={this.handleModalCloseClick}
+                                        imgURL={src}/>
+                                    ):null}
+
                                 </div>
                             </div>
                         </div>
@@ -74,9 +104,20 @@ class Modal extends Component {
     constructor(props){
         super(props)
         this.handleCloseClick = this.handleCloseClick.bind(this);
+
+        this.state = {
+          crop: {
+            x: 20,
+            y: 10,
+            width: 40,
+            height: 40,
+            // aspect: 16 / 9,
+          },
+          disabled: false,
+        }
     }
 
-    componentDidMount(){
+    componentDidMount(e){
         const { handleModalCloseClick } = this.props;
         $(this.modal).modal('show');
         $(this.modal).on('hidden.bs.modal', handleModalCloseClick);
@@ -101,7 +142,7 @@ class Modal extends Component {
                         </button>
                       </div>
                       <div className="modal-body">
-                        ...
+                      <img className="img-fluid" src={this.props.imgURL}/>
                       </div>
                       <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel Cropping</button>

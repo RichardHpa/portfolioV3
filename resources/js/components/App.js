@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Home from './Home'
@@ -9,13 +10,15 @@ import Slides from './Slides/Slides'
 import Projects from './Projects/Projects'
 import ProjectsCreate from './Projects/Create'
 import NoMatch from './NoMatch'
+import Test from './Test'
 
 
 const pages = [
     { 'id': 1, 'name': 'Home', 'url': '/admin','icon': 'home' },
     { 'id': 2, 'name': 'Projects', 'url': '/admin/projects','icon': 'project-diagram' },
     { 'id': 3, 'name': 'Slides', 'url': '/admin/slides','icon': 'images' },
-    { 'id': 4, 'name': 'Invoices', 'url': '/admin/invoices','icon': 'file-invoice-dollar' }
+    { 'id': 4, 'name': 'Invoices', 'url': '/admin/invoices','icon': 'file-invoice-dollar' },
+    { 'id': 5, 'name': 'Test', 'url': '/admin/test','icon': 'file-invoice-dollar' }
 ];
 
 class App extends Component {
@@ -45,6 +48,7 @@ class App extends Component {
                                     <Route exact path='/admin/projects' component={Projects} />
                                     <Route exact path='/admin/projects/create' component={ProjectsCreate} />
                                     <Route exact path='/admin/slides' component={Slides} />
+                                    <Route exact path='/admin/test' component={Test} />
 
                                     <Route component={NoMatch} />
                                 </Switch>

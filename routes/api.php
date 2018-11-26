@@ -15,3 +15,5 @@ use Illuminate\Http\Request;
 
 Route::get('invoices', 'InvoicesController@index');
 Route::post('invoices', 'InvoicesController@store');
+
+Route::post('projects', 'ProjectController@store');

@@ -14,6 +14,8 @@
  <body>
      <div id="app"></div>
 
+
+     <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
      <script src="{{ asset('js/app.js') }}"></script>
  </body>
  </html>

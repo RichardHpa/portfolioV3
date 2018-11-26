@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 // Route::view('admin/{path?}', 'app');
 Route::view('admin/{path?}/{sub?}', 'app');
+
+Route::post('projects', 'ProjectController@store');

@@ -60,21 +60,21 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 32:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(33);
-module.exports = __webpack_require__(34);
+__webpack_require__(35);
+module.exports = __webpack_require__(36);
 
 
 /***/ }),
 
-/***/ 33:
+/***/ 35:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
@@ -87,7 +87,7 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 34:
+/***/ 36:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

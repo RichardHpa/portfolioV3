@@ -86,6 +86,7 @@
 
                 <div class="links">
                     <a href="/admin">Admin</a>
+                    <a href="/testingImage">testing</a>
                 </div>
             </div>
         </div>

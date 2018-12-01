@@ -16,4 +16,8 @@ use Illuminate\Http\Request;
 Route::get('invoices', 'InvoicesController@index');
 Route::post('invoices', 'InvoicesController@store');
 
+Route::get('projects', 'ProjectController@index');
 Route::post('projects', 'ProjectController@store');
+Route::get('projects/{id}', 'ProjectController@show');
+
+Route::post('imageDelete', 'ImageController@delete');

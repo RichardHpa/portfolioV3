@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+
+    public function index()
+    {
+        $projects = Project::all();
+
+        return $projects->toJson();
+    }
+
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -27,5 +36,11 @@ class ProjectController extends Controller
             'image_name' => $imageName
         );
         return response()->json($result);
+    }
+
+    public function show($id)
+    {
+        $project = Project::where('id', '=', $id)->firstOrFail();
+        return $project->toJson();
     }
 }

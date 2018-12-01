@@ -5,7 +5,7 @@ class Loader extends Component {
 
         return (
             <div className="overlay">
-                <div class="loader"></div>
+                <div className="loader"></div>
             </div>
         )
     }

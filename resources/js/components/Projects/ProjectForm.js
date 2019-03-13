@@ -58,7 +58,6 @@ class ProjectForm extends Component {
                 return;
             }
             reader.onload = function(r){
-                // console.log(r.target.result);
                 self.setState({
                     src: r.target.result,
                     showModal: true
@@ -104,7 +103,6 @@ class ProjectForm extends Component {
 
         })
         .then((response) => {
-            console.log(response.data);
             if(response.data === 'success'){
                 this.setState({
                     sendingData: false
@@ -129,7 +127,6 @@ class ProjectForm extends Component {
         });
         reader.onloadend = () => {
           var base64data = reader.result;
-              console.log(base64data);
         }
 
         reader.readAsDataURL(myblob);
@@ -272,7 +269,6 @@ class Modal extends Component {
           pixelCrop,
           'newFile.jpeg',
         );
-        console.log(croppedImageUrl);
         this.setState({ croppedImageUrl });
       }
     }

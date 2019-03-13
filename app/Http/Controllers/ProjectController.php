@@ -52,4 +52,10 @@ class ProjectController extends Controller
         $project = Project::where('id', '=', $id)->firstOrFail();
         return $project->toJson();
     }
+
+    public function delete(Request $request){
+        $project = Project::findOrFail($request->id);
+        $project->delete();
+        return 'success';
+    }
 }

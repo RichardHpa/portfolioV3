@@ -13,14 +13,17 @@ class ProjectForm extends Component {
         this.handleModalCloseClick = this.handleModalCloseClick.bind(this);
         this.handleCroppedImage = this.handleCroppedImage.bind(this);
         this.handleFieldChange = this.handleFieldChange.bind(this);
-        this.handleCreateNewProject = this.handleCreateNewProject.bind(this)
+        this.handleCreateNewProject = this.handleCreateNewProject.bind(this);
+        this.handleDeleteProject = this.handleDeleteProject.bind(this);
 
         this.state = {
+            editProject: false,
             showModal: false,
             src : null,
             croppedURL: null,
             sendingData: false,
             fileInputLabel: 'Upload New Image',
+            projectID: 0,
             projectName: '',
             projectDescription: '',
             projectImage: null,
@@ -31,7 +34,13 @@ class ProjectForm extends Component {
 
     componentDidMount () {
         const { history } = this.props
+        if(this.props.inputLabel == 'Edit Project'){
+            this.setState({
+                editProject: true
+            })
+        }
         this.setState({
+            projectID: this.props.id,
             projectName: this.props.projectName,
             projectDescription: this.props.projectDescription,
             projectImage: this.props.projectImage,
@@ -83,6 +92,31 @@ class ProjectForm extends Component {
         })
     }
 
+    handleDeleteProject(e){
+        const { history } = this.props
+        e.preventDefault();
+        this.setState({
+            sendingData: true
+        });
+        let form = new FormData();
+        form.append('id', this.state.projectID);
+        axios.post('/api/projects/delete', form, {
+
+        })
+        .then((response) => {
+            console.log(response.data);
+            if(response.data === 'success'){
+                this.setState({
+                    sendingData: false
+                });
+                history.push('/admin/projects')
+            }
+        }).catch((error) => {
+            console.log("error");
+        });
+
+    }
+
     handleCreateNewProject(e){
         e.preventDefault();
         const { action } = this.state;
@@ -113,15 +147,13 @@ class ProjectForm extends Component {
         })
         .then((response) => {
             console.log(response);
-            //handle success
         }).catch((error) => {
             console.log("error");
-            //handle error
         });
     }
 
     render () {
-        const { sendingData, fileInputLabel, projectName, projectDescription, projectImage } = this.state;
+        const { sendingData, fileInputLabel, projectName, projectDescription, projectImage , editProject} = this.state;
         const {showModal} = this.state;
         const { src } = this.state;
         const { croppedURL } = this.state;
@@ -178,6 +210,18 @@ class ProjectForm extends Component {
                         </div>
                     </div>
                 </form>
+                {editProject &&
+                <div className="row">
+                    <div className="col">
+                        <form onSubmit={this.handleDeleteProject}>
+                            <div className="form-group">
+                                <input type="hidden"  value={this.state.projectID} />
+                                <input type="submit" className="btn btn-theme-color" value="Remove Project"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                }
                 {sendingData ? (<Loader
                     />
                 ):null}

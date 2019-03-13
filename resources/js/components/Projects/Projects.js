@@ -21,8 +21,6 @@ class Projects extends Component {
           pageLoaded: true
         })
       })
-
-
     }
 
     render () {
@@ -48,15 +46,6 @@ class Projects extends Component {
                     <div className="card-deck">
                         {projects.map(project => (
                             <div className="card col-12 col-md-4 p-0" key={project.id}>
-                                <Image
-                                    cloudName={process.env.MIX_CLOUD_NAME}
-                                    publicId={"portfolio/projects/" + project.project_image}
-                                    className="img-fluid card-img-top"
-                                    dpr="auto"
-                                    responsive
-                                    width="auto"
-                                    crop="scale"
-                                />
                                 <div className="card-body">
                                     <h5 className="card-title">{project.project_name}</h5>
                                 </div>

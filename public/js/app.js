@@ -22468,13 +22468,16 @@ var ProjectForm = function (_Component) {
         _this.handleCroppedImage = _this.handleCroppedImage.bind(_this);
         _this.handleFieldChange = _this.handleFieldChange.bind(_this);
         _this.handleCreateNewProject = _this.handleCreateNewProject.bind(_this);
+        _this.handleDeleteProject = _this.handleDeleteProject.bind(_this);
 
         _this.state = {
+            editProject: false,
             showModal: false,
             src: null,
             croppedURL: null,
             sendingData: false,
             fileInputLabel: 'Upload New Image',
+            projectID: 0,
             projectName: '',
             projectDescription: '',
             projectImage: null,
@@ -22489,7 +22492,13 @@ var ProjectForm = function (_Component) {
         value: function componentDidMount() {
             var history = this.props.history;
 
+            if (this.props.inputLabel == 'Edit Project') {
+                this.setState({
+                    editProject: true
+                });
+            }
             this.setState({
+                projectID: this.props.id,
                 projectName: this.props.projectName,
                 projectDescription: this.props.projectDescription,
                 projectImage: this.props.projectImage,
@@ -22546,6 +22555,31 @@ var ProjectForm = function (_Component) {
             this.setState(_defineProperty({}, event.target.name, event.target.value));
         }
     }, {
+        key: 'handleDeleteProject',
+        value: function handleDeleteProject(e) {
+            var _this2 = this;
+
+            var history = this.props.history;
+
+            e.preventDefault();
+            this.setState({
+                sendingData: true
+            });
+            var form = new __WEBPACK_IMPORTED_MODULE_4_form_data___default.a();
+            form.append('id', this.state.projectID);
+            __WEBPACK_IMPORTED_MODULE_6_axios___default.a.post('/api/projects/delete', form, {}).then(function (response) {
+                console.log(response.data);
+                if (response.data === 'success') {
+                    _this2.setState({
+                        sendingData: false
+                    });
+                    history.push('/admin/projects');
+                }
+            }).catch(function (error) {
+                console.log("error");
+            });
+        }
+    }, {
         key: 'handleCreateNewProject',
         value: function handleCreateNewProject(e) {
             e.preventDefault();
@@ -22577,10 +22611,8 @@ var ProjectForm = function (_Component) {
                 }
             }).then(function (response) {
                 console.log(response);
-                //handle success
             }).catch(function (error) {
                 console.log("error");
-                //handle error
             });
         }
     }, {
@@ -22591,7 +22623,8 @@ var ProjectForm = function (_Component) {
                 fileInputLabel = _state.fileInputLabel,
                 projectName = _state.projectName,
                 projectDescription = _state.projectDescription,
-                projectImage = _state.projectImage;
+                projectImage = _state.projectImage,
+                editProject = _state.editProject;
             var showModal = this.state.showModal;
             var src = this.state.src;
             var croppedURL = this.state.croppedURL;
@@ -22615,7 +22648,7 @@ var ProjectForm = function (_Component) {
                 handleModalCloseClick: this.handleModalCloseClick,
                 originalImgURL: src,
                 croppedImage: this.handleCroppedImage
-            }) : null)), croppedURL && __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'mb-5' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { alt: 'Crop', className: 'img-fluid', src: croppedURL })))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'row' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'col' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'form-group' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('input', { type: 'submit', className: 'btn btn-theme-color', value: this.props.inputLabel }))))), sendingData ? __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Loader__["a" /* default */], null) : null);
+            }) : null)), croppedURL && __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'mb-5' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('img', { alt: 'Crop', className: 'img-fluid', src: croppedURL })))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'row' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'col' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'form-group' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('input', { type: 'submit', className: 'btn btn-theme-color', value: this.props.inputLabel }))))), editProject && __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'row' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'col' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('form', { onSubmit: this.handleDeleteProject }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'form-group' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('input', { type: 'hidden', value: this.state.projectID }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('input', { type: 'submit', className: 'btn btn-theme-color', value: 'Remove Project' }))))), sendingData ? __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Loader__["a" /* default */], null) : null);
         }
     }]);
 
@@ -22628,15 +22661,15 @@ var Modal = function (_Component2) {
     function Modal(props) {
         _classCallCheck(this, Modal);
 
-        var _this2 = _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
+        var _this3 = _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
 
-        _this2.handleCloseClick = _this2.handleCloseClick.bind(_this2);
-        _this2.onCropChange = _this2.onCropChange.bind(_this2);
-        _this2.cropImage = _this2.cropImage.bind(_this2);
-        _this2.onImageLoaded = _this2.onImageLoaded.bind(_this2);
-        _this2.onCropComplete = _this2.onCropComplete.bind(_this2);
+        _this3.handleCloseClick = _this3.handleCloseClick.bind(_this3);
+        _this3.onCropChange = _this3.onCropChange.bind(_this3);
+        _this3.cropImage = _this3.cropImage.bind(_this3);
+        _this3.onImageLoaded = _this3.onImageLoaded.bind(_this3);
+        _this3.onCropComplete = _this3.onCropComplete.bind(_this3);
 
-        _this2.state = {
+        _this3.state = {
             crop: {
                 x: 20,
                 y: 10,
@@ -22644,7 +22677,7 @@ var Modal = function (_Component2) {
                 height: 40
             }
         };
-        return _this2;
+        return _this3;
     }
 
     _createClass(Modal, [{
@@ -22748,10 +22781,10 @@ var Modal = function (_Component2) {
     }, {
         key: 'render',
         value: function render() {
-            var _this3 = this;
+            var _this4 = this;
 
             return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', null, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'modal fade', ref: function ref(modal) {
-                    return _this3.modal = modal;
+                    return _this4.modal = modal;
                 }, id: 'exampleModalLong', role: 'dialog', 'aria-labelledby': 'exampleModalLongTitle', 'aria-hidden': 'true' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'modal-dialog modal-dialog-centered modal-lg', role: 'document' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'modal-content' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'modal-header' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('h5', { className: 'modal-title' }, 'Modal title'), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('button', { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('span', { 'aria-hidden': 'true' }, '\xD7'))), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement('div', { className: 'modal-body' }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_image_crop___default.a, {
                 src: this.props.originalImgURL,
                 crop: this.state.crop,
@@ -70174,15 +70207,7 @@ var Projects = function (_Component) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Loader__["a" /* default */], null);
             } else {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'container ml-0' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'row' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('h1', null, 'Projects Page'), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'row mb-3' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], { className: 'btn btn-theme-color', to: './projects/create' }, 'Add New Project'))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card-deck' }, projects.map(function (project) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card col-12 col-md-4 p-0', key: project.id }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_cloudinary_react__["Image"], {
-                        cloudName: "ddidg3xo5",
-                        publicId: "portfolio/projects/" + project.project_image,
-                        className: 'img-fluid card-img-top',
-                        dpr: 'auto',
-                        responsive: true,
-                        width: 'auto',
-                        crop: 'scale'
-                    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card-body' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('h5', { className: 'card-title' }, project.project_name)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card-footer p-0' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card col-12 col-md-4 p-0', key: project.id }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card-body' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('h5', { className: 'card-title' }, project.project_name)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card-footer p-0' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], {
                         to: '/admin/projects/' + project.id,
                         className: 'btn btn-theme-color btn-block'
                     }, 'Edit Project')));
@@ -78679,6 +78704,7 @@ var SingleProject = function (_Component) {
             } else {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'container ml-0' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'row' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col' }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('h1', null, project.project_name), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__ProjectForm__["a" /* default */], {
                     action: '/api/projects',
+                    id: this.props.match.params.id,
                     projectName: project.project_name,
                     projectDescription: project.project_description,
                     projectImage: project.project_image,

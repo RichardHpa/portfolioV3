@@ -46,6 +46,7 @@ class SingleProject extends Component {
                     </div>
                     <ProjectForm
                         action="/api/projects"
+                        id={this.props.match.params.id}
                         projectName={project.project_name}
                         projectDescription={project.project_description}
                         projectImage={project.project_image}

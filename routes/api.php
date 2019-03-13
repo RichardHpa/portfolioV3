@@ -19,5 +19,6 @@ Route::post('invoices', 'InvoicesController@store');
 Route::get('projects', 'ProjectController@index');
 Route::post('projects', 'ProjectController@store');
 Route::get('projects/{id}', 'ProjectController@show');
+Route::post('projects/delete', 'ProjectController@delete');
 
 Route::post('imageDelete', 'ImageController@delete');

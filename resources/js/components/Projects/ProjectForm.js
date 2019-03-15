@@ -28,15 +28,27 @@ class ProjectForm extends Component {
             projectDescription: '',
             projectImage: null,
             deleteingImage: '',
+            errors: {
+                name: '',
+                description: '',
+                iamge: ''
+            },
             action: ''
         };
     }
 
     componentDidMount () {
-        const { history } = this.props
         if(this.props.inputLabel == 'Edit Project'){
             this.setState({
                 editProject: true
+            })
+        } else{
+            this.setState({
+                errors: {
+                    name: 'Must include a Name',
+                    description: 'Must include a Description',
+                    image: 'Must include an image'
+                }
             })
         }
         this.setState({
@@ -117,43 +129,56 @@ class ProjectForm extends Component {
 
     handleCreateNewProject(e){
         e.preventDefault();
-        const { action } = this.state;
-        this.setState({
-            sendingData: true
-        });
-        var reader = new FileReader();
-        var myblob = new Blob([this.state.croppedURL], {
-            type: 'image/jpeg'
-        });
-        reader.onloadend = () => {
-          var base64data = reader.result;
+        console.log(this.state.errors);
+        const { action, history } = this.state;
+        if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
+            this.setState({
+                sendingData: true
+            });
+            var reader = new FileReader();
+            var myblob = new Blob([this.state.croppedURL], {
+                type: 'image/jpeg'
+            });
+            reader.onloadend = () => {
+              var base64data = reader.result;
+            }
+
+            reader.readAsDataURL(myblob);
+            let form = new FormData();
+
+            form.append('file', this.state.croppedURL);
+            form.append('project_name', this.state.projectName);
+            form.append('project_description', this.state.projectDescription);
+            axios.post(action, form, {
+                headers: {
+                  'accept': 'application/json',
+                  'Accept-Language': 'en-US,en;q=0.8',
+                  'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
+                }
+            })
+            .then((response) => {
+                console.log(response['data']);
+                if(response['data'] === 'success'){
+                    this.setState({
+                        sendingData: false
+                    });
+                    history.push('/admin/projects')
+
+                }
+            }).catch((error) => {
+                console.log("error");
+            });
+        } else {
+            console.log("error");
         }
 
-        reader.readAsDataURL(myblob);
-        let form = new FormData();
 
-        form.append('file', this.state.croppedURL);
-        form.append('project_name', this.state.projectName);
-        form.append('project_description', this.state.projectDescription);
-        axios.post(action, form, {
-            headers: {
-              'accept': 'application/json',
-              'Accept-Language': 'en-US,en;q=0.8',
-              'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
-            }
-        })
-        .then((response) => {
-            console.log(response);
-        }).catch((error) => {
-            console.log("error");
-        });
+
     }
 
     render () {
-        const { sendingData, fileInputLabel, projectName, projectDescription, projectImage , editProject} = this.state;
-        const {showModal} = this.state;
-        const { src } = this.state;
-        const { croppedURL } = this.state;
+        const { croppedURL, src, showModal, sendingData, fileInputLabel, projectName, projectDescription, projectImage , editProject} = this.state;
+
         return (
             <div>
                 <form onSubmit={this.handleCreateNewProject} autoComplete="off" >
@@ -299,22 +324,21 @@ class Modal extends Component {
       canvas.height = pixelCrop.height;
       const ctx = canvas.getContext('2d');
 
-      ctx.drawImage(
-        image,
-        pixelCrop.x,
-        pixelCrop.y,
-        pixelCrop.width,
-        pixelCrop.height,
-        0,
-        0,
-        pixelCrop.width,
-        pixelCrop.height,
-      );
+        ctx.drawImage(
+            image,
+            pixelCrop.x,
+            pixelCrop.y,
+            pixelCrop.width,
+            pixelCrop.height,
+            0,
+            0,
+            pixelCrop.width,
+            pixelCrop.height,
+        );
 
       return new Promise((resolve, reject) => {
           resolve(canvas.toDataURL());
       });
-
     }
 
     onCropComplete(crop, pixelCrop){

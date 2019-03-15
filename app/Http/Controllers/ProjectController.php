@@ -21,13 +21,16 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
 
-        // die($request);
-        // die($request['file']);
-        $manager = new ImageManager();
-        // $base=base64_decode($request['file']);
-        $heroImage = $manager->make($request['file']);
-        $heroImage->save('images/heroImages/test.jpg', 100);
-        die('done');
+
+        // $manager = new ImageManager();
+
+        // $heroImage = $manager->make($request['file']);
+        // $heroImage->save('images/uploads/heroImages/test.jpg', 100);
+
+
+        return 'success';
+
+        // die('done');
         // $validatedData = $request->validate([
         //     'project_name' => 'required',
         //     'project_description' => 'required',

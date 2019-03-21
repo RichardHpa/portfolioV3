@@ -15,6 +15,7 @@ class ProjectForm extends Component {
         this.handleFieldChange = this.handleFieldChange.bind(this);
         this.handleCreateNewProject = this.handleCreateNewProject.bind(this);
         this.handleDeleteProject = this.handleDeleteProject.bind(this);
+        this.validation = this.validation.bind(this);
 
         this.state = {
             editProject: false,
@@ -29,9 +30,9 @@ class ProjectForm extends Component {
             projectImage: null,
             deleteingImage: '',
             errors: {
-                name: '',
-                description: '',
-                iamge: ''
+                projectName: '',
+                projectDescription: '',
+                projectImage: ''
             },
             action: ''
         };
@@ -43,13 +44,13 @@ class ProjectForm extends Component {
                 editProject: true
             })
         } else{
-            this.setState({
-                errors: {
-                    name: 'Must include a Name',
-                    description: 'Must include a Description',
-                    image: 'Must include an image'
-                }
-            })
+            // this.setState({
+            //     errors: {
+            //         name: 'Must include a Name',
+            //         description: 'Must include a Description',
+            //         image: 'Must include an image'
+            //     }
+            // })
         }
         this.setState({
             projectID: this.props.id,
@@ -103,6 +104,60 @@ class ProjectForm extends Component {
         })
     }
 
+    validation(event){
+        var input = event.target.name;
+        var fieldValue = event.target.value;
+        this.setState(prevState => ({
+            errors: {
+                ...prevState.errors,
+                [input]: ''
+            }
+        }))
+        var validationRules = event.target.dataset.validation;
+        var clearString = validationRules.replace(/ /g,'');
+        var rulesList = clearString.split(',');
+        for (var i = 0; i < rulesList.length; i++) {
+            var rule = rulesList[i]
+            if(rule.includes(":")){
+                rule = rule.split(':');
+                var value = rule[1];
+                rule = rule[0];
+            }
+            switch(rule){
+                case 'required':
+                    if(!fieldValue){
+                        this.setState(prevState => ({
+                            errors: {
+                                ...prevState.errors,
+                                [input]: 'This field is required'
+                            }
+                        }))
+                    }
+                break;
+                case 'min':
+                    if(fieldValue.length < value){
+                        this.setState(prevState => ({
+                            errors: {
+                                ...prevState.errors,
+                                [input]: 'This field needs to be at least ' + value + ' characters'
+                            }
+                        }))
+                    }
+                break;
+                case 'max':
+                    if(fieldValue.length > value){
+                        this.setState(prevState => ({
+                            errors: {
+                                ...prevState.errors,
+                                [input]: 'This field can be no more than ' + value + ' characters'
+                            }
+                        }))
+                    }
+                break;
+            }
+        }
+    }
+
     handleDeleteProject(e){
         const { history } = this.props
         e.preventDefault();
@@ -130,7 +185,7 @@ class ProjectForm extends Component {
     handleCreateNewProject(e){
         e.preventDefault();
         console.log(this.state.errors);
-        const { action, history } = this.state;
+        const { action, history, error } = this.state;
         if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
             this.setState({
                 sendingData: true
@@ -177,8 +232,7 @@ class ProjectForm extends Component {
     }
 
     render () {
-        const { croppedURL, src, showModal, sendingData, fileInputLabel, projectName, projectDescription, projectImage , editProject} = this.state;
-
+        const { errors, croppedURL, src, showModal, sendingData, fileInputLabel, projectName, projectDescription, projectImage , editProject} = this.state;
         return (
             <div>
                 <form onSubmit={this.handleCreateNewProject} autoComplete="off" >
@@ -189,27 +243,46 @@ class ProjectForm extends Component {
                                 <input
                                   id='name'
                                   type='text'
-                                  className={`form-control`}
+                                  className={"form-control " + (errors.projectName ? 'is-invalid' : '')}
                                   name='projectName'
                                   value={projectName}
+                                  data-validation='required, min:10, max:20'
                                   placeholder="Project Name"
                                   onChange={this.handleFieldChange}
+                                  onBlur={this.validation}
                                 />
+                                {errors.projectName ? (<div className="invalid-feedback">
+                                    {errors.projectName}
+                                </div>):null}
                             </div>
                             <div className="form-group">
                                 <label>Project Description</label>
                                 <textarea
                                   id='description'
-                                  className={`form-control`}
+                                  className={"form-control " + (errors.projectDescription ? 'is-invalid' : '')}
+                                  data-validation='required, min:10, max:20'
                                   name='projectDescription'
                                   rows='10'
                                   value={projectDescription}
                                   onChange={this.handleFieldChange}
+                                  onBlur={this.validation}
                                 />
+                                {errors.projectDescription ? (<div className="invalid-feedback">
+                                    {errors.projectDescription}
+                                </div>):null}
                             </div>
                             <div className="form-group">
                                 <div className="custom-file">
-                                    <input type="file" className="custom-file-input" id="customFile" onClick={this.resetValue} onChange={this.handleModalShowClick}/>
+                                    <input
+                                        type="file"
+                                        className={"custom-file-input " + (errors.projectImage ? 'is-invalid' : '')}
+                                        id="customFile"
+                                        onClick={this.resetValue}
+                                        onChange={this.handleModalShowClick}
+                                    />
+                                    {errors.projectImage ? (<div className="invalid-feedback">
+                                        {errors.projectImage}
+                                    </div>):null}
                                     <input type="hidden" name="coppedImage" value={this.state.cropped}/>
                                     <label className="custom-file-label">Choose file</label>
                                     {showModal ? (<Modal
@@ -251,6 +324,13 @@ class ProjectForm extends Component {
         )
     }
 }
+
+
+
+
+
+
+
 
 class Modal extends Component {
     constructor(props){

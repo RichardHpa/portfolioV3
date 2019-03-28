@@ -36572,19 +36572,14 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
+/***/ "./resources/js/back/app.js":
+/*!**********************************!*\
+  !*** ./resources/js/back/app.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes React and other helpers. It's a great starting point while
- * building robust, powerful web applications using React + Laravel.
- */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
 /***/ }),
 
@@ -36669,13 +36664,13 @@ if (token) {
 /***/ }),
 
 /***/ 0:
-/*!***********************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/front/front.scss ***!
-  \***********************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** multi ./resources/js/back/app.js ./resources/sass/app.scss ./resources/sass/front/front.scss ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/js/back/app.js */"./resources/js/back/app.js");
 __webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/sass/app.scss */"./resources/sass/app.scss");
 module.exports = __webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/sass/front/front.scss */"./resources/sass/front/front.scss");
 

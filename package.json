@@ -23,5 +23,10 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0"
+    },
+    "dependencies": {
+        "form-data": "^2.3.3",
+        "react-image-crop": "^6.0.18",
+        "react-router-dom": "^5.0.0"
     }
 }

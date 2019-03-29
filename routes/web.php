@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::view('admin/{path?}/{sub?}', 'admin')->middleware(['web', 'auth']);
 
 // Route::get('/home', 'HomeController@index')->name('home');

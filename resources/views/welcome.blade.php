@@ -91,7 +91,7 @@
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Front end</a>
-                    <a href="https://laravel.com/docs">Admin Dashbaord</a>
+                    <a href="/admin">Admin Dashbaord</a>
                 </div>
             </div>
         </div>

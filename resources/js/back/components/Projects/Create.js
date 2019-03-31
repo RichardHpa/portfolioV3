@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ProjectForm from './ProjectForm';
 
 class ProjectsCreate extends Component {
     constructor(props) {
@@ -19,6 +20,7 @@ class ProjectsCreate extends Component {
                         <hr/>
                     </div>
                 </div>
+                <ProjectForm/>
             </div>
         )
     }

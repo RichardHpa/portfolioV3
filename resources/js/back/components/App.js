@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './Header';
 import Sidebar from './Sidebar';
+import Projects from './Projects/Projects'
+import ProjectsCreate from './Projects/Create'
 
 const pages = [
     { 'id': 1, 'name': 'Dashboard', 'url': '/admin','icon': 'chart-pie' },
@@ -27,7 +29,8 @@ class App extends Component {
                             />
                             <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                                 <Switch>
-
+                                    <Route exact path='/admin/projects' component={Projects} />
+                                    <Route exact path='/admin/projects/create' component={ProjectsCreate} />
                                 </Switch>
                             </main>
                         </div>

@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
+use Intervention\Image\ImageManager;
+
+use App\Project;
+
+
 
 class ProjectController extends Controller
 {
@@ -34,7 +41,30 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'project_name' => 'required|min:10|max:100',
+            'project_description' => 'required|min:10',
+            'file' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return 'ERROR, something went wrong';
+        }
+        $manager = new ImageManager();
+        $heroImage = $manager->make($request['file']);
+        $imageName = uniqid();
+        $heroImage->save('images/uploads/heroImages/'.$imageName.'.jpg', 100);
+
+        $project = Project::create([
+            'project_name' => $request->project_name,
+            'project_description' => $request->project_description,
+            'project_image' => $imageName
+        ]);
+
+        $result = array(
+            'message' => 'Project Created',
+            'image_name' => $project->id
+        );
+        return response()->json($result);
     }
 
     /**

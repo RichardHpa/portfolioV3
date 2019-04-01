@@ -20,7 +20,12 @@ class ProjectsCreate extends Component {
                         <hr/>
                     </div>
                 </div>
-                <ProjectForm/>
+                <ProjectForm
+                    action="/api/projects"
+                    projectName=""
+                    inputLabel="Add New Project"
+                    history={history}
+                />
             </div>
         )
     }

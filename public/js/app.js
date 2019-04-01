@@ -161,6 +161,18 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
+
+
+/***/ }),
+
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -6508,6 +6520,112 @@ module.exports = exports['default'];
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/react-image-crop/dist/ReactCrop.css":
+/*!******************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/react-image-crop/dist/ReactCrop.css ***!
+  \******************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".ReactCrop {\n  position: relative;\n  display: inline-block;\n  cursor: crosshair;\n  overflow: hidden;\n  max-width: 100%;\n  background-color: #000; }\n  .ReactCrop:focus {\n    outline: none; }\n  .ReactCrop--disabled, .ReactCrop--locked {\n    cursor: inherit; }\n  .ReactCrop__image {\n    /* autoprefixer: off */\n    display: block;\n    max-width: 100%;\n    max-height: -webkit-fill-available;\n    max-height: -moz-available;\n    max-height: fill-available; }\n  .ReactCrop--crop-invisible .ReactCrop__image {\n    opacity: 0.5; }\n  .ReactCrop__crop-selection {\n    position: absolute;\n    top: 0;\n    left: 0;\n    -webkit-transform: translate3d(0, 0, 0);\n            transform: translate3d(0, 0, 0);\n    box-sizing: border-box;\n    cursor: move;\n    box-shadow: 0 0 0 9999em rgba(0, 0, 0, 0.5);\n    border: 1px solid;\n    border-image-source: url(\"data:image/gif;base64,R0lGODlhCgAKAJECAAAAAP///////wAAACH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEI5RDc5MTFDNkE2MTFFM0JCMDZEODI2QTI4MzJBOTIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEI5RDc5MTBDNkE2MTFFM0JCMDZEODI2QTI4MzJBOTIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuZGlkOjAyODAxMTc0MDcyMDY4MTE4MDgzQzNDMjA5MzREQ0ZDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAyODAxMTc0MDcyMDY4MTE4MDgzQzNDMjA5MzREQ0ZDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEBQoAAgAsAAAAAAoACgAAAhWEERkn7W3ei7KlagMWF/dKgYeyGAUAIfkEBQoAAgAsAAAAAAoACgAAAg+UYwLJ7RnQm7QmsCyVKhUAIfkEBQoAAgAsAAAAAAoACgAAAhCUYgLJHdiinNSAVfOEKoUCACH5BAUKAAIALAAAAAAKAAoAAAIRVISAdusPo3RAzYtjaMIaUQAAIfkEBQoAAgAsAAAAAAoACgAAAg+MDiem7Q8bSLFaG5il6xQAIfkEBQoAAgAsAAAAAAoACgAAAg+UYRLJ7QnQm7SmsCyVKhUAIfkEBQoAAgAsAAAAAAoACgAAAhCUYBLJDdiinNSEVfOEKoECACH5BAUKAAIALAAAAAAKAAoAAAIRFISBdusPo3RBzYsjaMIaUQAAOw==\");\n    border-image-slice: 1;\n    border-image-repeat: repeat; }\n    .ReactCrop--disabled .ReactCrop__crop-selection {\n      cursor: inherit; }\n  .ReactCrop__drag-handle {\n    position: absolute;\n    width: 9px;\n    height: 9px;\n    background-color: rgba(0, 0, 0, 0.2);\n    border: 1px solid rgba(255, 255, 255, 0.7);\n    box-sizing: border-box;\n    outline: 1px solid transparent; }\n  .ReactCrop .ord-nw {\n    top: 0;\n    left: 0;\n    margin-top: -5px;\n    margin-left: -5px;\n    cursor: nw-resize; }\n  .ReactCrop .ord-n {\n    top: 0;\n    left: 50%;\n    margin-top: -5px;\n    margin-left: -5px;\n    cursor: n-resize; }\n  .ReactCrop .ord-ne {\n    top: 0;\n    right: 0;\n    margin-top: -5px;\n    margin-right: -5px;\n    cursor: ne-resize; }\n  .ReactCrop .ord-e {\n    top: 50%;\n    right: 0;\n    margin-top: -5px;\n    margin-right: -5px;\n    cursor: e-resize; }\n  .ReactCrop .ord-se {\n    bottom: 0;\n    right: 0;\n    margin-bottom: -5px;\n    margin-right: -5px;\n    cursor: se-resize; }\n  .ReactCrop .ord-s {\n    bottom: 0;\n    left: 50%;\n    margin-bottom: -5px;\n    margin-left: -5px;\n    cursor: s-resize; }\n  .ReactCrop .ord-sw {\n    bottom: 0;\n    left: 0;\n    margin-bottom: -5px;\n    margin-left: -5px;\n    cursor: sw-resize; }\n  .ReactCrop .ord-w {\n    top: 50%;\n    left: 0;\n    margin-top: -5px;\n    margin-left: -5px;\n    cursor: w-resize; }\n  .ReactCrop__disabled .ReactCrop__drag-handle {\n    cursor: inherit; }\n  .ReactCrop__drag-bar {\n    position: absolute; }\n    .ReactCrop__drag-bar.ord-n {\n      top: 0;\n      left: 0;\n      width: 100%;\n      height: 6px;\n      margin-top: -3px; }\n    .ReactCrop__drag-bar.ord-e {\n      right: 0;\n      top: 0;\n      width: 6px;\n      height: 100%;\n      margin-right: -3px; }\n    .ReactCrop__drag-bar.ord-s {\n      bottom: 0;\n      left: 0;\n      width: 100%;\n      height: 6px;\n      margin-bottom: -3px; }\n    .ReactCrop__drag-bar.ord-w {\n      top: 0;\n      left: 0;\n      width: 6px;\n      height: 100%;\n      margin-left: -3px; }\n  .ReactCrop--new-crop .ReactCrop__drag-bar,\n  .ReactCrop--new-crop .ReactCrop__drag-handle,\n  .ReactCrop--fixed-aspect .ReactCrop__drag-bar {\n    display: none; }\n  .ReactCrop--fixed-aspect .ReactCrop__drag-handle.ord-n,\n  .ReactCrop--fixed-aspect .ReactCrop__drag-handle.ord-e,\n  .ReactCrop--fixed-aspect .ReactCrop__drag-handle.ord-s,\n  .ReactCrop--fixed-aspect .ReactCrop__drag-handle.ord-w {\n    display: none; }\n  @media (max-width: 768px), (pointer: coarse) {\n    .ReactCrop__drag-handle {\n      width: 17px;\n      height: 17px; }\n    .ReactCrop .ord-nw {\n      margin-top: -9px;\n      margin-left: -9px; }\n    .ReactCrop .ord-n {\n      margin-top: -9px;\n      margin-left: -9px; }\n    .ReactCrop .ord-ne {\n      margin-top: -9px;\n      margin-right: -9px; }\n    .ReactCrop .ord-e {\n      margin-top: -9px;\n      margin-right: -9px; }\n    .ReactCrop .ord-se {\n      margin-bottom: -9px;\n      margin-right: -9px; }\n    .ReactCrop .ord-s {\n      margin-bottom: -9px;\n      margin-left: -9px; }\n    .ReactCrop .ord-sw {\n      margin-bottom: -9px;\n      margin-left: -9px; }\n    .ReactCrop .ord-w {\n      margin-top: -9px;\n      margin-left: -9px; }\n    .ReactCrop__drag-bar.ord-n {\n      height: 14px;\n      margin-top: -7px; }\n    .ReactCrop__drag-bar.ord-e {\n      width: 14px;\n      margin-right: -7px; }\n    .ReactCrop__drag-bar.ord-s {\n      height: 14px;\n      margin-bottom: -7px; }\n    .ReactCrop__drag-bar.ord-w {\n      width: 14px;\n      margin-left: -7px; } }\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/css-base.js":
+/*!*************************************************!*\
+  !*** ./node_modules/css-loader/lib/css-base.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/fbjs/lib/emptyFunction.js":
 /*!************************************************!*\
   !*** ./node_modules/fbjs/lib/emptyFunction.js ***!
@@ -6625,6 +6743,19 @@ if (true) {
 }
 
 module.exports = warning;
+
+/***/ }),
+
+/***/ "./node_modules/form-data/lib/browser.js":
+/*!***********************************************!*\
+  !*** ./node_modules/form-data/lib/browser.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* eslint-env browser */
+module.exports = typeof self == 'object' ? self.FormData : window.FormData;
+
 
 /***/ }),
 
@@ -38879,7 +39010,7 @@ module.exports = ReactPropTypesSecret;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v16.8.6
+/** @license React v16.8.5
  * react-dom.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -44213,29 +44344,15 @@ function isInDocument(node) {
   return node && node.ownerDocument && containsNode(node.ownerDocument.documentElement, node);
 }
 
-function isSameOriginFrame(iframe) {
-  try {
-    // Accessing the contentDocument of a HTMLIframeElement can cause the browser
-    // to throw, e.g. if it has a cross-origin src attribute.
-    // Safari will show an error in the console when the access results in "Blocked a frame with origin". e.g:
-    // iframe.contentDocument.defaultView;
-    // A safety way is to access one of the cross origin properties: Window or Location
-    // Which might result in "SecurityError" DOM Exception and it is compatible to Safari.
-    // https://html.spec.whatwg.org/multipage/browsers.html#integration-with-idl
-
-    return typeof iframe.contentWindow.location.href === 'string';
-  } catch (err) {
-    return false;
-  }
-}
-
 function getActiveElementDeep() {
   var win = window;
   var element = getActiveElement();
   while (element instanceof win.HTMLIFrameElement) {
-    if (isSameOriginFrame(element)) {
-      win = element.contentWindow;
-    } else {
+    // Accessing the contentDocument of a HTMLIframeElement can cause the browser
+    // to throw, e.g. if it has a cross-origin src attribute
+    try {
+      win = element.contentDocument.defaultView;
+    } catch (e) {
       return element;
     }
     element = getActiveElement(win.document);
@@ -50195,35 +50312,14 @@ function constructClassInstance(workInProgress, ctor, props, renderExpirationTim
   var unmaskedContext = emptyContextObject;
   var context = null;
   var contextType = ctor.contextType;
-
-  {
-    if ('contextType' in ctor) {
-      var isValid =
-      // Allow null for conditional declaration
-      contextType === null || contextType !== undefined && contextType.$$typeof === REACT_CONTEXT_TYPE && contextType._context === undefined; // Not a <Context.Consumer>
-
-      if (!isValid && !didWarnAboutInvalidateContextType.has(ctor)) {
+  if (typeof contextType === 'object' && contextType !== null) {
+    {
+      if (contextType.$$typeof !== REACT_CONTEXT_TYPE && !didWarnAboutInvalidateContextType.has(ctor)) {
         didWarnAboutInvalidateContextType.add(ctor);
-
-        var addendum = '';
-        if (contextType === undefined) {
-          addendum = ' However, it is set to undefined. ' + 'This can be caused by a typo or by mixing up named and default imports. ' + 'This can also happen due to a circular dependency, so ' + 'try moving the createContext() call to a separate file.';
-        } else if (typeof contextType !== 'object') {
-          addendum = ' However, it is set to a ' + typeof contextType + '.';
-        } else if (contextType.$$typeof === REACT_PROVIDER_TYPE) {
-          addendum = ' Did you accidentally pass the Context.Provider instead?';
-        } else if (contextType._context !== undefined) {
-          // <Context.Consumer>
-          addendum = ' Did you accidentally pass the Context.Consumer instead?';
-        } else {
-          addendum = ' However, it is set to an object with keys {' + Object.keys(contextType).join(', ') + '}.';
-        }
-        warningWithoutStack$1(false, '%s defines an invalid contextType. ' + 'contextType should point to the Context object returned by React.createContext().%s', getComponentName(ctor) || 'Component', addendum);
+        warningWithoutStack$1(false, '%s defines an invalid contextType. ' + 'contextType should point to the Context object returned by React.createContext(). ' + 'Did you accidentally pass the Context.Provider instead?', getComponentName(ctor) || 'Component');
       }
     }
-  }
 
-  if (typeof contextType === 'object' && contextType !== null) {
     context = readContext(contextType);
   } else {
     unmaskedContext = getUnmaskedContext(workInProgress, ctor, true);
@@ -52017,8 +52113,8 @@ function mountReducer(reducer, initialArg, init) {
   var queue = hook.queue = {
     last: null,
     dispatch: null,
-    lastRenderedReducer: reducer,
-    lastRenderedState: initialState
+    eagerReducer: reducer,
+    eagerState: initialState
   };
   var dispatch = queue.dispatch = dispatchAction.bind(null,
   // Flow doesn't know this is non-null, but we do.
@@ -52030,8 +52126,6 @@ function updateReducer(reducer, initialArg, init) {
   var hook = updateWorkInProgressHook();
   var queue = hook.queue;
   !(queue !== null) ? invariant(false, 'Should have a queue. This is likely a bug in React. Please file an issue.') : void 0;
-
-  queue.lastRenderedReducer = reducer;
 
   if (numberOfReRenders > 0) {
     // This is a re-render. Apply the new render phase updates to the previous
@@ -52067,7 +52161,8 @@ function updateReducer(reducer, initialArg, init) {
           hook.baseState = newState;
         }
 
-        queue.lastRenderedState = newState;
+        queue.eagerReducer = reducer;
+        queue.eagerState = newState;
 
         return [newState, _dispatch];
       }
@@ -52146,7 +52241,8 @@ function updateReducer(reducer, initialArg, init) {
     hook.baseUpdate = newBaseUpdate;
     hook.baseState = newBaseState;
 
-    queue.lastRenderedState = _newState;
+    queue.eagerReducer = reducer;
+    queue.eagerState = _newState;
   }
 
   var dispatch = queue.dispatch;
@@ -52162,8 +52258,8 @@ function mountState(initialState) {
   var queue = hook.queue = {
     last: null,
     dispatch: null,
-    lastRenderedReducer: basicStateReducer,
-    lastRenderedState: initialState
+    eagerReducer: basicStateReducer,
+    eagerState: initialState
   };
   var dispatch = queue.dispatch = dispatchAction.bind(null,
   // Flow doesn't know this is non-null, but we do.
@@ -52440,21 +52536,21 @@ function dispatchAction(fiber, queue, action) {
       // The queue is currently empty, which means we can eagerly compute the
       // next state before entering the render phase. If the new state is the
       // same as the current state, we may be able to bail out entirely.
-      var _lastRenderedReducer = queue.lastRenderedReducer;
-      if (_lastRenderedReducer !== null) {
+      var _eagerReducer = queue.eagerReducer;
+      if (_eagerReducer !== null) {
         var prevDispatcher = void 0;
         {
           prevDispatcher = ReactCurrentDispatcher$1.current;
           ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
         }
         try {
-          var currentState = queue.lastRenderedState;
-          var _eagerState = _lastRenderedReducer(currentState, action);
+          var currentState = queue.eagerState;
+          var _eagerState = _eagerReducer(currentState, action);
           // Stash the eagerly computed state, and the reducer used to compute
           // it, on the update object. If the reducer hasn't changed by the
           // time we enter the render phase, then the eager state can be used
           // without calling the reducer again.
-          _update2.eagerReducer = _lastRenderedReducer;
+          _update2.eagerReducer = _eagerReducer;
           _update2.eagerState = _eagerState;
           if (is(_eagerState, currentState)) {
             // Fast path. We can bail out without scheduling React to re-render.
@@ -59633,7 +59729,7 @@ implementation) {
 
 // TODO: this is special because it gets imported during build.
 
-var ReactVersion = '16.8.6';
+var ReactVersion = '16.8.5';
 
 // TODO: This type is shared between the reconciler and ReactDOM, but will
 // eventually be lifted out to the renderer.
@@ -60203,6 +60299,1069 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-dom.development.js */ "./node_modules/react-dom/cjs/react-dom.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/react-image-crop/dist/ReactCrop.css":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-image-crop/dist/ReactCrop.css ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../css-loader??ref--7-1!../../postcss-loader/src??ref--7-2!./ReactCrop.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/react-image-crop/dist/ReactCrop.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/react-image-crop/dist/ReactCrop.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-image-crop/dist/ReactCrop.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory(__webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+	else {}
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.containCrop = exports.makeAspectCrop = exports.getPixelCrop = exports.Component = exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }(); /* globals document, window */
+
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(2);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// Feature detection
+// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Improving_scrolling_performance_with_passive_listeners
+var passiveSupported = false;
+
+try {
+  window.addEventListener('test', null, Object.defineProperty({}, 'passive', {
+    get: function get() {
+      passiveSupported = true;return true;
+    }
+  }));
+} catch (err) {} // eslint-disable-line no-empty
+
+var EMPTY_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+
+function getClientPos(e) {
+  var pageX = void 0;
+  var pageY = void 0;
+
+  if (e.touches) {
+    var _e$touches = _slicedToArray(e.touches, 1);
+
+    var _e$touches$ = _e$touches[0];
+    pageX = _e$touches$.pageX;
+    pageY = _e$touches$.pageY;
+  } else {
+    pageX = e.pageX;
+    pageY = e.pageY;
+  }
+
+  return {
+    x: pageX,
+    y: pageY
+  };
+}
+
+function clamp(num, min, max) {
+  return Math.min(Math.max(num, min), max);
+}
+
+function isCropValid(crop) {
+  return crop && crop.width && crop.height && !isNaN(crop.width) && !isNaN(crop.height);
+}
+
+function inverseOrd(ord) {
+  var inversedOrd = void 0;
+
+  if (ord === 'n') inversedOrd = 's';else if (ord === 'ne') inversedOrd = 'sw';else if (ord === 'e') inversedOrd = 'w';else if (ord === 'se') inversedOrd = 'nw';else if (ord === 's') inversedOrd = 'n';else if (ord === 'sw') inversedOrd = 'ne';else if (ord === 'w') inversedOrd = 'e';else if (ord === 'nw') inversedOrd = 'se';
+
+  return inversedOrd;
+}
+
+function makeAspectCrop(crop, imageAspect) {
+  if (isNaN(crop.aspect) || isNaN(imageAspect)) {
+    console.warn('`crop.aspect` and `imageAspect` need to be numbers in order to make an aspect crop', crop);
+    return crop;
+  }
+
+  var completeCrop = _extends({
+    x: 0,
+    y: 0
+  }, crop);
+
+  if (crop.width) {
+    completeCrop.height = crop.width / crop.aspect * imageAspect;
+  }
+  if (crop.height) {
+    completeCrop.width = (completeCrop.height || crop.height) * (crop.aspect / imageAspect);
+  }
+
+  if (crop.y + (completeCrop.height || crop.height) > 100) {
+    completeCrop.height = 100 - crop.y;
+    completeCrop.width = completeCrop.height * crop.aspect / imageAspect;
+  }
+
+  if (crop.x + (completeCrop.width || crop.width) > 100) {
+    completeCrop.width = 100 - crop.x;
+    completeCrop.height = completeCrop.width / crop.aspect * imageAspect;
+  }
+
+  return completeCrop;
+}
+
+function isAspectInvalid(crop, width, height) {
+  if (!crop.width && crop.height || crop.width && !crop.height) {
+    return true;
+  }
+
+  if (crop.width && crop.height && Math.round(height * (crop.height / 100) * crop.aspect) !== Math.round(width * (crop.width / 100))) {
+    return true;
+  }
+
+  return false;
+}
+
+function resolveCrop(crop, image) {
+  if (crop && crop.aspect && isAspectInvalid(crop, image.naturalWidth, image.naturalHeight)) {
+    return makeAspectCrop(crop, image.naturalWidth / image.naturalHeight);
+  }
+
+  return crop;
+}
+
+function getPixelCrop(image, percentCrop) {
+  var useNaturalImageDimensions = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+  if (!image || !percentCrop) {
+    return null;
+  }
+
+  var imageWidth = useNaturalImageDimensions ? image.naturalWidth : image.width;
+  var imageHeight = useNaturalImageDimensions ? image.naturalHeight : image.height;
+
+  var x = Math.round(imageWidth * (percentCrop.x / 100));
+  var y = Math.round(imageHeight * (percentCrop.y / 100));
+  var width = Math.round(imageWidth * (percentCrop.width / 100));
+  var height = Math.round(imageHeight * (percentCrop.height / 100));
+
+  return {
+    x: x,
+    y: y,
+    // Clamp width and height so rounding doesn't cause the crop to exceed bounds.
+    width: clamp(width, 0, imageWidth - x),
+    height: clamp(height, 0, imageHeight - y)
+  };
+}
+
+function containCrop(prevCrop, crop, imageAspect) {
+  var contained = _extends({}, crop);
+
+  // Fixes issue where crop can be dragged to the left when resizing with SW ord
+  // even though it's hit the bottom of the image.
+  if (crop.aspect && prevCrop.x > crop.x && crop.height + crop.y >= 100) {
+    contained.x = prevCrop.x;
+  }
+
+  // Don't let the crop grow on the opposite side when hitting an x image boundary.
+  var cropXAdjusted = false;
+  if (contained.x + contained.width > 100) {
+    contained.width = crop.width + (100 - (crop.x + crop.width));
+    contained.x = crop.x + (100 - (crop.x + contained.width));
+    cropXAdjusted = true;
+  } else if (contained.x < 0) {
+    contained.width = crop.x + crop.width;
+    contained.x = 0;
+    cropXAdjusted = true;
+  }
+
+  if (cropXAdjusted && crop.aspect) {
+    // Adjust height to the resized width to maintain aspect.
+    contained.height = contained.width / crop.aspect * imageAspect;
+    // If sizing in up direction we need to pin Y at the point it
+    // would be at the boundary.
+    if (prevCrop.y > contained.y) {
+      contained.y = crop.y + (crop.height - contained.height);
+    }
+  }
+
+  // Don't let the crop grow on the opposite side when hitting a y image boundary.
+  var cropYAdjusted = false;
+  if (contained.y + contained.height > 100) {
+    contained.height = crop.height + (100 - (crop.y + crop.height));
+    contained.y = crop.y + (100 - (crop.y + contained.height));
+    cropYAdjusted = true;
+  } else if (contained.y < 0) {
+    contained.height = crop.y + crop.height;
+    contained.y = 0;
+    cropYAdjusted = true;
+  }
+
+  if (cropYAdjusted && crop.aspect) {
+    // Adjust width to the resized height to maintain aspect.
+    contained.width = contained.height * crop.aspect / imageAspect;
+    // If sizing in up direction we need to pin X at the point it
+    // would be at the boundary.
+    if (contained.x < crop.x) {
+      contained.x = crop.x + (crop.width - contained.width);
+    }
+  }
+
+  return contained;
+}
+
+var ReactCrop = function (_PureComponent) {
+  _inherits(ReactCrop, _PureComponent);
+
+  function ReactCrop() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, ReactCrop);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ReactCrop.__proto__ || Object.getPrototypeOf(ReactCrop)).call.apply(_ref, [this].concat(args))), _this), _this.window = window, _this.document = document, _this.state = {}, _this.onCropMouseTouchDown = function (e) {
+      var _this$props = _this.props,
+          crop = _this$props.crop,
+          disabled = _this$props.disabled;
+
+
+      if (disabled) {
+        return;
+      }
+
+      e.preventDefault(); // Stop drag selection.
+
+      var clientPos = getClientPos(e);
+
+      // Focus for detecting keypress.
+      _this.componentRef.focus({ preventScroll: true });
+
+      var ord = e.target.dataset.ord;
+
+      var xInversed = ord === 'nw' || ord === 'w' || ord === 'sw';
+      var yInversed = ord === 'nw' || ord === 'n' || ord === 'ne';
+
+      var cropOffset = void 0;
+
+      if (crop.aspect) {
+        cropOffset = _this.getElementOffset(_this.cropSelectRef);
+      }
+
+      _this.evData = {
+        clientStartX: clientPos.x,
+        clientStartY: clientPos.y,
+        cropStartWidth: crop.width,
+        cropStartHeight: crop.height,
+        cropStartX: xInversed ? crop.x + crop.width : crop.x,
+        cropStartY: yInversed ? crop.y + crop.height : crop.y,
+        xInversed: xInversed,
+        yInversed: yInversed,
+        xCrossOver: xInversed,
+        yCrossOver: yInversed,
+        startXCrossOver: xInversed,
+        startYCrossOver: yInversed,
+        isResize: e.target.dataset.ord,
+        ord: ord,
+        cropOffset: cropOffset
+      };
+
+      _this.mouseDownOnCrop = true;
+      _this.setState({ cropIsActive: true });
+    }, _this.onComponentMouseTouchDown = function (e) {
+      var _this$props2 = _this.props,
+          crop = _this$props2.crop,
+          disabled = _this$props2.disabled,
+          locked = _this$props2.locked,
+          keepSelection = _this$props2.keepSelection,
+          onChange = _this$props2.onChange,
+          useNaturalImageDimensions = _this$props2.useNaturalImageDimensions;
+
+
+      if (e.target !== _this.imageRef) {
+        return;
+      }
+
+      if (disabled || locked || keepSelection && isCropValid(crop)) {
+        return;
+      }
+
+      e.preventDefault(); // Stop drag selection.
+
+      var clientPos = getClientPos(e);
+
+      // Focus for detecting keypress.
+      _this.componentRef.focus({ preventScroll: true });
+
+      var imageOffset = _this.getElementOffset(_this.imageRef);
+      var xPc = (clientPos.x - imageOffset.left) / _this.imageRef.width * 100;
+      var yPc = (clientPos.y - imageOffset.top) / _this.imageRef.height * 100;
+
+      var nextCrop = {
+        aspect: crop ? crop.aspect : undefined,
+        x: xPc,
+        y: yPc,
+        width: 0,
+        height: 0
+      };
+
+      _this.evData = {
+        clientStartX: clientPos.x,
+        clientStartY: clientPos.y,
+        cropStartWidth: nextCrop.width,
+        cropStartHeight: nextCrop.height,
+        cropStartX: nextCrop.x,
+        cropStartY: nextCrop.y,
+        xInversed: false,
+        yInversed: false,
+        xCrossOver: false,
+        yCrossOver: false,
+        startXCrossOver: false,
+        startYCrossOver: false,
+        isResize: true,
+        ord: 'nw'
+      };
+
+      _this.mouseDownOnCrop = true;
+      onChange(nextCrop, getPixelCrop(_this.imageRef, nextCrop, useNaturalImageDimensions));
+      _this.setState({ cropIsActive: true });
+    }, _this.onDocMouseTouchMove = function (e) {
+      var _this$props3 = _this.props,
+          crop = _this$props3.crop,
+          disabled = _this$props3.disabled,
+          onChange = _this$props3.onChange,
+          onDragStart = _this$props3.onDragStart;
+
+
+      if (disabled) {
+        return;
+      }
+
+      if (!_this.mouseDownOnCrop) {
+        return;
+      }
+
+      e.preventDefault(); // Stop drag selection.
+      if (!_this.dragStarted) {
+        _this.dragStarted = true;
+        onDragStart();
+      }
+
+      var _this2 = _this,
+          evData = _this2.evData;
+
+      var clientPos = getClientPos(e);
+
+      if (evData.isResize && crop.aspect && evData.cropOffset) {
+        clientPos.y = _this.straightenYPath(clientPos.x);
+      }
+
+      var xDiffPx = clientPos.x - evData.clientStartX;
+      evData.xDiffPc = xDiffPx / _this.imageRef.width * 100;
+
+      var yDiffPx = clientPos.y - evData.clientStartY;
+      evData.yDiffPc = yDiffPx / _this.imageRef.height * 100;
+
+      var nextCrop = void 0;
+
+      if (evData.isResize) {
+        nextCrop = _this.resizeCrop();
+      } else {
+        nextCrop = _this.dragCrop();
+      }
+
+      if (nextCrop !== crop) {
+        onChange(nextCrop, getPixelCrop(_this.imageRef, nextCrop));
+      }
+    }, _this.onComponentKeyDown = function (e) {
+      var _this$props4 = _this.props,
+          crop = _this$props4.crop,
+          disabled = _this$props4.disabled,
+          onChange = _this$props4.onChange,
+          onComplete = _this$props4.onComplete,
+          useNaturalImageDimensions = _this$props4.useNaturalImageDimensions;
+
+
+      if (disabled) {
+        return;
+      }
+
+      var keyCode = e.which;
+      var nudged = false;
+
+      if (!isCropValid(crop)) {
+        return;
+      }
+
+      var nextCrop = _this.makeNewCrop();
+
+      if (keyCode === ReactCrop.arrowKey.left) {
+        nextCrop.x -= ReactCrop.nudgeStep;
+        nudged = true;
+      } else if (keyCode === ReactCrop.arrowKey.right) {
+        nextCrop.x += ReactCrop.nudgeStep;
+        nudged = true;
+      } else if (keyCode === ReactCrop.arrowKey.up) {
+        nextCrop.y -= ReactCrop.nudgeStep;
+        nudged = true;
+      } else if (keyCode === ReactCrop.arrowKey.down) {
+        nextCrop.y += ReactCrop.nudgeStep;
+        nudged = true;
+      }
+
+      if (nudged) {
+        e.preventDefault(); // Stop drag selection.
+        nextCrop.x = clamp(nextCrop.x, 0, 100 - nextCrop.width);
+        nextCrop.y = clamp(nextCrop.y, 0, 100 - nextCrop.height);
+
+        onChange(nextCrop, getPixelCrop(_this.imageRef, nextCrop, useNaturalImageDimensions));
+        onComplete(nextCrop, getPixelCrop(_this.imageRef, nextCrop, useNaturalImageDimensions));
+      }
+    }, _this.onDocMouseTouchEnd = function () {
+      var _this$props5 = _this.props,
+          crop = _this$props5.crop,
+          disabled = _this$props5.disabled,
+          onComplete = _this$props5.onComplete,
+          onDragEnd = _this$props5.onDragEnd,
+          useNaturalImageDimensions = _this$props5.useNaturalImageDimensions;
+
+
+      if (disabled) {
+        return;
+      }
+
+      if (_this.mouseDownOnCrop) {
+        _this.mouseDownOnCrop = false;
+        _this.dragStarted = false;
+        onDragEnd();
+        onComplete(crop, getPixelCrop(_this.imageRef, crop, useNaturalImageDimensions));
+        _this.setState({ cropIsActive: false });
+      }
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(ReactCrop, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var options = passiveSupported ? { passive: false } : false;
+
+      this.document.addEventListener('mousemove', this.onDocMouseTouchMove, options);
+      this.document.addEventListener('touchmove', this.onDocMouseTouchMove, options);
+
+      this.document.addEventListener('mouseup', this.onDocMouseTouchEnd, options);
+      this.document.addEventListener('touchend', this.onDocMouseTouchEnd, options);
+      this.document.addEventListener('touchcancel', this.onDocMouseTouchEnd, options);
+
+      if (this.imageRef.complete || this.imageRef.readyState) {
+        if (this.imageRef.naturalWidth === 0) {
+          // Broken load on iOS, PR #51
+          // https://css-tricks.com/snippets/jquery/fixing-load-in-ie-for-cached-images/
+          // http://stackoverflow.com/questions/821516/browser-independent-way-to-detect-when-image-has-been-loaded
+          var src = this.imageRef.src;
+
+          this.imageRef.src = EMPTY_GIF;
+          this.imageRef.src = src;
+        } else {
+          this.onImageLoad(this.imageRef);
+        }
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.document.removeEventListener('mousemove', this.onDocMouseTouchMove);
+      this.document.removeEventListener('touchmove', this.onDocMouseTouchMove);
+
+      this.document.removeEventListener('mouseup', this.onDocMouseTouchEnd);
+      this.document.removeEventListener('touchend', this.onDocMouseTouchEnd);
+      this.document.removeEventListener('touchcancel', this.onDocMouseTouchEnd);
+    }
+  }, {
+    key: 'onImageLoad',
+    value: function onImageLoad(image) {
+      var _props = this.props,
+          crop = _props.crop,
+          onComplete = _props.onComplete,
+          onChange = _props.onChange,
+          onImageLoaded = _props.onImageLoaded,
+          useNaturalImageDimensions = _props.useNaturalImageDimensions;
+
+
+      var resolvedCrop = resolveCrop(crop, image);
+
+      // Return false from onImageLoaded if you set the crop with setState in there as otherwise the subsequent
+      // onChange + onComplete will not have your updated crop.
+      var res = onImageLoaded(image, getPixelCrop(image, resolvedCrop, useNaturalImageDimensions));
+
+      if (res !== false && resolvedCrop !== crop) {
+        onChange(resolvedCrop, getPixelCrop(image, resolvedCrop, useNaturalImageDimensions));
+        onComplete(resolvedCrop, getPixelCrop(image, resolvedCrop, useNaturalImageDimensions));
+      }
+    }
+  }, {
+    key: 'getElementOffset',
+    value: function getElementOffset(el) {
+      var rect = el.getBoundingClientRect();
+      var docEl = this.document.documentElement;
+
+      var rectTop = rect.top + this.window.pageYOffset - docEl.clientTop;
+      var rectLeft = rect.left + this.window.pageXOffset - docEl.clientLeft;
+
+      return {
+        top: rectTop,
+        left: rectLeft
+      };
+    }
+  }, {
+    key: 'getCropStyle',
+    value: function getCropStyle() {
+      var crop = this.props.crop;
+
+      return {
+        top: crop.y + '%',
+        left: crop.x + '%',
+        width: crop.width + '%',
+        height: crop.height + '%'
+      };
+    }
+  }, {
+    key: 'getNewSize',
+    value: function getNewSize() {
+      var _props2 = this.props,
+          crop = _props2.crop,
+          minWidth = _props2.minWidth,
+          maxWidth = _props2.maxWidth,
+          minHeight = _props2.minHeight,
+          maxHeight = _props2.maxHeight;
+      var evData = this.evData;
+
+      var imageAspect = this.imageRef.width / this.imageRef.height;
+
+      // New width.
+      var newWidth = evData.cropStartWidth + evData.xDiffPc;
+
+      if (evData.xCrossOver) {
+        newWidth = Math.abs(newWidth);
+      }
+
+      newWidth = clamp(newWidth, minWidth, maxWidth);
+
+      // New height.
+      var newHeight = void 0;
+
+      if (crop.aspect) {
+        newHeight = newWidth / crop.aspect * imageAspect;
+      } else {
+        newHeight = evData.cropStartHeight + evData.yDiffPc;
+      }
+
+      if (evData.yCrossOver) {
+        // Cap if polarity is inversed and the height fills the y space.
+        newHeight = Math.min(Math.abs(newHeight), evData.cropStartY);
+      }
+
+      newHeight = clamp(newHeight, minHeight, maxHeight);
+
+      if (crop.aspect) {
+        newWidth = clamp(newHeight * crop.aspect / imageAspect, 0, 100);
+      }
+
+      return {
+        width: newWidth,
+        height: newHeight
+      };
+    }
+  }, {
+    key: 'dragCrop',
+    value: function dragCrop() {
+      var nextCrop = this.makeNewCrop();
+      var evData = this.evData;
+
+      nextCrop.x = clamp(evData.cropStartX + evData.xDiffPc, 0, 100 - nextCrop.width);
+      nextCrop.y = clamp(evData.cropStartY + evData.yDiffPc, 0, 100 - nextCrop.height);
+      return nextCrop;
+    }
+  }, {
+    key: 'resizeCrop',
+    value: function resizeCrop() {
+      var nextCrop = this.makeNewCrop();
+      var evData = this.evData;
+      var _props3 = this.props,
+          crop = _props3.crop,
+          minWidth = _props3.minWidth,
+          minHeight = _props3.minHeight;
+      var ord = evData.ord;
+
+      var imageAspect = this.imageRef.width / this.imageRef.height;
+
+      // On the inverse change the diff so it's the same and
+      // the same algo applies.
+      if (evData.xInversed) {
+        evData.xDiffPc -= evData.cropStartWidth * 2;
+      }
+      if (evData.yInversed) {
+        evData.yDiffPc -= evData.cropStartHeight * 2;
+      }
+
+      // New size.
+      var newSize = this.getNewSize();
+
+      // Adjust x/y to give illusion of 'staticness' as width/height is increased
+      // when polarity is inversed.
+      var newX = evData.cropStartX;
+      var newY = evData.cropStartY;
+
+      if (evData.xCrossOver) {
+        newX = nextCrop.x + (nextCrop.width - newSize.width);
+      }
+
+      if (evData.yCrossOver) {
+        // This not only removes the little "shake" when inverting at a diagonal, but for some
+        // reason y was way off at fast speeds moving sw->ne with fixed aspect only, I couldn't
+        // figure out why.
+        if (evData.lastYCrossover === false) {
+          newY = nextCrop.y - newSize.height;
+        } else {
+          newY = nextCrop.y + (nextCrop.height - newSize.height);
+        }
+      }
+
+      var containedCrop = containCrop(this.props.crop, {
+        x: newX,
+        y: newY,
+        width: newSize.width,
+        height: newSize.height,
+        aspect: nextCrop.aspect
+      }, imageAspect);
+
+      // Apply x/y/width/height changes depending on ordinate (fixed aspect always applies both).
+      if (nextCrop.aspect || ReactCrop.xyOrds.indexOf(ord) > -1) {
+        nextCrop.x = containedCrop.x;
+        nextCrop.y = containedCrop.y;
+        nextCrop.width = containedCrop.width;
+        nextCrop.height = containedCrop.height;
+      } else if (ReactCrop.xOrds.indexOf(ord) > -1) {
+        nextCrop.x = containedCrop.x;
+        nextCrop.width = containedCrop.width;
+      } else if (ReactCrop.yOrds.indexOf(ord) > -1) {
+        nextCrop.y = containedCrop.y;
+        nextCrop.height = containedCrop.height;
+      }
+
+      evData.lastYCrossover = evData.yCrossOver;
+      this.crossOverCheck();
+
+      // Ensure new dimensions aren't less than min dimensions.
+      if (minWidth && nextCrop.width < minWidth) {
+        return crop;
+      }
+
+      if (minHeight && nextCrop.height < minHeight) {
+        return crop;
+      }
+
+      return nextCrop;
+    }
+  }, {
+    key: 'straightenYPath',
+    value: function straightenYPath(clientX) {
+      var evData = this.evData;
+      var ord = evData.ord;
+      var cropOffset = evData.cropOffset;
+
+      var cropStartWidth = evData.cropStartWidth / 100 * this.imageRef.width;
+      var cropStartHeight = evData.cropStartHeight / 100 * this.imageRef.height;
+      var k = void 0;
+      var d = void 0;
+
+      if (ord === 'nw' || ord === 'se') {
+        k = cropStartHeight / cropStartWidth;
+        d = cropOffset.top - cropOffset.left * k;
+      } else {
+        k = -cropStartHeight / cropStartWidth;
+        d = cropOffset.top + (cropStartHeight - cropOffset.left * k);
+      }
+
+      return k * clientX + d;
+    }
+  }, {
+    key: 'createCropSelection',
+    value: function createCropSelection() {
+      var _this3 = this;
+
+      var _props4 = this.props,
+          disabled = _props4.disabled,
+          locked = _props4.locked,
+          renderSelectionAddon = _props4.renderSelectionAddon;
+
+      var style = this.getCropStyle();
+
+      return _react2.default.createElement(
+        'div',
+        {
+          ref: function ref(n) {
+            _this3.cropSelectRef = n;
+          },
+          style: style,
+          className: 'ReactCrop__crop-selection',
+          onMouseDown: this.onCropMouseTouchDown,
+          onTouchStart: this.onCropMouseTouchDown,
+          role: 'presentation'
+        },
+        !disabled && !locked && _react2.default.createElement(
+          'div',
+          { className: 'ReactCrop__drag-elements' },
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-bar ord-n', 'data-ord': 'n' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-bar ord-e', 'data-ord': 'e' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-bar ord-s', 'data-ord': 's' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-bar ord-w', 'data-ord': 'w' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-handle ord-nw', 'data-ord': 'nw' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-handle ord-n', 'data-ord': 'n' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-handle ord-ne', 'data-ord': 'ne' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-handle ord-e', 'data-ord': 'e' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-handle ord-se', 'data-ord': 'se' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-handle ord-s', 'data-ord': 's' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-handle ord-sw', 'data-ord': 'sw' }),
+          _react2.default.createElement('div', { className: 'ReactCrop__drag-handle ord-w', 'data-ord': 'w' })
+        ),
+        renderSelectionAddon && renderSelectionAddon(this.state)
+      );
+    }
+  }, {
+    key: 'makeNewCrop',
+    value: function makeNewCrop() {
+      return _extends({}, ReactCrop.defaultCrop, this.props.crop);
+    }
+  }, {
+    key: 'crossOverCheck',
+    value: function crossOverCheck() {
+      var evData = this.evData;
+
+
+      if (!evData.xCrossOver && -Math.abs(evData.cropStartWidth) - evData.xDiffPc >= 0 || evData.xCrossOver && -Math.abs(evData.cropStartWidth) - evData.xDiffPc <= 0) {
+        evData.xCrossOver = !evData.xCrossOver;
+      }
+
+      if (!evData.yCrossOver && -Math.abs(evData.cropStartHeight) - evData.yDiffPc >= 0 || evData.yCrossOver && -Math.abs(evData.cropStartHeight) - evData.yDiffPc <= 0) {
+        evData.yCrossOver = !evData.yCrossOver;
+      }
+
+      var swapXOrd = evData.xCrossOver !== evData.startXCrossOver;
+      var swapYOrd = evData.yCrossOver !== evData.startYCrossOver;
+
+      evData.inversedXOrd = swapXOrd ? inverseOrd(evData.ord) : false;
+      evData.inversedYOrd = swapYOrd ? inverseOrd(evData.ord) : false;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this4 = this;
+
+      var _props5 = this.props,
+          children = _props5.children,
+          className = _props5.className,
+          crossorigin = _props5.crossorigin,
+          crop = _props5.crop,
+          disabled = _props5.disabled,
+          locked = _props5.locked,
+          imageAlt = _props5.imageAlt,
+          onImageError = _props5.onImageError,
+          src = _props5.src,
+          style = _props5.style,
+          imageStyle = _props5.imageStyle;
+      var cropIsActive = this.state.cropIsActive;
+
+      var cropSelection = void 0;
+
+      if (isCropValid(crop)) {
+        cropSelection = this.createCropSelection();
+      }
+
+      var componentClasses = ['ReactCrop'];
+
+      if (cropIsActive) {
+        componentClasses.push('ReactCrop--active');
+      }
+
+      if (crop) {
+        if (crop.aspect) {
+          componentClasses.push('ReactCrop--fixed-aspect');
+        }
+
+        // In this case we have to shadow the image, since the box-shadow
+        // on the crop won't work.
+        if (cropIsActive && (!crop.width || !crop.height)) {
+          componentClasses.push('ReactCrop--crop-invisible');
+        }
+      }
+
+      if (disabled) {
+        componentClasses.push('ReactCrop--disabled');
+      }
+
+      if (locked) {
+        componentClasses.push('ReactCrop--locked');
+      }
+
+      if (className) {
+        componentClasses.push.apply(componentClasses, _toConsumableArray(className.split(' ')));
+      }
+
+      return _react2.default.createElement(
+        'div',
+        {
+          ref: function ref(n) {
+            _this4.componentRef = n;
+          },
+          className: componentClasses.join(' '),
+          style: style,
+          onTouchStart: this.onComponentMouseTouchDown,
+          onMouseDown: this.onComponentMouseTouchDown,
+          role: 'presentation',
+          tabIndex: 1,
+          onKeyDown: this.onComponentKeyDown
+        },
+        _react2.default.createElement('img', {
+          ref: function ref(n) {
+            _this4.imageRef = n;
+          },
+          crossOrigin: crossorigin,
+          className: 'ReactCrop__image',
+          style: imageStyle,
+          src: src,
+          onLoad: function onLoad(e) {
+            return _this4.onImageLoad(e.target);
+          },
+          onError: onImageError,
+          alt: imageAlt
+        }),
+        children,
+        cropSelection
+      );
+    }
+  }]);
+
+  return ReactCrop;
+}(_react.PureComponent);
+
+ReactCrop.xOrds = ['e', 'w'];
+ReactCrop.yOrds = ['n', 's'];
+ReactCrop.xyOrds = ['nw', 'ne', 'se', 'sw'];
+
+ReactCrop.arrowKey = {
+  left: 37,
+  up: 38,
+  right: 39,
+  down: 40
+};
+
+ReactCrop.nudgeStep = 0.2;
+
+ReactCrop.defaultCrop = {
+  x: 0,
+  y: 0,
+  width: 0,
+  height: 0
+};
+
+ReactCrop.propTypes = {
+  className: _propTypes2.default.string,
+  crossorigin: _propTypes2.default.string,
+  children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]),
+  crop: _propTypes2.default.shape({
+    aspect: _propTypes2.default.number,
+    x: _propTypes2.default.number,
+    y: _propTypes2.default.number,
+    width: _propTypes2.default.number,
+    height: _propTypes2.default.number
+  }),
+  disabled: _propTypes2.default.bool,
+  locked: _propTypes2.default.bool,
+  imageAlt: _propTypes2.default.string,
+  imageStyle: _propTypes2.default.shape({}),
+  keepSelection: _propTypes2.default.bool,
+  minWidth: _propTypes2.default.number,
+  minHeight: _propTypes2.default.number,
+  maxWidth: _propTypes2.default.number,
+  maxHeight: _propTypes2.default.number,
+  onChange: _propTypes2.default.func.isRequired,
+  onImageError: _propTypes2.default.func,
+  onComplete: _propTypes2.default.func,
+  onImageLoaded: _propTypes2.default.func,
+  onDragStart: _propTypes2.default.func,
+  onDragEnd: _propTypes2.default.func,
+  src: _propTypes2.default.string.isRequired,
+  style: _propTypes2.default.shape({}),
+  renderSelectionAddon: _propTypes2.default.func
+};
+
+ReactCrop.defaultProps = {
+  className: undefined,
+  crop: undefined,
+  crossorigin: undefined,
+  disabled: false,
+  locked: false,
+  imageAlt: '',
+  maxWidth: 100,
+  maxHeight: 100,
+  minWidth: 0,
+  minHeight: 0,
+  keepSelection: false,
+  onComplete: function onComplete() {},
+  onImageError: function onImageError() {},
+  onImageLoaded: function onImageLoaded() {},
+  onDragStart: function onDragStart() {},
+  onDragEnd: function onDragEnd() {},
+  children: undefined,
+  style: undefined,
+  imageStyle: undefined,
+  renderSelectionAddon: undefined,
+  useNaturalImageDimensions: true
+};
+
+exports.default = ReactCrop;
+exports.Component = ReactCrop;
+exports.getPixelCrop = getPixelCrop;
+exports.makeAspectCrop = makeAspectCrop;
+exports.containCrop = containCrop;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ })
+/******/ ]);
+});
 
 /***/ }),
 
@@ -61980,7 +63139,7 @@ function pathToRegexp (path, keys, options) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v16.8.6
+/** @license React v16.8.5
  * react.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -62002,7 +63161,7 @@ var checkPropTypes = __webpack_require__(/*! prop-types/checkPropTypes */ "./nod
 
 // TODO: this is special because it gets imported during build.
 
-var ReactVersion = '16.8.6';
+var ReactVersion = '16.8.5';
 
 // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
 // nor polyfill, then a plain number is used for performance.
@@ -63902,6 +65061,743 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      prototype[method] = function(arg) {
+        return this._invoke(method, arg);
+      };
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return Promise.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new Promise(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  exports.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  Gp[toStringTagSymbol] = "Generator";
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : undefined
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  Function("r", "regeneratorRuntime = r")(runtime);
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/resolve-pathname/index.js":
 /*!************************************************!*\
   !*** ./node_modules/resolve-pathname/index.js ***!
@@ -63992,7 +65888,7 @@ function resolvePathname(to) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v0.13.6
+/** @license React v0.13.5
  * scheduler-tracing.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -64427,7 +66323,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {/** @license React v0.13.6
+/* WEBPACK VAR INJECTION */(function(global) {/** @license React v0.13.5
  * scheduler.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -65165,6 +67061,515 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/lib/addStyles.js":
+/*!****************************************************!*\
+  !*** ./node_modules/style-loader/lib/addStyles.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getTarget = function (target, parent) {
+  if (parent){
+    return parent.querySelector(target);
+  }
+  return document.querySelector(target);
+};
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(target, parent) {
+                // If passing function in options, then use it for resolve "head" element.
+                // Useful for Shadow Root style i.e
+                // {
+                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
+                // }
+                if (typeof target === 'function') {
+                        return target();
+                }
+                if (typeof memo[target] === "undefined") {
+			var styleTarget = getTarget.call(this, target, parent);
+			// Special case to return head of iframe instead of iframe itself
+			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+				try {
+					// This will throw an exception if access to iframe is blocked
+					// due to cross-origin restrictions
+					styleTarget = styleTarget.contentDocument.head;
+				} catch(e) {
+					styleTarget = null;
+				}
+			}
+			memo[target] = styleTarget;
+		}
+		return memo[target]
+	};
+})();
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+        if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
+		var nextSibling = getElement(options.insertAt.before, target);
+		target.insertBefore(style, nextSibling);
+	} else {
+		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+
+	if(options.attrs.nonce === undefined) {
+		var nonce = getNonce();
+		if (nonce) {
+			options.attrs.nonce = nonce;
+		}
+	}
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function getNonce() {
+	if (false) {}
+
+	return __webpack_require__.nc;
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = typeof options.transform === 'function'
+		 ? options.transform(obj.css) 
+		 : options.transform.default(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/lib/urls.js":
+/*!***********************************************!*\
+  !*** ./node_modules/style-loader/lib/urls.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js":
 /*!****************************************************************!*\
   !*** ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
@@ -65641,7 +68046,12 @@ function (_Component) {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Create a new project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ProjectForm__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Create a new project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ProjectForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        action: "/api/projects",
+        projectName: "",
+        inputLabel: "Add New Project",
+        history: history
+      }));
     }
   }]);
 
@@ -65661,9 +68071,30 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_image_crop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-image-crop */ "./node_modules/react-image-crop/dist/ReactCrop.js");
+/* harmony import */ var react_image_crop__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_image_crop__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-image-crop/dist/ReactCrop.css */ "./node_modules/react-image-crop/dist/ReactCrop.css");
+/* harmony import */ var react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! form-data */ "./node_modules/form-data/lib/browser.js");
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(form_data__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -65673,13 +68104,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
 
 
 
@@ -65689,59 +68125,482 @@ function (_Component) {
   _inherits(ProjectForm, _Component);
 
   function ProjectForm(props) {
+    var _this;
+
     _classCallCheck(this, ProjectForm);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ProjectForm).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ProjectForm).call(this, props));
+    _this.state = {
+      showModal: false,
+      src: null,
+      croppedURL: null,
+      sendingData: false,
+      errors: {
+        projectName: '',
+        projectDescription: '',
+        projectImage: ''
+      },
+      projectName: '',
+      projectDescription: '',
+      projectImage: null,
+      action: ''
+    };
+    _this.handleModalShowClick = _this.handleModalShowClick.bind(_assertThisInitialized(_this));
+    _this.handleModalCloseClick = _this.handleModalCloseClick.bind(_assertThisInitialized(_this));
+    _this.handleCroppedImage = _this.handleCroppedImage.bind(_assertThisInitialized(_this));
+    _this.validation = _this.validation.bind(_assertThisInitialized(_this));
+    _this.handleFieldChange = _this.handleFieldChange.bind(_assertThisInitialized(_this));
+    _this.handleCreateNewProject = _this.handleCreateNewProject.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ProjectForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        action: this.props.action
+      });
+    }
+  }, {
+    key: "resetValue",
+    value: function resetValue(e) {
+      e.target.value = null;
+    }
+  }, {
+    key: "validation",
+    value: function validation(event) {
+      var input = event.target.name;
+      var fieldValue = event.target.value;
+      this.setState(function (prevState) {
+        return {
+          errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, ''))
+        };
+      });
+      var validationRules = event.target.dataset.validation;
+      var clearString = validationRules.replace(/ /g, '');
+      var rulesList = clearString.split(',');
+
+      for (var i = 0; i < rulesList.length; i++) {
+        var rule = rulesList[i];
+
+        if (rule.includes(":")) {
+          rule = rule.split(':');
+          var value = rule[1];
+          rule = rule[0];
+        }
+
+        switch (rule) {
+          case 'required':
+            if (!fieldValue) {
+              this.setState(function (prevState) {
+                return {
+                  errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, 'This field is required'))
+                };
+              });
+              return;
+            }
+
+            break;
+
+          case 'min':
+            if (fieldValue.length < value) {
+              this.setState(function (prevState) {
+                return {
+                  errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, 'This field needs to be at least ' + value + ' characters'))
+                };
+              });
+              return;
+            }
+
+            break;
+
+          case 'max':
+            if (fieldValue.length > value) {
+              this.setState(function (prevState) {
+                return {
+                  errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, 'This field can be no more than ' + value + ' characters'))
+                };
+              });
+              return;
+            }
+
+            break;
+        }
+      }
+    }
+  }, {
+    key: "handleFieldChange",
+    value: function handleFieldChange(event) {
+      this.setState(_defineProperty({}, event.target.name, event.target.value));
+    }
+  }, {
+    key: "handleModalShowClick",
+    value: function handleModalShowClick(e) {
+      e.preventDefault();
+
+      if (window.FileReader) {
+        var imageType = /^image\//;
+        var file = e.target.files[0],
+            reader = new FileReader(),
+            self = this;
+
+        if (!file || !imageType.test(file.type)) {
+          this.setState(function (prevState) {
+            return {
+              croppedURL: null,
+              errors: _objectSpread({}, prevState.errors, {
+                projectImage: 'No file uploaded/supported'
+              })
+            };
+          });
+          return;
+        }
+
+        reader.onload = function (r) {
+          self.setState({
+            src: r.target.result,
+            showModal: true
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
+    }
+  }, {
+    key: "handleModalCloseClick",
+    value: function handleModalCloseClick() {
+      this.setState({
+        src: null,
+        showModal: false
+      });
+    }
+  }, {
+    key: "handleCroppedImage",
+    value: function handleCroppedImage(croppedImageURL) {
+      this.setState(function (prevState) {
+        return {
+          croppedURL: croppedImageURL,
+          errors: _objectSpread({}, prevState.errors, {
+            projectImage: ''
+          })
+        };
+      });
+      this.handleModalCloseClick();
+    }
+  }, {
+    key: "handleCreateNewProject",
+    value: function handleCreateNewProject(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      var _this$state = this.state,
+          action = _this$state.action,
+          history = _this$state.history,
+          error = _this$state.error;
+
+      if (this.state.projectName && this.state.projectDescription && this.state.croppedURL) {
+        this.setState({
+          sendingData: true
+        });
+        var reader = new FileReader();
+        var myblob = new Blob([this.state.croppedURL], {
+          type: 'image/jpeg'
+        });
+
+        reader.onloadend = function () {
+          var base64data = reader.result;
+        };
+
+        reader.readAsDataURL(myblob);
+        var form = new form_data__WEBPACK_IMPORTED_MODULE_4___default.a();
+        form.append('project_name', this.state.projectName);
+        form.append('project_description', this.state.projectDescription);
+        form.append('file', this.state.croppedURL);
+        axios__WEBPACK_IMPORTED_MODULE_6___default.a.post(action, form, {
+          headers: {
+            'accept': 'application/json',
+            'Accept-Language': 'en-US,en;q=0.8',
+            'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
+          }
+        }).then(function (response) {
+          console.log(response['data']);
+
+          if (response['data'] === 'success') {
+            _this2.setState({
+              sendingData: false
+            });
+
+            history.push('/admin/projects');
+          }
+        }).catch(function (error) {
+          console.log("error");
+        });
+      } else {
+        console.log("error");
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        autoComplete: "off"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var _this$state2 = this.state,
+          showModal = _this$state2.showModal,
+          src = _this$state2.src,
+          errors = _this$state2.errors,
+          croppedURL = _this$state2.croppedURL,
+          sendingData = _this$state2.sendingData;
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+        autoComplete: "off",
+        onSubmit: this.handleCreateNewProject
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        for: "projectName"
-      }, "Project Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+        htmlFor: "projectName"
+      }, "Project Name"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         id: "name",
         type: "text",
         name: "projectName",
-        className: "form-control",
-        "data-validation": "required, min:10, max:20",
-        placeholder: "Project Name"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-control " + (errors.projectName ? 'is-invalid' : ''),
+        "data-validation": "required, min:10, max:100",
+        placeholder: "Project Name",
+        onChange: this.handleFieldChange,
+        onBlur: this.validation
+      }), errors.projectName ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.projectName) : null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Project Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Project Description"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
         id: "description",
-        className: "form-control",
-        "data-validation": "required, min:10, max:20",
+        className: "form-control " + (errors.projectDescription ? 'is-invalid' : ''),
+        "data-validation": "required, min:10",
         name: "projectDescription",
-        rows: "10"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "form-row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        class: "form-group col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Main Project Image"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        rows: "10",
+        onChange: this.handleFieldChange,
+        onBlur: this.validation
+      }), errors.projectDescription ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.projectDescription) : null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "form-row"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "form-group col"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Main Project Image"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "custom-file"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        id: "customFile",
         type: "file",
-        className: "custom-file-input",
-        id: "customFile"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "custom-file-input " + (errors.projectImage ? 'is-invalid' : ''),
+        onClick: this.resetValue,
+        onChange: this.handleModalShowClick
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         className: "custom-file-label",
-        for: "customFile"
-      }, "Choose file")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        htmlFor: "customFile"
+      }, "Choose file"), showModal ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Modal, {
+        handleModalCloseClick: this.handleModalCloseClick,
+        originalImgURL: src,
+        croppedImage: this.handleCroppedImage
+      }) : null, errors.projectImage ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.projectImage) : null)), croppedURL && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "col"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+        alt: "Crop",
+        className: "img-fluid",
+        src: croppedURL
+      }))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-theme-color"
-      }, "Add New Project"));
+      }, "Add New Project"), sendingData ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_5__["default"], null) : null);
     }
   }]);
 
   return ProjectForm;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (ProjectForm);
+
+var Modal =
+/*#__PURE__*/
+function (_Component2) {
+  _inherits(Modal, _Component2);
+
+  function Modal(props) {
+    var _this3;
+
+    _classCallCheck(this, Modal);
+
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(Modal).call(this, props));
+    _this3.state = {
+      crop: {
+        x: 20,
+        y: 10,
+        width: 40,
+        height: 40
+      }
+    };
+    _this3.handleCloseClick = _this3.handleCloseClick.bind(_assertThisInitialized(_this3));
+    _this3.onCropChange = _this3.onCropChange.bind(_assertThisInitialized(_this3));
+    _this3.cropImage = _this3.cropImage.bind(_assertThisInitialized(_this3));
+    _this3.onImageLoaded = _this3.onImageLoaded.bind(_assertThisInitialized(_this3));
+    _this3.onCropComplete = _this3.onCropComplete.bind(_assertThisInitialized(_this3));
+    return _this3;
+  }
+
+  _createClass(Modal, [{
+    key: "componentDidMount",
+    value: function componentDidMount(e) {
+      var handleModalCloseClick = this.props.handleModalCloseClick;
+      $(this.modal).modal({
+        show: true,
+        backdrop: 'static',
+        keyboard: false
+      });
+      $(this.modal).on('hidden.bs.modal', handleModalCloseClick);
+    }
+  }, {
+    key: "handleCloseClick",
+    value: function handleCloseClick() {
+      $(this.modal).modal('hide');
+      this.props.handleModalCloseClick();
+    }
+  }, {
+    key: "onCropChange",
+    value: function onCropChange(crop) {
+      this.setState({
+        crop: crop
+      });
+    }
+  }, {
+    key: "cropImage",
+    value: function cropImage() {
+      var croppedImageUrl = this.state.croppedImageUrl;
+      $(this.modal).modal('hide');
+      this.props.croppedImage(croppedImageUrl);
+    }
+  }, {
+    key: "onCropComplete",
+    value: function onCropComplete(crop, pixelCrop) {
+      this.makeClientCrop(crop, pixelCrop);
+    }
+  }, {
+    key: "makeClientCrop",
+    value: function () {
+      var _makeClientCrop = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(crop, pixelCrop) {
+        var croppedImageUrl;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!(this.imageRef && crop.width && crop.height)) {
+                  _context.next = 5;
+                  break;
+                }
+
+                _context.next = 3;
+                return this.getCroppedImg(this.imageRef, pixelCrop, 'newFile.jpeg');
+
+              case 3:
+                croppedImageUrl = _context.sent;
+                this.setState({
+                  croppedImageUrl: croppedImageUrl
+                });
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function makeClientCrop(_x, _x2) {
+        return _makeClientCrop.apply(this, arguments);
+      }
+
+      return makeClientCrop;
+    }()
+  }, {
+    key: "onImageLoaded",
+    value: function onImageLoaded(image, pixelCrop) {
+      this.imageRef = image;
+      var crop = this.state.crop;
+
+      if (crop.aspect && crop.height && crop.width) {
+        this.setState({
+          crop: _objectSpread({}, crop, {
+            height: null
+          })
+        });
+      } else {
+        this.makeClientCrop(crop, pixelCrop);
+      }
+    }
+  }, {
+    key: "getCroppedImg",
+    value: function getCroppedImg(image, pixelCrop, fileName) {
+      var canvas = document.createElement('canvas');
+      canvas.width = pixelCrop.width;
+      canvas.height = pixelCrop.height;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(image, pixelCrop.x, pixelCrop.y, pixelCrop.width, pixelCrop.height, 0, 0, pixelCrop.width, pixelCrop.height);
+      return new Promise(function (resolve, reject) {
+        resolve(canvas.toDataURL());
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "modal fade",
+        ref: function ref(modal) {
+          return _this4.modal = modal;
+        },
+        id: "exampleModalLong",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLongTitle",
+        "aria-hidden": "true"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "modal-dialog modal-dialog-centered modal-lg",
+        role: "document"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "modal-content"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "modal-header"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h5", {
+        className: "modal-title"
+      }, "Modal title"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "modal-body"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_image_crop__WEBPACK_IMPORTED_MODULE_2___default.a, {
+        src: this.props.originalImgURL,
+        crop: this.state.crop,
+        onChange: this.onCropChange,
+        onImageLoaded: this.onImageLoaded,
+        onComplete: this.onCropComplete
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "modal-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        onClick: this.handleCloseClick
+      }, "Cancel Cropping"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-theme-color",
+        onClick: this.cropImage
+      }, "Save Crop")))));
+    }
+  }]);
+
+  return Modal;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 /***/ }),
 
@@ -66058,9 +68917,9 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/js/back/app.js */"./resources/js/back/app.js");
-__webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/sass/back/app.scss */"./resources/sass/back/app.scss");
-module.exports = __webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/sass/front/front.scss */"./resources/sass/front/front.scss");
+__webpack_require__(/*! /Users/091276/Sites/portfolioV3/resources/js/back/app.js */"./resources/js/back/app.js");
+__webpack_require__(/*! /Users/091276/Sites/portfolioV3/resources/sass/back/app.scss */"./resources/sass/back/app.scss");
+module.exports = __webpack_require__(/*! /Users/091276/Sites/portfolioV3/resources/sass/front/front.scss */"./resources/sass/front/front.scss");
 
 
 /***/ })

@@ -1,17 +1,50 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// Bootstrap
+
+
 // Variables
 @import '../variables';
-
-// Bootstrap
+@import 'variables.scss';
 @import '~bootstrap/scss/bootstrap';
+@import 'mixins.scss';
+@import 'navbar.scss';
+@import 'masthead.scss';
+@import 'buttons.scss';
+@import 'about.scss';
+@import 'projects.scss';
+@import 'signup.scss';
+@import 'contact.scss';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+
+body {
+  font-family: 'Nunito';
+  letter-spacing: 0.0625em;
 }
 
-body{
-    background-color: red;
+a {
+  color: $primary;
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    color: darken($primary, 20%);
+  }
+}
+
+.bg-black {
+  background-color: $black !important;
+}
+
+.bg-primary {
+  background-color: $primary !important;
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+footer {
+  padding: 5rem 0;
 }

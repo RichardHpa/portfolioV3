@@ -31,9 +31,6 @@
                 <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
-                </li>
                 @auth
                     <li class="nav-item">
                         <a class="nav-link" href="/admin">Admin Dashboard</a>
@@ -56,7 +53,7 @@
           <div class="container d-flex h-100 align-items-center">
             <div class="mx-auto text-center">
               <h1 class="mx-auto my-0 text-uppercase">Richard Hpa Design</h1>
-              <h2 class="text-white-50 mx-auto mt-2 mb-5">I am a Wellington based Web and User Experience Designer.</h2>
+              <h2 class="text-white-50 mx-auto mt-2 mb-5">Wellington based Web and User Experience Designer.</h2>
               <a href="#about" class="btn btn-primary js-scroll-trigger">Check me out</a>
             </div>
           </div>
@@ -66,13 +63,22 @@
         <section id="about" class="about-section text-center">
           <div class="container">
             <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
-                <p class="text-white-50">Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-                  <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
+              <div class="col-lg-10 mx-auto">
+                <h2 class="text-white mb-4">About Me</h2>
+                <p class="text-white-50">
+                    I am a Wellington based Web and User Experienced Designer.<br>
+                    Currently I am working as a Web and UX Design at Yoobee School of Design.
+                    In this role I teach adult students how to use the UX process to create a user friendly product, and then develop it using industry standards programming langauges.
+                    <br><br>
+                    Outside of Yoobee I am also a freelance designer.
+                    I have worked with a wide range of clients, all asking for different types of websites as well as different types of programming langauges and software.
+                    I have worked as a Design Intern and Contract Developer for <strong><u><a href="http://www.littleyellowbird.co.nz" target="_blank">Little Yellow Bird</a></u></strong>. They are a company which manufactures ethically made work attire. I was taked with creating their online store using a custom Shopify Theme as well as adding in additional functionality to their site.<br>
+			     <strong><u><a href="https://www.mrinz.ac.nz/" target="_blank">The Medicial Research Institute of New Zealand</a></u></strong> is another client of mine, having redesigned their website by creating them a custom Wordpress Theme, helps them show off the work which they are doing as well as keeping people up to date with new medical research tests which they recruiting for.<br>
+			    Other companies I have done some work for include, Creative HQ, Grow Wellington,<strong><u><a href="http://www.bgi.org.nz/" target="_blank">The Wellington Boys and Girls Institute</a></u></strong>, Breadcrumbs and I am currently working with the Wellington Health Tech Network in developing a website to help show their networking events which they are holding.
+                </p>
               </div>
             </div>
-            <img src="images/ipad.png" class="img-fluid" alt="">
+            {{-- <img src="images/ipad.png" class="img-fluid" alt=""> --}}
           </div>
         </section>
 
@@ -136,53 +142,35 @@
         <section class="contact-section bg-black">
             <div class="container">
 
-                <div class="row">
-
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Address</h4>
-                                <hr class="my-4">
-                                <div class="small text-black-50">4923 Market Street, Orlando FL</div>
-                            </div>
-                        </div>
+                <div class="row align-items-center no-gutters mb-2 text-center">
+                    <div class="col">
+                        <h3 class="text-white mb-4">Get in Touch</h3>
                     </div>
 
-                    <div class="col-md-4 mb-3 mb-md-0">
+                </div>
+
+                <div class="row">
+
+                    <div class="col mb-3 mb-md-0">
                         <div class="card py-4 h-100">
                             <div class="card-body text-center">
                                 <i class="fas fa-envelope text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Email</h4>
                                 <hr class="my-4">
                                 <div class="small text-black-50">
-                                    <a href="#">hello@yourdomain.com</a>
+                                    <a href="mailto:richard.m.hpa@gmail.com">richard.m.hpa@gmail.com</a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Phone</h4>
-                                <hr class="my-4">
-                                <div class="small text-black-50">+1 (555) 902-8832</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="social d-flex justify-content-center">
-                    <a href="#" class="mx-2">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="mx-2">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="mx-2">
+                    <a href="https://github.com/RichardHpa" class="mx-2" target="_blank">
                         <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:richard.m.hpa@gmail.com" class="mx-2">
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
 
@@ -192,7 +180,7 @@
         <!-- Footer -->
         <footer class="bg-black small text-center text-white-50">
             <div class="container">
-                Copyright &copy; Your Website 2019
+                Copyright &copy; Richard Hpa Design <?php echo date("Y"); ?>
             </div>
         </footer>
 

@@ -61660,7 +61660,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68952,9 +68952,9 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/richardhpa/Sites/personalProjects/portfolioV3/resources/js/back/app.js */"./resources/js/back/app.js");
-__webpack_require__(/*! /Users/richardhpa/Sites/personalProjects/portfolioV3/resources/sass/back/app.scss */"./resources/sass/back/app.scss");
-module.exports = __webpack_require__(/*! /Users/richardhpa/Sites/personalProjects/portfolioV3/resources/sass/front/front.scss */"./resources/sass/front/front.scss");
+__webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/js/back/app.js */"./resources/js/back/app.js");
+__webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/sass/back/app.scss */"./resources/sass/back/app.scss");
+module.exports = __webpack_require__(/*! /Users/richard.hpa/Documents/myProjects/portfolioV3/resources/sass/front/front.scss */"./resources/sass/front/front.scss");
 
 
 /***/ })

@@ -74,7 +74,7 @@
                     I have worked with a wide range of clients, all asking for different types of websites as well as different types of programming langauges and software.
                     I have worked as a Design Intern and Contract Developer for <strong><u><a href="http://www.littleyellowbird.co.nz" target="_blank">Little Yellow Bird</a></u></strong>. They are a company which manufactures ethically made work attire. I was taked with creating their online store using a custom Shopify Theme as well as adding in additional functionality to their site.<br>
 			     <strong><u><a href="https://www.mrinz.ac.nz/" target="_blank">The Medicial Research Institute of New Zealand</a></u></strong> is another client of mine, having redesigned their website by creating them a custom Wordpress Theme, helps them show off the work which they are doing as well as keeping people up to date with new medical research tests which they recruiting for.<br>
-			    Other companies I have done some work for include, Creative HQ, Grow Wellington,<strong><u><a href="http://www.bgi.org.nz/" target="_blank">The Wellington Boys and Girls Institute</a></u></strong>, Breadcrumbs and I am currently working with the Wellington Health Tech Network in developing a website to help show their networking events which they are holding.
+			    Other companies I have done some work for include, Creative HQ, Grow Wellington, <strong><u><a href="http://www.bgi.org.nz/" target="_blank">The Wellington Boys and Girls Institute</a></u></strong>, Breadcrumbs and I am currently working with the Wellington Health Tech Network in developing a website to help show their networking events which they are holding.
                 </p>
               </div>
             </div>

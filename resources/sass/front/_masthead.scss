@@ -1,7 +1,7 @@
 .masthead {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100vh;
   min-height: 35rem;
   padding: 15rem 0;
   background: linear-gradient(to bottom, #{fade-out($black, .7)} 0%,#{fade-out($black, .3)} 75%,$black 100%), url('/images/bg-masthead.jpg');
@@ -19,7 +19,7 @@
     -webkit-background-clip: text;
   }
   h2 {
-    max-width: 20rem;
+    max-width: 25rem;
     font-size: 1rem;
   }
   @media(min-width: 768px) {
@@ -37,7 +37,7 @@
       letter-spacing: 0.8rem;
     }
     h2 {
-      max-width: 30rem;
+      max-width: 40rem;
       font-size: 1.25rem;
     }
   }

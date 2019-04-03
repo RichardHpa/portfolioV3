@@ -13,12 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('invoices', 'InvoicesController@index');
-Route::post('invoices', 'InvoicesController@store');
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
-Route::get('projects', 'ProjectController@index');
 Route::post('projects', 'ProjectController@store');
-Route::get('projects/{id}', 'ProjectController@show');
-Route::post('projects/delete', 'ProjectController@delete');
-
-Route::post('imageDelete', 'ImageController@delete');

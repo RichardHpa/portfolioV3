@@ -15,7 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::view('admin/{path?}', 'app');
-Route::view('admin/{path?}/{sub?}', 'app');
-
-Route::post('projects', 'ProjectController@store');
+Auth::routes();
+Route::view('admin/{path?}/{sub?}', 'admin')->middleware(['web', 'auth']);

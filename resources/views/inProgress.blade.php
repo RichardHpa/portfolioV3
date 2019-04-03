@@ -24,7 +24,7 @@
               <h1 class="mx-auto my-0 text-uppercase">Richard Hpa Design</h1>
               <h2 class="text-white-50 mx-auto mt-2 mb-5">Wellington based Web and User Experience Designer.</h2>
               <h2 class="text-white-50 mx-auto mt-2 mb-5">Portfolio in Progress</h2>
-              <a href="https://github.com/RichardHpa" class="btn btn-primary" target="blank">Check me out in Github in the meantime <i class="fab fa-github fa-3x"></i></a>
+              <a href="https://github.com/RichardHpa" class="btn btn-primary" target="blank">Check out my Github in the meantime <i class="fab fa-github fa-3x"></i></a>
             </div>
           </div>
         </header>

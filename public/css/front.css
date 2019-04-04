@@ -10852,6 +10852,10 @@ a:hover {
   color: #a13030;
 }
 
+.note {
+  color: #D16666;
+}
+
 .bg-black {
   background-color: #161616 !important;
 }
@@ -10866,5 +10870,27 @@ a:hover {
 
 footer {
   padding: 5rem 0;
+}
+
+.img-section {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (max-width: 990px) {
+  .img-section {
+    background-size: 0 0;
+  }
+}
+
+.img-section img {
+  display: none;
+}
+
+@media screen and (max-width: 990px) {
+  .img-section img {
+    display: block;
+  }
 }
 

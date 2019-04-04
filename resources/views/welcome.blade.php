@@ -12,6 +12,20 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
+        <script>
+            var minHeight = 0;
+            function backgroundLoaded(element) {
+                var url = "url('" + element.src + "')";
+                var height = element.parentNode;
+                var parent = element.parentNode;
+                var bgPosition = element.dataset.position;
+                if (bgPosition) {
+                    parent.style.backgroundPosition = bgPosition;
+                }
+                parent.style.backgroundImage = url;
+                parent.style.opacity = "1";
+            }
+        </script>
 
         <link href="{{ asset('css/front.css') }}" rel="stylesheet">
     </head>
@@ -30,6 +44,9 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ asset('files/RichardHpaCV.pdf') }}" target="_blank">Read my CV</a>
                 </li>
                 @auth
                     <li class="nav-item">
@@ -101,15 +118,20 @@
 
                 <!-- Project One Row -->
                 <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                    <div class="col-lg-6">
-                        <img class="img-fluid" src="images/demo-image-01.jpg" alt="">
+                    <div class="col-lg-6 img-section">
+                        <img class="img-fluid" src="images/demo-image-01.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
                     </div>
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Misty</h4>
-                                    <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                                    <h4 class="text-white">Medical Research Institute of New Zealand</h4>
+                                    <p class="mb-0 text-white-50">
+                                        I was tasked with redesigning their exisiting website to make it more user friendly and easier to navigate.<br>
+                                        Because they wanted to easily manage content, I decided to use Wordpress to utlize their exisiting back end management system.<br>
+                                        I created a custom Wordpress theme which extends what the functionality of Wordpress to match what they are hoping to achieve from their website.
+                                    </p>
+                                    <strong><u><a href="https://www.mrinz.ac.nz/" target="_blank">Check Out the Site</a></u></strong>
                                     <hr class="d-none d-lg-block mb-0 ml-0">
                                 </div>
                             </div>
@@ -117,17 +139,25 @@
                     </div>
                 </div>
 
+
+
+
                 <!-- Project Two Row -->
                 <div class="row justify-content-center no-gutters">
-                    <div class="col-lg-6">
-                        <img class="img-fluid" src="images/demo-image-02.jpg" alt="">
+                    <div class="col-lg-6 img-section">
+                        <img class="img-fluid" src="images/demo-image-02.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
                     </div>
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Mountains</h4>
-                                    <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                                    <h4 class="text-white">Little Yellow Bird</h4>
+                                    <p class="mb-0 text-white-50">
+                                        Once I left my studies at Yoobee, I became a freelance designer for Little Yellow Bird.<br>
+                                        I was taksed with creating designs for their website to showcase the collection of apparel they produce.<br>
+                                        The site was built using Shopify and a custom theme was create. Shopify uses a language called liquid which was new to me.
+                                    </p>
+                                    <strong><i class="note">The site has since changed and no longer follows my designs.</i></strong>
                                     <hr class="d-none d-lg-block mb-0 mr-0">
                                 </div>
                             </div>

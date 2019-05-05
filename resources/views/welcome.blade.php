@@ -46,6 +46,9 @@
                   <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#contact">Get in Touch</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="{{ asset('files/RichardHpaCV.pdf') }}" target="_blank">Read my CV</a>
                 </li>
                 @auth
@@ -95,31 +98,23 @@
                 </p>
               </div>
             </div>
-            {{-- <img src="images/ipad.png" class="img-fluid" alt=""> --}}
           </div>
         </section>
 
         <!-- Projects Section -->
         <section id="projects" class="projects-section bg-light">
             <div class="container">
-
-                <!-- Featured Project Row -->
-                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-                    <div class="col-xl-8 col-lg-7">
-                        <img class="img-fluid mb-3 mb-lg-0" src="images/bg-masthead.jpg" alt="">
-                    </div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="featured-text text-center text-lg-left">
-                            <h4>Shoreline</h4>
-                            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
-                        </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <h2 class="text-black mb-4">Industy Projects</h2>
+                        <p>This Portfolio is a work in progress and only holds a handfull of the projects which I have created. I will be adding more projects as I go on but have a look at my <a href="https://github.com/RichardHpa/portfolioV3" target="_blank"> GitHub</a> for more of my work.</p>
                     </div>
                 </div>
 
                 <!-- Project One Row -->
                 <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
                     <div class="col-lg-6 img-section">
-                        <img class="img-fluid" src="images/demo-image-01.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
+                        <img class="img-fluid" src="images/mrinz.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
                     </div>
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
@@ -145,7 +140,7 @@
                 <!-- Project Two Row -->
                 <div class="row justify-content-center no-gutters">
                     <div class="col-lg-6 img-section">
-                        <img class="img-fluid" src="images/demo-image-02.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
+                        <img class="img-fluid" src="images/LYB.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
                     </div>
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
@@ -168,8 +163,67 @@
             </div>
         </section>
 
+        <section class="projects-section bg-light">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col">
+                        <h2 class="text-black mb-4">Personal Projects</h2>
+                    </div>
+                </div>
+                <!-- Project One Row -->
+                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                    <div class="col-lg-6 img-section">
+                        <img class="img-fluid" src="images/groupSlot.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">Group Randomizer</h4>
+                                    <p class="mb-0 text-white-50">
+                                        As a tutor at Yoobee School of Design, I have often had to put my students into groups to work on projects.<br>
+                                        I decided to try and make something a bit more fun and create a slot machine which puts the students into random groups.<br>
+                                        The project uses React JS to create a web application which can be used for any groups you want to create.
+                                    </p>
+                                    <strong><u><a href="https://github.com/RichardHpa/group-randomizer-react" target="_blank">Read the code on GitHub</a></u></strong>
+                                    <hr class="d-none d-lg-block mb-0 ml-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Two Row -->
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-6 img-section">
+                        <img class="img-fluid" src="images/stopWatch.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
+                    </div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">Stopwatch</h4>
+                                    <p class="mb-0 text-white-50">
+                                        As a class project, I tasked the students to create their own stopwatch app using ReactJS.<br>
+                                        I decided to also do one myself but use a different design than a normal stopwatch.<br>
+                                        As well as the timer going up, there is a minutes and seconds radial clock around it which goes with the time.<br>
+                                        It was a fun little project which I really enjoyed using ReactJS for.
+                                    </p>
+
+                                    <strong><u><a href="https://richard-stopwatch.herokuapp.com/" target="_blank">Checkout the App here</a></u></strong><br>
+                                    <strong><u><a href="https://github.com/RichardHpa/react-stopwatch" target="_blank">Read the code on GitHub</a></u></strong>
+                                    <hr class="d-none d-lg-block mb-0 mr-0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
         <!-- Contact Section -->
-        <section class="contact-section bg-black">
+        <section id="contact" class="contact-section bg-black">
             <div class="container">
 
                 <div class="row align-items-center no-gutters mb-2 text-center">
@@ -210,7 +264,15 @@
         <!-- Footer -->
         <footer class="bg-black small text-center text-white-50">
             <div class="container">
-                Copyright &copy; Richard Hpa Design <?php echo date("Y"); ?>
+                <div class="col12">
+                    Copyright &copy; Richard Hpa Design <?php echo date("Y"); ?>
+                </div>
+                <div class="col-12">
+                    Portfolio was created using a <a href="https://laravel.com/" target="_blank">Laravel</a> as a PHP framework, and <a href="https://reactjs.org/" target="_blank">React JS</a> for the backend admin dashboard.<br>
+                    You can view the code for my portfolio <a href="https://github.com/RichardHpa/portfolioV3" target="_blank">here on GitHub</a>
+                </div>
+
+
             </div>
         </footer>
 

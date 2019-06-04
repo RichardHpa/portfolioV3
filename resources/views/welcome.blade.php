@@ -107,7 +107,7 @@
                 <div class="row text-center">
                     <div class="col">
                         <h2 class="text-black mb-4">Industy Projects</h2>
-                        <p>This Portfolio is a work in progress and only holds a handfull of the projects which I have created. I will be adding more projects as I go on but have a look at my <a href="https://github.com/RichardHpa/portfolioV3" target="_blank"> GitHub</a> for more of my work.</p>
+                        <p>This Portfolio is a work in progress and only holds a handfull of the projects which I have created. I will be adding more projects as I go on but have a look at my <a href="https://github.com/RichardHpa/portfolioV3" target="_blank">here on GitHub</a> for more of my work.</p>
                     </div>
                 </div>
 
@@ -255,6 +255,9 @@
                     </a>
                     <a href="mailto:richard.m.hpa@gmail.com" class="mx-2">
                         <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/richardhpa/" class="mx-2" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
 

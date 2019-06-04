@@ -36867,7 +36867,7 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/richardhpa/Sites/personalProjects/portfolioV3/resources/js/front/front.js */"./resources/js/front/front.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/portfolioV3/resources/js/front/front.js */"./resources/js/front/front.js");
 
 
 /***/ })

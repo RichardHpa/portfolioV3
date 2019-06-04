@@ -61660,7 +61660,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67811,6 +67811,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Sidebar */ "./resources/js/back/components/Sidebar.js");
 /* harmony import */ var _Projects_Projects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Projects/Projects */ "./resources/js/back/components/Projects/Projects.js");
 /* harmony import */ var _Projects_Create__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Projects/Create */ "./resources/js/back/components/Projects/Create.js");
+/* harmony import */ var _Socials_Socials__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Socials/Socials */ "./resources/js/back/components/Socials/Socials.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67836,6 +67837,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var pages = [{
   'id': 1,
   'name': 'Dashboard',
@@ -67848,16 +67850,21 @@ var pages = [{
   'icon': 'home'
 }, {
   'id': 3,
+  'name': 'Social Links',
+  'url': '/admin/socials',
+  'icon': 'share-alt'
+}, {
+  'id': 4,
   'name': 'Projects',
   'url': '/admin/projects',
   'icon': 'project-diagram'
 }, {
-  'id': 4,
+  'id': 5,
   'name': 'Slides',
   'url': '/admin/slides',
   'icon': 'images'
 }, {
-  'id': 5,
+  'id': 6,
   'name': 'Invoices',
   'url': '/admin/invoices',
   'icon': 'file-invoice-dollar'
@@ -67887,6 +67894,10 @@ function (_Component) {
         role: "main",
         className: "col-md-9 ml-sm-auto col-lg-10 pt-3 px-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/admin/socials",
+        component: _Socials_Socials__WEBPACK_IMPORTED_MODULE_7__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/projects",
         component: _Projects_Projects__WEBPACK_IMPORTED_MODULE_5__["default"]
@@ -68865,6 +68876,116 @@ function (_Component2) {
 
 /***/ }),
 
+/***/ "./resources/js/back/components/Socials/Socials.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/back/components/Socials/Socials.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var socials = [{
+  name: 'twitter',
+  icon: 'fab fa-twitter'
+}, {
+  name: 'facebook',
+  icon: 'fab fa-facebook-f'
+}, {
+  name: 'linkedin',
+  icon: 'fab fa-linkedin-in'
+}, {
+  name: 'github',
+  icon: 'fab fa-github'
+}, {
+  name: 'instagram',
+  icon: 'fab fa-github'
+}, {
+  name: 'email',
+  icon: 'fas fa-envelope'
+}];
+
+var Socals =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Socals, _Component);
+
+  function Socals() {
+    var _this;
+
+    _classCallCheck(this, Socals);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Socals).call(this));
+    _this.state = {
+      projects: [],
+      pageLoaded: true
+    };
+    return _this;
+  }
+
+  _createClass(Socals, [{
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          projects = _this$state.projects,
+          pageLoaded = _this$state.pageLoaded;
+
+      if (!pageLoaded) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container ml-0"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Social Accounts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row mb-3"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          className: "btn btn-theme-color",
+          to: ""
+        }, "Save"))));
+      }
+    }
+  }]);
+
+  return Socals;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Socals);
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -68952,9 +69073,9 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/richardhpa/Sites/personalProjects/portfolioV3/resources/js/back/app.js */"./resources/js/back/app.js");
-__webpack_require__(/*! /Users/richardhpa/Sites/personalProjects/portfolioV3/resources/sass/back/app.scss */"./resources/sass/back/app.scss");
-module.exports = __webpack_require__(/*! /Users/richardhpa/Sites/personalProjects/portfolioV3/resources/sass/front/front.scss */"./resources/sass/front/front.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/portfolioV3/resources/js/back/app.js */"./resources/js/back/app.js");
+__webpack_require__(/*! /Applications/MAMP/htdocs/portfolioV3/resources/sass/back/app.scss */"./resources/sass/back/app.scss");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/portfolioV3/resources/sass/front/front.scss */"./resources/sass/front/front.scss");
 
 
 /***/ })

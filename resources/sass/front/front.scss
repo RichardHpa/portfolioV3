@@ -33,6 +33,10 @@ a {
   }
 }
 
+.note{
+    color: $primary;
+}
+
 .bg-black {
   background-color: $black !important;
 }
@@ -47,4 +51,19 @@ a {
 
 footer {
   padding: 5rem 0;
+}
+
+.img-section{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @media screen and (max-width: 990px){
+        background-size: 0 0;
+    }
+    img{
+        display: none;
+        @media screen and (max-width: 990px){
+            display: block
+        }
+    }
 }

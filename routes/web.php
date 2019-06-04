@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('inProgress');
+    return view('welcome');
 });
 
-// Auth::routes();
-// Route::view('admin/{path?}/{sub?}', 'admin')->middleware(['web', 'auth']);
+Auth::routes();
+Route::view('admin/{path?}/{sub?}', 'admin')->middleware(['web', 'auth']);

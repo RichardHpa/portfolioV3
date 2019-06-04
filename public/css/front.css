@@ -10658,7 +10658,7 @@ a.text-theme-color:focus {
   height: 100vh;
   min-height: 35rem;
   padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("/images/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("/images/nate-grant-346782-unsplash.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10670,9 +10670,7 @@ a.text-theme-color:focus {
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+  color: white;
 }
 
 .masthead h2 {
@@ -10742,7 +10740,7 @@ a.text-theme-color:focus {
 }
 
 .projects-section {
-  padding: 10rem 0;
+  padding: 5rem 0;
 }
 
 .projects-section .featured-text {
@@ -10852,6 +10850,10 @@ a:hover {
   color: #a13030;
 }
 
+.note {
+  color: #D16666;
+}
+
 .bg-black {
   background-color: #161616 !important;
 }
@@ -10866,5 +10868,27 @@ a:hover {
 
 footer {
   padding: 5rem 0;
+}
+
+.img-section {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (max-width: 990px) {
+  .img-section {
+    background-size: 0 0;
+  }
+}
+
+.img-section img {
+  display: none;
+}
+
+@media screen and (max-width: 990px) {
+  .img-section img {
+    display: block;
+  }
 }
 

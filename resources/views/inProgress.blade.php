@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Richard Hpa Design Portfolio</title>
+        <title>Richard Hpa Design Portfolio </title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">

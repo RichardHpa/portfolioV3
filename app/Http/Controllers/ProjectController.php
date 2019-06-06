@@ -9,8 +9,6 @@ use Intervention\Image\ImageManager;
 
 use App\Project;
 
-
-
 class ProjectController extends Controller
 {
     /**
@@ -44,10 +42,11 @@ class ProjectController extends Controller
         $validator = Validator::make($request->all(), [
             'project_name' => 'required|min:10|max:100',
             'project_description' => 'required|min:10',
+            'project_bio' => 'required|min:10',
             'file' => 'required'
         ]);
         if ($validator->fails()) {
-            return 'ERROR, something went wrong';
+            $result =  'ERROR, something went wrong with validation';
         }
         $manager = new ImageManager();
         $heroImage = $manager->make($request['file']);
@@ -57,13 +56,15 @@ class ProjectController extends Controller
         $project = Project::create([
             'project_name' => $request->project_name,
             'project_description' => $request->project_description,
-            'project_image' => $imageName
+            'project_image' => $imageName,
+            'project_bio' => $request->project_bio
         ]);
 
         $result = array(
             'message' => 'Project Created',
             'image_name' => $project->id
         );
+
         return response()->json($result);
     }
 

@@ -16,11 +16,13 @@ class ProjectForm extends Component {
             errors: {
                 projectName: '',
                 projectDescription: '',
-                projectImage: ''
+                projectImage: '',
+                projectBio:''
             },
             projectName: '',
             projectDescription: '',
             projectImage: null,
+            projectBio: '',
             action: ''
         }
 
@@ -151,6 +153,7 @@ class ProjectForm extends Component {
     handleCreateNewProject(e){
         e.preventDefault();
         const { action, history, error } = this.state;
+        console.log('here');
         if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
             this.setState({
                 sendingData: true
@@ -167,6 +170,7 @@ class ProjectForm extends Component {
 
             form.append('project_name', this.state.projectName);
             form.append('project_description', this.state.projectDescription);
+            form.append('project_bio', this.state.projectBio);
             form.append('file', this.state.croppedURL);
             axios.post(action, form, {
                 headers: {
@@ -188,7 +192,7 @@ class ProjectForm extends Component {
                 console.log("error");
             });
         } else {
-            console.log("error");
+            console.log('error');
         }
     }
 
@@ -211,6 +215,21 @@ class ProjectForm extends Component {
                     />
                     {errors.projectName ? (<div className="invalid-feedback">
                         {errors.projectName}
+                    </div>):null}
+                </div>
+                <div className="form-group">
+                    <label>Project Bio</label>
+                    <textarea
+                        id='bio'
+                        className={"form-control " + (errors.projectBio ? 'is-invalid' : '')}
+                        data-validation='required, min:10'
+                        name='projectBio'
+                        rows='5'
+                        onChange={this.handleFieldChange}
+                        onBlur={this.validation}
+                    />
+                    {errors.projectBio ? (<div className="invalid-feedback">
+                        {errors.projectBio}
                     </div>):null}
                 </div>
                 <div className="form-group">

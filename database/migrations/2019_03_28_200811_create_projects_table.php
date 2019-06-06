@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('project_name');
             $table->text('project_description');
+            $table->text('project_bio');
             $table->string('project_image', 100);
             $table->timestamps();
         });

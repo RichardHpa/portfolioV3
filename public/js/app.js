@@ -61660,7 +61660,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68184,11 +68184,13 @@ function (_Component) {
       errors: {
         projectName: '',
         projectDescription: '',
-        projectImage: ''
+        projectImage: '',
+        projectBio: ''
       },
       projectName: '',
       projectDescription: '',
       projectImage: null,
+      projectBio: '',
       action: ''
     };
     _this.handleModalShowClick = _this.handleModalShowClick.bind(_assertThisInitialized(_this));
@@ -68343,6 +68345,7 @@ function (_Component) {
           action = _this$state.action,
           history = _this$state.history,
           error = _this$state.error;
+      console.log('here');
 
       if (this.state.projectName && this.state.projectDescription && this.state.croppedURL) {
         this.setState({
@@ -68361,6 +68364,7 @@ function (_Component) {
         var form = new form_data__WEBPACK_IMPORTED_MODULE_4___default.a();
         form.append('project_name', this.state.projectName);
         form.append('project_description', this.state.projectDescription);
+        form.append('project_bio', this.state.projectBio);
         form.append('file', this.state.croppedURL);
         axios__WEBPACK_IMPORTED_MODULE_6___default.a.post(action, form, {
           headers: {
@@ -68382,7 +68386,7 @@ function (_Component) {
           console.log("error");
         });
       } else {
-        console.log("error");
+        console.log('error');
       }
     }
   }, {
@@ -68413,6 +68417,18 @@ function (_Component) {
       }), errors.projectName ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "invalid-feedback"
       }, errors.projectName) : null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Project Bio"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+        id: "bio",
+        className: "form-control " + (errors.projectBio ? 'is-invalid' : ''),
+        "data-validation": "required, min:10",
+        name: "projectBio",
+        rows: "5",
+        onChange: this.handleFieldChange,
+        onBlur: this.validation
+      }), errors.projectBio ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.projectBio) : null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Project Description"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
         id: "description",

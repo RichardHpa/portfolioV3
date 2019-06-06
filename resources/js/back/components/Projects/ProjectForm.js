@@ -4,6 +4,7 @@ import 'react-image-crop/dist/ReactCrop.css';
 import FormData from 'form-data';
 import Loader from '../Loader';
 import axios from 'axios';
+import { Redirect} from 'react-router-dom';
 
 class ProjectForm extends Component {
     constructor(props) {
@@ -152,7 +153,9 @@ class ProjectForm extends Component {
 
     handleCreateNewProject(e){
         e.preventDefault();
-        const { action, history, error } = this.state;
+        const { action, error } = this.state;
+        const { history } = this.props
+
         console.log('here');
         if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
             this.setState({
@@ -181,15 +184,16 @@ class ProjectForm extends Component {
             })
             .then((response) => {
                 console.log(response['data']);
-                if(response['data'] === 'success'){
+                if(response['data']['message'] === 'success'){
                     this.setState({
                         sendingData: false
                     });
-                    history.push('/admin/projects')
-
+                    history.push('/admin/projects');
+                    // console.log('redirect');
+                    // <Redirect to='/admin/projects' />
                 }
             }).catch((error) => {
-                console.log("error");
+                console.log('error');
             });
         } else {
             console.log('error');

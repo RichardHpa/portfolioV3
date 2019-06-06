@@ -56,13 +56,14 @@ class ProjectController extends Controller
         $project = Project::create([
             'project_name' => $request->project_name,
             'project_description' => $request->project_description,
+            'project_bio' => $request->project_bio,
             'project_image' => $imageName,
-            'project_bio' => $request->project_bio
+
         ]);
 
         $result = array(
-            'message' => 'Project Created',
-            'image_name' => $project->id
+            'message' => 'success',
+            'projectID' => $project->id
         );
 
         return response()->json($result);

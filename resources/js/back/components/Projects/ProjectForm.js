@@ -6,6 +6,7 @@ import Loader from '../Loader';
 import axios from 'axios';
 import { Redirect} from 'react-router-dom';
 
+
 class ProjectForm extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +25,7 @@ class ProjectForm extends Component {
             projectDescription: '',
             projectImage: null,
             projectBio: '',
-            action: ''
+            action: '',
         }
 
         this.handleModalShowClick = this.handleModalShowClick.bind(this);
@@ -33,6 +34,8 @@ class ProjectForm extends Component {
         this.validation = this.validation.bind(this);
         this.handleFieldChange = this.handleFieldChange.bind(this);
         this.handleCreateNewProject = this.handleCreateNewProject.bind(this);
+
+
     }
 
     componentDidMount () {
@@ -103,6 +106,9 @@ class ProjectForm extends Component {
     }
 
     handleFieldChange (event) {
+
+        var text = event.target.value.replace(/\r?\n/g, '<br />');
+        console.log(text);
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -156,7 +162,6 @@ class ProjectForm extends Component {
         const { action, error } = this.state;
         const { history } = this.props
 
-        console.log('here');
         if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
             this.setState({
                 sendingData: true
@@ -189,8 +194,6 @@ class ProjectForm extends Component {
                         sendingData: false
                     });
                     history.push('/admin/projects');
-                    // console.log('redirect');
-                    // <Redirect to='/admin/projects' />
                 }
             }).catch((error) => {
                 console.log('error');
@@ -291,6 +294,16 @@ class ProjectForm extends Component {
 }
 
 export default ProjectForm;
+
+
+
+
+
+
+
+
+
+
 
 class Modal extends Component {
     constructor(props){

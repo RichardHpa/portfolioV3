@@ -10705,3 +10705,7 @@ a.text-theme-color:focus {
   color: white;
 }
 
+.content {
+  white-space: pre-wrap;
+}
+

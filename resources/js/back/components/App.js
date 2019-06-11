@@ -7,6 +7,7 @@ import Sidebar from './Sidebar';
 import Projects from './Projects/Projects';
 import ProjectsCreate from './Projects/Create';
 import Socals from './Socials/Socials';
+import SingleProject from './Projects/SingleProject'
 
 const pages = [
     { 'id': 1, 'name': 'Dashboard', 'url': '/admin','icon': 'chart-pie' },
@@ -34,6 +35,8 @@ class App extends Component {
                                     <Route exact path='/admin/socials' component={Socals} />
                                     <Route exact path='/admin/projects' component={Projects} />
                                     <Route exact path='/admin/projects/create' component={ProjectsCreate} />
+                                    <Route exact path='/admin/projects/:id' component={SingleProject} />
+
                                 </Switch>
                             </main>
                         </div>

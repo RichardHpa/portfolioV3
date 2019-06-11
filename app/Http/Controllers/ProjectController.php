@@ -18,7 +18,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::all();
+        return $projects->toJson();
     }
 
     /**
@@ -51,7 +52,17 @@ class ProjectController extends Controller
         $manager = new ImageManager();
         $heroImage = $manager->make($request['file']);
         $imageName = uniqid();
-        $heroImage->save('images/uploads/heroImages/'.$imageName.'.jpg', 100);
+        $folder = 'images/uploads/heroImages';
+        if( ! is_dir($folder)){
+            mkdir($folder, 0777, true);
+        }
+        $heroImage->save($folder.'/'.$imageName.'.jpg', 100);
+
+        $thumbFolder = 'images/uploads/thumbnails';
+        if( ! is_dir($thumbFolder)){
+            mkdir($thumbFolder, 0777, true);
+        }
+        //Need to Crop to thumbnail size
 
         $project = Project::create([
             'project_name' => $request->project_name,
@@ -77,7 +88,8 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = Project::where('id', '=', $id)->firstOrFail();
+        return $project->toJson();
     }
 
     /**
@@ -88,7 +100,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project::where('id', '=', $id)->firstOrFail();
+        return $project->toJson();
     }
 
     /**
@@ -109,8 +122,13 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $project = Project::findOrFail($request->id);
+        $imageName = $project->project_image;
+        unlink("./images/uploads/heroImages/$imageName.jpg");
+        // unlink("./images/uploads/thumbnails/$imageName.jpg");
+        $project->delete();
+        return 'success';
     }
 }

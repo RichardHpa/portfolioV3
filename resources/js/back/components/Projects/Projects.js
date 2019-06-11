@@ -8,8 +8,17 @@ class Projects extends Component {
       super()
       this.state = {
         projects: [],
-        pageLoaded: true
+        pageLoaded: false
       }
+    }
+
+    componentDidMount () {
+        axios.get('/api/projects').then(response => {
+            this.setState({
+                projects: response.data,
+                pageLoaded: true
+            })
+        })
     }
 
     render () {
@@ -19,6 +28,7 @@ class Projects extends Component {
                 <Loader />
             )
         } else {
+            console.log(projects);
             return (
                 <div className="container ml-0">
                     <div className="row">
@@ -31,6 +41,28 @@ class Projects extends Component {
                         <div className="col">
                             <Link className="btn btn-theme-color" to='./projects/create'>Add New Project</Link>
                         </div>
+                    </div>
+                    <div className="card-deck">
+                        {projects.map(project => (
+                            <div className="card col-12 col-md-4 p-0 text-center shadow-lg justify-content-between" key={project.id}>
+                                <Link
+                                    to={`/admin/projects/${project.id}`}
+                                >
+                                    <img src={`../images/uploads/heroImages/${project.project_image}.jpg`} className="card-img-top" alt="..."/>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{project.project_name}</h5>
+                                    </div>
+                                </Link>
+                                <div className="card-footer p-0">
+                                    <Link
+                                        to={`/admin/projects/edit/${project.id}`}
+                                        className="btn btn-theme-color btn-block"
+                                    >
+                                        Edit Project
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             )

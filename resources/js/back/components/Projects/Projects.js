@@ -28,7 +28,6 @@ class Projects extends Component {
                 <Loader />
             )
         } else {
-            console.log(projects);
             return (
                 <div className="container ml-0">
                     <div className="row">
@@ -46,7 +45,7 @@ class Projects extends Component {
                         {projects.map(project => (
                             <div className="card col-12 col-md-4 p-0 text-center shadow-lg justify-content-between" key={project.id}>
                                 <Link
-                                    to={`/admin/projects/${project.id}`}
+                                    to={`/admin/projects/view/${project.id}`}
                                 >
                                     <img src={`../images/uploads/heroImages/${project.project_image}.jpg`} className="card-img-top" alt="..."/>
                                     <div className="card-body">

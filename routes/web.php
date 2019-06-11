@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::view('admin/{path?}/{sub?}', 'admin')->middleware(['web', 'auth']);
+Route::view('admin/{path?}/{sub?}/{id?}', 'admin')->middleware(['web', 'auth']);

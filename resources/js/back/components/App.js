@@ -8,6 +8,7 @@ import Projects from './Projects/Projects';
 import ProjectsCreate from './Projects/Create';
 import Socals from './Socials/Socials';
 import SingleProject from './Projects/SingleProject'
+import EditProject from './Projects/Edit'
 
 const pages = [
     { 'id': 1, 'name': 'Dashboard', 'url': '/admin','icon': 'chart-pie' },
@@ -17,7 +18,6 @@ const pages = [
     { 'id': 5, 'name': 'Slides', 'url': '/admin/slides','icon': 'images' },
     { 'id': 6, 'name': 'Invoices', 'url': '/admin/invoices','icon': 'file-invoice-dollar' }
 ];
-
 
 class App extends Component {
     render () {
@@ -35,7 +35,8 @@ class App extends Component {
                                     <Route exact path='/admin/socials' component={Socals} />
                                     <Route exact path='/admin/projects' component={Projects} />
                                     <Route exact path='/admin/projects/create' component={ProjectsCreate} />
-                                    <Route exact path='/admin/projects/:id' component={SingleProject} />
+                                    <Route exact path='/admin/projects/edit/:id' component={EditProject} />
+                                    <Route exact path='/admin/projects/view/:id' component={SingleProject} />
 
                                 </Switch>
                             </main>

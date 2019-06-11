@@ -67813,6 +67813,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Projects_Create__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Projects/Create */ "./resources/js/back/components/Projects/Create.js");
 /* harmony import */ var _Socials_Socials__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Socials/Socials */ "./resources/js/back/components/Socials/Socials.js");
 /* harmony import */ var _Projects_SingleProject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Projects/SingleProject */ "./resources/js/back/components/Projects/SingleProject.js");
+/* harmony import */ var _Projects_Edit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Projects/Edit */ "./resources/js/back/components/Projects/Edit.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67830,6 +67831,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -67909,7 +67911,11 @@ function (_Component) {
         component: _Projects_Create__WEBPACK_IMPORTED_MODULE_6__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/admin/projects/:id",
+        path: "/admin/projects/edit/:id",
+        component: _Projects_Edit__WEBPACK_IMPORTED_MODULE_9__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/admin/projects/view/:id",
         component: _Projects_SingleProject__WEBPACK_IMPORTED_MODULE_8__["default"]
       })))))));
     }
@@ -68114,10 +68120,112 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/back/components/Projects/ProjectForm.js":
-/*!**************************************************************!*\
-  !*** ./resources/js/back/components/Projects/ProjectForm.js ***!
-  \**************************************************************/
+/***/ "./resources/js/back/components/Projects/Edit.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/back/components/Projects/Edit.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ProjectForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProjectForm */ "./resources/js/back/components/Projects/ProjectForm.js");
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var EditProject =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(EditProject, _Component);
+
+  function EditProject(props) {
+    var _this;
+
+    _classCallCheck(this, EditProject);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditProject).call(this, props));
+    _this.state = {
+      project: {},
+      pageLoaded: false,
+      sendingData: false,
+      errors: []
+    };
+    return _this;
+  }
+
+  _createClass(EditProject, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var projectId = this.props.match.params.id;
+      axios.get("/api/projects/".concat(projectId)).then(function (response) {
+        _this2.setState({
+          project: response.data,
+          pageLoaded: true
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var history = this.props.history;
+      var _this$state = this.state,
+          project = _this$state.project,
+          pageLoaded = _this$state.pageLoaded;
+
+      if (!pageLoaded) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container ml-0"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Edit ", project.project_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ProjectForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          action: "/api/projects/edit",
+          project: project,
+          inputLabel: "Edit Project",
+          history: history
+        }));
+      }
+    }
+  }]);
+
+  return EditProject;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (EditProject);
+
+/***/ }),
+
+/***/ "./resources/js/back/components/Projects/Modal.js":
+/*!********************************************************!*\
+  !*** ./resources/js/back/components/Projects/Modal.js ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -68131,23 +68239,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_image_crop__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_image_crop__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-image-crop/dist/ReactCrop.css */ "./node_modules/react-image-crop/dist/ReactCrop.css");
 /* harmony import */ var react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! form-data */ "./node_modules/form-data/lib/browser.js");
-/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(form_data__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -68169,337 +68271,18 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-
-
-
-var ProjectForm =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(ProjectForm, _Component);
-
-  function ProjectForm(props) {
-    var _this;
-
-    _classCallCheck(this, ProjectForm);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ProjectForm).call(this, props));
-    _this.state = {
-      showModal: false,
-      src: null,
-      croppedURL: null,
-      sendingData: false,
-      errors: {
-        projectName: '',
-        projectDescription: '',
-        projectImage: '',
-        projectBio: ''
-      },
-      projectName: '',
-      projectDescription: '',
-      projectImage: null,
-      projectBio: '',
-      action: ''
-    };
-    _this.handleModalShowClick = _this.handleModalShowClick.bind(_assertThisInitialized(_this));
-    _this.handleModalCloseClick = _this.handleModalCloseClick.bind(_assertThisInitialized(_this));
-    _this.handleCroppedImage = _this.handleCroppedImage.bind(_assertThisInitialized(_this));
-    _this.validation = _this.validation.bind(_assertThisInitialized(_this));
-    _this.handleFieldChange = _this.handleFieldChange.bind(_assertThisInitialized(_this));
-    _this.handleCreateNewProject = _this.handleCreateNewProject.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(ProjectForm, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.setState({
-        action: this.props.action
-      });
-    }
-  }, {
-    key: "resetValue",
-    value: function resetValue(e) {
-      e.target.value = null;
-    }
-  }, {
-    key: "validation",
-    value: function validation(event) {
-      var input = event.target.name;
-      var fieldValue = event.target.value;
-      this.setState(function (prevState) {
-        return {
-          errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, ''))
-        };
-      });
-      var validationRules = event.target.dataset.validation;
-      var clearString = validationRules.replace(/ /g, '');
-      var rulesList = clearString.split(',');
-
-      for (var i = 0; i < rulesList.length; i++) {
-        var rule = rulesList[i];
-
-        if (rule.includes(":")) {
-          rule = rule.split(':');
-          var value = rule[1];
-          rule = rule[0];
-        }
-
-        switch (rule) {
-          case 'required':
-            if (!fieldValue) {
-              this.setState(function (prevState) {
-                return {
-                  errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, 'This field is required'))
-                };
-              });
-              return;
-            }
-
-            break;
-
-          case 'min':
-            if (fieldValue.length < value) {
-              this.setState(function (prevState) {
-                return {
-                  errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, 'This field needs to be at least ' + value + ' characters'))
-                };
-              });
-              return;
-            }
-
-            break;
-
-          case 'max':
-            if (fieldValue.length > value) {
-              this.setState(function (prevState) {
-                return {
-                  errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, 'This field can be no more than ' + value + ' characters'))
-                };
-              });
-              return;
-            }
-
-            break;
-        }
-      }
-    }
-  }, {
-    key: "handleFieldChange",
-    value: function handleFieldChange(event) {
-      var text = event.target.value.replace(/\r?\n/g, '<br />');
-      console.log(text);
-      this.setState(_defineProperty({}, event.target.name, event.target.value));
-    }
-  }, {
-    key: "handleModalShowClick",
-    value: function handleModalShowClick(e) {
-      e.preventDefault();
-
-      if (window.FileReader) {
-        var imageType = /^image\//;
-        var file = e.target.files[0],
-            reader = new FileReader(),
-            self = this;
-
-        if (!file || !imageType.test(file.type)) {
-          this.setState(function (prevState) {
-            return {
-              croppedURL: null,
-              errors: _objectSpread({}, prevState.errors, {
-                projectImage: 'No file uploaded/supported'
-              })
-            };
-          });
-          return;
-        }
-
-        reader.onload = function (r) {
-          self.setState({
-            src: r.target.result,
-            showModal: true
-          });
-        };
-
-        reader.readAsDataURL(file);
-      }
-    }
-  }, {
-    key: "handleModalCloseClick",
-    value: function handleModalCloseClick() {
-      this.setState({
-        src: null,
-        showModal: false
-      });
-    }
-  }, {
-    key: "handleCroppedImage",
-    value: function handleCroppedImage(croppedImageURL) {
-      this.setState(function (prevState) {
-        return {
-          croppedURL: croppedImageURL,
-          errors: _objectSpread({}, prevState.errors, {
-            projectImage: ''
-          })
-        };
-      });
-      this.handleModalCloseClick();
-    }
-  }, {
-    key: "handleCreateNewProject",
-    value: function handleCreateNewProject(e) {
-      var _this2 = this;
-
-      e.preventDefault();
-      var _this$state = this.state,
-          action = _this$state.action,
-          error = _this$state.error;
-      var history = this.props.history;
-
-      if (this.state.projectName && this.state.projectDescription && this.state.croppedURL) {
-        this.setState({
-          sendingData: true
-        });
-        var reader = new FileReader();
-        var myblob = new Blob([this.state.croppedURL], {
-          type: 'image/jpeg'
-        });
-
-        reader.onloadend = function () {
-          var base64data = reader.result;
-        };
-
-        reader.readAsDataURL(myblob);
-        var form = new form_data__WEBPACK_IMPORTED_MODULE_4___default.a();
-        form.append('project_name', this.state.projectName);
-        form.append('project_description', this.state.projectDescription);
-        form.append('project_bio', this.state.projectBio);
-        form.append('file', this.state.croppedURL);
-        axios__WEBPACK_IMPORTED_MODULE_6___default.a.post(action, form, {
-          headers: {
-            'accept': 'application/json',
-            'Accept-Language': 'en-US,en;q=0.8',
-            'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
-          }
-        }).then(function (response) {
-          console.log(response['data']);
-
-          if (response['data']['message'] === 'success') {
-            _this2.setState({
-              sendingData: false
-            });
-
-            history.push('/admin/projects');
-          }
-        }).catch(function (error) {
-          console.log('error');
-        });
-      } else {
-        console.log('error');
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$state2 = this.state,
-          showModal = _this$state2.showModal,
-          src = _this$state2.src,
-          errors = _this$state2.errors,
-          croppedURL = _this$state2.croppedURL,
-          sendingData = _this$state2.sendingData;
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
-        autoComplete: "off",
-        onSubmit: this.handleCreateNewProject
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-        htmlFor: "projectName"
-      }, "Project Name"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-        id: "name",
-        type: "text",
-        name: "projectName",
-        className: "form-control " + (errors.projectName ? 'is-invalid' : ''),
-        "data-validation": "required, min:10, max:100",
-        placeholder: "Project Name",
-        onChange: this.handleFieldChange,
-        onBlur: this.validation
-      }), errors.projectName ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "invalid-feedback"
-      }, errors.projectName) : null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Project Bio"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
-        id: "bio",
-        className: "form-control " + (errors.projectBio ? 'is-invalid' : ''),
-        "data-validation": "required, min:10",
-        name: "projectBio",
-        rows: "5",
-        onChange: this.handleFieldChange,
-        onBlur: this.validation
-      }), errors.projectBio ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "invalid-feedback"
-      }, errors.projectBio) : null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Project Description"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
-        id: "description",
-        className: "form-control " + (errors.projectDescription ? 'is-invalid' : ''),
-        "data-validation": "required, min:10",
-        name: "projectDescription",
-        rows: "10",
-        onChange: this.handleFieldChange,
-        onBlur: this.validation
-      }), errors.projectDescription ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "invalid-feedback"
-      }, errors.projectDescription) : null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "form-row"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "form-group col"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Main Project Image"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "custom-file"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-        id: "customFile",
-        type: "file",
-        className: "custom-file-input " + (errors.projectImage ? 'is-invalid' : ''),
-        onClick: this.resetValue,
-        onChange: this.handleModalShowClick
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-        className: "custom-file-label",
-        htmlFor: "customFile"
-      }, "Choose file"), showModal ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Modal, {
-        handleModalCloseClick: this.handleModalCloseClick,
-        originalImgURL: src,
-        croppedImage: this.handleCroppedImage
-      }) : null, errors.projectImage ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "invalid-feedback"
-      }, errors.projectImage) : null)), croppedURL && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
-        alt: "Crop",
-        className: "img-fluid",
-        src: croppedURL
-      }))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-        type: "submit",
-        className: "btn btn-theme-color"
-      }, "Add New Project"), sendingData ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_5__["default"], null) : null);
-    }
-  }]);
-
-  return ProjectForm;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (ProjectForm);
-
 var Modal =
 /*#__PURE__*/
-function (_Component2) {
-  _inherits(Modal, _Component2);
+function (_Component) {
+  _inherits(Modal, _Component);
 
   function Modal(props) {
-    var _this3;
+    var _this;
 
     _classCallCheck(this, Modal);
 
-    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(Modal).call(this, props));
-    _this3.state = {
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Modal).call(this, props));
+    _this.state = {
       crop: {
         x: 20,
         y: 10,
@@ -68507,12 +68290,12 @@ function (_Component2) {
         height: 40
       }
     };
-    _this3.handleCloseClick = _this3.handleCloseClick.bind(_assertThisInitialized(_this3));
-    _this3.onCropChange = _this3.onCropChange.bind(_assertThisInitialized(_this3));
-    _this3.cropImage = _this3.cropImage.bind(_assertThisInitialized(_this3));
-    _this3.onImageLoaded = _this3.onImageLoaded.bind(_assertThisInitialized(_this3));
-    _this3.onCropComplete = _this3.onCropComplete.bind(_assertThisInitialized(_this3));
-    return _this3;
+    _this.handleCloseClick = _this.handleCloseClick.bind(_assertThisInitialized(_this));
+    _this.onCropChange = _this.onCropChange.bind(_assertThisInitialized(_this));
+    _this.cropImage = _this.cropImage.bind(_assertThisInitialized(_this));
+    _this.onImageLoaded = _this.onImageLoaded.bind(_assertThisInitialized(_this));
+    _this.onCropComplete = _this.onCropComplete.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Modal, [{
@@ -68621,12 +68404,12 @@ function (_Component2) {
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "modal fade",
         ref: function ref(modal) {
-          return _this4.modal = modal;
+          return _this2.modal = modal;
         },
         id: "exampleModalLong",
         role: "dialog",
@@ -68672,6 +68455,381 @@ function (_Component2) {
 
   return Modal;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Modal);
+
+/***/ }),
+
+/***/ "./resources/js/back/components/Projects/ProjectForm.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/back/components/Projects/ProjectForm.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! form-data */ "./node_modules/form-data/lib/browser.js");
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(form_data__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Modal */ "./resources/js/back/components/Projects/Modal.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+var ProjectForm =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ProjectForm, _Component);
+
+  function ProjectForm(props) {
+    var _this;
+
+    _classCallCheck(this, ProjectForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ProjectForm).call(this, props));
+    _this.state = {
+      showModal: false,
+      src: null,
+      croppedURL: null,
+      sendingData: false,
+      errors: {
+        projectName: '',
+        projectDescription: '',
+        projectImage: '',
+        projectBio: ''
+      },
+      projectName: '',
+      projectDescription: '',
+      projectImage: null,
+      projectBio: '',
+      action: ''
+    };
+    _this.handleModalShowClick = _this.handleModalShowClick.bind(_assertThisInitialized(_this));
+    _this.handleModalCloseClick = _this.handleModalCloseClick.bind(_assertThisInitialized(_this));
+    _this.handleCroppedImage = _this.handleCroppedImage.bind(_assertThisInitialized(_this));
+    _this.validation = _this.validation.bind(_assertThisInitialized(_this));
+    _this.handleFieldChange = _this.handleFieldChange.bind(_assertThisInitialized(_this));
+    _this.handleCreateNewProject = _this.handleCreateNewProject.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ProjectForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (this.props.action === '/api/projects/edit') {
+        this.setState({
+          projectName: this.props.project['project_name'],
+          projectDescription: this.props.project['project_description'],
+          projectBio: this.props.project['project_bio'],
+          croppedURL: "/images/uploads/heroImages/".concat(this.props.project['project_image'], ".jpg")
+        });
+      }
+
+      this.setState({
+        action: this.props.action
+      });
+    }
+  }, {
+    key: "resetValue",
+    value: function resetValue(e) {
+      e.target.value = null;
+    }
+  }, {
+    key: "validation",
+    value: function validation(event) {
+      var input = event.target.name;
+      var fieldValue = event.target.value;
+      this.setState(function (prevState) {
+        return {
+          errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, ''))
+        };
+      });
+      var validationRules = event.target.dataset.validation;
+      var clearString = validationRules.replace(/ /g, '');
+      var rulesList = clearString.split(',');
+
+      for (var i = 0; i < rulesList.length; i++) {
+        var rule = rulesList[i];
+
+        if (rule.includes(":")) {
+          rule = rule.split(':');
+          var value = rule[1];
+          rule = rule[0];
+        }
+
+        switch (rule) {
+          case 'required':
+            if (!fieldValue) {
+              this.setState(function (prevState) {
+                return {
+                  errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, 'This field is required'))
+                };
+              });
+              return;
+            }
+
+            break;
+
+          case 'min':
+            if (fieldValue.length < value) {
+              this.setState(function (prevState) {
+                return {
+                  errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, 'This field needs to be at least ' + value + ' characters'))
+                };
+              });
+              return;
+            }
+
+            break;
+
+          case 'max':
+            if (fieldValue.length > value) {
+              this.setState(function (prevState) {
+                return {
+                  errors: _objectSpread({}, prevState.errors, _defineProperty({}, input, 'This field can be no more than ' + value + ' characters'))
+                };
+              });
+              return;
+            }
+
+            break;
+        }
+      }
+    }
+  }, {
+    key: "handleFieldChange",
+    value: function handleFieldChange(event) {
+      var text = event.target.value.replace(/\r?\n/g, '<br />');
+      this.setState(_defineProperty({}, event.target.name, event.target.value));
+    }
+  }, {
+    key: "handleModalShowClick",
+    value: function handleModalShowClick(e) {
+      e.preventDefault();
+
+      if (window.FileReader) {
+        var imageType = /^image\//;
+        var file = e.target.files[0],
+            reader = new FileReader(),
+            self = this;
+
+        if (!file || !imageType.test(file.type)) {
+          this.setState(function (prevState) {
+            return {
+              croppedURL: null,
+              errors: _objectSpread({}, prevState.errors, {
+                projectImage: 'No file uploaded/supported'
+              })
+            };
+          });
+          return;
+        }
+
+        reader.onload = function (r) {
+          self.setState({
+            src: r.target.result,
+            showModal: true
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
+    }
+  }, {
+    key: "handleModalCloseClick",
+    value: function handleModalCloseClick() {
+      this.setState({
+        src: null,
+        showModal: false
+      });
+    }
+  }, {
+    key: "handleCroppedImage",
+    value: function handleCroppedImage(croppedImageURL) {
+      this.setState(function (prevState) {
+        return {
+          croppedURL: croppedImageURL,
+          errors: _objectSpread({}, prevState.errors, {
+            projectImage: ''
+          })
+        };
+      });
+      this.handleModalCloseClick();
+    }
+  }, {
+    key: "handleCreateNewProject",
+    value: function handleCreateNewProject(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      var _this$state = this.state,
+          action = _this$state.action,
+          error = _this$state.error;
+      var history = this.props.history;
+
+      if (this.state.projectName && this.state.projectDescription && this.state.croppedURL) {
+        this.setState({
+          sendingData: true
+        });
+        var reader = new FileReader();
+        var myblob = new Blob([this.state.croppedURL], {
+          type: 'image/jpeg'
+        });
+
+        reader.onloadend = function () {
+          var base64data = reader.result;
+        };
+
+        reader.readAsDataURL(myblob);
+        var form = new form_data__WEBPACK_IMPORTED_MODULE_1___default.a();
+        form.append('project_name', this.state.projectName);
+        form.append('project_description', this.state.projectDescription);
+        form.append('project_bio', this.state.projectBio);
+        form.append('file', this.state.croppedURL);
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(action, form, {
+          headers: {
+            'accept': 'application/json',
+            'Accept-Language': 'en-US,en;q=0.8',
+            'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
+          }
+        }).then(function (response) {
+          if (response['data']['message'] === 'success') {
+            _this2.setState({
+              sendingData: false
+            });
+
+            history.push('/admin/projects');
+          }
+        }).catch(function (error) {
+          console.log('error');
+        });
+      } else {
+        console.log('error');
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state2 = this.state,
+          showModal = _this$state2.showModal,
+          src = _this$state2.src,
+          errors = _this$state2.errors,
+          croppedURL = _this$state2.croppedURL,
+          sendingData = _this$state2.sendingData;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        autoComplete: "off",
+        onSubmit: this.handleCreateNewProject
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "projectName"
+      }, "Project Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "name",
+        type: "text",
+        name: "projectName",
+        className: "form-control " + (errors.projectName ? 'is-invalid' : ''),
+        "data-validation": "required, min:10, max:100",
+        placeholder: "Project Name",
+        onChange: this.handleFieldChange,
+        onBlur: this.validation,
+        value: this.state.projectName
+      }), errors.projectName ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.projectName) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Project Bio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "bio",
+        className: "form-control " + (errors.projectBio ? 'is-invalid' : ''),
+        "data-validation": "required, min:10",
+        name: "projectBio",
+        rows: "5",
+        onChange: this.handleFieldChange,
+        onBlur: this.validation,
+        value: this.state.projectBio
+      }), errors.projectBio ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.projectBio) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Project Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "description",
+        className: "form-control " + (errors.projectDescription ? 'is-invalid' : ''),
+        "data-validation": "required, min:10",
+        name: "projectDescription",
+        rows: "10",
+        onChange: this.handleFieldChange,
+        onBlur: this.validation,
+        value: this.state.projectDescription
+      }), errors.projectDescription ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.projectDescription) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Main Project Image"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "custom-file"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "customFile",
+        type: "file",
+        className: "custom-file-input " + (errors.projectImage ? 'is-invalid' : ''),
+        onClick: this.resetValue,
+        onChange: this.handleModalShowClick
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "custom-file-label",
+        htmlFor: "customFile"
+      }, "Choose file"), showModal ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        handleModalCloseClick: this.handleModalCloseClick,
+        originalImgURL: src,
+        croppedImage: this.handleCroppedImage
+      }) : null, errors.projectImage ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.projectImage) : null)), croppedURL && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        alt: "Crop",
+        className: "img-fluid",
+        src: croppedURL
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn btn-theme-color"
+      }, "Add New Project"), sendingData ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null);
+    }
+  }]);
+
+  return ProjectForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (ProjectForm);
 
 /***/ }),
 
@@ -68753,7 +68911,6 @@ function (_Component) {
       if (!pageLoaded) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], null);
       } else {
-        console.log(projects);
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container ml-0"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -68774,7 +68931,7 @@ function (_Component) {
             className: "card col-12 col-md-4 p-0 text-center shadow-lg justify-content-between",
             key: project.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-            to: "/admin/projects/".concat(project.id)
+            to: "/admin/projects/view/".concat(project.id)
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             src: "../images/uploads/heroImages/".concat(project.project_image, ".jpg"),
             className: "card-img-top",

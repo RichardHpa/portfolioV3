@@ -19,6 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('projects', 'ProjectController@index');
 Route::post('projects', 'ProjectController@store');
-// Route::get('projects/{id}', 'ProjectController@show');
+Route::post('projects/edit', 'ProjectController@update');
 Route::post('projects/delete', 'ProjectController@destroy');
 Route::get('projects/{id}', 'ProjectController@show');

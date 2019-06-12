@@ -22,7 +22,6 @@ class ProjectForm extends Component {
             },
             projectName: '',
             projectDescription: '',
-            projectImage: null,
             projectBio: '',
             action: '',
         }
@@ -163,9 +162,13 @@ class ProjectForm extends Component {
     }
 
     handleCreateNewProject(e){
+
         e.preventDefault();
         const { action, error } = this.state;
         const { history } = this.props
+        // console.log(action);
+        // console.log(this.state)
+        // return;
 
         if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
             this.setState({
@@ -219,7 +222,7 @@ class ProjectForm extends Component {
                         type="text"
                         name='projectName'
                         className={"form-control " + (errors.projectName ? 'is-invalid' : '')}
-                        data-validation='required, min:10, max:100'
+                        data-validation='required, min:5, max:100'
                         placeholder="Project Name"
                         onChange={this.handleFieldChange}
                         onBlur={this.validation}

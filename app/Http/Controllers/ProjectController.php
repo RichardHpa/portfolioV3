@@ -11,6 +11,11 @@ use App\Project;
 
 class ProjectController extends Controller
 {
+
+    public function __construct()
+    {
+        // $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -62,6 +67,12 @@ class ProjectController extends Controller
         if( ! is_dir($thumbFolder)){
             mkdir($thumbFolder, 0777, true);
         }
+        $thumbnailImage = $manager->make($request['file']);
+        $thumbnailImage->resize(600, null, function($constraint){
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+        $thumbnailImage->save($thumbFolder.'/'.$imageName.'.jpg', 100);
         //Need to Crop to thumbnail size
 
         $project = Project::create([
@@ -113,7 +124,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return 'update';
     }
 
     /**
@@ -127,7 +138,7 @@ class ProjectController extends Controller
         $project = Project::findOrFail($request->id);
         $imageName = $project->project_image;
         unlink("./images/uploads/heroImages/$imageName.jpg");
-        // unlink("./images/uploads/thumbnails/$imageName.jpg");
+        unlink("./images/uploads/thumbnails/$imageName.jpg");
         $project->delete();
         return 'success';
     }

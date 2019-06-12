@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 Route::view('admin/{path?}/{sub?}/{id?}', 'admin')->middleware(['web', 'auth']);

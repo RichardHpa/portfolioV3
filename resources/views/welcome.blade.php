@@ -101,127 +101,37 @@
           </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section bg-light">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col">
-                        <h2 class="text-black mb-4">Industy Projects</h2>
-                        <p>This Portfolio is a work in progress and only holds a handfull of the projects which I have created. I will be adding more projects as I go on but have a look at my <a href="https://github.com/RichardHpa/portfolioV3" target="_blank">here on GitHub</a> for more of my work.</p>
+        @if(count($projects) > 0)
+            <!-- Projects Section -->
+            <section id="projects" class="projects-section bg-light">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col">
+                            <h2 class="text-black mb-4">Projects</h2>
+                            <p>This Portfolio is a work in progress and only holds a handfull of the projects which I have created. I will be adding more projects as I go on but have a look at my <a href="https://github.com/RichardHpa/portfolioV3" target="_blank">here on GitHub</a> for more of my work.</p>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Project One Row -->
-                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                    <div class="col-lg-6 img-section">
-                        <img class="img-fluid" src="images/mrinz.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Medical Research Institute of New Zealand</h4>
-                                    <p class="mb-0 text-white-50">
-                                        I was tasked with redesigning their exisiting website to make it more user friendly and easier to navigate.<br>
-                                        Because they wanted to easily manage content, I decided to use Wordpress to utlize their exisiting back end management system.<br>
-                                        I created a custom Wordpress theme which extends what the functionality of Wordpress to match what they are hoping to achieve from their website.
-                                    </p>
-                                    <strong><u><a href="https://www.mrinz.ac.nz/" target="_blank">Check Out the Site</a></u></strong>
-                                    <hr class="d-none d-lg-block mb-0 ml-0">
+                    @foreach($projects as $singleProject)
+                        <div class="project_row row justify-content-center no-gutters mb-5 mb-lg-0">
+                            <div class="col-lg-6 img-section">
+                                <img class="img-fluid" src="images/uploads/thumbnails/{{ $singleProject->project_image }}.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="bg-black text-center h-100 project">
+                                    <div class="d-flex h-100">
+                                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                                            <h4 class="text-white">{{ $singleProject->project_name }}</h4>
+                                            <div class="bio mb-0 text-white-50">{{ $singleProject->project_bio }}</div>
+                                            <hr class="d-none d-lg-block mb-0 ml-0">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-
-
-
-
-                <!-- Project Two Row -->
-                <div class="row justify-content-center no-gutters">
-                    <div class="col-lg-6 img-section">
-                        <img class="img-fluid" src="images/LYB.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
-                    </div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Little Yellow Bird</h4>
-                                    <p class="mb-0 text-white-50">
-                                        Once I left my studies at Yoobee, I became a freelance designer for Little Yellow Bird.<br>
-                                        I was taksed with creating designs for their website to showcase the collection of apparel they produce.<br>
-                                        The site was built using Shopify and a custom theme was create. Shopify uses a language called liquid which was new to me.
-                                    </p>
-                                    <strong><i class="note">The site has since changed and no longer follows my designs.</i></strong>
-                                    <hr class="d-none d-lg-block mb-0 mr-0">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="projects-section bg-light">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col">
-                        <h2 class="text-black mb-4">Personal Projects</h2>
-                    </div>
-                </div>
-                <!-- Project One Row -->
-                <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                    <div class="col-lg-6 img-section">
-                        <img class="img-fluid" src="images/groupSlot.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white">Group Randomizer</h4>
-                                    <p class="mb-0 text-white-50">
-                                        As a tutor at Yoobee School of Design, I have often had to put my students into groups to work on projects.<br>
-                                        I decided to try and make something a bit more fun and create a slot machine which puts the students into random groups.<br>
-                                        The project uses React JS to create a web application which can be used for any groups you want to create.
-                                    </p>
-                                    <strong><u><a href="https://github.com/RichardHpa/group-randomizer-react" target="_blank">Read the code on GitHub</a></u></strong>
-                                    <hr class="d-none d-lg-block mb-0 ml-0">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Two Row -->
-                <div class="row justify-content-center no-gutters">
-                    <div class="col-lg-6 img-section">
-                        <img class="img-fluid" src="images/stopWatch.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
-                    </div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Stopwatch</h4>
-                                    <p class="mb-0 text-white-50">
-                                        As a class project, I tasked the students to create their own stopwatch app using ReactJS.<br>
-                                        I decided to also do one myself but use a different design than a normal stopwatch.<br>
-                                        As well as the timer going up, there is a minutes and seconds radial clock around it which goes with the time.<br>
-                                        It was a fun little project which I really enjoyed using ReactJS for.
-                                    </p>
-
-                                    <strong><u><a href="https://richard-stopwatch.herokuapp.com/" target="_blank">Checkout the App here</a></u></strong><br>
-                                    <strong><u><a href="https://github.com/RichardHpa/react-stopwatch" target="_blank">Read the code on GitHub</a></u></strong>
-                                    <hr class="d-none d-lg-block mb-0 mr-0">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
+            </section>
+        @endif
         <!-- Contact Section -->
         <section id="contact" class="contact-section bg-black">
             <div class="container">

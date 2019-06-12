@@ -67,7 +67,13 @@ footer {
         }
     }
 }
-
-.content{
+//
+.bio{
     white-space: pre-wrap;
+}
+
+.project_row:nth-child(odd){
+    .img-section{
+        order: 2
+    }
 }

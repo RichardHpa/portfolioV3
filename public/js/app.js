@@ -68531,7 +68531,6 @@ function (_Component) {
       },
       projectName: '',
       projectDescription: '',
-      projectImage: null,
       projectBio: '',
       action: ''
     };
@@ -68696,7 +68695,9 @@ function (_Component) {
       var _this$state = this.state,
           action = _this$state.action,
           error = _this$state.error;
-      var history = this.props.history;
+      var history = this.props.history; // console.log(action);
+      // console.log(this.state)
+      // return;
 
       if (this.state.projectName && this.state.projectDescription && this.state.croppedURL) {
         this.setState({
@@ -68759,7 +68760,7 @@ function (_Component) {
         type: "text",
         name: "projectName",
         className: "form-control " + (errors.projectName ? 'is-invalid' : ''),
-        "data-validation": "required, min:10, max:100",
+        "data-validation": "required, min:5, max:100",
         placeholder: "Project Name",
         onChange: this.handleFieldChange,
         onBlur: this.validation,

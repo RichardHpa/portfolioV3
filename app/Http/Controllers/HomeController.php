@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::orderBy('order')->get();
         return view('welcome', compact('projects'));
     }
 }

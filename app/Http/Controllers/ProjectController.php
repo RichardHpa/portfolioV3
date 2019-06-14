@@ -23,7 +23,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::orderBy('order')->get();
         return $projects->toJson();
     }
 
@@ -35,6 +35,21 @@ class ProjectController extends Controller
     public function create()
     {
         //
+    }
+
+    public function reorder(Request $request){
+        $projects = json_decode($request['projects']);
+        foreach($projects as $key=>$project){
+            $updatingProject = Project::where('id', '=', $project->id)->firstOrFail();
+            $updatingProject->order = null;
+            $updatingProject->save();
+        }
+        foreach($projects as $key=>$project){
+            $updatingProject = Project::where('id', '=', $project->id)->firstOrFail();
+            $updatingProject->order = $key+1;
+            $updatingProject->save();
+        }
+        return 'success';
     }
 
     /**
@@ -75,7 +90,10 @@ class ProjectController extends Controller
         $thumbnailImage->save($thumbFolder.'/'.$imageName.'.jpg', 100);
         //Need to Crop to thumbnail size
 
+        $projectCount = Project::all()->count();
+
         $project = Project::create([
+            'order' => $projectCount+1,
             'project_name' => $request->project_name,
             'project_description' => $request->project_description,
             'project_bio' => $request->project_bio,
@@ -124,6 +142,8 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Project::query()->update(['github_link' => 8]);
+        Project::where('id', '=', 3)->update(['github_link' => 'black']);
         return 'update';
     }
 

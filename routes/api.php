@@ -21,4 +21,5 @@ Route::get('projects', 'ProjectController@index');
 Route::post('projects', 'ProjectController@store');
 Route::post('projects/edit', 'ProjectController@update');
 Route::post('projects/delete', 'ProjectController@destroy');
+Route::post('projects/reorder', 'ProjectController@reorder');
 Route::get('projects/{id}', 'ProjectController@show');

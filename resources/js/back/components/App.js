@@ -23,24 +23,22 @@ class App extends Component {
     render () {
         return (
             <BrowserRouter>
-                <div>
-                    <Header />
-                    <div className="container-fluid">
-                        <div className="row">
-                            <Sidebar
-                                pages={pages}
-                            />
-                            <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                                <Switch>
-                                    <Route exact path='/admin/socials' component={Socals} />
-                                    <Route exact path='/admin/projects' component={Projects} />
-                                    <Route exact path='/admin/projects/create' component={ProjectsCreate} />
-                                    <Route exact path='/admin/projects/edit/:id' component={EditProject} />
-                                    <Route exact path='/admin/projects/view/:id' component={SingleProject} />
+                <Header />
+                <div className="container-fluid h-100">
+                    <div className="row h-100">
+                        <Sidebar
+                            pages={pages}
+                        />
+                        <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 h-100">
+                            <Switch>
+                                <Route exact path='/admin/socials' component={Socals} />
+                                <Route exact path='/admin/projects' component={Projects} />
+                                <Route exact path='/admin/projects/create' component={ProjectsCreate} />
+                                <Route exact path='/admin/projects/edit/:id' component={EditProject} />
+                                <Route exact path='/admin/projects/view/:id' component={SingleProject} />
 
-                                </Switch>
-                            </main>
-                        </div>
+                            </Switch>
+                        </main>
                     </div>
                 </div>
             </BrowserRouter>

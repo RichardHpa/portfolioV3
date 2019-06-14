@@ -10561,6 +10561,11 @@ a.text-theme-color:focus {
   }
 }
 
+#app {
+  height: 100vh;
+  overflow: scroll;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -10615,6 +10620,79 @@ a.text-theme-color:focus {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.shuffle {
+  -webkit-animation-name: keyframes1;
+          animation-name: keyframes1;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 10%;
+          transform-origin: 50% 10%;
+  -webkit-animation-delay: -0.75s;
+          animation-delay: -0.75s;
+  -webkit-animation-duration: 0.25s;
+          animation-duration: 0.25s;
+}
+
+.shuffle:hover {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.dragging {
+  position: fixed;
+  pointer-events: none;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.temporary {
+  border: 1px dashed #bdc3c7;
+  background-color: rgba(255, 255, 255, 0.2);
+  min-height: 100px;
+}
+
+.temporary:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+@-webkit-keyframes keyframes1 {
+  0% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@keyframes keyframes1 {
+  0% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+.disable-link {
+  pointer-events: none;
 }
 
 #searchBar {

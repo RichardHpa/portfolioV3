@@ -67888,15 +67888,15 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container-fluid"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container-fluid h-100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
+        className: "row h-100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_4__["default"], {
         pages: pages
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         role: "main",
-        className: "col-md-9 ml-sm-auto col-lg-10 pt-3 px-4"
+        className: "col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 h-100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/socials",
@@ -67917,7 +67917,7 @@ function (_Component) {
         exact: true,
         path: "/admin/projects/view/:id",
         component: _Projects_SingleProject__WEBPACK_IMPORTED_MODULE_8__["default"]
-      })))))));
+      }))))));
     }
   }]);
 
@@ -68695,9 +68695,7 @@ function (_Component) {
       var _this$state = this.state,
           action = _this$state.action,
           error = _this$state.error;
-      var history = this.props.history; // console.log(action);
-      // console.log(this.state)
-      // return;
+      var history = this.props.history;
 
       if (this.state.projectName && this.state.projectDescription && this.state.croppedURL) {
         this.setState({
@@ -68822,7 +68820,7 @@ function (_Component) {
         src: croppedURL
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
-        className: "btn btn-theme-color"
+        className: "btn btn-theme-color mb-3"
       }, "Add New Project"), sendingData ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null);
     }
   }]);
@@ -68849,6 +68847,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! form-data */ "./node_modules/form-data/lib/browser.js");
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(form_data__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68859,13 +68859,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -68885,8 +68886,22 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Projects).call(this));
     _this.state = {
       projects: [],
-      pageLoaded: false
+      pageLoaded: false,
+      shuffle: false,
+      shuffleIcon: 'fas fa-random',
+      draggingProject: null,
+      draggingProjectMouse: {
+        currentX: 0,
+        currentY: 0
+      },
+      showingTemp: false,
+      currentHover: 0
     };
+    _this.shuffle = _this.shuffle.bind(_assertThisInitialized(_this));
+    _this.startDrag = _this.startDrag.bind(_assertThisInitialized(_this));
+    _this.move = _this.move.bind(_assertThisInitialized(_this));
+    _this.checkShuffle = _this.checkShuffle.bind(_assertThisInitialized(_this));
+    _this.clearShuffle = _this.clearShuffle.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -68903,17 +68918,193 @@ function (_Component) {
       });
     }
   }, {
+    key: "shuffle",
+    value: function shuffle() {
+      var shuffle = this.state.shuffle;
+
+      if (shuffle == false) {
+        this.setState({
+          shuffle: true,
+          shuffleIcon: 'fas fa-save'
+        });
+      } else {
+        this.setState({
+          shuffle: false,
+          shuffleIcon: 'fas fa-random',
+          draggingProject: null,
+          draggingProjectMouse: {
+            currentX: 0,
+            currentY: 0
+          }
+        });
+        var form = new form_data__WEBPACK_IMPORTED_MODULE_4___default.a();
+        form.append('projects', JSON.stringify(this.state.projects));
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/projects/reorder', form).then(function (response) {
+          console.log(response);
+        });
+      }
+    }
+  }, {
+    key: "startDrag",
+    value: function startDrag(e, event) {
+      var _this$state = this.state,
+          shuffle = _this$state.shuffle,
+          draggingProject = _this$state.draggingProject,
+          projects = _this$state.projects,
+          draggingProjectMouse = _this$state.draggingProjectMouse,
+          showingTemp = _this$state.showingTemp;
+
+      if (showingTemp === true) {
+        for (var i = 0; i < projects.length; i++) {
+          if (projects[i].id === 0) {
+            projects.splice(i, 1);
+            projects.splice(i, 0, draggingProject);
+            this.setState({
+              draggingProject: null,
+              draggingProjectMouse: {
+                currentX: 0,
+                currentY: 0
+              },
+              showingTemp: false,
+              currentHover: 0
+            });
+            break;
+          }
+        }
+
+        return;
+      }
+
+      var k = window.event;
+
+      if (shuffle === true) {
+        var card = e;
+
+        for (var i = 0; i < projects.length; i++) {
+          if (projects[i].id === card) {
+            this.setState({
+              draggingProject: projects[i],
+              draggingProjectMouse: {
+                currentX: k.clientX,
+                currentY: k.clientY
+              },
+              showingTemp: true,
+              currentHover: -1
+            });
+            document.onmousemove = this.move;
+            projects.splice(i, 1, {
+              id: 0,
+              project_name: '',
+              project_image: ''
+            });
+            break;
+          }
+        }
+      }
+    }
+  }, {
+    key: "move",
+    value: function move(e) {
+      this.setState({
+        draggingProjectMouse: {
+          currentX: e.clientX - 20,
+          currentY: e.clientY - 20
+        }
+      });
+    }
+  }, {
+    key: "checkShuffle",
+    value: function checkShuffle(num) {
+      var _this$state2 = this.state,
+          shuffle = _this$state2.shuffle,
+          projects = _this$state2.projects,
+          draggingProject = _this$state2.draggingProject,
+          showingTemp = _this$state2.showingTemp;
+
+      if (shuffle && draggingProject) {
+        // console.log('enter '+num);
+        if (showingTemp === false) {
+          this.setState({
+            showingTemp: true,
+            currentHover: num
+          }, function () {
+            if (projects[projects.length - 1].id === 0 && num !== 0) {
+              projects.splice(-1, 1);
+            }
+
+            for (var i = 0; i < projects.length; i++) {
+              if (projects[i].id === num && num !== 0) {
+                projects.splice(i, 0, {
+                  id: 0,
+                  project_name: '',
+                  project_image: ''
+                });
+                break;
+              }
+            }
+          });
+        }
+      }
+    }
+  }, {
+    key: "clearShuffle",
+    value: function clearShuffle(num) {
+      var _this$state3 = this.state,
+          shuffle = _this$state3.shuffle,
+          projects = _this$state3.projects,
+          draggingProject = _this$state3.draggingProject,
+          showingTemp = _this$state3.showingTemp,
+          currentHover = _this$state3.currentHover;
+
+      if (shuffle && draggingProject) {
+        if (showingTemp === true && currentHover !== num) {
+          this.setState({
+            showingTemp: false,
+            currentHover: null
+          }, function () {
+            for (var i = 0; i < projects.length; i++) {
+              if (projects[i].id === 0) {
+                projects.splice(i, 1);
+                break;
+              }
+            }
+
+            projects.push({
+              id: 0,
+              project_name: '',
+              project_image: ''
+            });
+          });
+        }
+
+        if (num === 0) {
+          this.setState({
+            showingTemp: false
+          });
+        }
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          projects = _this$state.projects,
-          pageLoaded = _this$state.pageLoaded;
+      var _this3 = this;
+
+      var _this$state4 = this.state,
+          projects = _this$state4.projects,
+          pageLoaded = _this$state4.pageLoaded,
+          shuffle = _this$state4.shuffle,
+          draggingProject = _this$state4.draggingProject,
+          draggingProjectMouse = _this$state4.draggingProjectMouse;
+      var draggingStyles = {
+        top: draggingProjectMouse.currentY,
+        left: draggingProjectMouse.currentX
+      };
 
       if (!pageLoaded) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], null);
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "container ml-0"
+          className: "container ml-0 h-100"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -68923,15 +69114,26 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          className: "btn btn-theme-color",
+          className: "btn btn-theme-color mr-2",
           to: "./projects/create"
-        }, "Add New Project"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "card-deck"
+        }, "Add New Project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-theme-color mr-2",
+          onClick: this.shuffle
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: this.state.shuffleIcon
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
         }, projects.map(function (project) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "card col-12 col-md-4 p-0 text-center shadow-lg justify-content-between",
-            key: project.id
+          return project.project_name !== '' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "col-12 col-sm-6 col-md-4 col-lg-4 mb-5 ".concat(shuffle ? "shuffle" : ""),
+            key: project.id,
+            onClick: _this3.startDrag.bind(_this3, project.id)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "card h-100 text-center shadow-lg justify-content-between",
+            onMouseEnter: _this3.checkShuffle.bind(_this3, project.id),
+            onMouseOut: _this3.clearShuffle.bind(_this3, project.id)
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            className: "".concat(shuffle ? "disable-link" : ""),
             to: "/admin/projects/view/".concat(project.id)
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
             src: "../images/uploads/heroImages/".concat(project.project_image, ".jpg"),
@@ -68941,13 +69143,40 @@ function (_Component) {
             className: "card-body"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
             className: "card-title"
-          }, project.project_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, project.project_name, " - ", project.id))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "card-footer p-0"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             to: "/admin/projects/edit/".concat(project.id),
-            className: "btn btn-theme-color btn-block"
-          }, "Edit Project")));
-        })));
+            className: "btn btn-theme-color btn-block ".concat(shuffle ? "disable-link" : "")
+          }, "Edit Project")))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "col-12 col-sm-6 col-md-4 col-lg-4 mb-5  ".concat(shuffle ? "shuffle" : ""),
+            key: project.id,
+            onMouseDown: _this3.startDrag.bind(_this3, project.id)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "card h-100 text-center shadow-lg justify-content-center align-items-center temporary",
+            onMouseEnter: _this3.checkShuffle.bind(_this3, project.id),
+            onMouseOut: _this3.clearShuffle.bind(_this3, project.id)
+          }));
+        })), draggingProject ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12 col-sm-6 col-md-4 col-lg-3 mb-3 dragging",
+          style: draggingStyles,
+          onMouseUp: this.sort,
+          onMouseOver: this.move
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card text-center shadow-lg justify-content-between"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "../images/uploads/heroImages/".concat(draggingProject.project_image, ".jpg"),
+          className: "card-img-top",
+          alt: "..."
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-body"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+          className: "card-title"
+        }, draggingProject.project_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card-footer p-0"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-theme-color btn-block"
+        }, "Edit Project")))) : null);
       }
     }
   }]);

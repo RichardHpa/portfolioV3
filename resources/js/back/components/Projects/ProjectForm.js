@@ -166,10 +166,6 @@ class ProjectForm extends Component {
         e.preventDefault();
         const { action, error } = this.state;
         const { history } = this.props
-        // console.log(action);
-        // console.log(this.state)
-        // return;
-
         if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
             this.setState({
                 sendingData: true
@@ -293,7 +289,7 @@ class ProjectForm extends Component {
                         </div>
                     }
                 </div>
-                <button type="submit" className="btn btn-theme-color">Add New Project</button>
+                <button type="submit" className="btn btn-theme-color mb-3">Add New Project</button>
                 {sendingData ? (<Loader
                     />
                 ):null}

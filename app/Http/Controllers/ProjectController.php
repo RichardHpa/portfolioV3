@@ -67,7 +67,7 @@ class ProjectController extends Controller
             'file' => 'required'
         ]);
         if ($validator->fails()) {
-            $result =  'ERROR, something went wrong with validation';
+            $result =  'Validation Error';
         }
         $manager = new ImageManager();
         $heroImage = $manager->make($request['file']);
@@ -88,7 +88,6 @@ class ProjectController extends Controller
             $constraint->upsize();
         });
         $thumbnailImage->save($thumbFolder.'/'.$imageName.'.jpg', 100);
-        //Need to Crop to thumbnail size
 
         $projectCount = Project::all()->count();
 
@@ -98,7 +97,8 @@ class ProjectController extends Controller
             'project_description' => $request->project_description,
             'project_bio' => $request->project_bio,
             'project_image' => $imageName,
-
+            'github_link' => $request->project_github,
+            'website_url' => $request->project_link
         ]);
 
         $result = array(
@@ -140,11 +140,53 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         // Project::query()->update(['github_link' => 8]);
-        Project::where('id', '=', 3)->update(['github_link' => 'black']);
-        return 'update';
+        $project = Project::where('id', '=', $request->project_id)->firstOrFail();
+        $validator = Validator::make($request->all(), [
+            'project_name' => 'required|min:10|max:100',
+            'project_description' => 'required|min:10',
+            'project_bio' => 'required|min:10'
+        ]);
+        if ($validator->fails()) {
+            $result = 'Validation Error';
+        }
+
+        if($request->updateImage == true){
+            $imageName = $project->project_image;
+            unlink("./images/uploads/heroImages/$imageName.jpg");
+            unlink("./images/uploads/thumbnails/$imageName.jpg");
+            $manager = new ImageManager();
+            $heroImage = $manager->make($request['file']);
+            $imageName = uniqid();
+            $folder = 'images/uploads/heroImages';
+            $heroImage->save($folder.'/'.$imageName.'.jpg', 100);
+
+            $thumbFolder = 'images/uploads/thumbnails';
+            $thumbnailImage = $manager->make($request['file']);
+            $thumbnailImage->resize(600, null, function($constraint){
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $thumbnailImage->save($thumbFolder.'/'.$imageName.'.jpg', 100);
+            $project->project_image = $imageName;
+        }
+
+        $project->project_name = $request->project_name;
+        $project->project_description = $request->project_name;
+        $project->project_bio = $request->project_bio;
+        $project->github_link = $request->project_github;
+        $project->website_url = $request->project_link;
+
+        $project->save();
+
+        $result = array(
+            'message' => 'success',
+            'projectID' => $project->id
+        );
+
+        return response()->json($result);
     }
 
     /**

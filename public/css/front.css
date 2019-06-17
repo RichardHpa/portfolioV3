@@ -10900,3 +10900,22 @@ footer {
   order: 2;
 }
 
+@media screen and (max-width: 990px) {
+  .project_row:nth-child(odd) .img-section {
+    order: 1;
+  }
+
+  .project_row:nth-child(odd) .content-section {
+    order: 2;
+  }
+
+  .img-section {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .img-section img {
+    margin: 0 auto;
+  }
+}
+

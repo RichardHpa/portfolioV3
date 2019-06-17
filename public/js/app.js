@@ -68527,12 +68527,17 @@ function (_Component) {
         projectName: '',
         projectDescription: '',
         projectImage: '',
-        projectBio: ''
+        projectBio: '',
+        githubLink: '',
+        siteURL: ''
       },
       projectName: '',
       projectDescription: '',
       projectBio: '',
-      action: ''
+      githubLink: '',
+      siteURL: '',
+      action: '',
+      updatedImage: false
     };
     _this.handleModalShowClick = _this.handleModalShowClick.bind(_assertThisInitialized(_this));
     _this.handleModalCloseClick = _this.handleModalCloseClick.bind(_assertThisInitialized(_this));
@@ -68540,6 +68545,7 @@ function (_Component) {
     _this.validation = _this.validation.bind(_assertThisInitialized(_this));
     _this.handleFieldChange = _this.handleFieldChange.bind(_assertThisInitialized(_this));
     _this.handleCreateNewProject = _this.handleCreateNewProject.bind(_assertThisInitialized(_this));
+    _this.removeImage = _this.removeImage.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -68547,11 +68553,29 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       if (this.props.action === '/api/projects/edit') {
+        var siteURLVar;
+
+        if (this.props.project['website_url'] !== null) {
+          siteURLVar = this.props.project['website_url'];
+        } else {
+          siteURLVar = '';
+        }
+
+        var githubUrlVar;
+
+        if (this.props.project['github_link'] !== null) {
+          githubUrlVar = this.props.project['github_link'];
+        } else {
+          githubUrlVar = '';
+        }
+
         this.setState({
           projectName: this.props.project['project_name'],
           projectDescription: this.props.project['project_description'],
           projectBio: this.props.project['project_bio'],
-          croppedURL: "/images/uploads/heroImages/".concat(this.props.project['project_image'], ".jpg")
+          croppedURL: "/images/uploads/heroImages/".concat(this.props.project['project_image'], ".jpg"),
+          siteURL: siteURLVar,
+          githubLink: githubUrlVar
         });
       }
 
@@ -68676,12 +68700,19 @@ function (_Component) {
   }, {
     key: "handleCroppedImage",
     value: function handleCroppedImage(croppedImageURL) {
+      var updateImages = false;
+
+      if (this.props.action === '/api/projects/edit') {
+        updateImages = true;
+      }
+
       this.setState(function (prevState) {
         return {
           croppedURL: croppedImageURL,
           errors: _objectSpread({}, prevState.errors, {
             projectImage: ''
-          })
+          }),
+          updatedImage: updateImages
         };
       });
       this.handleModalCloseClick();
@@ -68712,9 +68743,21 @@ function (_Component) {
 
         reader.readAsDataURL(myblob);
         var form = new form_data__WEBPACK_IMPORTED_MODULE_1___default.a();
+
+        if (this.props.action === '/api/projects/edit') {
+          form.append('project_id', this.props.project['id']);
+        }
+
         form.append('project_name', this.state.projectName);
         form.append('project_description', this.state.projectDescription);
         form.append('project_bio', this.state.projectBio);
+        form.append('project_github', this.state.githubLink);
+        form.append('project_link', this.state.siteURL);
+
+        if (this.state.updatedImage === true) {
+          form.append('updateImage', true);
+        }
+
         form.append('file', this.state.croppedURL);
         axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(action, form, {
           headers: {
@@ -68723,6 +68766,8 @@ function (_Component) {
             'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
           }
         }).then(function (response) {
+          console.log(response);
+
           if (response['data']['message'] === 'success') {
             _this2.setState({
               sendingData: false
@@ -68738,6 +68783,14 @@ function (_Component) {
       }
     }
   }, {
+    key: "removeImage",
+    value: function removeImage(e) {
+      e.preventDefault();
+      this.setState({
+        croppedURL: null
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$state2 = this.state,
@@ -68749,6 +68802,10 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         autoComplete: "off",
         onSubmit: this.handleCreateNewProject
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col12 col-md-8 h-100 p-2 justify-content-between"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -68779,7 +68836,7 @@ function (_Component) {
       }), errors.projectBio ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invalid-feedback"
       }, errors.projectBio) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
+        className: "form-group mb-0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Project Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "description",
         className: "form-control " + (errors.projectDescription ? 'is-invalid' : ''),
@@ -68791,10 +68848,12 @@ function (_Component) {
         value: this.state.projectDescription
       }), errors.projectDescription ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invalid-feedback"
-      }, errors.projectDescription) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-row"
+      }, errors.projectDescription) : null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col12 col-md-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col"
+        className: "card h-100 p-2 justify-content-between"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Main Project Image"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "custom-file"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -68813,15 +68872,50 @@ function (_Component) {
       }) : null, errors.projectImage ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invalid-feedback"
       }, errors.projectImage) : null)), croppedURL && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col"
+        className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         alt: "Crop",
         className: "img-fluid",
         src: croppedURL
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-theme-color mt-1",
+        onClick: this.removeImage
+      }, "Remove Image")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "githubLink"
+      }, "Github Link"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "githubLink",
+        type: "text",
+        name: "githubLink",
+        className: "form-control " + (errors.githubLink ? 'is-invalid' : ''),
+        "data-validation": "",
+        placeholder: "Github Link",
+        onChange: this.handleFieldChange,
+        onBlur: this.validation,
+        value: this.state.githubLink
+      }), errors.githubLink ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.githubLink) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "githubLink"
+      }, "Website URL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "siteURL",
+        type: "text",
+        name: "siteURL",
+        className: "form-control " + (errors.siteURL ? 'is-invalid' : ''),
+        "data-validation": "",
+        placeholder: "Website URL",
+        onChange: this.handleFieldChange,
+        onBlur: this.validation,
+        value: this.state.siteURL
+      }), errors.siteURL ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "invalid-feedback"
+      }, errors.siteURL) : null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
-        className: "btn btn-theme-color mb-3"
-      }, "Add New Project"), sendingData ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null);
+        className: "btn btn-theme-color btn-block"
+      }, this.props.inputLabel)))), sendingData ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null);
     }
   }]);
 

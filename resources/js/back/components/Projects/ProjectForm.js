@@ -18,12 +18,17 @@ class ProjectForm extends Component {
                 projectName: '',
                 projectDescription: '',
                 projectImage: '',
-                projectBio:''
+                projectBio:'',
+                githubLink: '',
+                siteURL: ''
             },
             projectName: '',
             projectDescription: '',
             projectBio: '',
+            githubLink: '',
+            siteURL: '',
             action: '',
+            updatedImage: false
         }
 
         this.handleModalShowClick = this.handleModalShowClick.bind(this);
@@ -32,17 +37,32 @@ class ProjectForm extends Component {
         this.validation = this.validation.bind(this);
         this.handleFieldChange = this.handleFieldChange.bind(this);
         this.handleCreateNewProject = this.handleCreateNewProject.bind(this);
-
-
+        this.removeImage = this.removeImage.bind(this);
     }
 
     componentDidMount () {
         if(this.props.action === '/api/projects/edit'){
+            let siteURLVar;
+            if(this.props.project['website_url'] !== null){
+                siteURLVar = this.props.project['website_url'];
+            } else {
+                siteURLVar = '';
+            }
+
+            var githubUrlVar;
+            if(this.props.project['github_link'] !== null){
+                githubUrlVar = this.props.project['github_link'];
+            } else {
+                githubUrlVar = '';
+            }
+
             this.setState({
                 projectName: this.props.project['project_name'],
                 projectDescription: this.props.project['project_description'],
                 projectBio: this.props.project['project_bio'],
-                croppedURL: `/images/uploads/heroImages/${this.props.project['project_image']}.jpg`
+                croppedURL: `/images/uploads/heroImages/${this.props.project['project_image']}.jpg`,
+                siteURL: siteURLVar,
+                githubLink: githubUrlVar
             });
         }
         this.setState({
@@ -151,18 +171,23 @@ class ProjectForm extends Component {
     }
 
     handleCroppedImage(croppedImageURL){
+
+        var updateImages = false;
+        if(this.props.action === '/api/projects/edit'){
+            updateImages = true;
+        }
         this.setState(prevState => ({
             croppedURL: croppedImageURL,
             errors: {
                 ...prevState.errors,
                 projectImage: ''
-            }
+            },
+            updatedImage: updateImages
         }))
         this.handleModalCloseClick();
     }
 
     handleCreateNewProject(e){
-
         e.preventDefault();
         const { action, error } = this.state;
         const { history } = this.props
@@ -179,10 +204,17 @@ class ProjectForm extends Component {
             }
             reader.readAsDataURL(myblob);
             let form = new FormData();
-
+            if(this.props.action === '/api/projects/edit'){
+                form.append('project_id', this.props.project['id'])
+            }
             form.append('project_name', this.state.projectName);
             form.append('project_description', this.state.projectDescription);
             form.append('project_bio', this.state.projectBio);
+            form.append('project_github', this.state.githubLink);
+            form.append('project_link', this.state.siteURL);
+            if(this.state.updatedImage === true){
+                form.append('updateImage', true);
+            }
             form.append('file', this.state.croppedURL);
             axios.post(action, form, {
                 headers: {
@@ -192,6 +224,7 @@ class ProjectForm extends Component {
                 }
             })
             .then((response) => {
+                console.log(response)
                 if(response['data']['message'] === 'success'){
                     this.setState({
                         sendingData: false
@@ -206,90 +239,140 @@ class ProjectForm extends Component {
         }
     }
 
+    removeImage(e){
+        e.preventDefault();
+        this.setState({
+            croppedURL: null
+        })
+    }
+
 
     render(){
         const {showModal, src, errors, croppedURL, sendingData}  = this.state;
         return(
             <form autoComplete="off" onSubmit={this.handleCreateNewProject}>
-                <div className="form-group">
-                    <label htmlFor="projectName">Project Name</label>
-                    <input
-                        id='name'
-                        type="text"
-                        name='projectName'
-                        className={"form-control " + (errors.projectName ? 'is-invalid' : '')}
-                        data-validation='required, min:5, max:100'
-                        placeholder="Project Name"
-                        onChange={this.handleFieldChange}
-                        onBlur={this.validation}
-                        value={this.state.projectName}
-                    />
-                    {errors.projectName ? (<div className="invalid-feedback">
-                        {errors.projectName}
-                    </div>):null}
-                </div>
-                <div className="form-group">
-                    <label>Project Bio</label>
-                    <textarea
-                        id='bio'
-                        className={"form-control " + (errors.projectBio ? 'is-invalid' : '')}
-                        data-validation='required, min:10'
-                        name='projectBio'
-                        rows='5'
-                        onChange={this.handleFieldChange}
-                        onBlur={this.validation}
-                        value={this.state.projectBio}
-                    />
-                    {errors.projectBio ? (<div className="invalid-feedback">
-                        {errors.projectBio}
-                    </div>):null}
-                </div>
-                <div className="form-group">
-                    <label>Project Description</label>
-                    <textarea
-                        id='description'
-                        className={"form-control " + (errors.projectDescription ? 'is-invalid' : '')}
-                        data-validation='required, min:10'
-                        name='projectDescription'
-                        rows='10'
-                        onChange={this.handleFieldChange}
-                        onBlur={this.validation}
-                        value={this.state.projectDescription}
-                    />
-                    {errors.projectDescription ? (<div className="invalid-feedback">
-                        {errors.projectDescription}
-                    </div>):null}
-                </div>
-                <div className="form-row">
-                    <div className="form-group col">
-                        <label>Main Project Image</label>
-                        <div className="custom-file">
+                <div className="row">
+                    <div className="col12 col-md-8 h-100 p-2 justify-content-between">
+                        <div className="form-group">
+                            <label htmlFor="projectName">Project Name</label>
                             <input
-                                id="customFile"
-                                type="file"
-                                className={"custom-file-input " + (errors.projectImage ? 'is-invalid' : '')}
-                                onClick={this.resetValue}
-                                onChange={this.handleModalShowClick}
+                                id='name'
+                                type="text"
+                                name='projectName'
+                                className={"form-control " + (errors.projectName ? 'is-invalid' : '')}
+                                data-validation='required, min:5, max:100'
+                                placeholder="Project Name"
+                                onChange={this.handleFieldChange}
+                                onBlur={this.validation}
+                                value={this.state.projectName}
                             />
-                            <label className="custom-file-label" htmlFor="customFile">Choose file</label>
-                            {showModal ? (<Modal
-                                handleModalCloseClick={this.handleModalCloseClick}
-                                originalImgURL={src}
-                                croppedImage={this.handleCroppedImage}
-                                />
-                            ):null}
-                            {errors.projectImage ? (<div className="invalid-feedback">
-                                {errors.projectImage}
+                            {errors.projectName ? (<div className="invalid-feedback">
+                                {errors.projectName}
+                            </div>):null}
+                        </div>
+                        <div className="form-group">
+                            <label>Project Bio</label>
+                            <textarea
+                                id='bio'
+                                className={"form-control " + (errors.projectBio ? 'is-invalid' : '')}
+                                data-validation='required, min:10'
+                                name='projectBio'
+                                rows='5'
+                                onChange={this.handleFieldChange}
+                                onBlur={this.validation}
+                                value={this.state.projectBio}
+                            />
+                            {errors.projectBio ? (<div className="invalid-feedback">
+                                {errors.projectBio}
+                            </div>):null}
+                        </div>
+                        <div className="form-group mb-0">
+                            <label>Project Description</label>
+                            <textarea
+                                id='description'
+                                className={"form-control " + (errors.projectDescription ? 'is-invalid' : '')}
+                                data-validation='required, min:10'
+                                name='projectDescription'
+                                rows='10'
+                                onChange={this.handleFieldChange}
+                                onBlur={this.validation}
+                                value={this.state.projectDescription}
+                            />
+                            {errors.projectDescription ? (<div className="invalid-feedback">
+                                {errors.projectDescription}
                             </div>):null}
                         </div>
                     </div>
-                    {croppedURL &&
-                        <div className="col">
-                            <img alt="Crop" className="img-fluid" src={croppedURL} />
+                    <div className="col12 col-md-4">
+                        <div className="card h-100 p-2 justify-content-between">
+                            <div>
+                                <div className="form-group">
+                                    <label>Main Project Image</label>
+                                    <div className="custom-file">
+                                        <input
+                                            id="customFile"
+                                            type="file"
+                                            className={"custom-file-input " + (errors.projectImage ? 'is-invalid' : '')}
+                                            onClick={this.resetValue}
+                                            onChange={this.handleModalShowClick}
+                                        />
+                                        <label className="custom-file-label" htmlFor="customFile">Choose file</label>
+                                        {showModal ? (<Modal
+                                            handleModalCloseClick={this.handleModalCloseClick}
+                                            originalImgURL={src}
+                                            croppedImage={this.handleCroppedImage}
+                                            />
+                                        ):null}
+                                        {errors.projectImage ? (<div className="invalid-feedback">
+                                            {errors.projectImage}
+                                        </div>):null}
+                                    </div>
+                                </div>
+                                {croppedURL &&
+                                    <div className="form-group">
+                                        <img alt="Crop" className="img-fluid" src={croppedURL} />
+                                            <button className="btn btn-theme-color mt-1" onClick={this.removeImage}>Remove Image</button>
+                                    </div>
+                                }
+                                <div className="form-group">
+                                    <label htmlFor="githubLink">Github Link</label>
+                                    <input
+                                        id='githubLink'
+                                        type="text"
+                                        name='githubLink'
+                                        className={"form-control " + (errors.githubLink ? 'is-invalid' : '')}
+                                        data-validation=''
+                                        placeholder="Github Link"
+                                        onChange={this.handleFieldChange}
+                                        onBlur={this.validation}
+                                        value={this.state.githubLink}
+                                    />
+                                    {errors.githubLink ? (<div className="invalid-feedback">
+                                        {errors.githubLink}
+                                    </div>):null}
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="githubLink">Website URL</label>
+                                    <input
+                                        id='siteURL'
+                                        type="text"
+                                        name='siteURL'
+                                        className={"form-control " + (errors.siteURL ? 'is-invalid' : '')}
+                                        data-validation=''
+                                        placeholder="Website URL"
+                                        onChange={this.handleFieldChange}
+                                        onBlur={this.validation}
+                                        value={this.state.siteURL}
+                                    />
+                                    {errors.siteURL ? (<div className="invalid-feedback">
+                                        {errors.siteURL}
+                                    </div>):null}
+                                </div>
+                            </div>
+                            <button type="submit" className="btn btn-theme-color btn-block">{this.props.inputLabel}</button>
                         </div>
-                    }
+                    </div>
                 </div>
-                <button type="submit" className="btn btn-theme-color mb-3">Add New Project</button>
                 {sendingData ? (<Loader
                     />
                 ):null}

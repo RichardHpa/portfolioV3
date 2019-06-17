@@ -16,7 +16,7 @@
             var minHeight = 0;
             function backgroundLoaded(element) {
                 var url = "url('" + element.src + "')";
-                var height = element.parentNode;
+                var height = element.height;
                 var parent = element.parentNode;
                 var bgPosition = element.dataset.position;
                 if (bgPosition) {
@@ -24,6 +24,8 @@
                 }
                 parent.style.backgroundImage = url;
                 parent.style.opacity = "1";
+                // parent.style.height = height;
+                // element.style.display = 'none';
             }
         </script>
 
@@ -34,7 +36,6 @@
           <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">Richard Hpa Design</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              Menu
               <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -116,12 +117,27 @@
                             <div class="col-lg-6 img-section">
                                 <img class="img-fluid" src="images/uploads/thumbnails/{{ $singleProject->project_image }}.jpg" alt="" data-position="50% 50%" onload="backgroundLoaded(this)">
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 content-section">
                                 <div class="bg-black text-center h-100 project">
                                     <div class="d-flex h-100">
                                         <div class="project-text w-100 my-auto text-center text-lg-left">
                                             <h4 class="text-white">{{ $singleProject->project_name }}</h4>
                                             <div class="bio mb-0 text-white-50">{{ $singleProject->project_bio }}</div>
+                                            @if($singleProject->website_url)
+                                                <strong>
+                                                    <u>
+                                                        <a target="_blank" href="{{$singleProject->website_url}}">View the site here.</a>
+                                                    </u>
+                                                </strong>
+                                                <br>
+                                            @endif
+                                            @if($singleProject->github_link)
+                                                <strong>
+                                                    <u>
+                                                        <a target="_blank" href="{{$singleProject->github_link}}">Read the code on GitHub.</a>
+                                                    </u>
+                                                </strong>
+                                            @endif
                                             <hr class="d-none d-lg-block mb-0 ml-0">
                                         </div>
                                     </div>

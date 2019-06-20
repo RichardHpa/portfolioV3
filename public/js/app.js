@@ -69836,6 +69836,7 @@ function (_Component) {
       pageLoaded: false,
       shuffle: false,
       shuffleIcon: 'fas fa-random',
+      removing: false,
       newSocial: '',
       iconPicker: false,
       position: null,
@@ -69846,6 +69847,8 @@ function (_Component) {
     _this.createNew = _this.createNew.bind(_assertThisInitialized(_this));
     _this.changeNew = _this.changeNew.bind(_assertThisInitialized(_this));
     _this.shuffle = _this.shuffle.bind(_assertThisInitialized(_this));
+    _this.prepareRemove = _this.prepareRemove.bind(_assertThisInitialized(_this));
+    _this.removeSocial = _this.removeSocial.bind(_assertThisInitialized(_this));
     _this.changeFontAwesome = _this.changeFontAwesome.bind(_assertThisInitialized(_this));
     _this.handleFontChange = _this.handleFontChange.bind(_assertThisInitialized(_this));
     return _this;
@@ -69938,44 +69941,90 @@ function (_Component) {
       }
     }
   }, {
+    key: "prepareRemove",
+    value: function prepareRemove() {
+      var removing = this.state.removing;
+
+      if (removing) {
+        this.setState({
+          removing: false
+        });
+      } else {
+        this.setState({
+          removing: true
+        });
+      }
+    }
+  }, {
+    key: "removeSocial",
+    value: function removeSocial(social) {
+      var _this4 = this;
+
+      console.log(social.id);
+      var form = new form_data__WEBPACK_IMPORTED_MODULE_3___default.a();
+      form.append('id', social.id);
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/socials/delete', form, {
+        headers: {
+          'accept': 'application/json',
+          'Accept-Language': 'en-US,en;q=0.8'
+        }
+      }).then(function (response) {
+        console.log(response);
+
+        _this4.setState({
+          socials: response.data
+        });
+      }).catch(function (error) {
+        console.log('error');
+      });
+    }
+  }, {
     key: "changeFontAwesome",
     value: function changeFontAwesome(social, e) {
-      this.setState({
-        iconPicker: true,
-        position: e.currentTarget.getBoundingClientRect(),
-        editingId: social.id
-      });
+      if (this.state.shuffle === false) {
+        this.setState({
+          iconPicker: true,
+          position: e.currentTarget.getBoundingClientRect(),
+          editingId: social.id
+        });
+      }
     }
   }, {
     key: "handleFontChange",
     value: function handleFontChange(record) {
-      var socials = this.state.socials;
-      console.log(this.state.editingId);
-      var allSocials = this.state.socials;
+      if (record) {
+        var socials = this.state.socials;
+        var allSocials = this.state.socials;
 
-      for (var i = 0; i < allSocials.length; i++) {
-        if (allSocials[i].id === this.state.editingId) {
-          allSocials[i].social_icon = record;
-          break;
+        for (var i = 0; i < allSocials.length; i++) {
+          if (allSocials[i].id === this.state.editingId) {
+            allSocials[i].social_icon = record;
+            break;
+          }
         }
-      }
 
-      this.setState({
-        socials: allSocials,
-        iconPicker: false
-      });
-      this.save();
+        this.setState({
+          socials: allSocials,
+          iconPicker: false
+        });
+        this.save();
+      } else {
+        this.setState({
+          iconPicker: false
+        });
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
       var _this$state2 = this.state,
           pageLoaded = _this$state2.pageLoaded,
           socials = _this$state2.socials,
           shuffle = _this$state2.shuffle,
-          iconPicker = _this$state2.iconPicker;
+          iconPicker = _this$state2.iconPicker,
+          removing = _this$state2.removing;
 
       if (!pageLoaded) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_4__["default"], null);
@@ -70015,7 +70064,7 @@ function (_Component) {
             className: "input-group mb-2"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "input-group-prepend",
-            onClick: _this4.changeFontAwesome.bind(_this4, social)
+            onClick: _this5.changeFontAwesome.bind(_this5, social)
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "input-group-text socialIcons"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -70025,14 +70074,23 @@ function (_Component) {
             className: "form-control form-control-lg",
             placeholder: social.social_name,
             value: social.social_link,
-            onChange: _this4.edit.bind(_this4, social),
+            onChange: _this5.edit.bind(_this5, social),
             onFocus: function onFocus(e) {
               return e.target.placeholder = "";
             },
             onBlur: function onBlur(e) {
               return e.target.placeholder = social.social_name;
-            }
-          })));
+            },
+            disabled: shuffle
+          }), removing ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "input-group-append",
+            onClick: _this5.createNew
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "input-group-text socialIcons bg-theme-color text-white",
+            onClick: _this5.removeSocial.bind(_this5, social)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: "fas fa-trash"
+          }))) : null));
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "form-group"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70121,7 +70179,8 @@ function (_Component) {
     _this.state = {
       allIcons: [],
       orignalIcons: [],
-      visible: false
+      visible: false,
+      inputValue: ''
     };
     _this.filter = _this.filter.bind(_assertThisInitialized(_this));
     _this.close = _this.close.bind(_assertThisInitialized(_this));
@@ -70142,13 +70201,17 @@ function (_Component) {
     value: function componentDidUpdate(prevProps, prevState, snapshot) {
       if (this.props.pos !== prevProps.pos) {
         this.setState({
-          position: this.props.pos
+          position: this.props.pos,
+          inputValue: '',
+          allIcons: this.state.orignalIcons
         });
       }
 
       if (this.props.visible !== prevProps.visible) {
         this.setState({
-          visible: this.props.visible
+          visible: this.props.visible,
+          inputValue: '',
+          allIcons: this.state.orignalIcons
         });
       }
     }
@@ -70171,7 +70234,8 @@ function (_Component) {
       }
 
       this.setState({
-        allIcons: filteredIcons
+        allIcons: filteredIcons,
+        inputValue: value
       });
     }
   }, {
@@ -70180,6 +70244,7 @@ function (_Component) {
       this.setState({
         visible: false
       });
+      this.props.callback();
     }
   }, {
     key: "render",
@@ -70212,7 +70277,8 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "Search for an Icon",
-        onChange: this.filter
+        onChange: this.filter,
+        value: this.state.inputValue
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "close",
         onClick: this.close

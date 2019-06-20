@@ -26,3 +26,4 @@ Route::get('projects/{id}', 'ProjectController@show');
 
 Route::get('socials', 'SocialController@index');
 Route::post('socials', 'SocialController@store');
+Route::post('socials/delete', 'SocialController@destroy');

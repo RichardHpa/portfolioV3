@@ -10686,9 +10686,14 @@ a.text-theme-color:focus {
           animation-duration: 0.25s;
 }
 
-.shuffleForm:hover {
-  cursor: -webkit-grab;
-  cursor: grab;
+.shuffleForm input:hover {
+  cursor: pointer;
+}
+
+.temporaryForm {
+  border: 1px dashed #bdc3c7;
+  background-color: rgba(255, 255, 255, 0.2);
+  min-height: 45px;
 }
 
 @-webkit-keyframes suffleForm {

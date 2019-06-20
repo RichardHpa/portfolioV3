@@ -13,6 +13,7 @@ class Socals extends Component {
         pageLoaded: false,
         shuffle: false,
         shuffleIcon: 'fas fa-random',
+        removing: false,
         newSocial: '',
         iconPicker: false,
         position: null,
@@ -24,8 +25,12 @@ class Socals extends Component {
       this.createNew = this.createNew.bind(this);
       this.changeNew = this.changeNew.bind(this);
       this.shuffle = this.shuffle.bind(this);
+      this.prepareRemove = this.prepareRemove.bind(this);
+      this.removeSocial = this.removeSocial.bind(this);
+
       this.changeFontAwesome = this.changeFontAwesome.bind(this);
       this.handleFontChange = this.handleFontChange.bind(this);
+
     }
 
     componentDidMount () {
@@ -100,34 +105,74 @@ class Socals extends Component {
         }
     }
 
-    changeFontAwesome(social, e){
-        this.setState({
-            iconPicker: true,
-            position: e.currentTarget.getBoundingClientRect(),
-            editingId: social.id
+    prepareRemove(){
+        const { removing } = this.state;
+        if(removing){
+            this.setState({
+                removing: false
+            })
+        } else {
+            this.setState({
+                removing: true
+            })
+        }
+    }
+
+    removeSocial(social){
+        console.log(social.id)
+        let form = new FormData();
+        form.append('id', social.id);
+        axios.post('/api/socials/delete', form, {
+            headers: {
+              'accept': 'application/json',
+              'Accept-Language': 'en-US,en;q=0.8',
+            }
         })
+        .then((response) => {
+            console.log(response);
+            this.setState({
+                socials: response.data
+            })
+        }).catch((error) => {
+            console.log('error');
+        });
+    }
+
+    changeFontAwesome(social, e){
+        if(this.state.shuffle === false){
+            this.setState({
+                iconPicker: true,
+                position: e.currentTarget.getBoundingClientRect(),
+                editingId: social.id
+            })
+        }
+
     }
 
     handleFontChange(record){
-        const {socials} = this.state;
-        console.log(this.state.editingId);
-        var allSocials = this.state.socials;
-        for (var i = 0; i < allSocials.length; i++) {
-            if(allSocials[i].id === this.state.editingId){
-                allSocials[i].social_icon = record;
-                break;
+        if(record){
+            const {socials} = this.state;
+            var allSocials = this.state.socials;
+            for (var i = 0; i < allSocials.length; i++) {
+                if(allSocials[i].id === this.state.editingId){
+                    allSocials[i].social_icon = record;
+                    break;
+                }
             }
+            this.setState({
+                socials: allSocials,
+                iconPicker: false
+            });
+            this.save();
+        } else {
+            this.setState({
+                iconPicker: false
+            });
         }
-        this.setState({
-            socials: allSocials,
-            iconPicker: false
-        });
-        this.save();
-
     }
 
     render () {
-        const { pageLoaded, socials, shuffle, iconPicker} = this.state;
+        const { pageLoaded, socials, shuffle, iconPicker, removing} = this.state;
         if (!pageLoaded) {
             return (
                 <Loader />
@@ -177,7 +222,21 @@ class Socals extends Component {
                                                         onChange={this.edit.bind(this, social)}
                                                         onFocus={(e)=> e.target.placeholder = ""}
                                                         onBlur={(e) => e.target.placeholder = social.social_name}
+                                                        disabled={shuffle}
                                                     />
+                                                {removing ? (
+                                                    <div
+                                                        className="input-group-append"
+                                                        onClick={this.createNew}
+                                                    >
+                                                      <div
+                                                        className="input-group-text socialIcons bg-theme-color text-white"
+                                                        onClick={this.removeSocial.bind(this,social)}
+                                                        >
+                                                        <i className="fas fa-trash"></i>
+                                                    </div>
+                                                    </div>
+                                                    ):null}
                                                   </div>
                                             </div>
                                         )

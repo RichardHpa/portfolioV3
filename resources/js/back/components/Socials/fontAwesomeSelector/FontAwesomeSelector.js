@@ -10,7 +10,8 @@ class FontAwesomeSelector extends Component {
       this.state = {
           allIcons: [],
           orignalIcons: [],
-          visible: false
+          visible: false,
+          inputValue: ''
       }
       this.filter = this.filter.bind(this)
       this.close = this.close.bind(this)
@@ -27,11 +28,15 @@ class FontAwesomeSelector extends Component {
         if (this.props.pos !== prevProps.pos) {
             this.setState({
                 position: this.props.pos,
+                inputValue: '',
+                allIcons: this.state.orignalIcons
             })
         }
         if(this.props.visible !== prevProps.visible){
             this.setState({
-                visible: this.props.visible
+                visible: this.props.visible,
+                inputValue: '',
+                allIcons: this.state.orignalIcons
             })
         }
     }
@@ -50,7 +55,8 @@ class FontAwesomeSelector extends Component {
             }
         }
         this.setState({
-            allIcons: filteredIcons
+            allIcons: filteredIcons,
+            inputValue: value
         })
 
     }
@@ -59,6 +65,7 @@ class FontAwesomeSelector extends Component {
         this.setState({
             visible: false
         })
+        this.props.callback();
     }
 
     render() {
@@ -83,6 +90,7 @@ class FontAwesomeSelector extends Component {
                         type="text"
                         placeholder="Search for an Icon"
                         onChange={this.filter}
+                        value={this.state.inputValue}
                         />
                     <div className="close"
                         onClick={this.close}

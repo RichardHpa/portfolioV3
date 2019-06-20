@@ -105,7 +105,6 @@ class Projects extends Component {
                     break;
                 }
             }
-
         }
     }
 

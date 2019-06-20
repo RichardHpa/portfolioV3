@@ -48,4 +48,11 @@ class SocialController extends Controller
         return response()->json($socialResult);
 
     }
+
+    public function destroy(Request $request){
+        $social = Social::findOrFail($request->id);
+        $social->delete();
+        $socialResult = Social::all();
+        return response()->json($socialResult);
+    }
 }

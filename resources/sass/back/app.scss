@@ -79,9 +79,17 @@
     transform-origin: 50% 10%;
     animation-delay: -0.75s;
     animation-duration: .25s;
-    &:hover{
-        cursor: grab;
+    input{
+        &:hover{
+            cursor: pointer;
+        }
     }
+}
+
+.temporaryForm{
+    border: 1px dashed #bdc3c7;
+    background-color: rgba(255,255,255,0.2);
+    min-height: 45px;
 }
 
 @keyframes suffleForm {

@@ -6520,6 +6520,25 @@ module.exports = exports['default'];
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./resources/js/back/components/Socials/fontAwesomeSelector/FontAwesomeSelector.scss":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/lib/loader.js??ref--8-3!./resources/js/back/components/Socials/fontAwesomeSelector/FontAwesomeSelector.scss ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".fontAwesomeSelector {\n  height: 400px;\n  width: 330px;\n  background-color: white;\n  z-index: 10000;\n  position: absolute;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n}\n.fontAwesomeSelector #FATopBar {\n  display: flex;\n  align-items: center;\n}\n.fontAwesomeSelector input {\n  width: 90%;\n  padding: 6px 12px;\n}\n.fontAwesomeSelector .close {\n  text-align: center;\n  padding: 6px 12px;\n}\n.fontAwesomeSelector .close:hover {\n  cursor: pointer;\n}\n.fontAwesomeSelector .iconList {\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  height: 100%;\n  overflow-y: scroll;\n}\n.fontAwesomeSelector .iconList .smallIcon {\n  box-sizing: border-box;\n  margin: 10px 0px 10px 10px;\n  width: 50px;\n  height: 50px;\n  padding: 10px;\n  float: left;\n  box-shadow: 0 0 0 1px #ddd;\n  background-color: #ecf0f1;\n  text-align: center;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 20px;\n}\n.fontAwesomeSelector .iconList .smallIcon:hover {\n  color: #ecf0f1;\n  cursor: pointer;\n  background-color: #34495e;\n}\n.fontAwesomeSelector .iconList .smallIcon i {\n  pointer-events: none;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/react-image-crop/dist/ReactCrop.css":
 /*!******************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/react-image-crop/dist/ReactCrop.css ***!
@@ -67811,9 +67830,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Sidebar */ "./resources/js/back/components/Sidebar.js");
 /* harmony import */ var _Projects_Projects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Projects/Projects */ "./resources/js/back/components/Projects/Projects.js");
 /* harmony import */ var _Projects_Create__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Projects/Create */ "./resources/js/back/components/Projects/Create.js");
-/* harmony import */ var _Socials_Socials__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Socials/Socials */ "./resources/js/back/components/Socials/Socials.js");
-/* harmony import */ var _Projects_SingleProject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Projects/SingleProject */ "./resources/js/back/components/Projects/SingleProject.js");
-/* harmony import */ var _Projects_Edit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Projects/Edit */ "./resources/js/back/components/Projects/Edit.js");
+/* harmony import */ var _Projects_SingleProject__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Projects/SingleProject */ "./resources/js/back/components/Projects/SingleProject.js");
+/* harmony import */ var _Projects_Edit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Projects/Edit */ "./resources/js/back/components/Projects/Edit.js");
+/* harmony import */ var _Socials_Socials__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Socials/Socials */ "./resources/js/back/components/Socials/Socials.js");
+/* harmony import */ var _Info_Info__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Info/Info */ "./resources/js/back/components/Info/Info.js");
+/* harmony import */ var _Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Dashboard/Dashboard */ "./resources/js/back/components/Dashboard/Dashboard.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67842,6 +67863,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var pages = [{
   'id': 1,
   'name': 'Dashboard',
@@ -67854,24 +67877,14 @@ var pages = [{
   'icon': 'home'
 }, {
   'id': 3,
-  'name': 'Social Links',
-  'url': '/admin/socials',
-  'icon': 'share-alt'
-}, {
-  'id': 4,
   'name': 'Projects',
   'url': '/admin/projects',
   'icon': 'project-diagram'
 }, {
-  'id': 5,
-  'name': 'Slides',
-  'url': '/admin/slides',
-  'icon': 'images'
-}, {
-  'id': 6,
-  'name': 'Invoices',
-  'url': '/admin/invoices',
-  'icon': 'file-invoice-dollar'
+  'id': 4,
+  'name': 'Social Links',
+  'url': '/admin/socials',
+  'icon': 'share-alt'
 }];
 
 var App =
@@ -67899,8 +67912,12 @@ function (_Component) {
         className: "col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 h-100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
+        path: "/admin/",
+        component: _Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_11__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
         path: "/admin/socials",
-        component: _Socials_Socials__WEBPACK_IMPORTED_MODULE_7__["default"]
+        component: _Socials_Socials__WEBPACK_IMPORTED_MODULE_9__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/projects",
@@ -67912,11 +67929,15 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/projects/edit/:id",
-        component: _Projects_Edit__WEBPACK_IMPORTED_MODULE_9__["default"]
+        component: _Projects_Edit__WEBPACK_IMPORTED_MODULE_8__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/projects/view/:id",
-        component: _Projects_SingleProject__WEBPACK_IMPORTED_MODULE_8__["default"]
+        component: _Projects_SingleProject__WEBPACK_IMPORTED_MODULE_7__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/admin/info",
+        component: _Info_Info__WEBPACK_IMPORTED_MODULE_10__["default"]
       }))))));
     }
   }]);
@@ -67925,6 +67946,90 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('app'));
+
+/***/ }),
+
+/***/ "./resources/js/back/components/Dashboard/Dashboard.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/back/components/Dashboard/Dashboard.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var Dashboard =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Dashboard, _Component);
+
+  function Dashboard() {
+    var _this;
+
+    _classCallCheck(this, Dashboard);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dashboard).call(this));
+    _this.state = {
+      projects: [],
+      pageLoaded: true
+    };
+    return _this;
+  }
+
+  _createClass(Dashboard, [{
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          projects = _this$state.projects,
+          pageLoaded = _this$state.pageLoaded;
+
+      if (!pageLoaded) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container ml-0"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Dashboard"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))));
+      }
+    }
+  }]);
+
+  return Dashboard;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Dashboard);
 
 /***/ }),
 
@@ -67973,10 +68078,108 @@ var Header = function Header() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "btn btn-outline-theme-color my-2 my-sm-0",
     type: "submit"
-  }, "Search"))));
+  }, "Search"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "navbar-nav"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "nav-item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "nav-link",
+    href: "/logout"
+  }, "Logout")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./resources/js/back/components/Info/Info.js":
+/*!***************************************************!*\
+  !*** ./resources/js/back/components/Info/Info.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var Info =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Info, _Component);
+
+  function Info() {
+    var _this;
+
+    _classCallCheck(this, Info);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Info).call(this));
+    _this.state = {
+      projects: [],
+      pageLoaded: true
+    };
+    return _this;
+  }
+
+  _createClass(Info, [{
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          projects = _this$state.projects,
+          pageLoaded = _this$state.pageLoaded;
+
+      if (!pageLoaded) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container ml-0"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Site Info"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row mb-3"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          className: "btn btn-theme-color",
+          to: ""
+        }, "Save"))));
+      }
+    }
+  }]);
+
+  return Info;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Info);
 
 /***/ }),
 
@@ -69299,6 +69502,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
 /* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! form-data */ "./node_modules/form-data/lib/browser.js");
 /* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(form_data__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69316,6 +69520,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -69406,9 +69611,12 @@ function (_Component) {
           className: "col-9"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, project.project_name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+          to: "/admin/projects/edit/".concat(project.id),
+          className: "btn btn-theme-color ml-2"
+        }, "Edit Project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.handleDelete,
-          className: "btn btn-theme-color"
+          className: "btn btn-theme-color ml-2"
         }, "Delete Project"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row mb-3"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -69583,7 +69791,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! form-data */ "./node_modules/form-data/lib/browser.js");
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(form_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+/* harmony import */ var _fontAwesomeSelector_FontAwesomeSelector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./fontAwesomeSelector/FontAwesomeSelector */ "./resources/js/back/components/Socials/fontAwesomeSelector/FontAwesomeSelector.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -69594,9 +69805,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -69606,25 +69817,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var socials = [{
-  name: 'twitter',
-  icon: 'fab fa-twitter'
-}, {
-  name: 'facebook',
-  icon: 'fab fa-facebook-f'
-}, {
-  name: 'linkedin',
-  icon: 'fab fa-linkedin-in'
-}, {
-  name: 'github',
-  icon: 'fab fa-github'
-}, {
-  name: 'instagram',
-  icon: 'fab fa-github'
-}, {
-  name: 'email',
-  icon: 'fas fa-envelope'
-}];
+
+
 
 var Socals =
 /*#__PURE__*/
@@ -69638,21 +69832,153 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Socals).call(this));
     _this.state = {
-      projects: [],
-      pageLoaded: true
+      socials: [],
+      pageLoaded: false,
+      shuffle: false,
+      shuffleIcon: 'fas fa-random',
+      newSocial: '',
+      iconPicker: false,
+      position: null,
+      editingId: ''
     };
+    _this.edit = _this.edit.bind(_assertThisInitialized(_this));
+    _this.save = _this.save.bind(_assertThisInitialized(_this));
+    _this.createNew = _this.createNew.bind(_assertThisInitialized(_this));
+    _this.changeNew = _this.changeNew.bind(_assertThisInitialized(_this));
+    _this.shuffle = _this.shuffle.bind(_assertThisInitialized(_this));
+    _this.changeFontAwesome = _this.changeFontAwesome.bind(_assertThisInitialized(_this));
+    _this.handleFontChange = _this.handleFontChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Socals, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/socials').then(function (response) {
+        _this2.setState({
+          socials: response.data,
+          pageLoaded: true
+        });
+      });
+    }
+  }, {
+    key: "edit",
+    value: function edit(social, e) {
+      var allSocials = this.state.socials;
+
+      for (var i = 0; i < allSocials.length; i++) {
+        if (allSocials[i].social_name === social.social_name) {
+          allSocials[i].social_link = e.target.value;
+          break;
+        }
+      }
+
+      this.setState({
+        socials: allSocials
+      });
+    }
+  }, {
+    key: "save",
+    value: function save() {
+      var _this3 = this;
+
+      var form = new form_data__WEBPACK_IMPORTED_MODULE_3___default.a();
+      form.append('socials', JSON.stringify(this.state.socials));
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/socials', form).then(function (response) {
+        _this3.setState({
+          socials: response.data
+        });
+      });
+    }
+  }, {
+    key: "createNew",
+    value: function createNew() {
+      var _this$state = this.state,
+          socials = _this$state.socials,
+          newSocial = _this$state.newSocial;
+
+      if (newSocial) {
+        var lowerValue = newSocial.toLowerCase();
+        socials.push({
+          social_icon: 'fab fa-' + lowerValue,
+          social_link: '',
+          social_name: newSocial
+        });
+        this.setState({
+          socials: socials,
+          newSocial: ''
+        });
+        this.save();
+      }
+    }
+  }, {
+    key: "changeNew",
+    value: function changeNew(e) {
+      this.setState({
+        newSocial: e.target.value
+      });
+    }
+  }, {
+    key: "shuffle",
+    value: function shuffle() {
+      var shuffle = this.state.shuffle;
+
+      if (shuffle == false) {
+        this.setState({
+          shuffle: true,
+          shuffleIcon: 'fas fa-save'
+        });
+      } else {
+        this.setState({
+          shuffle: false,
+          shuffleIcon: 'fas fa-random'
+        });
+      }
+    }
+  }, {
+    key: "changeFontAwesome",
+    value: function changeFontAwesome(social, e) {
+      this.setState({
+        iconPicker: true,
+        position: e.currentTarget.getBoundingClientRect(),
+        editingId: social.id
+      });
+    }
+  }, {
+    key: "handleFontChange",
+    value: function handleFontChange(record) {
+      var socials = this.state.socials;
+      console.log(this.state.editingId);
+      var allSocials = this.state.socials;
+
+      for (var i = 0; i < allSocials.length; i++) {
+        if (allSocials[i].id === this.state.editingId) {
+          allSocials[i].social_icon = record;
+          break;
+        }
+      }
+
+      this.setState({
+        socials: allSocials,
+        iconPicker: false
+      });
+      this.save();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          projects = _this$state.projects,
-          pageLoaded = _this$state.pageLoaded;
+      var _this4 = this;
+
+      var _this$state2 = this.state,
+          pageLoaded = _this$state2.pageLoaded,
+          socials = _this$state2.socials,
+          shuffle = _this$state2.shuffle,
+          iconPicker = _this$state2.iconPicker;
 
       if (!pageLoaded) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_4__["default"], null);
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container ml-0"
@@ -69664,10 +69990,72 @@ function (_Component) {
           className: "row mb-3"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-          className: "btn btn-theme-color",
-          to: ""
-        }, "Save"))));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-theme-color mr-2",
+          onClick: this.save
+        }, "Save"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-theme-color mr-2",
+          onClick: this.shuffle
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: this.state.shuffleIcon
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-theme-color mr-2",
+          onClick: this.prepareRemove
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-trash-alt"
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, socials.map(function (social) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "form-group ".concat(shuffle ? "shuffleForm" : ""),
+            key: social.social_name
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "input-group mb-2"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "input-group-prepend",
+            onClick: _this4.changeFontAwesome.bind(_this4, social)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "input-group-text socialIcons"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: social.social_icon
+          }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+            type: "text",
+            className: "form-control form-control-lg",
+            placeholder: social.social_name,
+            value: social.social_link,
+            onChange: _this4.edit.bind(_this4, social),
+            onFocus: function onFocus(e) {
+              return e.target.placeholder = "";
+            },
+            onBlur: function onBlur(e) {
+              return e.target.placeholder = social.social_name;
+            }
+          })));
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-group"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-group mb-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-group-prepend",
+          onClick: this.createNew
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-group-text socialIcons"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-plus"
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          className: "form-control form-control-lg",
+          placeholder: "Add a new Social Link",
+          value: this.state.newSocial,
+          onChange: this.changeNew,
+          onBlur: this.createNew
+        })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fontAwesomeSelector_FontAwesomeSelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          callback: this.handleFontChange,
+          pos: this.state.position,
+          visible: this.state.iconPicker
+        }));
       }
     }
   }]);
@@ -69676,6 +70064,258 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Socals);
+
+/***/ }),
+
+/***/ "./resources/js/back/components/Socials/fontAwesomeSelector/FontAwesomeSelector.js":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/back/components/Socials/fontAwesomeSelector/FontAwesomeSelector.js ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _FontAwesomeSelector_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FontAwesomeSelector.scss */ "./resources/js/back/components/Socials/fontAwesomeSelector/FontAwesomeSelector.scss");
+/* harmony import */ var _FontAwesomeSelector_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_FontAwesomeSelector_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _icons_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons.json */ "./resources/js/back/components/Socials/fontAwesomeSelector/icons.json");
+var _icons_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./icons.json */ "./resources/js/back/components/Socials/fontAwesomeSelector/icons.json", 1);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var FontAwesomeSelector =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(FontAwesomeSelector, _Component);
+
+  function FontAwesomeSelector(props) {
+    var _this;
+
+    _classCallCheck(this, FontAwesomeSelector);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(FontAwesomeSelector).call(this, props));
+    _this.state = {
+      allIcons: [],
+      orignalIcons: [],
+      visible: false
+    };
+    _this.filter = _this.filter.bind(_assertThisInitialized(_this));
+    _this.close = _this.close.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(FontAwesomeSelector, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        allIcons: _icons_json__WEBPACK_IMPORTED_MODULE_3__,
+        orignalIcons: _icons_json__WEBPACK_IMPORTED_MODULE_3__,
+        position: this.props.pos
+      });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState, snapshot) {
+      if (this.props.pos !== prevProps.pos) {
+        this.setState({
+          position: this.props.pos
+        });
+      }
+
+      if (this.props.visible !== prevProps.visible) {
+        this.setState({
+          visible: this.props.visible
+        });
+      }
+    }
+  }, {
+    key: "chooseIcon",
+    value: function chooseIcon(icon) {
+      this.props.callback(icon);
+    }
+  }, {
+    key: "filter",
+    value: function filter(e) {
+      var orignalIcons = this.state.orignalIcons;
+      var value = e.target.value;
+      var filteredIcons = [];
+
+      for (var i = 0; i < orignalIcons.length; i++) {
+        if (orignalIcons[i]['icon'].indexOf(value) > -1) {
+          filteredIcons.push(orignalIcons[i]);
+        }
+      }
+
+      this.setState({
+        allIcons: filteredIcons
+      });
+    }
+  }, {
+    key: "close",
+    value: function close() {
+      this.setState({
+        visible: false
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$state = this.state,
+          position = _this$state.position,
+          visible = _this$state.visible;
+      var styles = {};
+
+      if (position) {
+        styles = {
+          left: position['left'],
+          top: position['y'] + position['height'] + 5
+        };
+      }
+
+      if (visible) {
+        styles['display'] = 'flex';
+      } else {
+        styles['display'] = 'none';
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FontAwesomeSelectorPortal, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "fontAwesomeSelector",
+        style: styles
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "FATopBar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        placeholder: "Search for an Icon",
+        onChange: this.filter
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "close",
+        onClick: this.close
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-times"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "iconList"
+      }, this.state.allIcons.map(function (icon) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: icon.icon,
+          className: "smallIcon",
+          onClick: _this2.chooseIcon.bind(_this2, icon.icon)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: icon.icon
+        }));
+      }))));
+    }
+  }]);
+
+  return FontAwesomeSelector;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+var FontAwesomeSelectorPortal =
+/*#__PURE__*/
+function (_Component2) {
+  _inherits(FontAwesomeSelectorPortal, _Component2);
+
+  function FontAwesomeSelectorPortal(props) {
+    var _this3;
+
+    _classCallCheck(this, FontAwesomeSelectorPortal);
+
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(FontAwesomeSelectorPortal).call(this, props));
+    _this3.state = {};
+    _this3.el = document.createElement('div'); // this.el.style.display = 'contents';
+
+    return _this3;
+  }
+
+  _createClass(FontAwesomeSelectorPortal, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      // document.body.appendChild(this.el);
+      document.getElementById('app').appendChild(this.el);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      // document.body.removeChild(this.el)
+      document.getElementById('app').removeChild(this.el);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.createPortal(this.props.children, this.el);
+    }
+  }]);
+
+  return FontAwesomeSelectorPortal;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (FontAwesomeSelector);
+
+/***/ }),
+
+/***/ "./resources/js/back/components/Socials/fontAwesomeSelector/FontAwesomeSelector.scss":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/back/components/Socials/fontAwesomeSelector/FontAwesomeSelector.scss ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader!../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../node_modules/sass-loader/lib/loader.js??ref--8-3!./FontAwesomeSelector.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./resources/js/back/components/Socials/fontAwesomeSelector/FontAwesomeSelector.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/back/components/Socials/fontAwesomeSelector/icons.json":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/back/components/Socials/fontAwesomeSelector/icons.json ***!
+  \*****************************************************************************/
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 694, 695, 696, 697, 698, 699, 700, 701, 702, 703, 704, 705, 706, 707, 708, 709, 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070, 1071, 1072, 1073, 1074, 1075, 1076, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1086, 1087, 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098, 1099, 1100, 1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112, 1113, 1114, 1115, 1116, 1117, 1118, 1119, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1131, 1132, 1133, 1134, 1135, 1136, 1137, 1138, 1139, 1140, 1141, 1142, 1143, 1144, 1145, 1146, 1147, 1148, 1149, 1150, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238, 1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247, 1248, 1249, 1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258, 1259, 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271, 1272, 1273, 1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282, 1283, 1284, 1285, 1286, 1287, 1288, 1289, 1290, 1291, 1292, 1293, 1294, 1295, 1296, 1297, 1298, 1299, 1300, 1301, 1302, 1303, 1304, 1305, 1306, 1307, 1308, 1309, 1310, 1311, 1312, 1313, 1314, 1315, 1316, 1317, 1318, 1319, 1320, 1321, 1322, 1323, 1324, 1325, 1326, 1327, 1328, 1329, 1330, 1331, 1332, 1333, 1334, 1335, 1336, 1337, 1338, 1339, 1340, 1341, 1342, 1343, 1344, 1345, 1346, 1347, 1348, 1349, 1350, 1351, 1352, 1353, 1354, 1355, 1356, 1357, 1358, 1359, 1360, 1361, 1362, 1363, 1364, 1365, 1366, 1367, 1368, 1369, 1370, 1371, 1372, 1373, 1374, 1375, 1376, 1377, 1378, 1379, 1380, 1381, 1382, 1383, 1384, 1385, 1386, 1387, 1388, 1389, 1390, 1391, 1392, 1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401, 1402, 1403, 1404, 1405, 1406, 1407, 1408, 1409, 1410, 1411, default */
+/***/ (function(module) {
+
+module.exports = [{"icon":"fab fa-500px","query":[]},{"icon":"fab fa-accessible-icon","query":["accessibility","handicap","person","wheelchair","wheelchair-alt"]},{"icon":"fab fa-accusoft","query":[]},{"icon":"fab fa-acquisitions-incorporated","query":["Dungeons & Dragons","d&d","dnd","fantasy","game","gaming","tabletop"]},{"icon":"fas fa-ad","query":[]},{"icon":"fas fa-address-book","query":[]},{"icon":"far fa-address-book","query":[]},{"icon":"fas fa-address-card","query":[]},{"icon":"far fa-address-card","query":[]},{"icon":"fas fa-adjust","query":["contrast"]},{"icon":"fab fa-adn","query":[]},{"icon":"fab fa-adversal","query":[]},{"icon":"fab fa-affiliatetheme","query":[]},{"icon":"fas fa-air-freshener","query":[]},{"icon":"fab fa-algolia","query":[]},{"icon":"fas fa-align-center","query":["middle","text"]},{"icon":"fas fa-align-justify","query":["text"]},{"icon":"fas fa-align-left","query":["text"]},{"icon":"fas fa-align-right","query":["text"]},{"icon":"fab fa-alipay","query":[]},{"icon":"fas fa-allergies","query":["freckles","hand","intolerances","pox","spots"]},{"icon":"fab fa-amazon","query":[]},{"icon":"fab fa-amazon-pay","query":[]},{"icon":"fas fa-ambulance","query":["help","machine","support","vehicle"]},{"icon":"fas fa-american-sign-language-interpreting","query":[]},{"icon":"fab fa-amilia","query":[]},{"icon":"fas fa-anchor","query":["link"]},{"icon":"fab fa-android","query":["robot"]},{"icon":"fab fa-angellist","query":[]},{"icon":"fas fa-angle-double-down","query":["arrows"]},{"icon":"fas fa-angle-double-left","query":["arrows","back","laquo","previous","quote"]},{"icon":"fas fa-angle-double-right","query":["arrows","forward","next","quote","raquo"]},{"icon":"fas fa-angle-double-up","query":["arrows"]},{"icon":"fas fa-angle-down","query":["arrow"]},{"icon":"fas fa-angle-left","query":["arrow","back","previous"]},{"icon":"fas fa-angle-right","query":["arrow","forward","next"]},{"icon":"fas fa-angle-up","query":["arrow"]},{"icon":"fas fa-angry","query":["disapprove","emoticon","face","mad","upset"]},{"icon":"far fa-angry","query":["disapprove","emoticon","face","mad","upset"]},{"icon":"fab fa-angrycreative","query":[]},{"icon":"fab fa-angular","query":[]},{"icon":"fas fa-ankh","query":["amulet","copper","coptic christianity","copts","crux ansata","egyptian","venus"]},{"icon":"fab fa-app-store","query":[]},{"icon":"fab fa-app-store-ios","query":[]},{"icon":"fab fa-apper","query":[]},{"icon":"fab fa-apple","query":["food","fruit","mac","osx"]},{"icon":"fas fa-apple-alt","query":["fall","food","fruit","fuji","macintosh","seasonal"]},{"icon":"fab fa-apple-pay","query":[]},{"icon":"fas fa-archive","query":["box","package","storage"]},{"icon":"fas fa-archway","query":["arc","monument","road","street"]},{"icon":"fas fa-arrow-alt-circle-down","query":["arrow-circle-o-down","download"]},{"icon":"far fa-arrow-alt-circle-down","query":["arrow-circle-o-down","download"]},{"icon":"fas fa-arrow-alt-circle-left","query":["arrow-circle-o-left","back","previous"]},{"icon":"far fa-arrow-alt-circle-left","query":["arrow-circle-o-left","back","previous"]},{"icon":"fas fa-arrow-alt-circle-right","query":["arrow-circle-o-right","forward","next"]},{"icon":"far fa-arrow-alt-circle-right","query":["arrow-circle-o-right","forward","next"]},{"icon":"fas fa-arrow-alt-circle-up","query":["arrow-circle-o-up"]},{"icon":"far fa-arrow-alt-circle-up","query":["arrow-circle-o-up"]},{"icon":"fas fa-arrow-circle-down","query":["download"]},{"icon":"fas fa-arrow-circle-left","query":["back","previous"]},{"icon":"fas fa-arrow-circle-right","query":["forward","next"]},{"icon":"fas fa-arrow-circle-up","query":[]},{"icon":"fas fa-arrow-down","query":["download"]},{"icon":"fas fa-arrow-left","query":["back","previous"]},{"icon":"fas fa-arrow-right","query":["forward","next"]},{"icon":"fas fa-arrow-up","query":[]},{"icon":"fas fa-arrows-alt","query":["arrow","arrows","bigger","enlarge","expand","fullscreen","move","position","reorder","resize"]},{"icon":"fas fa-arrows-alt-h","query":["arrows-h","resize"]},{"icon":"fas fa-arrows-alt-v","query":["arrows-v","resize"]},{"icon":"fas fa-assistive-listening-systems","query":[]},{"icon":"fas fa-asterisk","query":["details"]},{"icon":"fab fa-asymmetrik","query":[]},{"icon":"fas fa-at","query":["e-mail","email"]},{"icon":"fas fa-atlas","query":["book","directions","geography","map","wayfinding"]},{"icon":"fas fa-atom","query":["atheism","chemistry","science"]},{"icon":"fab fa-audible","query":[]},{"icon":"fas fa-audio-description","query":[]},{"icon":"fab fa-autoprefixer","query":[]},{"icon":"fab fa-avianex","query":[]},{"icon":"fab fa-aviato","query":[]},{"icon":"fas fa-award","query":["honor","praise","prize","recognition","ribbon"]},{"icon":"fab fa-aws","query":[]},{"icon":"fas fa-backspace","query":["command","delete","keyboard","undo"]},{"icon":"fas fa-backward","query":["previous","rewind"]},{"icon":"fas fa-balance-scale","query":["balanced","justice","legal","measure","weight"]},{"icon":"fas fa-ban","query":["abort","ban","block","cancel","delete","hide","prohibit","remove","stop","trash"]},{"icon":"fas fa-band-aid","query":["bandage","boo boo","ouch"]},{"icon":"fab fa-bandcamp","query":[]},{"icon":"fas fa-barcode","query":["scan"]},{"icon":"fas fa-bars","query":["checklist","drag","hamburger","list","menu","nav","navigation","ol","reorder","settings","todo","ul"]},{"icon":"fas fa-baseball-ball","query":[]},{"icon":"fas fa-basketball-ball","query":[]},{"icon":"fas fa-bath","query":[]},{"icon":"fas fa-battery-empty","query":["power","status"]},{"icon":"fas fa-battery-full","query":["power","status"]},{"icon":"fas fa-battery-half","query":["power","status"]},{"icon":"fas fa-battery-quarter","query":["power","status"]},{"icon":"fas fa-battery-three-quarters","query":["power","status"]},{"icon":"fas fa-bed","query":["lodging","sleep","travel"]},{"icon":"fas fa-beer","query":["alcohol","bar","beverage","drink","liquor","mug","stein"]},{"icon":"fab fa-behance","query":[]},{"icon":"fab fa-behance-square","query":[]},{"icon":"fas fa-bell","query":["alert","notification","reminder"]},{"icon":"far fa-bell","query":["alert","notification","reminder"]},{"icon":"fas fa-bell-slash","query":[]},{"icon":"far fa-bell-slash","query":[]},{"icon":"fas fa-bezier-curve","query":["curves","illustrator","lines","path","vector"]},{"icon":"fas fa-bible","query":["book","catholicism","christianity"]},{"icon":"fas fa-bicycle","query":["bike","gears","transportation","vehicle"]},{"icon":"fab fa-bimobject","query":[]},{"icon":"fas fa-binoculars","query":[]},{"icon":"fas fa-birthday-cake","query":[]},{"icon":"fab fa-bitbucket","query":["bitbucket-square","git"]},{"icon":"fab fa-bitcoin","query":[]},{"icon":"fab fa-bity","query":[]},{"icon":"fab fa-black-tie","query":[]},{"icon":"fab fa-blackberry","query":[]},{"icon":"fas fa-blender","query":[]},{"icon":"fas fa-blender-phone","query":["appliance","fantasy","silly"]},{"icon":"fas fa-blind","query":[]},{"icon":"fab fa-blogger","query":[]},{"icon":"fab fa-blogger-b","query":[]},{"icon":"fab fa-bluetooth","query":[]},{"icon":"fab fa-bluetooth-b","query":[]},{"icon":"fas fa-bold","query":[]},{"icon":"fas fa-bolt","query":["electricity","lightning","weather","zap"]},{"icon":"fas fa-bomb","query":[]},{"icon":"fas fa-bone","query":[]},{"icon":"fas fa-bong","query":["aparatus","cannabis","marijuana","pipe","smoke","smoking"]},{"icon":"fas fa-book","query":["documentation","read"]},{"icon":"fas fa-book-dead","query":["Dungeons & Dragons","crossbones","d&d","dark arts","death","dnd","documentation","evil","fantasy","halloween","holiday","read","skull","spell"]},{"icon":"fas fa-book-open","query":["flyer","notebook","open book","pamphlet","reading"]},{"icon":"fas fa-book-reader","query":["library"]},{"icon":"fas fa-bookmark","query":["save"]},{"icon":"far fa-bookmark","query":["save"]},{"icon":"fas fa-bowling-ball","query":[]},{"icon":"fas fa-box","query":["package"]},{"icon":"fas fa-box-open","query":[]},{"icon":"fas fa-boxes","query":[]},{"icon":"fas fa-braille","query":[]},{"icon":"fas fa-brain","query":["cerebellum","gray matter","intellect","medulla oblongata","mind","noodle","wit"]},{"icon":"fas fa-briefcase","query":["bag","business","luggage","office","work"]},{"icon":"fas fa-briefcase-medical","query":["health briefcase"]},{"icon":"fas fa-broadcast-tower","query":["airwaves","radio","waves"]},{"icon":"fas fa-broom","query":["clean","firebolt","fly","halloween","holiday","nimbus 2000","quidditch","sweep","witch"]},{"icon":"fas fa-brush","query":["bristles","color","handle","painting"]},{"icon":"fab fa-btc","query":[]},{"icon":"fas fa-bug","query":["insect","report"]},{"icon":"fas fa-building","query":["apartment","business","company","office","work"]},{"icon":"far fa-building","query":["apartment","business","company","office","work"]},{"icon":"fas fa-bullhorn","query":["announcement","broadcast","louder","megaphone","share"]},{"icon":"fas fa-bullseye","query":["target"]},{"icon":"fas fa-burn","query":["energy"]},{"icon":"fab fa-buromobelexperte","query":[]},{"icon":"fas fa-bus","query":["machine","public transportation","transportation","vehicle"]},{"icon":"fas fa-bus-alt","query":["machine","public transportation","transportation","vehicle"]},{"icon":"fas fa-business-time","query":["briefcase","business socks","clock","flight of the conchords","wednesday"]},{"icon":"fab fa-buysellads","query":[]},{"icon":"fas fa-calculator","query":[]},{"icon":"fas fa-calendar","query":["calendar-o","date","event","schedule","time","when"]},{"icon":"far fa-calendar","query":["calendar-o","date","event","schedule","time","when"]},{"icon":"fas fa-calendar-alt","query":["calendar","date","event","schedule","time","when"]},{"icon":"far fa-calendar-alt","query":["calendar","date","event","schedule","time","when"]},{"icon":"fas fa-calendar-check","query":["accept","agree","appointment","confirm","correct","done","ok","select","success","todo"]},{"icon":"far fa-calendar-check","query":["accept","agree","appointment","confirm","correct","done","ok","select","success","todo"]},{"icon":"fas fa-calendar-minus","query":["delete","negative","remove"]},{"icon":"far fa-calendar-minus","query":["delete","negative","remove"]},{"icon":"fas fa-calendar-plus","query":["add","create","new","positive"]},{"icon":"far fa-calendar-plus","query":["add","create","new","positive"]},{"icon":"fas fa-calendar-times","query":["archive","delete","remove","x"]},{"icon":"far fa-calendar-times","query":["archive","delete","remove","x"]},{"icon":"fas fa-camera","query":["photo","picture","record"]},{"icon":"fas fa-camera-retro","query":["photo","picture","record"]},{"icon":"fas fa-campground","query":["camping","fall","outdoors","seasonal","tent"]},{"icon":"fas fa-cannabis","query":["bud","chronic","drugs","endica","endo","ganja","marijuana","mary jane","pot","reefer","sativa","spliff","weed","whacky-tabacky"]},{"icon":"fas fa-capsules","query":["drugs","medicine"]},{"icon":"fas fa-car","query":["machine","transportation","vehicle"]},{"icon":"fas fa-car-alt","query":[]},{"icon":"fas fa-car-battery","query":[]},{"icon":"fas fa-car-crash","query":[]},{"icon":"fas fa-car-side","query":[]},{"icon":"fas fa-caret-down","query":["arrow","dropdown","menu","more","triangle down"]},{"icon":"fas fa-caret-left","query":["arrow","back","previous","triangle left"]},{"icon":"fas fa-caret-right","query":["arrow","forward","next","triangle right"]},{"icon":"fas fa-caret-square-down","query":["caret-square-o-down","dropdown","menu","more"]},{"icon":"far fa-caret-square-down","query":["caret-square-o-down","dropdown","menu","more"]},{"icon":"fas fa-caret-square-left","query":["back","caret-square-o-left","previous"]},{"icon":"far fa-caret-square-left","query":["back","caret-square-o-left","previous"]},{"icon":"fas fa-caret-square-right","query":["caret-square-o-right","forward","next"]},{"icon":"far fa-caret-square-right","query":["caret-square-o-right","forward","next"]},{"icon":"fas fa-caret-square-up","query":["caret-square-o-up"]},{"icon":"far fa-caret-square-up","query":["caret-square-o-up"]},{"icon":"fas fa-caret-up","query":["arrow","triangle up"]},{"icon":"fas fa-cart-arrow-down","query":["shopping"]},{"icon":"fas fa-cart-plus","query":["add","create","new","positive","shopping"]},{"icon":"fas fa-cat","query":["feline","halloween","holiday","kitten","kitty","meow","pet"]},{"icon":"fab fa-cc-amazon-pay","query":[]},{"icon":"fab fa-cc-amex","query":["amex"]},{"icon":"fab fa-cc-apple-pay","query":[]},{"icon":"fab fa-cc-diners-club","query":[]},{"icon":"fab fa-cc-discover","query":[]},{"icon":"fab fa-cc-jcb","query":[]},{"icon":"fab fa-cc-mastercard","query":[]},{"icon":"fab fa-cc-paypal","query":[]},{"icon":"fab fa-cc-stripe","query":[]},{"icon":"fab fa-cc-visa","query":[]},{"icon":"fab fa-centercode","query":[]},{"icon":"fas fa-certificate","query":["badge","star"]},{"icon":"fas fa-chair","query":["furniture","seat"]},{"icon":"fas fa-chalkboard","query":["blackboard","learning","school","teaching","whiteboard","writing"]},{"icon":"fas fa-chalkboard-teacher","query":["blackboard","instructor","learning","professor","school","whiteboard","writing"]},{"icon":"fas fa-charging-station","query":[]},{"icon":"fas fa-chart-area","query":["analytics","area-chart","graph"]},{"icon":"fas fa-chart-bar","query":["analytics","bar-chart","graph"]},{"icon":"far fa-chart-bar","query":["analytics","bar-chart","graph"]},{"icon":"fas fa-chart-line","query":["activity","analytics","dashboard","graph","line-chart"]},{"icon":"fas fa-chart-pie","query":["analytics","graph","pie-chart"]},{"icon":"fas fa-check","query":["accept","agree","checkmark","confirm","correct","done","notice","notification","notify","ok","select","success","tick","todo","yes"]},{"icon":"fas fa-check-circle","query":["accept","agree","confirm","correct","done","ok","select","success","todo","yes"]},{"icon":"far fa-check-circle","query":["accept","agree","confirm","correct","done","ok","select","success","todo","yes"]},{"icon":"fas fa-check-double","query":["accept","agree","checkmark","confirm","correct","done","notice","notification","notify","ok","select","success","tick","todo"]},{"icon":"fas fa-check-square","query":["accept","agree","checkmark","confirm","correct","done","ok","select","success","todo","yes"]},{"icon":"far fa-check-square","query":["accept","agree","checkmark","confirm","correct","done","ok","select","success","todo","yes"]},{"icon":"fas fa-chess","query":[]},{"icon":"fas fa-chess-bishop","query":[]},{"icon":"fas fa-chess-board","query":[]},{"icon":"fas fa-chess-king","query":[]},{"icon":"fas fa-chess-knight","query":[]},{"icon":"fas fa-chess-pawn","query":[]},{"icon":"fas fa-chess-queen","query":[]},{"icon":"fas fa-chess-rook","query":[]},{"icon":"fas fa-chevron-circle-down","query":["arrow","dropdown","menu","more"]},{"icon":"fas fa-chevron-circle-left","query":["arrow","back","previous"]},{"icon":"fas fa-chevron-circle-right","query":["arrow","forward","next"]},{"icon":"fas fa-chevron-circle-up","query":["arrow"]},{"icon":"fas fa-chevron-down","query":[]},{"icon":"fas fa-chevron-left","query":["back","bracket","previous"]},{"icon":"fas fa-chevron-right","query":["bracket","forward","next"]},{"icon":"fas fa-chevron-up","query":[]},{"icon":"fas fa-child","query":[]},{"icon":"fab fa-chrome","query":["browser"]},{"icon":"fas fa-church","query":["building","community","religion"]},{"icon":"fas fa-circle","query":["circle-thin","dot","notification"]},{"icon":"far fa-circle","query":["circle-thin","dot","notification"]},{"icon":"fas fa-circle-notch","query":["circle-o-notch"]},{"icon":"fas fa-city","query":["buildings","busy","skyscrapers","urban","windows"]},{"icon":"fas fa-clipboard","query":["paste"]},{"icon":"far fa-clipboard","query":["paste"]},{"icon":"fas fa-clipboard-check","query":["accept","agree","confirm","done","ok","select","success","todo","yes"]},{"icon":"fas fa-clipboard-list","query":["checklist","completed","done","finished","intinerary","ol","schedule","todo","ul"]},{"icon":"fas fa-clock","query":["date","late","schedule","timer","timestamp","watch"]},{"icon":"far fa-clock","query":["date","late","schedule","timer","timestamp","watch"]},{"icon":"fas fa-clone","query":["copy","duplicate"]},{"icon":"far fa-clone","query":["copy","duplicate"]},{"icon":"fas fa-closed-captioning","query":["cc"]},{"icon":"far fa-closed-captioning","query":["cc"]},{"icon":"fas fa-cloud","query":["save"]},{"icon":"fas fa-cloud-download-alt","query":["import"]},{"icon":"fas fa-cloud-meatball","query":[]},{"icon":"fas fa-cloud-moon","query":["crescent","evening","halloween","holiday","lunar","night","sky"]},{"icon":"fas fa-cloud-moon-rain","query":[]},{"icon":"fas fa-cloud-rain","query":["precipitation"]},{"icon":"fas fa-cloud-showers-heavy","query":["precipitation","rain","storm"]},{"icon":"fas fa-cloud-sun","query":["day","daytime","fall","outdoors","seasonal"]},{"icon":"fas fa-cloud-sun-rain","query":[]},{"icon":"fas fa-cloud-upload-alt","query":["cloud-upload"]},{"icon":"fab fa-cloudscale","query":[]},{"icon":"fab fa-cloudsmith","query":[]},{"icon":"fab fa-cloudversify","query":[]},{"icon":"fas fa-cocktail","query":["alcohol","beverage","drink"]},{"icon":"fas fa-code","query":["brackets","html"]},{"icon":"fas fa-code-branch","query":["branch","code-fork","fork","git","github","rebase","svn","vcs","version"]},{"icon":"fab fa-codepen","query":[]},{"icon":"fab fa-codiepie","query":[]},{"icon":"fas fa-coffee","query":["beverage","breakfast","cafe","drink","fall","morning","mug","seasonal","tea"]},{"icon":"fas fa-cog","query":["settings"]},{"icon":"fas fa-cogs","query":["gears","settings"]},{"icon":"fas fa-coins","query":[]},{"icon":"fas fa-columns","query":["dashboard","panes","split"]},{"icon":"fas fa-comment","query":["bubble","chat","conversation","feedback","message","note","notification","sms","speech","texting"]},{"icon":"far fa-comment","query":["bubble","chat","conversation","feedback","message","note","notification","sms","speech","texting"]},{"icon":"fas fa-comment-alt","query":["bubble","chat","commenting","conversation","feedback","message","note","notification","sms","speech","texting"]},{"icon":"far fa-comment-alt","query":["bubble","chat","commenting","conversation","feedback","message","note","notification","sms","speech","texting"]},{"icon":"fas fa-comment-dollar","query":[]},{"icon":"fas fa-comment-dots","query":[]},{"icon":"far fa-comment-dots","query":[]},{"icon":"fas fa-comment-slash","query":[]},{"icon":"fas fa-comments","query":["bubble","chat","conversation","feedback","message","note","notification","sms","speech","texting"]},{"icon":"far fa-comments","query":["bubble","chat","conversation","feedback","message","note","notification","sms","speech","texting"]},{"icon":"fas fa-comments-dollar","query":[]},{"icon":"fas fa-compact-disc","query":["bluray","cd","disc","media"]},{"icon":"fas fa-compass","query":["directory","location","menu","safari"]},{"icon":"far fa-compass","query":["directory","location","menu","safari"]},{"icon":"fas fa-compress","query":["collapse","combine","contract","merge","smaller"]},{"icon":"fas fa-concierge-bell","query":["attention","hotel","service","support"]},{"icon":"fab fa-connectdevelop","query":[]},{"icon":"fab fa-contao","query":[]},{"icon":"fas fa-cookie","query":["baked good","chips","food","snack","sweet","treat"]},{"icon":"fas fa-cookie-bite","query":["baked good","bitten","chips","eating","food","snack","sweet","treat"]},{"icon":"fas fa-copy","query":["clone","duplicate","file","files-o"]},{"icon":"far fa-copy","query":["clone","duplicate","file","files-o"]},{"icon":"fas fa-copyright","query":[]},{"icon":"far fa-copyright","query":[]},{"icon":"fas fa-couch","query":["furniture","sofa"]},{"icon":"fab fa-cpanel","query":[]},{"icon":"fab fa-creative-commons","query":[]},{"icon":"fab fa-creative-commons-by","query":[]},{"icon":"fab fa-creative-commons-nc","query":[]},{"icon":"fab fa-creative-commons-nc-eu","query":[]},{"icon":"fab fa-creative-commons-nc-jp","query":[]},{"icon":"fab fa-creative-commons-nd","query":[]},{"icon":"fab fa-creative-commons-pd","query":[]},{"icon":"fab fa-creative-commons-pd-alt","query":[]},{"icon":"fab fa-creative-commons-remix","query":[]},{"icon":"fab fa-creative-commons-sa","query":[]},{"icon":"fab fa-creative-commons-sampling","query":[]},{"icon":"fab fa-creative-commons-sampling-plus","query":[]},{"icon":"fab fa-creative-commons-share","query":[]},{"icon":"fab fa-creative-commons-zero","query":[]},{"icon":"fas fa-credit-card","query":["buy","checkout","credit-card-alt","debit","money","payment","purchase"]},{"icon":"far fa-credit-card","query":["buy","checkout","credit-card-alt","debit","money","payment","purchase"]},{"icon":"fab fa-critical-role","query":["Dungeons & Dragons","d&d","dnd","fantasy","game","gaming","tabletop"]},{"icon":"fas fa-crop","query":["design"]},{"icon":"fas fa-crop-alt","query":[]},{"icon":"fas fa-cross","query":["catholicism","christianity"]},{"icon":"fas fa-crosshairs","query":["gpd","picker","position"]},{"icon":"fas fa-crow","query":["bird","bullfrog","fauna","halloween","holiday","toad"]},{"icon":"fas fa-crown","query":[]},{"icon":"fab fa-css3","query":["code"]},{"icon":"fab fa-css3-alt","query":[]},{"icon":"fas fa-cube","query":["package"]},{"icon":"fas fa-cubes","query":["packages"]},{"icon":"fas fa-cut","query":["scissors"]},{"icon":"fab fa-cuttlefish","query":[]},{"icon":"fab fa-d-and-d","query":[]},{"icon":"fab fa-d-and-d-beyond","query":["Dungeons & Dragons","d&d","dnd","fantasy","gaming","tabletop"]},{"icon":"fab fa-dashcube","query":[]},{"icon":"fas fa-database","query":[]},{"icon":"fas fa-deaf","query":[]},{"icon":"fab fa-delicious","query":[]},{"icon":"fas fa-democrat","query":["american","democratic party","donkey","election","left","left-wing","liberal","politics","usa"]},{"icon":"fab fa-deploydog","query":[]},{"icon":"fab fa-deskpro","query":[]},{"icon":"fas fa-desktop","query":["computer","cpu","demo","desktop","device","machine","monitor","pc","screen"]},{"icon":"fab fa-dev","query":[]},{"icon":"fab fa-deviantart","query":[]},{"icon":"fas fa-dharmachakra","query":["buddhism","buddhist","wheel of dharma"]},{"icon":"fas fa-diagnoses","query":[]},{"icon":"fas fa-dice","query":["chance","gambling","game","roll"]},{"icon":"fas fa-dice-d20","query":["Dungeons & Dragons","chance","d&d","dnd","fantasy","gambling","game","roll"]},{"icon":"fas fa-dice-d6","query":["Dungeons & Dragons","chance","d&d","dnd","fantasy","gambling","game","roll"]},{"icon":"fas fa-dice-five","query":["chance","gambling","game","roll"]},{"icon":"fas fa-dice-four","query":["chance","gambling","game","roll"]},{"icon":"fas fa-dice-one","query":["chance","gambling","game","roll"]},{"icon":"fas fa-dice-six","query":["chance","gambling","game","roll"]},{"icon":"fas fa-dice-three","query":["chance","gambling","game","roll"]},{"icon":"fas fa-dice-two","query":["chance","gambling","game","roll"]},{"icon":"fab fa-digg","query":[]},{"icon":"fab fa-digital-ocean","query":[]},{"icon":"fas fa-digital-tachograph","query":[]},{"icon":"fas fa-directions","query":[]},{"icon":"fab fa-discord","query":[]},{"icon":"fab fa-discourse","query":[]},{"icon":"fas fa-divide","query":[]},{"icon":"fas fa-dizzy","query":["dazed","disapprove","emoticon","face"]},{"icon":"far fa-dizzy","query":["dazed","disapprove","emoticon","face"]},{"icon":"fas fa-dna","query":["double helix","helix"]},{"icon":"fab fa-dochub","query":[]},{"icon":"fab fa-docker","query":[]},{"icon":"fas fa-dog","query":["canine","fauna","mammmal","pet","pooch","puppy","woof"]},{"icon":"fas fa-dollar-sign","query":["$","dollar-sign","money","price","usd"]},{"icon":"fas fa-dolly","query":[]},{"icon":"fas fa-dolly-flatbed","query":[]},{"icon":"fas fa-donate","query":["generosity","give"]},{"icon":"fas fa-door-closed","query":[]},{"icon":"fas fa-door-open","query":[]},{"icon":"fas fa-dot-circle","query":["bullseye","notification","target"]},{"icon":"far fa-dot-circle","query":["bullseye","notification","target"]},{"icon":"fas fa-dove","query":["bird","fauna","flying","peace"]},{"icon":"fas fa-download","query":["import"]},{"icon":"fab fa-draft2digital","query":[]},{"icon":"fas fa-drafting-compass","query":["mechanical drawing","plot","plotting"]},{"icon":"fas fa-dragon","query":["Dungeons & Dragons","d&d","dnd","fantasy"]},{"icon":"fas fa-draw-polygon","query":[]},{"icon":"fab fa-dribbble","query":[]},{"icon":"fab fa-dribbble-square","query":[]},{"icon":"fab fa-dropbox","query":[]},{"icon":"fas fa-drum","query":["instrument","music","percussion","snare","sound"]},{"icon":"fas fa-drum-steelpan","query":["calypso","instrument","music","percussion","reggae","snare","sound","steel","tropical"]},{"icon":"fas fa-drumstick-bite","query":[]},{"icon":"fab fa-drupal","query":[]},{"icon":"fas fa-dumbbell","query":["exercise","gym","strength","weight","weight-lifting"]},{"icon":"fas fa-dungeon","query":["Dungeons & Dragons","d&d","dnd","door","entrance","fantasy","gate"]},{"icon":"fab fa-dyalog","query":[]},{"icon":"fab fa-earlybirds","query":[]},{"icon":"fab fa-ebay","query":[]},{"icon":"fab fa-edge","query":["browser","ie"]},{"icon":"fas fa-edit","query":["edit","pen","pencil","update","write"]},{"icon":"far fa-edit","query":["edit","pen","pencil","update","write"]},{"icon":"fas fa-eject","query":[]},{"icon":"fab fa-elementor","query":[]},{"icon":"fas fa-ellipsis-h","query":["dots","drag","kebab","list","menu","nav","navigation","ol","reorder","settings","ul"]},{"icon":"fas fa-ellipsis-v","query":["dots","drag","kebab","list","menu","nav","navigation","ol","reorder","settings","ul"]},{"icon":"fab fa-ello","query":[]},{"icon":"fab fa-ember","query":[]},{"icon":"fab fa-empire","query":[]},{"icon":"fas fa-envelope","query":["e-mail","email","letter","mail","message","notification","support"]},{"icon":"far fa-envelope","query":["e-mail","email","letter","mail","message","notification","support"]},{"icon":"fas fa-envelope-open","query":["e-mail","email","letter","mail","message","notification","support"]},{"icon":"far fa-envelope-open","query":["e-mail","email","letter","mail","message","notification","support"]},{"icon":"fas fa-envelope-open-text","query":[]},{"icon":"fas fa-envelope-square","query":["e-mail","email","letter","mail","message","notification","support"]},{"icon":"fab fa-envira","query":["leaf"]},{"icon":"fas fa-equals","query":[]},{"icon":"fas fa-eraser","query":["delete","remove"]},{"icon":"fab fa-erlang","query":[]},{"icon":"fab fa-ethereum","query":[]},{"icon":"fab fa-etsy","query":[]},{"icon":"fas fa-euro-sign","query":["eur"]},{"icon":"fas fa-exchange-alt","query":["arrow","arrows","exchange","reciprocate","return","swap","transfer"]},{"icon":"fas fa-exclamation","query":["alert","danger","error","important","notice","notification","notify","problem","warning"]},{"icon":"fas fa-exclamation-circle","query":["alert","danger","error","important","notice","notification","notify","problem","warning"]},{"icon":"fas fa-exclamation-triangle","query":["alert","danger","error","important","notice","notification","notify","problem","warning"]},{"icon":"fas fa-expand","query":["bigger","enlarge","resize"]},{"icon":"fas fa-expand-arrows-alt","query":["arrows-alt","bigger","enlarge","move","resize"]},{"icon":"fab fa-expeditedssl","query":[]},{"icon":"fas fa-external-link-alt","query":["external-link","new","open"]},{"icon":"fas fa-external-link-square-alt","query":["external-link-square","new","open"]},{"icon":"fas fa-eye","query":["optic","see","seen","show","sight","views","visible"]},{"icon":"far fa-eye","query":["optic","see","seen","show","sight","views","visible"]},{"icon":"fas fa-eye-dropper","query":["eyedropper"]},{"icon":"fas fa-eye-slash","query":["blind","hide","show","toggle","unseen","views","visible","visiblity"]},{"icon":"far fa-eye-slash","query":["blind","hide","show","toggle","unseen","views","visible","visiblity"]},{"icon":"fab fa-facebook","query":["facebook-official","social network"]},{"icon":"fab fa-facebook-f","query":["facebook"]},{"icon":"fab fa-facebook-messenger","query":[]},{"icon":"fab fa-facebook-square","query":["social network"]},{"icon":"fab fa-fantasy-flight-games","query":["Dungeons & Dragons","d&d","dnd","fantasy","game","gaming","tabletop"]},{"icon":"fas fa-fast-backward","query":["beginning","first","previous","rewind","start"]},{"icon":"fas fa-fast-forward","query":["end","last","next"]},{"icon":"fas fa-fax","query":[]},{"icon":"fas fa-feather","query":["bird","light","plucked","quill"]},{"icon":"fas fa-feather-alt","query":["bird","light","plucked","quill"]},{"icon":"fas fa-female","query":["human","person","profile","user","woman"]},{"icon":"fas fa-fighter-jet","query":["airplane","fast","fly","goose","maverick","plane","quick","top gun","transportation","travel"]},{"icon":"fas fa-file","query":["document","new","page","pdf","resume"]},{"icon":"far fa-file","query":["document","new","page","pdf","resume"]},{"icon":"fas fa-file-alt","query":["document","file-text","invoice","new","page","pdf"]},{"icon":"far fa-file-alt","query":["document","file-text","invoice","new","page","pdf"]},{"icon":"fas fa-file-archive","query":[".zip","bundle","compress","compression","download","zip"]},{"icon":"far fa-file-archive","query":[".zip","bundle","compress","compression","download","zip"]},{"icon":"fas fa-file-audio","query":[]},{"icon":"far fa-file-audio","query":[]},{"icon":"fas fa-file-code","query":[]},{"icon":"far fa-file-code","query":[]},{"icon":"fas fa-file-contract","query":["agreement","binding","document","legal","signature"]},{"icon":"fas fa-file-csv","query":["spreadsheets"]},{"icon":"fas fa-file-download","query":[]},{"icon":"fas fa-file-excel","query":[]},{"icon":"far fa-file-excel","query":[]},{"icon":"fas fa-file-export","query":[]},{"icon":"fas fa-file-image","query":[]},{"icon":"far fa-file-image","query":[]},{"icon":"fas fa-file-import","query":[]},{"icon":"fas fa-file-invoice","query":["bill","document","receipt"]},{"icon":"fas fa-file-invoice-dollar","query":["$","bill","document","dollar-sign","money","receipt","usd"]},{"icon":"fas fa-file-medical","query":[]},{"icon":"fas fa-file-medical-alt","query":[]},{"icon":"fas fa-file-pdf","query":[]},{"icon":"far fa-file-pdf","query":[]},{"icon":"fas fa-file-powerpoint","query":[]},{"icon":"far fa-file-powerpoint","query":[]},{"icon":"fas fa-file-prescription","query":["drugs","medical","medicine","rx"]},{"icon":"fas fa-file-signature","query":["John Hancock","contract","document","name"]},{"icon":"fas fa-file-upload","query":[]},{"icon":"fas fa-file-video","query":[]},{"icon":"far fa-file-video","query":[]},{"icon":"fas fa-file-word","query":[]},{"icon":"far fa-file-word","query":[]},{"icon":"fas fa-fill","query":["bucket","color","paint","paint bucket"]},{"icon":"fas fa-fill-drip","query":["bucket","color","drop","paint","paint bucket","spill"]},{"icon":"fas fa-film","query":["movie"]},{"icon":"fas fa-filter","query":["funnel","options"]},{"icon":"fas fa-fingerprint","query":["human","id","identification","lock","smudge","touch","unique","unlock"]},{"icon":"fas fa-fire","query":["caliente","flame","heat","hot","popular"]},{"icon":"fas fa-fire-extinguisher","query":[]},{"icon":"fab fa-firefox","query":["browser"]},{"icon":"fas fa-first-aid","query":[]},{"icon":"fab fa-first-order","query":[]},{"icon":"fab fa-first-order-alt","query":[]},{"icon":"fab fa-firstdraft","query":[]},{"icon":"fas fa-fish","query":["fauna","gold","swimming"]},{"icon":"fas fa-fist-raised","query":["Dungeons & Dragons","d&d","dnd","fantasy","hand","ki","monk","resist","strength","unarmed combat"]},{"icon":"fas fa-flag","query":["country","notice","notification","notify","pole","report","symbol"]},{"icon":"far fa-flag","query":["country","notice","notification","notify","pole","report","symbol"]},{"icon":"fas fa-flag-checkered","query":["notice","notification","notify","pole","racing","report","symbol"]},{"icon":"fas fa-flag-usa","query":["betsy ross","country","old glory","stars","stripes","symbol"]},{"icon":"fas fa-flask","query":["beaker","experimental","labs","science"]},{"icon":"fab fa-flickr","query":[]},{"icon":"fab fa-flipboard","query":[]},{"icon":"fas fa-flushed","query":["embarrassed","emoticon","face"]},{"icon":"far fa-flushed","query":["embarrassed","emoticon","face"]},{"icon":"fab fa-fly","query":[]},{"icon":"fas fa-folder","query":[]},{"icon":"far fa-folder","query":[]},{"icon":"fas fa-folder-minus","query":["archive","delete","negative","remove"]},{"icon":"fas fa-folder-open","query":[]},{"icon":"far fa-folder-open","query":[]},{"icon":"fas fa-folder-plus","query":["add","create","new","positive"]},{"icon":"fas fa-font","query":["text"]},{"icon":"fab fa-font-awesome","query":["meanpath"]},{"icon":"fab fa-font-awesome-alt","query":[]},{"icon":"fab fa-font-awesome-flag","query":[]},{"icon":"far fa-font-awesome-logo-full","query":[]},{"icon":"fas fa-font-awesome-logo-full","query":[]},{"icon":"fab fa-font-awesome-logo-full","query":[]},{"icon":"fab fa-fonticons","query":[]},{"icon":"fab fa-fonticons-fi","query":[]},{"icon":"fas fa-football-ball","query":["fall","pigskin","seasonal"]},{"icon":"fab fa-fort-awesome","query":["castle"]},{"icon":"fab fa-fort-awesome-alt","query":["castle"]},{"icon":"fab fa-forumbee","query":[]},{"icon":"fas fa-forward","query":["forward","next"]},{"icon":"fab fa-foursquare","query":[]},{"icon":"fab fa-free-code-camp","query":[]},{"icon":"fab fa-freebsd","query":[]},{"icon":"fas fa-frog","query":["amphibian","bullfrog","fauna","hop","kermit","kiss","prince","ribbit","toad","wart"]},{"icon":"fas fa-frown","query":["disapprove","emoticon","face","rating","sad"]},{"icon":"far fa-frown","query":["disapprove","emoticon","face","rating","sad"]},{"icon":"fas fa-frown-open","query":["disapprove","emoticon","face","rating","sad"]},{"icon":"far fa-frown-open","query":["disapprove","emoticon","face","rating","sad"]},{"icon":"fab fa-fulcrum","query":[]},{"icon":"fas fa-funnel-dollar","query":[]},{"icon":"fas fa-futbol","query":["ball","football","soccer"]},{"icon":"far fa-futbol","query":["ball","football","soccer"]},{"icon":"fab fa-galactic-republic","query":["politics","star wars"]},{"icon":"fab fa-galactic-senate","query":["star wars"]},{"icon":"fas fa-gamepad","query":["controller"]},{"icon":"fas fa-gas-pump","query":[]},{"icon":"fas fa-gavel","query":["hammer","judge","lawyer","opinion"]},{"icon":"fas fa-gem","query":["diamond"]},{"icon":"far fa-gem","query":["diamond"]},{"icon":"fas fa-genderless","query":[]},{"icon":"fab fa-get-pocket","query":[]},{"icon":"fab fa-gg","query":[]},{"icon":"fab fa-gg-circle","query":[]},{"icon":"fas fa-ghost","query":["apparition","blinky","clyde","floating","halloween","holiday","inky","pinky","spirit"]},{"icon":"fas fa-gift","query":["generosity","giving","party","present","wrapped"]},{"icon":"fab fa-git","query":[]},{"icon":"fab fa-git-square","query":[]},{"icon":"fab fa-github","query":["octocat"]},{"icon":"fab fa-github-alt","query":["octocat"]},{"icon":"fab fa-github-square","query":["octocat"]},{"icon":"fab fa-gitkraken","query":[]},{"icon":"fab fa-gitlab","query":["Axosoft"]},{"icon":"fab fa-gitter","query":[]},{"icon":"fas fa-glass-martini","query":["alcohol","bar","beverage","drink","glass","liquor","martini"]},{"icon":"fas fa-glass-martini-alt","query":[]},{"icon":"fas fa-glasses","query":["foureyes","hipster","nerd","reading","sight","spectacles"]},{"icon":"fab fa-glide","query":[]},{"icon":"fab fa-glide-g","query":[]},{"icon":"fas fa-globe","query":["all","coordinates","country","earth","global","gps","language","localize","location","map","online","place","planet","translate","travel","world"]},{"icon":"fas fa-globe-africa","query":["all","country","earth","global","gps","language","localize","location","map","online","place","planet","translate","travel","world"]},{"icon":"fas fa-globe-americas","query":["all","country","earth","global","gps","language","localize","location","map","online","place","planet","translate","travel","world"]},{"icon":"fas fa-globe-asia","query":["all","country","earth","global","gps","language","localize","location","map","online","place","planet","translate","travel","world"]},{"icon":"fab fa-gofore","query":[]},{"icon":"fas fa-golf-ball","query":[]},{"icon":"fab fa-goodreads","query":[]},{"icon":"fab fa-goodreads-g","query":[]},{"icon":"fab fa-google","query":[]},{"icon":"fab fa-google-drive","query":[]},{"icon":"fab fa-google-play","query":[]},{"icon":"fab fa-google-plus","query":["google-plus-circle","google-plus-official"]},{"icon":"fab fa-google-plus-g","query":["google-plus","social network"]},{"icon":"fab fa-google-plus-square","query":["social network"]},{"icon":"fab fa-google-wallet","query":[]},{"icon":"fas fa-gopuram","query":["building","entrance","hinduism","temple","tower"]},{"icon":"fas fa-graduation-cap","query":["learning","school","student"]},{"icon":"fab fa-gratipay","query":["favorite","heart","like","love"]},{"icon":"fab fa-grav","query":[]},{"icon":"fas fa-greater-than","query":[]},{"icon":"fas fa-greater-than-equal","query":[]},{"icon":"fas fa-grimace","query":["cringe","emoticon","face"]},{"icon":"far fa-grimace","query":["cringe","emoticon","face"]},{"icon":"fas fa-grin","query":["emoticon","face","laugh","smile"]},{"icon":"far fa-grin","query":["emoticon","face","laugh","smile"]},{"icon":"fas fa-grin-alt","query":["emoticon","face","laugh","smile"]},{"icon":"far fa-grin-alt","query":["emoticon","face","laugh","smile"]},{"icon":"fas fa-grin-beam","query":["emoticon","face","laugh","smile"]},{"icon":"far fa-grin-beam","query":["emoticon","face","laugh","smile"]},{"icon":"fas fa-grin-beam-sweat","query":["emoticon","face","smile"]},{"icon":"far fa-grin-beam-sweat","query":["emoticon","face","smile"]},{"icon":"fas fa-grin-hearts","query":["emoticon","face","love","smile"]},{"icon":"far fa-grin-hearts","query":["emoticon","face","love","smile"]},{"icon":"fas fa-grin-squint","query":["emoticon","face","laugh","smile"]},{"icon":"far fa-grin-squint","query":["emoticon","face","laugh","smile"]},{"icon":"fas fa-grin-squint-tears","query":["emoticon","face","happy","smile"]},{"icon":"far fa-grin-squint-tears","query":["emoticon","face","happy","smile"]},{"icon":"fas fa-grin-stars","query":["emoticon","face","star-struck"]},{"icon":"far fa-grin-stars","query":["emoticon","face","star-struck"]},{"icon":"fas fa-grin-tears","query":["LOL","emoticon","face"]},{"icon":"far fa-grin-tears","query":["LOL","emoticon","face"]},{"icon":"fas fa-grin-tongue","query":["LOL","emoticon","face"]},{"icon":"far fa-grin-tongue","query":["LOL","emoticon","face"]},{"icon":"fas fa-grin-tongue-squint","query":["LOL","emoticon","face"]},{"icon":"far fa-grin-tongue-squint","query":["LOL","emoticon","face"]},{"icon":"fas fa-grin-tongue-wink","query":["LOL","emoticon","face"]},{"icon":"far fa-grin-tongue-wink","query":["LOL","emoticon","face"]},{"icon":"fas fa-grin-wink","query":["emoticon","face","flirt","laugh","smile"]},{"icon":"far fa-grin-wink","query":["emoticon","face","flirt","laugh","smile"]},{"icon":"fas fa-grip-horizontal","query":["affordance","drag","drop","grab","handle"]},{"icon":"fas fa-grip-vertical","query":["affordance","drag","drop","grab","handle"]},{"icon":"fab fa-gripfire","query":[]},{"icon":"fab fa-grunt","query":[]},{"icon":"fab fa-gulp","query":[]},{"icon":"fas fa-h-square","query":["hospital","hotel"]},{"icon":"fab fa-hacker-news","query":[]},{"icon":"fab fa-hacker-news-square","query":[]},{"icon":"fab fa-hackerrank","query":[]},{"icon":"fas fa-hammer","query":["admin","fix","repair","settings","tool"]},{"icon":"fas fa-hamsa","query":["amulet","christianity","islam","jewish","judaism","muslim","protection"]},{"icon":"fas fa-hand-holding","query":[]},{"icon":"fas fa-hand-holding-heart","query":[]},{"icon":"fas fa-hand-holding-usd","query":["$","dollar sign","donation","giving","money","price"]},{"icon":"fas fa-hand-lizard","query":[]},{"icon":"far fa-hand-lizard","query":[]},{"icon":"fas fa-hand-paper","query":["stop"]},{"icon":"far fa-hand-paper","query":["stop"]},{"icon":"fas fa-hand-peace","query":[]},{"icon":"far fa-hand-peace","query":[]},{"icon":"fas fa-hand-point-down","query":["finger","hand-o-down","point"]},{"icon":"far fa-hand-point-down","query":["finger","hand-o-down","point"]},{"icon":"fas fa-hand-point-left","query":["back","finger","hand-o-left","left","point","previous"]},{"icon":"far fa-hand-point-left","query":["back","finger","hand-o-left","left","point","previous"]},{"icon":"fas fa-hand-point-right","query":["finger","forward","hand-o-right","next","point","right"]},{"icon":"far fa-hand-point-right","query":["finger","forward","hand-o-right","next","point","right"]},{"icon":"fas fa-hand-point-up","query":["finger","hand-o-up","point"]},{"icon":"far fa-hand-point-up","query":["finger","hand-o-up","point"]},{"icon":"fas fa-hand-pointer","query":["select"]},{"icon":"far fa-hand-pointer","query":["select"]},{"icon":"fas fa-hand-rock","query":[]},{"icon":"far fa-hand-rock","query":[]},{"icon":"fas fa-hand-scissors","query":[]},{"icon":"far fa-hand-scissors","query":[]},{"icon":"fas fa-hand-spock","query":[]},{"icon":"far fa-hand-spock","query":[]},{"icon":"fas fa-hands","query":[]},{"icon":"fas fa-hands-helping","query":["aid","assistance","partnership","volunteering"]},{"icon":"fas fa-handshake","query":["greeting","partnership"]},{"icon":"far fa-handshake","query":["greeting","partnership"]},{"icon":"fas fa-hanukiah","query":["candle","hanukkah","jewish","judaism","light"]},{"icon":"fas fa-hashtag","query":[]},{"icon":"fas fa-hat-wizard","query":["Dungeons & Dragons","buckle","cloth","clothing","d&d","dnd","fantasy","halloween","holiday","mage","magic","pointy","witch"]},{"icon":"fas fa-haykal","query":["bahai","bahá'í","star"]},{"icon":"fas fa-hdd","query":["cpu","hard drive","harddrive","machine","save","storage"]},{"icon":"far fa-hdd","query":["cpu","hard drive","harddrive","machine","save","storage"]},{"icon":"fas fa-heading","query":["header"]},{"icon":"fas fa-headphones","query":["audio","listen","music","sound","speaker"]},{"icon":"fas fa-headphones-alt","query":["audio","listen","music","sound","speaker"]},{"icon":"fas fa-headset","query":["audio","gamer","gaming","listen","live chat","microphone","shot caller","sound","support","telemarketer"]},{"icon":"fas fa-heart","query":["favorite","like","love"]},{"icon":"far fa-heart","query":["favorite","like","love"]},{"icon":"fas fa-heartbeat","query":["ekg","lifeline","vital signs"]},{"icon":"fas fa-helicopter","query":["airwolf","apache","chopper","flight","fly"]},{"icon":"fas fa-highlighter","query":["edit","marker","sharpie","update","write"]},{"icon":"fas fa-hiking","query":["activity","backpack","fall","fitness","outdoors","seasonal","walking"]},{"icon":"fas fa-hippo","query":["fauna","hungry","mammmal"]},{"icon":"fab fa-hips","query":[]},{"icon":"fab fa-hire-a-helper","query":[]},{"icon":"fas fa-history","query":[]},{"icon":"fas fa-hockey-puck","query":[]},{"icon":"fas fa-home","query":["house","main"]},{"icon":"fab fa-hooli","query":[]},{"icon":"fab fa-hornbill","query":[]},{"icon":"fas fa-horse","query":["equus","fauna","mammmal","neigh"]},{"icon":"fas fa-hospital","query":["building","emergency room","medical center"]},{"icon":"far fa-hospital","query":["building","emergency room","medical center"]},{"icon":"fas fa-hospital-alt","query":["building","emergency room","medical center"]},{"icon":"fas fa-hospital-symbol","query":[]},{"icon":"fas fa-hot-tub","query":[]},{"icon":"fas fa-hotel","query":["building","lodging"]},{"icon":"fab fa-hotjar","query":[]},{"icon":"fas fa-hourglass","query":[]},{"icon":"far fa-hourglass","query":[]},{"icon":"fas fa-hourglass-end","query":[]},{"icon":"fas fa-hourglass-half","query":[]},{"icon":"fas fa-hourglass-start","query":[]},{"icon":"fas fa-house-damage","query":["devastation","home"]},{"icon":"fab fa-houzz","query":[]},{"icon":"fas fa-hryvnia","query":["money"]},{"icon":"fab fa-html5","query":[]},{"icon":"fab fa-hubspot","query":[]},{"icon":"fas fa-i-cursor","query":[]},{"icon":"fas fa-id-badge","query":[]},{"icon":"far fa-id-badge","query":[]},{"icon":"fas fa-id-card","query":["document","identification","issued"]},{"icon":"far fa-id-card","query":["document","identification","issued"]},{"icon":"fas fa-id-card-alt","query":["demographics"]},{"icon":"fas fa-image","query":["album","photo","picture"]},{"icon":"far fa-image","query":["album","photo","picture"]},{"icon":"fas fa-images","query":["album","photo","picture"]},{"icon":"far fa-images","query":["album","photo","picture"]},{"icon":"fab fa-imdb","query":[]},{"icon":"fas fa-inbox","query":[]},{"icon":"fas fa-indent","query":[]},{"icon":"fas fa-industry","query":["factory","manufacturing"]},{"icon":"fas fa-infinity","query":[]},{"icon":"fas fa-info","query":["details","help","information","more"]},{"icon":"fas fa-info-circle","query":["details","help","information","more"]},{"icon":"fab fa-instagram","query":[]},{"icon":"fab fa-internet-explorer","query":["browser","ie"]},{"icon":"fab fa-ioxhost","query":[]},{"icon":"fas fa-italic","query":["italics"]},{"icon":"fab fa-itunes","query":[]},{"icon":"fab fa-itunes-note","query":[]},{"icon":"fab fa-java","query":[]},{"icon":"fas fa-jedi","query":["star wars"]},{"icon":"fab fa-jedi-order","query":["star wars"]},{"icon":"fab fa-jenkins","query":[]},{"icon":"fab fa-joget","query":[]},{"icon":"fas fa-joint","query":["blunt","cannabis","doobie","drugs","marijuana","roach","smoke","smoking","spliff"]},{"icon":"fab fa-joomla","query":[]},{"icon":"fas fa-journal-whills","query":["book","jedi","star wars","the force"]},{"icon":"fab fa-js","query":[]},{"icon":"fab fa-js-square","query":[]},{"icon":"fab fa-jsfiddle","query":[]},{"icon":"fas fa-kaaba","query":["building","cube","islam","muslim"]},{"icon":"fab fa-kaggle","query":[]},{"icon":"fas fa-key","query":["password","unlock"]},{"icon":"fab fa-keybase","query":[]},{"icon":"fas fa-keyboard","query":["input","type"]},{"icon":"far fa-keyboard","query":["input","type"]},{"icon":"fab fa-keycdn","query":[]},{"icon":"fas fa-khanda","query":["chakkar","sikh","sikhism","sword"]},{"icon":"fab fa-kickstarter","query":[]},{"icon":"fab fa-kickstarter-k","query":[]},{"icon":"fas fa-kiss","query":["beso","emoticon","face","love","smooch"]},{"icon":"far fa-kiss","query":["beso","emoticon","face","love","smooch"]},{"icon":"fas fa-kiss-beam","query":["beso","emoticon","face","love","smooch"]},{"icon":"far fa-kiss-beam","query":["beso","emoticon","face","love","smooch"]},{"icon":"fas fa-kiss-wink-heart","query":["beso","emoticon","face","love","smooch"]},{"icon":"far fa-kiss-wink-heart","query":["beso","emoticon","face","love","smooch"]},{"icon":"fas fa-kiwi-bird","query":["bird","fauna"]},{"icon":"fab fa-korvue","query":[]},{"icon":"fas fa-landmark","query":["building","historic","memoroable","politics"]},{"icon":"fas fa-language","query":["dialect","idiom","localize","speech","translate","vernacular"]},{"icon":"fas fa-laptop","query":["computer","cpu","dell","demo","device","dude you're getting","mac","macbook","machine","pc"]},{"icon":"fas fa-laptop-code","query":[]},{"icon":"fab fa-laravel","query":[]},{"icon":"fab fa-lastfm","query":[]},{"icon":"fab fa-lastfm-square","query":[]},{"icon":"fas fa-laugh","query":["LOL","emoticon","face","laugh"]},{"icon":"far fa-laugh","query":["LOL","emoticon","face","laugh"]},{"icon":"fas fa-laugh-beam","query":["LOL","emoticon","face"]},{"icon":"far fa-laugh-beam","query":["LOL","emoticon","face"]},{"icon":"fas fa-laugh-squint","query":["LOL","emoticon","face"]},{"icon":"far fa-laugh-squint","query":["LOL","emoticon","face"]},{"icon":"fas fa-laugh-wink","query":["LOL","emoticon","face"]},{"icon":"far fa-laugh-wink","query":["LOL","emoticon","face"]},{"icon":"fas fa-layer-group","query":["layers"]},{"icon":"fas fa-leaf","query":["eco","flora","nature","plant"]},{"icon":"fab fa-leanpub","query":[]},{"icon":"fas fa-lemon","query":["food"]},{"icon":"far fa-lemon","query":["food"]},{"icon":"fab fa-less","query":[]},{"icon":"fas fa-less-than","query":[]},{"icon":"fas fa-less-than-equal","query":[]},{"icon":"fas fa-level-down-alt","query":["level-down"]},{"icon":"fas fa-level-up-alt","query":["level-up"]},{"icon":"fas fa-life-ring","query":["support"]},{"icon":"far fa-life-ring","query":["support"]},{"icon":"fas fa-lightbulb","query":["idea","inspiration"]},{"icon":"far fa-lightbulb","query":["idea","inspiration"]},{"icon":"fab fa-line","query":[]},{"icon":"fas fa-link","query":["chain"]},{"icon":"fab fa-linkedin","query":["linkedin-square"]},{"icon":"fab fa-linkedin-in","query":["linkedin"]},{"icon":"fab fa-linode","query":[]},{"icon":"fab fa-linux","query":["tux"]},{"icon":"fas fa-lira-sign","query":["try","turkish"]},{"icon":"fas fa-list","query":["checklist","completed","done","finished","ol","todo","ul"]},{"icon":"fas fa-list-alt","query":["checklist","completed","done","finished","ol","todo","ul"]},{"icon":"far fa-list-alt","query":["checklist","completed","done","finished","ol","todo","ul"]},{"icon":"fas fa-list-ol","query":["checklist","list","numbers","ol","todo","ul"]},{"icon":"fas fa-list-ul","query":["checklist","list","ol","todo","ul"]},{"icon":"fas fa-location-arrow","query":["address","coordinates","gps","location","map","place","where"]},{"icon":"fas fa-lock","query":["admin","protect","security"]},{"icon":"fas fa-lock-open","query":["admin","lock","open","password","protect"]},{"icon":"fas fa-long-arrow-alt-down","query":["long-arrow-down"]},{"icon":"fas fa-long-arrow-alt-left","query":["back","long-arrow-left","previous"]},{"icon":"fas fa-long-arrow-alt-right","query":["long-arrow-right"]},{"icon":"fas fa-long-arrow-alt-up","query":["long-arrow-up"]},{"icon":"fas fa-low-vision","query":[]},{"icon":"fas fa-luggage-cart","query":[]},{"icon":"fab fa-lyft","query":[]},{"icon":"fab fa-magento","query":[]},{"icon":"fas fa-magic","query":["autocomplete","automatic","mage","magic","spell","witch","wizard"]},{"icon":"fas fa-magnet","query":[]},{"icon":"fas fa-mail-bulk","query":[]},{"icon":"fab fa-mailchimp","query":[]},{"icon":"fas fa-male","query":["human","man","person","profile","user"]},{"icon":"fab fa-mandalorian","query":[]},{"icon":"fas fa-map","query":["coordinates","location","paper","place","travel"]},{"icon":"far fa-map","query":["coordinates","location","paper","place","travel"]},{"icon":"fas fa-map-marked","query":["address","coordinates","destination","gps","localize","location","map","paper","pin","place","point of interest","position","route","travel","where"]},{"icon":"fas fa-map-marked-alt","query":["address","coordinates","destination","gps","localize","location","map","paper","pin","place","point of interest","position","route","travel","where"]},{"icon":"fas fa-map-marker","query":["address","coordinates","gps","localize","location","map","pin","place","position","travel","where"]},{"icon":"fas fa-map-marker-alt","query":["address","coordinates","gps","localize","location","map","pin","place","position","travel","where"]},{"icon":"fas fa-map-pin","query":["address","coordinates","gps","localize","location","map","marker","place","position","travel","where"]},{"icon":"fas fa-map-signs","query":[]},{"icon":"fab fa-markdown","query":[]},{"icon":"fas fa-marker","query":["edit","sharpie","update","write"]},{"icon":"fas fa-mars","query":["male"]},{"icon":"fas fa-mars-double","query":[]},{"icon":"fas fa-mars-stroke","query":[]},{"icon":"fas fa-mars-stroke-h","query":[]},{"icon":"fas fa-mars-stroke-v","query":[]},{"icon":"fas fa-mask","query":["costume","disguise","halloween","holiday","secret","super hero"]},{"icon":"fab fa-mastodon","query":[]},{"icon":"fab fa-maxcdn","query":[]},{"icon":"fas fa-medal","query":[]},{"icon":"fab fa-medapps","query":[]},{"icon":"fab fa-medium","query":[]},{"icon":"fab fa-medium-m","query":[]},{"icon":"fas fa-medkit","query":["first aid","firstaid","health","help","support"]},{"icon":"fab fa-medrt","query":[]},{"icon":"fab fa-meetup","query":[]},{"icon":"fab fa-megaport","query":[]},{"icon":"fas fa-meh","query":["emoticon","face","neutral","rating"]},{"icon":"far fa-meh","query":["emoticon","face","neutral","rating"]},{"icon":"fas fa-meh-blank","query":["emoticon","face","neutral","rating"]},{"icon":"far fa-meh-blank","query":["emoticon","face","neutral","rating"]},{"icon":"fas fa-meh-rolling-eyes","query":["emoticon","face","neutral","rating"]},{"icon":"far fa-meh-rolling-eyes","query":["emoticon","face","neutral","rating"]},{"icon":"fas fa-memory","query":["DIMM","RAM"]},{"icon":"fas fa-menorah","query":["candle","hanukkah","jewish","judaism","light"]},{"icon":"fas fa-mercury","query":["transgender"]},{"icon":"fas fa-meteor","query":[]},{"icon":"fas fa-microchip","query":["cpu","processor"]},{"icon":"fas fa-microphone","query":["record","sound","voice"]},{"icon":"fas fa-microphone-alt","query":["record","sound","voice"]},{"icon":"fas fa-microphone-alt-slash","query":["disable","mute","record","sound","voice"]},{"icon":"fas fa-microphone-slash","query":["disable","mute","record","sound","voice"]},{"icon":"fas fa-microscope","query":[]},{"icon":"fab fa-microsoft","query":[]},{"icon":"fas fa-minus","query":["collapse","delete","hide","minify","negative","remove","trash"]},{"icon":"fas fa-minus-circle","query":["delete","hide","negative","remove","trash"]},{"icon":"fas fa-minus-square","query":["collapse","delete","hide","minify","negative","remove","trash"]},{"icon":"far fa-minus-square","query":["collapse","delete","hide","minify","negative","remove","trash"]},{"icon":"fab fa-mix","query":[]},{"icon":"fab fa-mixcloud","query":[]},{"icon":"fab fa-mizuni","query":[]},{"icon":"fas fa-mobile","query":["apple","call","cell phone","cellphone","device","iphone","number","screen","telephone","text"]},{"icon":"fas fa-mobile-alt","query":["apple","call","cell phone","cellphone","device","iphone","number","screen","telephone","text"]},{"icon":"fab fa-modx","query":[]},{"icon":"fab fa-monero","query":[]},{"icon":"fas fa-money-bill","query":["buy","cash","checkout","money","payment","price","purchase"]},{"icon":"fas fa-money-bill-alt","query":["buy","cash","checkout","money","payment","price","purchase"]},{"icon":"far fa-money-bill-alt","query":["buy","cash","checkout","money","payment","price","purchase"]},{"icon":"fas fa-money-bill-wave","query":[]},{"icon":"fas fa-money-bill-wave-alt","query":[]},{"icon":"fas fa-money-check","query":["bank check","cheque"]},{"icon":"fas fa-money-check-alt","query":["bank check","cheque"]},{"icon":"fas fa-monument","query":["building","historic","memoroable"]},{"icon":"fas fa-moon","query":["contrast","crescent","darker","lunar","night"]},{"icon":"far fa-moon","query":["contrast","crescent","darker","lunar","night"]},{"icon":"fas fa-mortar-pestle","query":["crush","culinary","grind","medical","mix","spices"]},{"icon":"fas fa-mosque","query":["building","islam","muslim"]},{"icon":"fas fa-motorcycle","query":["bike","machine","transportation","vehicle"]},{"icon":"fas fa-mountain","query":[]},{"icon":"fas fa-mouse-pointer","query":["select"]},{"icon":"fas fa-music","query":["note","sound"]},{"icon":"fab fa-napster","query":[]},{"icon":"fab fa-neos","query":[]},{"icon":"fas fa-network-wired","query":[]},{"icon":"fas fa-neuter","query":[]},{"icon":"fas fa-newspaper","query":["article","press"]},{"icon":"far fa-newspaper","query":["article","press"]},{"icon":"fab fa-nimblr","query":[]},{"icon":"fab fa-nintendo-switch","query":[]},{"icon":"fab fa-node","query":[]},{"icon":"fab fa-node-js","query":[]},{"icon":"fas fa-not-equal","query":[]},{"icon":"fas fa-notes-medical","query":[]},{"icon":"fab fa-npm","query":[]},{"icon":"fab fa-ns8","query":[]},{"icon":"fab fa-nutritionix","query":[]},{"icon":"fas fa-object-group","query":["design"]},{"icon":"far fa-object-group","query":["design"]},{"icon":"fas fa-object-ungroup","query":["design"]},{"icon":"far fa-object-ungroup","query":["design"]},{"icon":"fab fa-odnoklassniki","query":[]},{"icon":"fab fa-odnoklassniki-square","query":[]},{"icon":"fas fa-oil-can","query":[]},{"icon":"fab fa-old-republic","query":["politics","star wars"]},{"icon":"fas fa-om","query":["buddhism","hinduism","jainism","mantra"]},{"icon":"fab fa-opencart","query":[]},{"icon":"fab fa-openid","query":[]},{"icon":"fab fa-opera","query":[]},{"icon":"fab fa-optin-monster","query":[]},{"icon":"fab fa-osi","query":[]},{"icon":"fas fa-otter","query":["fauna","mammmal"]},{"icon":"fas fa-outdent","query":[]},{"icon":"fab fa-page4","query":[]},{"icon":"fab fa-pagelines","query":["eco","flora","leaf","leaves","nature","plant","tree"]},{"icon":"fas fa-paint-brush","query":[]},{"icon":"fas fa-paint-roller","query":["brush","painting","tool"]},{"icon":"fas fa-palette","query":["colors","painting"]},{"icon":"fab fa-palfed","query":[]},{"icon":"fas fa-pallet","query":[]},{"icon":"fas fa-paper-plane","query":[]},{"icon":"far fa-paper-plane","query":[]},{"icon":"fas fa-paperclip","query":["attachment"]},{"icon":"fas fa-parachute-box","query":["aid","assistance","rescue","supplies"]},{"icon":"fas fa-paragraph","query":[]},{"icon":"fas fa-parking","query":[]},{"icon":"fas fa-passport","query":["document","identification","issued"]},{"icon":"fas fa-pastafarianism","query":["agnosticism","atheism","flying spaghetti monster","fsm"]},{"icon":"fas fa-paste","query":["clipboard","copy"]},{"icon":"fab fa-patreon","query":[]},{"icon":"fas fa-pause","query":["wait"]},{"icon":"fas fa-pause-circle","query":[]},{"icon":"far fa-pause-circle","query":[]},{"icon":"fas fa-paw","query":["animal","pet"]},{"icon":"fab fa-paypal","query":[]},{"icon":"fas fa-peace","query":[]},{"icon":"fas fa-pen","query":["design","edit","update","write"]},{"icon":"fas fa-pen-alt","query":["design","edit","update","write"]},{"icon":"fas fa-pen-fancy","query":["design","edit","fountain pen","update","write"]},{"icon":"fas fa-pen-nib","query":["design","edit","fountain pen","update","write"]},{"icon":"fas fa-pen-square","query":["edit","pencil-square","update","write"]},{"icon":"fas fa-pencil-alt","query":["design","edit","pencil","update","write"]},{"icon":"fas fa-pencil-ruler","query":[]},{"icon":"fab fa-penny-arcade","query":["Dungeons & Dragons","d&d","dnd","fantasy","game","gaming","pax","tabletop"]},{"icon":"fas fa-people-carry","query":["movers"]},{"icon":"fas fa-percent","query":[]},{"icon":"fas fa-percentage","query":[]},{"icon":"fab fa-periscope","query":[]},{"icon":"fas fa-person-booth","query":["changing","changing room","election","human","person","vote","voting"]},{"icon":"fab fa-phabricator","query":[]},{"icon":"fab fa-phoenix-framework","query":[]},{"icon":"fab fa-phoenix-squadron","query":[]},{"icon":"fas fa-phone","query":["call","earphone","number","support","telephone","voice"]},{"icon":"fas fa-phone-slash","query":[]},{"icon":"fas fa-phone-square","query":["call","number","support","telephone","voice"]},{"icon":"fas fa-phone-volume","query":["telephone","volume-control-phone"]},{"icon":"fab fa-php","query":[]},{"icon":"fab fa-pied-piper","query":[]},{"icon":"fab fa-pied-piper-alt","query":[]},{"icon":"fab fa-pied-piper-hat","query":["clothing"]},{"icon":"fab fa-pied-piper-pp","query":[]},{"icon":"fas fa-piggy-bank","query":["save","savings"]},{"icon":"fas fa-pills","query":["drugs","medicine"]},{"icon":"fab fa-pinterest","query":[]},{"icon":"fab fa-pinterest-p","query":[]},{"icon":"fab fa-pinterest-square","query":[]},{"icon":"fas fa-place-of-worship","query":[]},{"icon":"fas fa-plane","query":["airplane","destination","fly","location","mode","travel","trip"]},{"icon":"fas fa-plane-arrival","query":["airplane","arriving","destination","fly","land","landing","location","mode","travel","trip"]},{"icon":"fas fa-plane-departure","query":["airplane","departing","destination","fly","location","mode","take off","taking off","travel","trip"]},{"icon":"fas fa-play","query":["music","playing","sound","start"]},{"icon":"fas fa-play-circle","query":["playing","start"]},{"icon":"far fa-play-circle","query":["playing","start"]},{"icon":"fab fa-playstation","query":[]},{"icon":"fas fa-plug","query":["connect","online","power"]},{"icon":"fas fa-plus","query":["add","create","expand","new","positive"]},{"icon":"fas fa-plus-circle","query":["add","create","expand","new","positive"]},{"icon":"fas fa-plus-square","query":["add","create","expand","new","positive"]},{"icon":"far fa-plus-square","query":["add","create","expand","new","positive"]},{"icon":"fas fa-podcast","query":[]},{"icon":"fas fa-poll","query":["results","survey","vote","voting"]},{"icon":"fas fa-poll-h","query":["results","survey","vote","voting"]},{"icon":"fas fa-poo","query":[]},{"icon":"fas fa-poo-storm","query":["mess","poop","shit"]},{"icon":"fas fa-poop","query":[]},{"icon":"fas fa-portrait","query":[]},{"icon":"fas fa-pound-sign","query":["gbp"]},{"icon":"fas fa-power-off","query":["on","reboot","restart"]},{"icon":"fas fa-pray","query":[]},{"icon":"fas fa-praying-hands","query":[]},{"icon":"fas fa-prescription","query":["drugs","medical","medicine","rx"]},{"icon":"fas fa-prescription-bottle","query":["drugs","medical","medicine","rx"]},{"icon":"fas fa-prescription-bottle-alt","query":["drugs","medical","medicine","rx"]},{"icon":"fas fa-print","query":[]},{"icon":"fas fa-procedures","query":[]},{"icon":"fab fa-product-hunt","query":[]},{"icon":"fas fa-project-diagram","query":[]},{"icon":"fab fa-pushed","query":[]},{"icon":"fas fa-puzzle-piece","query":["add-on","addon","section"]},{"icon":"fab fa-python","query":[]},{"icon":"fab fa-qq","query":[]},{"icon":"fas fa-qrcode","query":["scan"]},{"icon":"fas fa-question","query":["help","information","support","unknown"]},{"icon":"fas fa-question-circle","query":["help","information","support","unknown"]},{"icon":"far fa-question-circle","query":["help","information","support","unknown"]},{"icon":"fas fa-quidditch","query":[]},{"icon":"fab fa-quinscape","query":[]},{"icon":"fab fa-quora","query":[]},{"icon":"fas fa-quote-left","query":[]},{"icon":"fas fa-quote-right","query":[]},{"icon":"fas fa-quran","query":["book","islam","muslim"]},{"icon":"fab fa-r-project","query":[]},{"icon":"fas fa-rainbow","query":[]},{"icon":"fas fa-random","query":["shuffle","sort"]},{"icon":"fab fa-ravelry","query":[]},{"icon":"fab fa-react","query":[]},{"icon":"fab fa-reacteurope","query":[]},{"icon":"fab fa-readme","query":[]},{"icon":"fab fa-rebel","query":[]},{"icon":"fas fa-receipt","query":["check","invoice","table"]},{"icon":"fas fa-recycle","query":[]},{"icon":"fab fa-red-river","query":[]},{"icon":"fab fa-reddit","query":[]},{"icon":"fab fa-reddit-alien","query":[]},{"icon":"fab fa-reddit-square","query":[]},{"icon":"fas fa-redo","query":["forward","refresh","reload","repeat"]},{"icon":"fas fa-redo-alt","query":["forward","refresh","reload","repeat"]},{"icon":"fas fa-registered","query":[]},{"icon":"far fa-registered","query":[]},{"icon":"fab fa-renren","query":[]},{"icon":"fas fa-reply","query":[]},{"icon":"fas fa-reply-all","query":[]},{"icon":"fab fa-replyd","query":[]},{"icon":"fas fa-republican","query":["american","conservative","election","elephant","politics","republican party","right","right-wing","usa"]},{"icon":"fab fa-researchgate","query":[]},{"icon":"fab fa-resolving","query":[]},{"icon":"fas fa-retweet","query":["refresh","reload","share","swap"]},{"icon":"fab fa-rev","query":[]},{"icon":"fas fa-ribbon","query":["badge","cause","lapel","pin"]},{"icon":"fas fa-ring","query":["Dungeons & Dragons","Gollum","band","binding","d&d","dnd","fantasy","jewelry","precious"]},{"icon":"fas fa-road","query":["street"]},{"icon":"fas fa-robot","query":[]},{"icon":"fas fa-rocket","query":["app"]},{"icon":"fab fa-rocketchat","query":[]},{"icon":"fab fa-rockrms","query":[]},{"icon":"fas fa-route","query":[]},{"icon":"fas fa-rss","query":["blog"]},{"icon":"fas fa-rss-square","query":["blog","feed"]},{"icon":"fas fa-ruble-sign","query":["rub"]},{"icon":"fas fa-ruler","query":[]},{"icon":"fas fa-ruler-combined","query":[]},{"icon":"fas fa-ruler-horizontal","query":[]},{"icon":"fas fa-ruler-vertical","query":[]},{"icon":"fas fa-running","query":["jog","sprint"]},{"icon":"fas fa-rupee-sign","query":["indian","inr"]},{"icon":"fas fa-sad-cry","query":["emoticon","face","tear","tears"]},{"icon":"far fa-sad-cry","query":["emoticon","face","tear","tears"]},{"icon":"fas fa-sad-tear","query":["emoticon","face","tear","tears"]},{"icon":"far fa-sad-tear","query":["emoticon","face","tear","tears"]},{"icon":"fab fa-safari","query":["browser"]},{"icon":"fab fa-sass","query":[]},{"icon":"fas fa-save","query":["floppy","floppy-o"]},{"icon":"far fa-save","query":["floppy","floppy-o"]},{"icon":"fab fa-schlix","query":[]},{"icon":"fas fa-school","query":[]},{"icon":"fas fa-screwdriver","query":["admin","fix","repair","settings","tool"]},{"icon":"fab fa-scribd","query":[]},{"icon":"fas fa-scroll","query":["Dungeons & Dragons","announcement","d&d","dnd","fantasy","paper"]},{"icon":"fas fa-search","query":["bigger","enlarge","magnify","preview","zoom"]},{"icon":"fas fa-search-dollar","query":[]},{"icon":"fas fa-search-location","query":[]},{"icon":"fas fa-search-minus","query":["minify","negative","smaller","zoom","zoom out"]},{"icon":"fas fa-search-plus","query":["bigger","enlarge","magnify","positive","zoom","zoom in"]},{"icon":"fab fa-searchengin","query":[]},{"icon":"fas fa-seedling","query":[]},{"icon":"fab fa-sellcast","query":["eercast"]},{"icon":"fab fa-sellsy","query":[]},{"icon":"fas fa-server","query":["cpu"]},{"icon":"fab fa-servicestack","query":[]},{"icon":"fas fa-shapes","query":["circle","square","triangle"]},{"icon":"fas fa-share","query":[]},{"icon":"fas fa-share-alt","query":[]},{"icon":"fas fa-share-alt-square","query":[]},{"icon":"fas fa-share-square","query":["send","social"]},{"icon":"far fa-share-square","query":["send","social"]},{"icon":"fas fa-shekel-sign","query":["ils"]},{"icon":"fas fa-shield-alt","query":["achievement","award","block","defend","security","winner"]},{"icon":"fas fa-ship","query":["boat","sea"]},{"icon":"fas fa-shipping-fast","query":[]},{"icon":"fab fa-shirtsinbulk","query":[]},{"icon":"fas fa-shoe-prints","query":["feet","footprints","steps"]},{"icon":"fas fa-shopping-bag","query":[]},{"icon":"fas fa-shopping-basket","query":[]},{"icon":"fas fa-shopping-cart","query":["buy","checkout","payment","purchase"]},{"icon":"fab fa-shopware","query":[]},{"icon":"fas fa-shower","query":[]},{"icon":"fas fa-shuttle-van","query":["machine","public-transportation","transportation","vehicle"]},{"icon":"fas fa-sign","query":[]},{"icon":"fas fa-sign-in-alt","query":["arrow","enter","join","log in","login","sign in","sign up","sign-in","signin","signup"]},{"icon":"fas fa-sign-language","query":[]},{"icon":"fas fa-sign-out-alt","query":["arrow","exit","leave","log out","logout","sign-out"]},{"icon":"fas fa-signal","query":["bars","graph","online","status"]},{"icon":"fas fa-signature","query":["John Hancock","cursive","name","writing"]},{"icon":"fab fa-simplybuilt","query":[]},{"icon":"fab fa-sistrix","query":[]},{"icon":"fas fa-sitemap","query":["directory","hierarchy","ia","information architecture","organization"]},{"icon":"fab fa-sith","query":[]},{"icon":"fas fa-skull","query":["bones","skeleton","yorick"]},{"icon":"fas fa-skull-crossbones","query":["Dungeons & Dragons","alert","bones","d&d","danger","dead","deadly","death","dnd","fantasy","halloween","holiday","jolly-roger","pirate","poison","skeleton","warning"]},{"icon":"fab fa-skyatlas","query":[]},{"icon":"fab fa-skype","query":[]},{"icon":"fab fa-slack","query":["anchor","hash","hashtag"]},{"icon":"fab fa-slack-hash","query":["anchor","hash","hashtag"]},{"icon":"fas fa-slash","query":[]},{"icon":"fas fa-sliders-h","query":["settings","sliders"]},{"icon":"fab fa-slideshare","query":[]},{"icon":"fas fa-smile","query":["approve","emoticon","face","happy","rating","satisfied"]},{"icon":"far fa-smile","query":["approve","emoticon","face","happy","rating","satisfied"]},{"icon":"fas fa-smile-beam","query":["emoticon","face","happy","positive"]},{"icon":"far fa-smile-beam","query":["emoticon","face","happy","positive"]},{"icon":"fas fa-smile-wink","query":["emoticon","face","happy"]},{"icon":"far fa-smile-wink","query":["emoticon","face","happy"]},{"icon":"fas fa-smog","query":["dragon"]},{"icon":"fas fa-smoking","query":["cigarette","nicotine","smoking status"]},{"icon":"fas fa-smoking-ban","query":["no smoking","non-smoking"]},{"icon":"fab fa-snapchat","query":[]},{"icon":"fab fa-snapchat-ghost","query":[]},{"icon":"fab fa-snapchat-square","query":[]},{"icon":"fas fa-snowflake","query":["precipitation","seasonal","winter"]},{"icon":"far fa-snowflake","query":["precipitation","seasonal","winter"]},{"icon":"fas fa-socks","query":["business socks","business time","flight of the conchords","wednesday"]},{"icon":"fas fa-solar-panel","query":["clean","eco-friendly","energy","green","sun"]},{"icon":"fas fa-sort","query":["order"]},{"icon":"fas fa-sort-alpha-down","query":["sort-alpha-asc"]},{"icon":"fas fa-sort-alpha-up","query":["sort-alpha-desc"]},{"icon":"fas fa-sort-amount-down","query":["sort-amount-asc"]},{"icon":"fas fa-sort-amount-up","query":["sort-amount-desc"]},{"icon":"fas fa-sort-down","query":["arrow","descending","sort-desc"]},{"icon":"fas fa-sort-numeric-down","query":["numbers","sort-numeric-asc"]},{"icon":"fas fa-sort-numeric-up","query":["numbers","sort-numeric-desc"]},{"icon":"fas fa-sort-up","query":["arrow","ascending","sort-asc"]},{"icon":"fab fa-soundcloud","query":[]},{"icon":"fas fa-spa","query":["flora","mindfullness","plant","wellness"]},{"icon":"fas fa-space-shuttle","query":["astronaut","machine","nasa","rocket","transportation"]},{"icon":"fab fa-speakap","query":[]},{"icon":"fas fa-spider","query":["arachnid","bug","charlotte","crawl","eight","halloween","holiday"]},{"icon":"fas fa-spinner","query":["loading","progress"]},{"icon":"fas fa-splotch","query":[]},{"icon":"fab fa-spotify","query":[]},{"icon":"fas fa-spray-can","query":[]},{"icon":"fas fa-square","query":["block","box"]},{"icon":"far fa-square","query":["block","box"]},{"icon":"fas fa-square-full","query":[]},{"icon":"fas fa-square-root-alt","query":[]},{"icon":"fab fa-squarespace","query":[]},{"icon":"fab fa-stack-exchange","query":[]},{"icon":"fab fa-stack-overflow","query":[]},{"icon":"fas fa-stamp","query":[]},{"icon":"fas fa-star","query":["achievement","award","favorite","important","night","rating","score"]},{"icon":"far fa-star","query":["achievement","award","favorite","important","night","rating","score"]},{"icon":"fas fa-star-and-crescent","query":["islam","muslim"]},{"icon":"fas fa-star-half","query":["achievement","award","rating","score","star-half-empty","star-half-full"]},{"icon":"far fa-star-half","query":["achievement","award","rating","score","star-half-empty","star-half-full"]},{"icon":"fas fa-star-half-alt","query":["achievement","award","rating","score","star-half-empty","star-half-full"]},{"icon":"fas fa-star-of-david","query":["jewish","judaism"]},{"icon":"fas fa-star-of-life","query":[]},{"icon":"fab fa-staylinked","query":[]},{"icon":"fab fa-steam","query":[]},{"icon":"fab fa-steam-square","query":[]},{"icon":"fab fa-steam-symbol","query":[]},{"icon":"fas fa-step-backward","query":["beginning","first","previous","rewind","start"]},{"icon":"fas fa-step-forward","query":["end","last","next"]},{"icon":"fas fa-stethoscope","query":[]},{"icon":"fab fa-sticker-mule","query":[]},{"icon":"fas fa-sticky-note","query":[]},{"icon":"far fa-sticky-note","query":[]},{"icon":"fas fa-stop","query":["block","box","square"]},{"icon":"fas fa-stop-circle","query":[]},{"icon":"far fa-stop-circle","query":[]},{"icon":"fas fa-stopwatch","query":["time"]},{"icon":"fas fa-store","query":[]},{"icon":"fas fa-store-alt","query":[]},{"icon":"fab fa-strava","query":[]},{"icon":"fas fa-stream","query":[]},{"icon":"fas fa-street-view","query":["map"]},{"icon":"fas fa-strikethrough","query":[]},{"icon":"fab fa-stripe","query":[]},{"icon":"fab fa-stripe-s","query":[]},{"icon":"fas fa-stroopwafel","query":["dessert","food","sweets","waffle"]},{"icon":"fab fa-studiovinari","query":[]},{"icon":"fab fa-stumbleupon","query":[]},{"icon":"fab fa-stumbleupon-circle","query":[]},{"icon":"fas fa-subscript","query":[]},{"icon":"fas fa-subway","query":["machine","railway","train","transportation","vehicle"]},{"icon":"fas fa-suitcase","query":["baggage","luggage","move","suitcase","travel","trip"]},{"icon":"fas fa-suitcase-rolling","query":[]},{"icon":"fas fa-sun","query":["brighten","contrast","day","lighter","sol","solar","star","weather"]},{"icon":"far fa-sun","query":["brighten","contrast","day","lighter","sol","solar","star","weather"]},{"icon":"fab fa-superpowers","query":[]},{"icon":"fas fa-superscript","query":["exponential"]},{"icon":"fab fa-supple","query":[]},{"icon":"fas fa-surprise","query":["emoticon","face","shocked"]},{"icon":"far fa-surprise","query":["emoticon","face","shocked"]},{"icon":"fas fa-swatchbook","query":[]},{"icon":"fas fa-swimmer","query":["athlete","head","man","person","water"]},{"icon":"fas fa-swimming-pool","query":["ladder","recreation","water"]},{"icon":"fas fa-synagogue","query":["building","jewish","judaism","star of david","temple"]},{"icon":"fas fa-sync","query":["exchange","refresh","reload","rotate","swap"]},{"icon":"fas fa-sync-alt","query":["refresh","reload","rotate"]},{"icon":"fas fa-syringe","query":["immunizations","needle"]},{"icon":"fas fa-table","query":["data","excel","spreadsheet"]},{"icon":"fas fa-table-tennis","query":[]},{"icon":"fas fa-tablet","query":["apple","device","ipad","kindle","screen"]},{"icon":"fas fa-tablet-alt","query":["apple","device","ipad","kindle","screen"]},{"icon":"fas fa-tablets","query":["drugs","medicine"]},{"icon":"fas fa-tachometer-alt","query":["dashboard","tachometer"]},{"icon":"fas fa-tag","query":["label"]},{"icon":"fas fa-tags","query":["labels"]},{"icon":"fas fa-tape","query":[]},{"icon":"fas fa-tasks","query":["downloading","downloads","loading","progress","settings"]},{"icon":"fas fa-taxi","query":["cab","cabbie","car","car service","lyft","machine","transportation","uber","vehicle"]},{"icon":"fab fa-teamspeak","query":[]},{"icon":"fas fa-teeth","query":[]},{"icon":"fas fa-teeth-open","query":[]},{"icon":"fab fa-telegram","query":[]},{"icon":"fab fa-telegram-plane","query":[]},{"icon":"fas fa-temperature-high","query":["mercury","thermometer","warm"]},{"icon":"fas fa-temperature-low","query":["cool","mercury","thermometer"]},{"icon":"fab fa-tencent-weibo","query":[]},{"icon":"fas fa-terminal","query":["code","command","console","prompt"]},{"icon":"fas fa-text-height","query":[]},{"icon":"fas fa-text-width","query":[]},{"icon":"fas fa-th","query":["blocks","boxes","grid","squares"]},{"icon":"fas fa-th-large","query":["blocks","boxes","grid","squares"]},{"icon":"fas fa-th-list","query":["checklist","completed","done","finished","ol","todo","ul"]},{"icon":"fab fa-the-red-yeti","query":[]},{"icon":"fas fa-theater-masks","query":[]},{"icon":"fab fa-themeco","query":[]},{"icon":"fab fa-themeisle","query":[]},{"icon":"fas fa-thermometer","query":["mercury","status","temperature"]},{"icon":"fas fa-thermometer-empty","query":["mercury","status","temperature"]},{"icon":"fas fa-thermometer-full","query":["fever","mercury","status","temperature"]},{"icon":"fas fa-thermometer-half","query":["mercury","status","temperature"]},{"icon":"fas fa-thermometer-quarter","query":["mercury","status","temperature"]},{"icon":"fas fa-thermometer-three-quarters","query":["mercury","status","temperature"]},{"icon":"fab fa-think-peaks","query":[]},{"icon":"fas fa-thumbs-down","query":["disagree","disapprove","dislike","hand","thumbs-o-down"]},{"icon":"far fa-thumbs-down","query":["disagree","disapprove","dislike","hand","thumbs-o-down"]},{"icon":"fas fa-thumbs-up","query":["agree","approve","favorite","hand","like","ok","okay","success","thumbs-o-up","yes","you got it dude"]},{"icon":"far fa-thumbs-up","query":["agree","approve","favorite","hand","like","ok","okay","success","thumbs-o-up","yes","you got it dude"]},{"icon":"fas fa-thumbtack","query":["coordinates","location","marker","pin","thumb-tack"]},{"icon":"fas fa-ticket-alt","query":["ticket"]},{"icon":"fas fa-times","query":["close","cross","error","exit","incorrect","notice","notification","notify","problem","wrong","x"]},{"icon":"fas fa-times-circle","query":["close","cross","exit","incorrect","notice","notification","notify","problem","wrong","x"]},{"icon":"far fa-times-circle","query":["close","cross","exit","incorrect","notice","notification","notify","problem","wrong","x"]},{"icon":"fas fa-tint","query":["drop","droplet","raindrop","waterdrop"]},{"icon":"fas fa-tint-slash","query":[]},{"icon":"fas fa-tired","query":["emoticon","face","grumpy"]},{"icon":"far fa-tired","query":["emoticon","face","grumpy"]},{"icon":"fas fa-toggle-off","query":["switch"]},{"icon":"fas fa-toggle-on","query":["switch"]},{"icon":"fas fa-toilet-paper","query":["bathroom","halloween","holiday","lavatory","prank","restroom","roll"]},{"icon":"fas fa-toolbox","query":["admin","container","fix","repair","settings","tools"]},{"icon":"fas fa-tooth","query":["bicuspid","dental","molar","mouth","teeth"]},{"icon":"fas fa-torah","query":["book","jewish","judaism"]},{"icon":"fas fa-torii-gate","query":["building","shintoism"]},{"icon":"fas fa-tractor","query":[]},{"icon":"fab fa-trade-federation","query":[]},{"icon":"fas fa-trademark","query":[]},{"icon":"fas fa-traffic-light","query":[]},{"icon":"fas fa-train","query":["bullet","locomotive","railway"]},{"icon":"fas fa-transgender","query":["intersex"]},{"icon":"fas fa-transgender-alt","query":[]},{"icon":"fas fa-trash","query":["delete","garbage","hide","remove"]},{"icon":"fas fa-trash-alt","query":["delete","garbage","hide","remove","trash","trash-o"]},{"icon":"far fa-trash-alt","query":["delete","garbage","hide","remove","trash","trash-o"]},{"icon":"fas fa-tree","query":["bark","fall","flora","forest","nature","plant","seasonal"]},{"icon":"fab fa-trello","query":[]},{"icon":"fab fa-tripadvisor","query":[]},{"icon":"fas fa-trophy","query":["achievement","award","cup","game","winner"]},{"icon":"fas fa-truck","query":["delivery","shipping"]},{"icon":"fas fa-truck-loading","query":[]},{"icon":"fas fa-truck-monster","query":[]},{"icon":"fas fa-truck-moving","query":[]},{"icon":"fas fa-truck-pickup","query":[]},{"icon":"fas fa-tshirt","query":["cloth","clothing"]},{"icon":"fas fa-tty","query":[]},{"icon":"fab fa-tumblr","query":[]},{"icon":"fab fa-tumblr-square","query":[]},{"icon":"fas fa-tv","query":["computer","display","monitor","television"]},{"icon":"fab fa-twitch","query":[]},{"icon":"fab fa-twitter","query":["social network","tweet"]},{"icon":"fab fa-twitter-square","query":["social network","tweet"]},{"icon":"fab fa-typo3","query":[]},{"icon":"fab fa-uber","query":[]},{"icon":"fab fa-uikit","query":[]},{"icon":"fas fa-umbrella","query":["protection","rain"]},{"icon":"fas fa-umbrella-beach","query":["protection","recreation","sun"]},{"icon":"fas fa-underline","query":[]},{"icon":"fas fa-undo","query":["back","control z","exchange","oops","return","rotate","swap"]},{"icon":"fas fa-undo-alt","query":["back","control z","exchange","oops","return","swap"]},{"icon":"fab fa-uniregistry","query":[]},{"icon":"fas fa-universal-access","query":[]},{"icon":"fas fa-university","query":["bank","institution"]},{"icon":"fas fa-unlink","query":["chain","chain-broken","remove"]},{"icon":"fas fa-unlock","query":["admin","lock","password","protect"]},{"icon":"fas fa-unlock-alt","query":["admin","lock","password","protect"]},{"icon":"fab fa-untappd","query":[]},{"icon":"fas fa-upload","query":["export","publish"]},{"icon":"fab fa-usb","query":[]},{"icon":"fas fa-user","query":["account","avatar","head","human","man","person","profile"]},{"icon":"far fa-user","query":["account","avatar","head","human","man","person","profile"]},{"icon":"fas fa-user-alt","query":["account","avatar","head","human","man","person","profile"]},{"icon":"fas fa-user-alt-slash","query":[]},{"icon":"fas fa-user-astronaut","query":["avatar","clothing","cosmonaut","space","suit"]},{"icon":"fas fa-user-check","query":[]},{"icon":"fas fa-user-circle","query":["account","avatar","head","human","man","person","profile"]},{"icon":"far fa-user-circle","query":["account","avatar","head","human","man","person","profile"]},{"icon":"fas fa-user-clock","query":[]},{"icon":"fas fa-user-cog","query":[]},{"icon":"fas fa-user-edit","query":[]},{"icon":"fas fa-user-friends","query":[]},{"icon":"fas fa-user-graduate","query":["cap","clothing","commencement","gown","graduation","student"]},{"icon":"fas fa-user-injured","query":["cast","ouch","sling"]},{"icon":"fas fa-user-lock","query":[]},{"icon":"fas fa-user-md","query":["doctor","job","medical","nurse","occupation","profile"]},{"icon":"fas fa-user-minus","query":["delete","negative","remove"]},{"icon":"fas fa-user-ninja","query":["assassin","avatar","dangerous","deadly","sneaky"]},{"icon":"fas fa-user-plus","query":["positive","sign up","signup"]},{"icon":"fas fa-user-secret","query":["clothing","coat","hat","incognito","privacy","spy","whisper"]},{"icon":"fas fa-user-shield","query":[]},{"icon":"fas fa-user-slash","query":["ban","remove"]},{"icon":"fas fa-user-tag","query":[]},{"icon":"fas fa-user-tie","query":["avatar","business","clothing","formal"]},{"icon":"fas fa-user-times","query":["archive","delete","remove","x"]},{"icon":"fas fa-users","query":["people","persons","profiles"]},{"icon":"fas fa-users-cog","query":[]},{"icon":"fab fa-ussunnah","query":[]},{"icon":"fas fa-utensil-spoon","query":["spoon"]},{"icon":"fas fa-utensils","query":["cutlery","dinner","eat","food","knife","restaurant","spoon"]},{"icon":"fab fa-vaadin","query":[]},{"icon":"fas fa-vector-square","query":["anchors","lines","object"]},{"icon":"fas fa-venus","query":["female"]},{"icon":"fas fa-venus-double","query":[]},{"icon":"fas fa-venus-mars","query":[]},{"icon":"fab fa-viacoin","query":[]},{"icon":"fab fa-viadeo","query":[]},{"icon":"fab fa-viadeo-square","query":[]},{"icon":"fas fa-vial","query":["test tube"]},{"icon":"fas fa-vials","query":["lab results","test tubes"]},{"icon":"fab fa-viber","query":[]},{"icon":"fas fa-video","query":["camera","film","movie","record","video-camera"]},{"icon":"fas fa-video-slash","query":[]},{"icon":"fas fa-vihara","query":["buddhism","buddhist","building","monastery"]},{"icon":"fab fa-vimeo","query":[]},{"icon":"fab fa-vimeo-square","query":[]},{"icon":"fab fa-vimeo-v","query":["vimeo"]},{"icon":"fab fa-vine","query":[]},{"icon":"fab fa-vk","query":[]},{"icon":"fab fa-vnv","query":[]},{"icon":"fas fa-volleyball-ball","query":[]},{"icon":"fas fa-volume-down","query":["audio","lower","music","quieter","sound","speaker"]},{"icon":"fas fa-volume-mute","query":[]},{"icon":"fas fa-volume-off","query":["audio","music","mute","sound"]},{"icon":"fas fa-volume-up","query":["audio","higher","louder","music","sound","speaker"]},{"icon":"fas fa-vote-yea","query":["accept","cast","election","politics","positive","yes"]},{"icon":"fas fa-vr-cardboard","query":["google","reality","virtual"]},{"icon":"fab fa-vuejs","query":[]},{"icon":"fas fa-walking","query":[]},{"icon":"fas fa-wallet","query":[]},{"icon":"fas fa-warehouse","query":[]},{"icon":"fas fa-water","query":[]},{"icon":"fab fa-weebly","query":[]},{"icon":"fab fa-weibo","query":[]},{"icon":"fas fa-weight","query":["measurement","scale","weight"]},{"icon":"fas fa-weight-hanging","query":["anvil","heavy","measurement"]},{"icon":"fab fa-weixin","query":[]},{"icon":"fab fa-whatsapp","query":[]},{"icon":"fab fa-whatsapp-square","query":[]},{"icon":"fas fa-wheelchair","query":["handicap","person"]},{"icon":"fab fa-whmcs","query":[]},{"icon":"fas fa-wifi","query":[]},{"icon":"fab fa-wikipedia-w","query":[]},{"icon":"fas fa-wind","query":["air","blow","breeze","fall","seasonal"]},{"icon":"fas fa-window-close","query":[]},{"icon":"far fa-window-close","query":[]},{"icon":"fas fa-window-maximize","query":[]},{"icon":"far fa-window-maximize","query":[]},{"icon":"fas fa-window-minimize","query":[]},{"icon":"far fa-window-minimize","query":[]},{"icon":"fas fa-window-restore","query":[]},{"icon":"far fa-window-restore","query":[]},{"icon":"fab fa-windows","query":["microsoft"]},{"icon":"fas fa-wine-bottle","query":["alcohol","beverage","drink","glass","grapes"]},{"icon":"fas fa-wine-glass","query":["alcohol","beverage","drink","grapes"]},{"icon":"fas fa-wine-glass-alt","query":["alcohol","beverage","drink","grapes"]},{"icon":"fab fa-wix","query":[]},{"icon":"fab fa-wizards-of-the-coast","query":["Dungeons & Dragons","d&d","dnd","fantasy","game","gaming","tabletop"]},{"icon":"fab fa-wolf-pack-battalion","query":[]},{"icon":"fas fa-won-sign","query":["krw"]},{"icon":"fab fa-wordpress","query":[]},{"icon":"fab fa-wordpress-simple","query":[]},{"icon":"fab fa-wpbeginner","query":[]},{"icon":"fab fa-wpexplorer","query":[]},{"icon":"fab fa-wpforms","query":[]},{"icon":"fab fa-wpressr","query":["rendact"]},{"icon":"fas fa-wrench","query":["fix","settings","spanner","tool","update"]},{"icon":"fas fa-x-ray","query":["radiological images","radiology"]},{"icon":"fab fa-xbox","query":[]},{"icon":"fab fa-xing","query":[]},{"icon":"fab fa-xing-square","query":[]},{"icon":"fab fa-y-combinator","query":[]},{"icon":"fab fa-yahoo","query":[]},{"icon":"fab fa-yandex","query":[]},{"icon":"fab fa-yandex-international","query":[]},{"icon":"fab fa-yelp","query":[]},{"icon":"fas fa-yen-sign","query":["jpy","money"]},{"icon":"fas fa-yin-yang","query":["daoism","opposites","taoism"]},{"icon":"fab fa-yoast","query":[]},{"icon":"fab fa-youtube","query":["film","video","youtube-play","youtube-square"]},{"icon":"fab fa-youtube-square","query":[]},{"icon":"fab fa-zhihu","query":[]}];
 
 /***/ }),
 

@@ -1,0 +1,59 @@
+.fontAwesomeSelector{
+    height: 400px;
+    width: 330px;
+    background-color: white;
+    z-index: 10000;
+    position: absolute;
+    // top: 0;
+    // left: 0;
+    border: 1px solid rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    #FATopBar{
+        display: flex;
+        align-items: center;
+    }
+    input{
+        width: 90%;
+        padding: 6px 12px;
+    }
+    .close{
+        text-align: center;
+        padding: 6px 12px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .iconList{
+        border: 1px solid rgba(0,0,0,.2);
+        margin-top: 10px;
+        height: 100%;
+        overflow-y: scroll;
+        .smallIcon{
+            box-sizing: border-box;
+            margin: 10px 0px 10px 10px;
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            float: left;
+            box-shadow: 0 0 0 1px #ddd;
+            background-color: #ecf0f1;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            &:hover{
+                color: #ecf0f1;
+                cursor: pointer;
+                background-color: #34495e;
+            }
+            i{
+                pointer-events: none;
+            }
+        }
+    }
+}

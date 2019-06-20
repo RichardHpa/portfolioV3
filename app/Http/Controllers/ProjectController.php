@@ -174,7 +174,7 @@ class ProjectController extends Controller
         }
 
         $project->project_name = $request->project_name;
-        $project->project_description = $request->project_name;
+        $project->project_description = $request->project_description;
         $project->project_bio = $request->project_bio;
         $project->github_link = $request->project_github;
         $project->website_url = $request->project_link;

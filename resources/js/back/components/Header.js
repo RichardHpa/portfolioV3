@@ -14,6 +14,13 @@ const Header = () => (
                 <button className="btn btn-outline-theme-color my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
+        <div>
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <a className="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 )
 

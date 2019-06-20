@@ -59,7 +59,6 @@ class Projects extends Component {
                 console.log(response);
             })
         }
-
     }
 
     startDrag(e, event){

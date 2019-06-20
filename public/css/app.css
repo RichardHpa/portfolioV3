@@ -10562,6 +10562,7 @@ a.text-theme-color:focus {
 }
 
 #app {
+  position: relative;
   height: 100vh;
   overflow: scroll;
 }
@@ -10623,8 +10624,8 @@ a.text-theme-color:focus {
 }
 
 .shuffle {
-  -webkit-animation-name: keyframes1;
-          animation-name: keyframes1;
+  -webkit-animation-name: suffleCard;
+          animation-name: suffleCard;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-transform-origin: 50% 10%;
@@ -10638,6 +10639,88 @@ a.text-theme-color:focus {
 .shuffle:hover {
   cursor: -webkit-grab;
   cursor: grab;
+}
+
+@-webkit-keyframes suffleCard {
+  0% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@keyframes suffleCard {
+  0% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+.shuffleForm {
+  -webkit-animation-name: suffleForm;
+          animation-name: suffleForm;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 10%;
+          transform-origin: 50% 10%;
+  -webkit-animation-delay: -0.75s;
+          animation-delay: -0.75s;
+  -webkit-animation-duration: 0.25s;
+          animation-duration: 0.25s;
+}
+
+.shuffleForm:hover {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+@-webkit-keyframes suffleForm {
+  0% {
+    -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@keyframes suffleForm {
+  0% {
+    -webkit-transform: translateX(-3px);
+            transform: translateX(-3px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: translateX(3px);
+            transform: translateX(3px);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
 }
 
 .dragging {
@@ -10659,40 +10742,31 @@ a.text-theme-color:focus {
   padding-top: 100%;
 }
 
-@-webkit-keyframes keyframes1 {
-  0% {
-    -webkit-transform: rotate(-1deg);
-            transform: rotate(-1deg);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-
-  50% {
-    -webkit-transform: rotate(1deg);
-            transform: rotate(1deg);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-}
-
-@keyframes keyframes1 {
-  0% {
-    -webkit-transform: rotate(-1deg);
-            transform: rotate(-1deg);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-
-  50% {
-    -webkit-transform: rotate(1deg);
-            transform: rotate(1deg);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-}
-
 .disable-link {
   pointer-events: none;
+}
+
+.socialIcons {
+  width: 50px;
+  justify-content: center;
+}
+
+.socialIcons:hover {
+  cursor: pointer;
+}
+
+.tempInput {
+  height: 45px;
+  border: 1px dashed grey;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+}
+
+.tempInput:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 #searchBar {

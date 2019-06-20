@@ -23,3 +23,6 @@ Route::post('projects/edit', 'ProjectController@update');
 Route::post('projects/delete', 'ProjectController@destroy');
 Route::post('projects/reorder', 'ProjectController@reorder');
 Route::get('projects/{id}', 'ProjectController@show');
+
+Route::get('socials', 'SocialController@index');
+Route::post('socials', 'SocialController@store');

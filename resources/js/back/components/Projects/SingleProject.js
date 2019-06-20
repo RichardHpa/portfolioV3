@@ -3,6 +3,7 @@ import axios from 'axios';
 import ProjectForm from './ProjectForm';
 import Loader from '../Loader';
 import FormData from 'form-data';
+import { Link } from 'react-router-dom';
 
 class SingleProject extends Component {
     constructor (props) {
@@ -67,7 +68,13 @@ class SingleProject extends Component {
                             <h1>{project.project_name}</h1>
                         </div>
                         <div className="col">
-                            <button onClick={this.handleDelete} className="btn btn-theme-color">Delete Project</button>
+                            <Link
+                                to={`/admin/projects/edit/${project.id}`}
+                                className='btn btn-theme-color ml-2'
+                            >
+                                Edit Project
+                            </Link>
+                            <button onClick={this.handleDelete} className="btn btn-theme-color ml-2">Delete Project</button>
                         </div>
                     </div>
                     <div className="row mb-3">

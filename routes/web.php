@@ -20,3 +20,7 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::view('admin/{path?}/{sub?}/{id?}', 'admin')->middleware(['web', 'auth']);
+
+Route::get('/serverInfo', function () {
+    phpinfo();
+});

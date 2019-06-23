@@ -50,7 +50,6 @@
     100% { transform: rotate(360deg); }
 }
 
-
 .shuffle{
     animation-name: suffleCard;
     animation-iteration-count: infinite;
@@ -86,12 +85,6 @@
     }
 }
 
-.temporaryForm{
-    border: 1px dashed #bdc3c7;
-    background-color: rgba(255,255,255,0.2);
-    min-height: 45px;
-}
-
 @keyframes suffleForm {
     0% {
         transform: translateX(-3px);
@@ -103,10 +96,17 @@
     }
 }
 
+.temporaryForm{
+    border: 1px dashed #bdc3c7;
+    background-color: rgba(255,255,255,0.2);
+    min-height: 45px;
+}
+
 .dragging{
     position: fixed;
     pointer-events: none;
     cursor: grabbing;
+    z-index: 10000;
 }
 
 .temporary{
@@ -151,3 +151,12 @@
 
 @import 'custom';
 // @import 'draft';
+
+
+.box{
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    z-index: 100000;
+}

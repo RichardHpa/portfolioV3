@@ -255,8 +255,7 @@ class Projects extends Component {
                         <div
                             className="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 dragging"
                             style={draggingStyles}
-                            onMouseUp={this.sort}
-                            onMouseOver={this.move}
+
                         >
                             <div className="card text-center shadow-lg justify-content-between">
                                 <img src={`../images/uploads/heroImages/${draggingProject.project_image}.jpg`} className="card-img-top" alt="..."/>

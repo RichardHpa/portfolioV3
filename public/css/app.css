@@ -10690,12 +10690,6 @@ a.text-theme-color:focus {
   cursor: pointer;
 }
 
-.temporaryForm {
-  border: 1px dashed #bdc3c7;
-  background-color: rgba(255, 255, 255, 0.2);
-  min-height: 45px;
-}
-
 @-webkit-keyframes suffleForm {
   0% {
     -webkit-transform: translateX(-3px);
@@ -10728,11 +10722,18 @@ a.text-theme-color:focus {
   }
 }
 
+.temporaryForm {
+  border: 1px dashed #bdc3c7;
+  background-color: rgba(255, 255, 255, 0.2);
+  min-height: 45px;
+}
+
 .dragging {
   position: fixed;
   pointer-events: none;
   cursor: -webkit-grabbing;
   cursor: grabbing;
+  z-index: 10000;
 }
 
 .temporary {
@@ -10864,5 +10865,13 @@ a.text-theme-color:focus {
 
 .content {
   white-space: pre-wrap;
+}
+
+.box {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  z-index: 100000;
 }
 

@@ -55,4 +55,22 @@ class SocialController extends Controller
         $socialResult = Social::all();
         return response()->json($socialResult);
     }
+
+    public function reorder(Request $request){
+        $socials = json_decode($request['socials']);
+        foreach($socials as $key=>$social){
+            $updatingSocial = Social::where('id', '=', $social->id)->firstOrFail();
+            $updatingSocial->order = null;
+            $updatingSocial->save();
+        }
+        foreach($socials as $key=>$social){
+            $updatingSocial = Social::where('id', '=', $social->id)->firstOrFail();
+            $updatingSocial->order = $key+1;
+            $updatingSocial->save();
+        }
+        return 'success';
+    }
+
+
+
 }

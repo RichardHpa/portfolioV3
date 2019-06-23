@@ -61679,7 +61679,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69456,9 +69456,7 @@ function (_Component) {
           }));
         })), draggingProject ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12 col-sm-6 col-md-4 col-lg-3 mb-3 dragging",
-          style: draggingStyles,
-          onMouseUp: this.sort,
-          onMouseOver: this.move
+          style: draggingStyles
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "card text-center shadow-lg justify-content-between"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -69836,6 +69834,13 @@ function (_Component) {
       pageLoaded: false,
       shuffle: false,
       shuffleIcon: 'fas fa-random',
+      draggingSocial: null,
+      showingTemp: false,
+      currentHover: 0,
+      draggingProjectMouse: {
+        currentX: 0,
+        currentY: 0
+      },
       removing: false,
       newSocial: '',
       iconPicker: false,
@@ -69847,6 +69852,10 @@ function (_Component) {
     _this.createNew = _this.createNew.bind(_assertThisInitialized(_this));
     _this.changeNew = _this.changeNew.bind(_assertThisInitialized(_this));
     _this.shuffle = _this.shuffle.bind(_assertThisInitialized(_this));
+    _this.startDrag = _this.startDrag.bind(_assertThisInitialized(_this));
+    _this.move = _this.move.bind(_assertThisInitialized(_this));
+    _this.checkShuffle = _this.checkShuffle.bind(_assertThisInitialized(_this));
+    _this.clearShuffle = _this.clearShuffle.bind(_assertThisInitialized(_this));
     _this.prepareRemove = _this.prepareRemove.bind(_assertThisInitialized(_this));
     _this.removeSocial = _this.removeSocial.bind(_assertThisInitialized(_this));
     _this.changeFontAwesome = _this.changeFontAwesome.bind(_assertThisInitialized(_this));
@@ -69891,7 +69900,8 @@ function (_Component) {
       form.append('socials', JSON.stringify(this.state.socials));
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/socials', form).then(function (response) {
         _this3.setState({
-          socials: response.data
+          socials: response.data,
+          iconPicker: false
         });
       });
     }
@@ -69911,7 +69921,8 @@ function (_Component) {
         });
         this.setState({
           socials: socials,
-          newSocial: ''
+          newSocial: '',
+          iconPicker: false
         });
         this.save();
       }
@@ -69931,12 +69942,21 @@ function (_Component) {
       if (shuffle == false) {
         this.setState({
           shuffle: true,
-          shuffleIcon: 'fas fa-save'
+          shuffleIcon: 'fas fa-save',
+          iconPicker: false
         });
       } else {
         this.setState({
           shuffle: false,
-          shuffleIcon: 'fas fa-random'
+          shuffleIcon: 'fas fa-random',
+          draggingSocial: null,
+          iconPicker: false
+        });
+        document.removeEventListener('mousemove', this.move);
+        var form = new form_data__WEBPACK_IMPORTED_MODULE_3___default.a();
+        form.append('socials', JSON.stringify(this.state.socials));
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/socials/reorder', form).then(function (response) {
+          console.log(response);
         });
       }
     }
@@ -69960,7 +69980,6 @@ function (_Component) {
     value: function removeSocial(social) {
       var _this4 = this;
 
-      console.log(social.id);
       var form = new form_data__WEBPACK_IMPORTED_MODULE_3___default.a();
       form.append('id', social.id);
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/socials/delete', form, {
@@ -69969,14 +69988,149 @@ function (_Component) {
           'Accept-Language': 'en-US,en;q=0.8'
         }
       }).then(function (response) {
-        console.log(response);
-
         _this4.setState({
           socials: response.data
         });
       }).catch(function (error) {
         console.log('error');
       });
+    }
+  }, {
+    key: "startDrag",
+    value: function startDrag(e, event) {
+      var _this$state2 = this.state,
+          shuffle = _this$state2.shuffle,
+          draggingSocial = _this$state2.draggingSocial,
+          socials = _this$state2.socials,
+          showingTemp = _this$state2.showingTemp;
+
+      if (showingTemp === true) {
+        for (var i = 0; i < socials.length; i++) {
+          if (socials[i].id === 0) {
+            socials.splice(i, 1);
+            socials.splice(i, 0, draggingSocial);
+            this.setState({
+              draggingSocial: null,
+              draggingProjectMouse: {
+                currentX: 0,
+                currentY: 0
+              },
+              showingTemp: false,
+              currentHover: 0
+            });
+            break;
+          }
+        }
+
+        return;
+      }
+
+      if (shuffle === true) {
+        var k = window.event;
+        var input = e;
+
+        for (var i = 0; i < socials.length; i++) {
+          if (socials[i].id === input) {
+            this.setState({
+              draggingSocial: socials[i],
+              showingTemp: true,
+              currentHover: -1,
+              draggingProjectMouse: {
+                currentX: k.clientX,
+                currentY: k.clientY
+              }
+            });
+            document.addEventListener('mousemove', this.move);
+            socials.splice(i, 1, {
+              id: 0,
+              social_link: '',
+              social_icon: ''
+            });
+            break;
+          }
+        }
+      }
+    }
+  }, {
+    key: "move",
+    value: function move(e) {
+      this.setState({
+        draggingProjectMouse: {
+          currentX: e.clientX,
+          currentY: e.clientY
+        }
+      });
+    }
+  }, {
+    key: "checkShuffle",
+    value: function checkShuffle(num) {
+      var _this$state3 = this.state,
+          shuffle = _this$state3.shuffle,
+          socials = _this$state3.socials,
+          draggingSocial = _this$state3.draggingSocial,
+          showingTemp = _this$state3.showingTemp;
+
+      if (shuffle && draggingSocial) {
+        if (showingTemp === false) {
+          this.setState({
+            showingTemp: true,
+            currentHover: num
+          }, function () {
+            if (socials[socials.length - 1].id === 0 && num !== 0) {
+              socials.splice(-1, 1);
+            }
+
+            for (var i = 0; i < socials.length; i++) {
+              if (socials[i].id === num && num !== 0) {
+                socials.splice(i, 0, {
+                  id: 0,
+                  social_link: '',
+                  social_icon: ''
+                });
+                break;
+              }
+            }
+          });
+        }
+      }
+    }
+  }, {
+    key: "clearShuffle",
+    value: function clearShuffle(num) {
+      var _this$state4 = this.state,
+          shuffle = _this$state4.shuffle,
+          socials = _this$state4.socials,
+          draggingSocial = _this$state4.draggingSocial,
+          showingTemp = _this$state4.showingTemp,
+          currentHover = _this$state4.currentHover;
+
+      if (shuffle && draggingSocial) {
+        if (showingTemp === true && currentHover !== num) {
+          this.setState({
+            showingTemp: false,
+            currentHover: null
+          }, function () {
+            for (var i = 0; i < socials.length; i++) {
+              if (socials[i].id === 0) {
+                socials.splice(i, 1);
+                break;
+              }
+            }
+
+            socials.push({
+              id: 0,
+              social_link: '',
+              social_icon: ''
+            });
+          });
+        }
+
+        if (num === 0) {
+          this.setState({
+            showingTemp: false
+          });
+        }
+      }
     }
   }, {
     key: "changeFontAwesome",
@@ -70019,12 +70173,18 @@ function (_Component) {
     value: function render() {
       var _this5 = this;
 
-      var _this$state2 = this.state,
-          pageLoaded = _this$state2.pageLoaded,
-          socials = _this$state2.socials,
-          shuffle = _this$state2.shuffle,
-          iconPicker = _this$state2.iconPicker,
-          removing = _this$state2.removing;
+      var _this$state5 = this.state,
+          pageLoaded = _this$state5.pageLoaded,
+          socials = _this$state5.socials,
+          shuffle = _this$state5.shuffle,
+          iconPicker = _this$state5.iconPicker,
+          removing = _this$state5.removing,
+          draggingSocial = _this$state5.draggingSocial,
+          draggingProjectMouse = _this$state5.draggingProjectMouse;
+      var draggingStyles = {
+        top: draggingProjectMouse.currentY,
+        left: draggingProjectMouse.currentX
+      };
 
       if (!pageLoaded) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_4__["default"], null);
@@ -70057,9 +70217,12 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col"
         }, socials.map(function (social) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          return social.social_icon !== '' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "form-group ".concat(shuffle ? "shuffleForm" : ""),
-            key: social.social_name
+            key: social.social_name,
+            onClick: _this5.startDrag.bind(_this5, social.id),
+            onMouseEnter: _this5.checkShuffle.bind(_this5, social.id),
+            onMouseOut: _this5.clearShuffle.bind(_this5, social.id)
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "input-group mb-2"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70090,7 +70253,13 @@ function (_Component) {
             onClick: _this5.removeSocial.bind(_this5, social)
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
             className: "fas fa-trash"
-          }))) : null));
+          }))) : null)) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "form-group shuffle tempInput",
+            key: social.id,
+            onMouseDown: _this5.startDrag.bind(_this5, social.id),
+            onMouseEnter: _this5.checkShuffle.bind(_this5, social.id),
+            onMouseOut: _this5.clearShuffle.bind(_this5, social.id)
+          });
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "form-group"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -70109,7 +70278,24 @@ function (_Component) {
           value: this.state.newSocial,
           onChange: this.changeNew,
           onBlur: this.createNew
-        })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fontAwesomeSelector_FontAwesomeSelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        })))))), draggingSocial ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "form-group dragging",
+          style: draggingStyles
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-group mb-2"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-group-prepend"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-group-text socialIcons"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: draggingSocial.social_icon
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          className: "form-control form-control-lg",
+          placeholder: draggingSocial.social_name,
+          value: draggingSocial.social_link,
+          disabled: shuffle
+        }))) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fontAwesomeSelector_FontAwesomeSelector__WEBPACK_IMPORTED_MODULE_5__["default"], {
           callback: this.handleFontChange,
           pos: this.state.position,
           visible: this.state.iconPicker
@@ -70265,36 +70451,36 @@ function (_Component) {
 
       if (visible) {
         styles['display'] = 'flex';
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FontAwesomeSelectorPortal, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "fontAwesomeSelector",
+          style: styles
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "FATopBar"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          placeholder: "Search for an Icon",
+          onChange: this.filter,
+          value: this.state.inputValue
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "close",
+          onClick: this.close
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-times"
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "iconList"
+        }, this.state.allIcons.map(function (icon) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: icon.icon,
+            className: "smallIcon",
+            onClick: _this2.chooseIcon.bind(_this2, icon.icon)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+            className: icon.icon
+          }));
+        }))));
       } else {
         styles['display'] = 'none';
+        return null;
       }
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FontAwesomeSelectorPortal, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "fontAwesomeSelector",
-        style: styles
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "FATopBar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        placeholder: "Search for an Icon",
-        onChange: this.filter,
-        value: this.state.inputValue
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "close",
-        onClick: this.close
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-times"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "iconList"
-      }, this.state.allIcons.map(function (icon) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: icon.icon,
-          className: "smallIcon",
-          onClick: _this2.chooseIcon.bind(_this2, icon.icon)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: icon.icon
-        }));
-      }))));
     }
   }]);
 

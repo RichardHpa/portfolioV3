@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142542205-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-142542205-1');
+        </script>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -174,18 +184,31 @@
                         </div>
                     </div>
                 </div>
+                @if(count($socials) > 0)
+                    <div class="social d-flex justify-content-center">
+                        @foreach($socials as $socialPlatform)
+                            @if(filter_var($socialPlatform->social_link, FILTER_VALIDATE_EMAIL))
+                                <a href="mailto:{{$socialPlatform->social_link}}" class="mx-2">
+                                    <i class="{{$socialPlatform->social_icon}}"></i>
+                                </a>
+                            @else
+                                <a href="{{$socialPlatform->social_link}}" class="mx-2" target="_blank">
+                                    <i class="{{$socialPlatform->social_icon}}"></i>
+                                </a>
+                            @endif
 
-                <div class="social d-flex justify-content-center">
-                    <a href="https://github.com/RichardHpa" class="mx-2" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
+                        @endforeach
+                    </div>
+                @endif
+
+{{--
                     <a href="mailto:richard.m.hpa@gmail.com" class="mx-2">
                         <i class="fas fa-envelope"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/richardhpa/" class="mx-2" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
+                    </a> --}}
+
 
             </div>
         </section>
@@ -210,5 +233,6 @@
         </form>
 
         <script type="text/javascript" src="{{ asset('js/front.js') }}"></script>
+
     </body>
 </html>

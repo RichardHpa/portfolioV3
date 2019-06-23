@@ -79,44 +79,46 @@ class FontAwesomeSelector extends Component {
         }
         if(visible){
             styles['display'] = 'flex';
+            return(
+                <FontAwesomeSelectorPortal>
+                    <div className="fontAwesomeSelector" style={styles}>
+                    <div id="FATopBar">
+                        <input
+                            type="text"
+                            placeholder="Search for an Icon"
+                            onChange={this.filter}
+                            value={this.state.inputValue}
+                            />
+                        <div className="close"
+                            onClick={this.close}
+                        >
+                            <i className="fas fa-times"></i>
+                        </div>
+                    </div>
+
+                        <div className="iconList">
+                            {
+                                this.state.allIcons.map(icon => {
+                                    return(
+                                        <div
+                                        key={icon.icon}
+                                        className="smallIcon"
+                                        onClick={this.chooseIcon.bind(this, icon.icon)}
+                                        >
+                                            <i className={icon.icon}></i>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                </FontAwesomeSelectorPortal>
+            )
         } else {
             styles['display'] = 'none';
+            return(null)
         }
-        return(
-            <FontAwesomeSelectorPortal>
-                <div className="fontAwesomeSelector" style={styles}>
-                <div id="FATopBar">
-                    <input
-                        type="text"
-                        placeholder="Search for an Icon"
-                        onChange={this.filter}
-                        value={this.state.inputValue}
-                        />
-                    <div className="close"
-                        onClick={this.close}
-                    >
-                        <i className="fas fa-times"></i>
-                    </div>
-                </div>
 
-                    <div className="iconList">
-                        {
-                            this.state.allIcons.map(icon => {
-                                return(
-                                    <div
-                                    key={icon.icon}
-                                    className="smallIcon"
-                                    onClick={this.chooseIcon.bind(this, icon.icon)}
-                                    >
-                                        <i className={icon.icon}></i>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                </div>
-            </FontAwesomeSelectorPortal>
-        )
     }
 }
 

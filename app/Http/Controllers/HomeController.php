@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Project;
+use App\Social;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $projects = Project::orderBy('order')->get();
-        return view('welcome', compact('projects'));
+        $socials = Social::where('social_link', '!=', '')->orderBy('order')->get();
+        return view('welcome', compact('projects', 'socials'));
     }
 }

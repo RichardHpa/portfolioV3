@@ -7,30 +7,41 @@ import FontAwesomeSelector from './fontAwesomeSelector/FontAwesomeSelector';
 
 class Socals extends Component {
     constructor () {
-      super()
-      this.state = {
-        socials: [],
-        pageLoaded: false,
-        shuffle: false,
-        shuffleIcon: 'fas fa-random',
-        removing: false,
-        newSocial: '',
-        iconPicker: false,
-        position: null,
-        editingId: ''
-      }
+        super()
+        this.state = {
+            socials: [],
+            pageLoaded: false,
+            shuffle: false,
+            shuffleIcon: 'fas fa-random',
+            draggingSocial: null,
+            showingTemp: false,
+            currentHover: 0,
+            draggingProjectMouse:{
+                currentX: 0,
+                currentY: 0,
+            },
+            removing: false,
+            newSocial: '',
+            iconPicker: false,
+            position: null,
+            editingId: ''
+        }
 
-      this.edit = this.edit.bind(this);
-      this.save = this.save.bind(this);
-      this.createNew = this.createNew.bind(this);
-      this.changeNew = this.changeNew.bind(this);
-      this.shuffle = this.shuffle.bind(this);
-      this.prepareRemove = this.prepareRemove.bind(this);
-      this.removeSocial = this.removeSocial.bind(this);
+        this.edit = this.edit.bind(this);
+        this.save = this.save.bind(this);
+        this.createNew = this.createNew.bind(this);
+        this.changeNew = this.changeNew.bind(this);
+        this.shuffle = this.shuffle.bind(this);
+        this.startDrag = this.startDrag.bind(this);
+        this.move = this.move.bind(this);
+        this.checkShuffle = this.checkShuffle.bind(this);
+        this.clearShuffle = this.clearShuffle.bind(this);
 
-      this.changeFontAwesome = this.changeFontAwesome.bind(this);
-      this.handleFontChange = this.handleFontChange.bind(this);
+        this.prepareRemove = this.prepareRemove.bind(this);
+        this.removeSocial = this.removeSocial.bind(this);
 
+        this.changeFontAwesome = this.changeFontAwesome.bind(this);
+        this.handleFontChange = this.handleFontChange.bind(this);
     }
 
     componentDidMount () {
@@ -41,7 +52,6 @@ class Socals extends Component {
             })
         })
     }
-
 
     edit(social, e){
         var allSocials = this.state.socials;
@@ -61,7 +71,8 @@ class Socals extends Component {
         form.append('socials', JSON.stringify(this.state.socials));
         axios.post('/api/socials', form).then(response => {
             this.setState({
-                socials: response.data
+                socials: response.data,
+                iconPicker: false
             })
         })
     }
@@ -77,7 +88,8 @@ class Socals extends Component {
             });
             this.setState({
                 socials: socials,
-                newSocial: ''
+                newSocial: '',
+                iconPicker: false
             })
             this.save();
         }
@@ -94,12 +106,21 @@ class Socals extends Component {
         if(shuffle == false){
             this.setState({
                 shuffle: true,
-                shuffleIcon: 'fas fa-save'
+                shuffleIcon: 'fas fa-save',
+                iconPicker: false
             })
         } else {
             this.setState({
                 shuffle: false,
                 shuffleIcon: 'fas fa-random',
+                draggingSocial: null,
+                iconPicker: false
+            })
+            document.removeEventListener('mousemove', this.move);
+            let form = new FormData();
+            form.append('socials', JSON.stringify(this.state.socials));
+            axios.post('/api/socials/reorder', form).then(response => {
+                console.log(response);
             })
 
         }
@@ -119,7 +140,6 @@ class Socals extends Component {
     }
 
     removeSocial(social){
-        console.log(social.id)
         let form = new FormData();
         form.append('id', social.id);
         axios.post('/api/socials/delete', form, {
@@ -129,7 +149,6 @@ class Socals extends Component {
             }
         })
         .then((response) => {
-            console.log(response);
             this.setState({
                 socials: response.data
             })
@@ -137,6 +156,118 @@ class Socals extends Component {
             console.log('error');
         });
     }
+
+    startDrag(e, event){
+        const {shuffle, draggingSocial, socials,showingTemp} = this.state;
+        if(showingTemp === true){
+            for (var i = 0; i < socials.length; i++) {
+                if(socials[i].id === 0){
+                    socials.splice(i, 1);
+                    socials.splice(i, 0, draggingSocial);
+                    this.setState({
+                        draggingSocial: null,
+                        draggingProjectMouse:{
+                            currentX: 0,
+                            currentY: 0,
+                        },
+                        showingTemp: false,
+                        currentHover: 0
+                    })
+                    break;
+                }
+            }
+            return;
+        }
+        if(shuffle === true){
+            var k = window.event
+            var input = e;
+            for (var i = 0; i < socials.length; i++) {
+                if(socials[i].id === input){
+                    this.setState({
+                        draggingSocial: socials[i],
+                        showingTemp: true,
+                        currentHover: -1,
+                        draggingProjectMouse: {
+                            currentX: k.clientX,
+                            currentY: k.clientY,
+                        }
+                    });
+                    document.addEventListener('mousemove', this.move);
+                    socials.splice(i, 1, {
+                        id: 0,
+                        social_link: '',
+                        social_icon: ''
+                    });
+                    break;
+                }
+            }
+        }
+    }
+
+    move(e){
+        this.setState({
+            draggingProjectMouse: {
+                currentX: e.clientX,
+                currentY: e.clientY
+            }
+        })
+    }
+
+    checkShuffle(num){
+        const {shuffle, socials, draggingSocial, showingTemp} = this.state;
+        if(shuffle && draggingSocial){
+            if(showingTemp === false){
+                this.setState({
+                  showingTemp: true,
+                  currentHover: num
+                }, () => {
+                    if((socials[socials.length - 1].id === 0) && (num !== 0)){
+                        socials.splice(-1,1);
+                    }
+                    for (var i = 0; i < socials.length; i++) {
+                        if((socials[i].id === num) && (num !== 0)){
+                            socials.splice(i, 0, {
+                                id: 0,
+                                social_link: '',
+                                social_icon: ''
+                            });
+                            break;
+                        }
+                    }
+                })
+            }
+        }
+    }
+
+    clearShuffle(num){
+        const {shuffle, socials, draggingSocial, showingTemp, currentHover} = this.state;
+        if(shuffle && draggingSocial){
+            if((showingTemp === true) && (currentHover !== num)){
+                this.setState({
+                  showingTemp: false,
+                  currentHover: null
+              }, () => {
+                  for (var i = 0; i < socials.length; i++) {
+                      if(socials[i].id === 0){
+                          socials.splice(i, 1);
+                          break;
+                      }
+                  }
+                  socials.push({
+                      id: 0,
+                      social_link: '',
+                      social_icon: ''
+                  })
+              });
+            }
+            if(num === 0){
+                this.setState({
+                    showingTemp: false
+                })
+            }
+        }
+    }
+
 
     changeFontAwesome(social, e){
         if(this.state.shuffle === false){
@@ -146,7 +277,6 @@ class Socals extends Component {
                 editingId: social.id
             })
         }
-
     }
 
     handleFontChange(record){
@@ -172,7 +302,11 @@ class Socals extends Component {
     }
 
     render () {
-        const { pageLoaded, socials, shuffle, iconPicker, removing} = this.state;
+        const { pageLoaded, socials, shuffle, iconPicker, removing, draggingSocial, draggingProjectMouse} = this.state;
+        var draggingStyles = {
+          top: draggingProjectMouse.currentY,
+          left: draggingProjectMouse.currentX,
+        };
         if (!pageLoaded) {
             return (
                 <Loader />
@@ -197,50 +331,61 @@ class Socals extends Component {
                         <div className="row">
                             <div className="col">
                                 {
-                                    socials.map(social => {
-                                        return(
-                                            <div
-                                                className={`form-group ${shuffle ? "shuffleForm" : ""}`}
-                                                key={social.social_name}
-                                            >
-                                                  <div className="input-group mb-2">
-                                                    <div
-                                                        className="input-group-prepend"
-                                                        onClick={this.changeFontAwesome.bind(this, social)}
-                                                    >
-                                                      <div
-                                                          className="input-group-text socialIcons"
-                                                          >
-                                                          <i className={social.social_icon}></i>
-                                                      </div>
-                                                    </div>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control form-control-lg"
-                                                        placeholder={social.social_name}
-                                                        value={social.social_link}
-                                                        onChange={this.edit.bind(this, social)}
-                                                        onFocus={(e)=> e.target.placeholder = ""}
-                                                        onBlur={(e) => e.target.placeholder = social.social_name}
-                                                        disabled={shuffle}
-                                                    />
-                                                {removing ? (
-                                                    <div
-                                                        className="input-group-append"
-                                                        onClick={this.createNew}
-                                                    >
-                                                      <div
-                                                        className="input-group-text socialIcons bg-theme-color text-white"
-                                                        onClick={this.removeSocial.bind(this,social)}
-                                                        >
-                                                        <i className="fas fa-trash"></i>
-                                                    </div>
-                                                    </div>
-                                                    ):null}
+                                    socials.map(social => social.social_icon !== '' ? (
+                                        <div
+                                            className={`form-group ${shuffle ? "shuffleForm" : ""}`}
+                                            key={social.social_name}
+                                            onClick={this.startDrag.bind(this, social.id)}
+                                            onMouseEnter={this.checkShuffle.bind(this, social.id)}
+                                            onMouseOut={this.clearShuffle.bind(this, social.id)}
+                                        >
+                                              <div className="input-group mb-2">
+                                                <div
+                                                    className="input-group-prepend"
+                                                    onClick={this.changeFontAwesome.bind(this, social)}
+                                                >
+                                                  <div
+                                                      className="input-group-text socialIcons"
+                                                      >
+                                                      <i className={social.social_icon}></i>
                                                   </div>
-                                            </div>
-                                        )
-                                    })
+                                                </div>
+                                                <input
+                                                    type="text"
+                                                    className="form-control form-control-lg"
+                                                    placeholder={social.social_name}
+                                                    value={social.social_link}
+                                                    onChange={this.edit.bind(this, social)}
+                                                    onFocus={(e)=> e.target.placeholder = ""}
+                                                    onBlur={(e) => e.target.placeholder = social.social_name}
+                                                    disabled={shuffle}
+                                                />
+                                            {removing ? (
+                                                <div
+                                                    className="input-group-append"
+                                                    onClick={this.createNew}
+                                                >
+                                                  <div
+                                                    className="input-group-text socialIcons bg-theme-color text-white"
+                                                    onClick={this.removeSocial.bind(this,social)}
+                                                    >
+                                                    <i className="fas fa-trash"></i>
+                                                </div>
+                                                </div>
+                                                ):null}
+                                              </div>
+                                        </div>
+                                    ) : (
+                                        <div
+                                            className="form-group shuffle tempInput"
+                                            key={social.id}
+                                            onMouseDown={this.startDrag.bind(this, social.id)}
+                                            onMouseEnter={this.checkShuffle.bind(this, social.id)}
+                                            onMouseOut={this.clearShuffle.bind(this, social.id)}
+                                        >
+
+                                        </div>
+                                    ))
                                 }
                                 <hr/>
                                 <div className="form-group">
@@ -262,14 +407,40 @@ class Socals extends Component {
                                       </div>
                                 </div>
                             </div>
-
                         </div>
                     </form>
-                    <FontAwesomeSelector
-                        callback={this.handleFontChange}
-                        pos={this.state.position}
-                        visible={this.state.iconPicker}
-                    />
+                    {draggingSocial ? (
+                        <div
+                            className="form-group dragging"
+                            style={draggingStyles}
+                        >
+                            <div className="input-group mb-2">
+                                <div className="input-group-prepend">
+                                  <div
+                                      className="input-group-text socialIcons"
+                                      >
+                                      <i className={draggingSocial.social_icon}></i>
+                                  </div>
+                                </div>
+                                <input
+                                    type="text"
+                                    className="form-control form-control-lg"
+                                    placeholder={draggingSocial.social_name}
+                                    value={draggingSocial.social_link}
+                                    disabled={shuffle}
+                                />
+                            </div>
+                        </div>
+                    ):null}
+
+
+                        <FontAwesomeSelector
+                            callback={this.handleFontChange}
+                            pos={this.state.position}
+                            visible={this.state.iconPicker}
+                        />
+
+
                 </div>
             )
         }

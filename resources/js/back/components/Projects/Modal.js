@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
+
 class Modal extends Component {
     constructor(props){
         super(props);

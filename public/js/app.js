@@ -61679,7 +61679,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68681,6 +68681,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Modal */ "./resources/js/back/components/Projects/Modal.js");
+/* harmony import */ var _ReusableUtils_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ReusableUtils.js */ "./resources/js/back/components/Projects/ReusableUtils.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -68702,6 +68703,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -68896,7 +68898,6 @@ function (_Component) {
     key: "handleModalCloseClick",
     value: function handleModalCloseClick() {
       this.setState({
-        src: null,
         showModal: false
       });
     }
@@ -68928,24 +68929,27 @@ function (_Component) {
       e.preventDefault();
       var _this$state = this.state,
           action = _this$state.action,
-          error = _this$state.error;
+          error = _this$state.error,
+          croppedURL = _this$state.croppedURL,
+          src = _this$state.src;
       var history = this.props.history;
 
       if (this.state.projectName && this.state.projectDescription && this.state.croppedURL) {
         this.setState({
           sendingData: true
         });
-        var reader = new FileReader();
-        var myblob = new Blob([this.state.croppedURL], {
-          type: 'image/jpeg'
-        });
-
-        reader.onloadend = function () {
-          var base64data = reader.result;
-        };
-
-        reader.readAsDataURL(myblob);
         var form = new form_data__WEBPACK_IMPORTED_MODULE_1___default.a();
+
+        if (src) {
+          var extention = Object(_ReusableUtils_js__WEBPACK_IMPORTED_MODULE_6__["extractImageFileExtensionFromBase64"])(src);
+          var fileName = "previewFile" + extention;
+          var newCroppedFile = Object(_ReusableUtils_js__WEBPACK_IMPORTED_MODULE_6__["base64StringtoFile"])(croppedURL, fileName);
+          form.append('file', newCroppedFile);
+        }
+
+        if (this.state.updatedImage === true) {
+          form.append('updateImage', true);
+        }
 
         if (this.props.action === '/api/projects/edit') {
           form.append('project_id', this.props.project['id']);
@@ -68956,12 +68960,6 @@ function (_Component) {
         form.append('project_bio', this.state.projectBio);
         form.append('project_github', this.state.githubLink);
         form.append('project_link', this.state.siteURL);
-
-        if (this.state.updatedImage === true) {
-          form.append('updateImage', true);
-        }
-
-        form.append('file', this.state.croppedURL);
         axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(action, form, {
           headers: {
             'accept': 'application/json',
@@ -68969,8 +68967,7 @@ function (_Component) {
             'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
           }
         }).then(function (response) {
-          console.log(response);
-
+          // console.log(response)
           if (response['data']['message'] === 'success') {
             _this2.setState({
               sendingData: false
@@ -69480,6 +69477,69 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Projects);
+
+/***/ }),
+
+/***/ "./resources/js/back/components/Projects/ReusableUtils.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/back/components/Projects/ReusableUtils.js ***!
+  \****************************************************************/
+/*! exports provided: base64StringtoFile, downloadBase64File, extractImageFileExtensionFromBase64, image64toCanvasRef */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "base64StringtoFile", function() { return base64StringtoFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "downloadBase64File", function() { return downloadBase64File; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extractImageFileExtensionFromBase64", function() { return extractImageFileExtensionFromBase64; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "image64toCanvasRef", function() { return image64toCanvasRef; });
+// A few JavaScript Functions for Images and Files
+// Author: Justin Mitchel
+// Source: https://kirr.co/ndywes
+// Convert a Base64-encoded string to a File object
+function base64StringtoFile(base64String, filename) {
+  var arr = base64String.split(','),
+      mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+
+  return new File([u8arr], filename, {
+    type: mime
+  });
+} // Download a Base64-encoded file
+
+function downloadBase64File(base64Data, filename) {
+  var element = document.createElement('a');
+  element.setAttribute('href', base64Data);
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+} // Extract an Base64 Image's File Extension
+
+function extractImageFileExtensionFromBase64(base64Data) {
+  return base64Data.substring('data:image/'.length, base64Data.indexOf(';base64'));
+} // Base64 Image to Canvas with a Crop
+
+function image64toCanvasRef(canvasRef, image64, pixelCrop) {
+  var canvas = canvasRef; // document.createElement('canvas');
+
+  canvas.width = pixelCrop.width;
+  canvas.height = pixelCrop.height;
+  var ctx = canvas.getContext('2d');
+  var image = new Image();
+  image.src = image64;
+
+  image.onload = function () {
+    ctx.drawImage(image, pixelCrop.x, pixelCrop.y, pixelCrop.width, pixelCrop.height, 0, 0, pixelCrop.width, pixelCrop.height);
+  };
+}
 
 /***/ }),
 

@@ -4,7 +4,7 @@ import Loader from '../Loader';
 import axios from 'axios';
 import { Redirect} from 'react-router-dom';
 import Modal from './Modal';
-
+import {image64toCanvasRef, downloadBase64File, extractImageFileExtensionFromBase64, base64StringtoFile} from './ReusableUtils.js';
 
 class ProjectForm extends Component {
     constructor(props) {
@@ -165,7 +165,6 @@ class ProjectForm extends Component {
 
     handleModalCloseClick(){
         this.setState({
-            src: null,
             showModal: false
         })
     }
@@ -189,21 +188,23 @@ class ProjectForm extends Component {
 
     handleCreateNewProject(e){
         e.preventDefault();
-        const { action, error } = this.state;
+        const { action, error, croppedURL, src} = this.state;
         const { history } = this.props
         if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
             this.setState({
                 sendingData: true
             });
-            var reader = new FileReader();
-            var myblob = new Blob([this.state.croppedURL], {
-                type: 'image/jpeg'
-            });
-            reader.onloadend = () => {
-              var base64data = reader.result;
-            }
-            reader.readAsDataURL(myblob);
+
             let form = new FormData();
+            if(src){
+                const extention = extractImageFileExtensionFromBase64(src);
+                const fileName = "previewFile"+ extention;
+                const newCroppedFile = base64StringtoFile(croppedURL, fileName);
+                form.append('file', newCroppedFile);
+            }
+            if(this.state.updatedImage === true){
+                form.append('updateImage', true);
+            }
             if(this.props.action === '/api/projects/edit'){
                 form.append('project_id', this.props.project['id'])
             }
@@ -212,10 +213,7 @@ class ProjectForm extends Component {
             form.append('project_bio', this.state.projectBio);
             form.append('project_github', this.state.githubLink);
             form.append('project_link', this.state.siteURL);
-            if(this.state.updatedImage === true){
-                form.append('updateImage', true);
-            }
-            form.append('file', this.state.croppedURL);
+
             axios.post(action, form, {
                 headers: {
                   'accept': 'application/json',
@@ -224,7 +222,7 @@ class ProjectForm extends Component {
                 }
             })
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 if(response['data']['message'] === 'success'){
                     this.setState({
                         sendingData: false

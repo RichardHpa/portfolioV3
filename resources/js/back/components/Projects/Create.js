@@ -13,7 +13,7 @@ class ProjectsCreate extends Component {
         const { history } = this.props
         const { sendingData, fileInputLabel } = this.state;
         return (
-            <div className="container ml-0">
+            <div className="container-fluid ml-0">
                 <div className="row">
                     <div className="col">
                         <h1>Create a new project</h1>

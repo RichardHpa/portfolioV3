@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Response;
 use Intervention\Image\ImageManager;
 
 use App\Project;
+use App\Social;
 
 class ProjectController extends Controller
 {
@@ -91,9 +92,12 @@ class ProjectController extends Controller
 
         $projectCount = Project::all()->count();
 
+        $cleanUrl = strtolower(str_replace(' ', '_', $request->project_name));
+
         $project = Project::create([
             'order' => $projectCount+1,
             'project_name' => $request->project_name,
+            'clean_url' => $cleanUrl,
             'project_description' => $request->project_description,
             'project_bio' => $request->project_bio,
             'project_image' => $imageName,
@@ -172,8 +176,11 @@ class ProjectController extends Controller
             $thumbnailImage->save($thumbFolder.'/'.$imageName.'.jpg', 100);
             $project->project_image = $imageName;
         }
+        $cleanUrl = strtolower(str_replace(' ', '_', $request->project_name));
+
 
         $project->project_name = $request->project_name;
+        $project->clean_url = $cleanUrl;
         $project->project_description = $request->project_description;
         $project->project_bio = $request->project_bio;
         $project->github_link = $request->project_github;
@@ -203,5 +210,11 @@ class ProjectController extends Controller
         unlink("./images/uploads/thumbnails/$imageName.jpg");
         $project->delete();
         return 'success';
+    }
+
+    public function single($id){
+        $project = Project::where('clean_url', '=', $id)->firstOrFail();
+        $socials = Social::where('social_link', '!=', '')->orderBy('order')->get();
+        return view('front/singleProject', compact('project', 'socials'));
     }
 }

@@ -32,7 +32,7 @@ class EditProject extends Component {
             )
         } else {
             return (
-                <div className="container ml-0">
+                <div className="container-fluid ml-0">
                     <div className="row">
                         <div className="col">
                             <h1>Edit {project.project_name}</h1>

@@ -28,7 +28,8 @@ class ProjectForm extends Component {
             githubLink: '',
             siteURL: '',
             action: '',
-            updatedImage: false
+            updatedImage: false,
+            sectionNum: 2
         }
 
         this.handleModalShowClick = this.handleModalShowClick.bind(this);
@@ -38,6 +39,7 @@ class ProjectForm extends Component {
         this.handleFieldChange = this.handleFieldChange.bind(this);
         this.handleCreateNewProject = this.handleCreateNewProject.bind(this);
         this.removeImage = this.removeImage.bind(this);
+        this.addSection = this.addSection.bind(this);
     }
 
     componentDidMount () {
@@ -222,7 +224,7 @@ class ProjectForm extends Component {
                 }
             })
             .then((response) => {
-                // console.log(response)
+                console.log(response)
                 if(response['data']['message'] === 'success'){
                     this.setState({
                         sendingData: false
@@ -244,9 +246,15 @@ class ProjectForm extends Component {
         })
     }
 
+    addSection(e){
+        e.preventDefault();
+        this.setState({
+            sectionNum: this.state.sectionNum + 1
+        })
+    }
 
     render(){
-        const {showModal, src, errors, croppedURL, sendingData}  = this.state;
+        const {showModal, src, errors, croppedURL, sendingData, sectionNum}  = this.state;
         return(
             <form autoComplete="off" onSubmit={this.handleCreateNewProject}>
                 <div className="row">
@@ -299,6 +307,31 @@ class ProjectForm extends Component {
                             {errors.projectDescription ? (<div className="invalid-feedback">
                                 {errors.projectDescription}
                             </div>):null}
+                        </div>
+                        <div className="sections">
+                            {Array.from(Array(sectionNum), (e, i) => {
+                                return <div className="row pt-3 sectionRow" key={i}>
+                                    <div className="col-12 col-md-6 imgSection">
+                                        <div className="card h-100 d-flex justify-content-center align-items-center">
+                                            <button className="btn btn-theme-color">Add Image</button>
+                                        </div>
+                                    </div>
+                                    <div className="col-12 col-md-6 textSection">
+                                        <textarea
+                                            className="form-control"
+                                            rows="5"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                              })}
+                        </div>
+                        <div className="row pt-3">
+                            <div className="col d-flex justify-content-center">
+                                <button
+                                    className="btn btn-theme-color"
+                                    onClick={this.addSection}
+                                >Add New Section</button>
+                            </div>
                         </div>
                     </div>
                     <div className="col12 col-md-4">

@@ -16,6 +16,7 @@
 // });
 
 Route::get('/', 'HomeController@index');
+Route::get('/project/{clean_url}', 'ProjectController@single');
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');

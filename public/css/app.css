@@ -10875,3 +10875,11 @@ a.text-theme-color:focus {
   z-index: 100000;
 }
 
+.sections .sectionRow:nth-child(even) .textSection {
+  order: 1;
+}
+
+.sections .sectionRow:nth-child(even) .imgSection {
+  order: 2;
+}
+

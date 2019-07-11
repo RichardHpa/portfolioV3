@@ -220,7 +220,7 @@ class Projects extends Component {
                                         >
                                             <img src={`../images/uploads/heroImages/${project.project_image}.jpg`} className="card-img-top" alt="..."/>
                                             <div className="card-body">
-                                                <h5 className="card-title">{project.project_name} - {project.id}</h5>
+                                                <h5 className="card-title">{project.project_name}</h5>
                                             </div>
                                         </Link>
                                         <div className="card-footer p-0">

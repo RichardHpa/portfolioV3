@@ -61679,7 +61679,7 @@ if (false) {} else {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68302,7 +68302,7 @@ function (_Component) {
           sendingData = _this$state.sendingData,
           fileInputLabel = _this$state.fileInputLabel;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container ml-0"
+        className: "container-fluid ml-0"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -68403,7 +68403,7 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_2__["default"], null);
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "container ml-0"
+          className: "container-fluid ml-0"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -68742,7 +68742,8 @@ function (_Component) {
       githubLink: '',
       siteURL: '',
       action: '',
-      updatedImage: false
+      updatedImage: false,
+      sectionNum: 2
     };
     _this.handleModalShowClick = _this.handleModalShowClick.bind(_assertThisInitialized(_this));
     _this.handleModalCloseClick = _this.handleModalCloseClick.bind(_assertThisInitialized(_this));
@@ -68751,6 +68752,7 @@ function (_Component) {
     _this.handleFieldChange = _this.handleFieldChange.bind(_assertThisInitialized(_this));
     _this.handleCreateNewProject = _this.handleCreateNewProject.bind(_assertThisInitialized(_this));
     _this.removeImage = _this.removeImage.bind(_assertThisInitialized(_this));
+    _this.addSection = _this.addSection.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -68967,7 +68969,8 @@ function (_Component) {
             'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
           }
         }).then(function (response) {
-          // console.log(response)
+          console.log(response);
+
           if (response['data']['message'] === 'success') {
             _this2.setState({
               sendingData: false
@@ -68991,6 +68994,14 @@ function (_Component) {
       });
     }
   }, {
+    key: "addSection",
+    value: function addSection(e) {
+      e.preventDefault();
+      this.setState({
+        sectionNum: this.state.sectionNum + 1
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$state2 = this.state,
@@ -68998,7 +69009,8 @@ function (_Component) {
           src = _this$state2.src,
           errors = _this$state2.errors,
           croppedURL = _this$state2.croppedURL,
-          sendingData = _this$state2.sendingData;
+          sendingData = _this$state2.sendingData,
+          sectionNum = _this$state2.sectionNum;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         autoComplete: "off",
         onSubmit: this.handleCreateNewProject
@@ -69048,7 +69060,32 @@ function (_Component) {
         value: this.state.projectDescription
       }), errors.projectDescription ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "invalid-feedback"
-      }, errors.projectDescription) : null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, errors.projectDescription) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sections"
+      }, Array.from(Array(sectionNum), function (e, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row pt-3 sectionRow",
+          key: i
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12 col-md-6 imgSection"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "card h-100 d-flex justify-content-center align-items-center"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-theme-color"
+        }, "Add Image"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12 col-md-6 textSection"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          className: "form-control",
+          rows: "5"
+        })));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row pt-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col d-flex justify-content-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-theme-color",
+        onClick: this.addSection
+      }, "Add New Section")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col12 col-md-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card h-100 p-2 justify-content-between"
@@ -69437,7 +69474,7 @@ function (_Component) {
             className: "card-body"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
             className: "card-title"
-          }, project.project_name, " - ", project.id))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, project.project_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "card-footer p-0"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             to: "/admin/projects/edit/".concat(project.id),

@@ -148,7 +148,12 @@
                                                     </u>
                                                 </strong>
                                             @endif
-                                            <hr class="d-none d-lg-block mb-0 ml-0">
+                                            <hr class="d-none d-lg-block ml-0">
+                                            <strong>
+                                                <u>
+                                                    <a target="" href="project/{{$singleProject->clean_url}}">Read More.</a>
+                                                </u>
+                                            </strong>
                                         </div>
                                     </div>
                                 </div>
@@ -166,9 +171,7 @@
                     <div class="col">
                         <h3 class="text-white mb-4">Get in Touch</h3>
                     </div>
-
                 </div>
-
                 <div class="row">
 
                     <div class="col mb-3 mb-md-0">
@@ -196,35 +199,22 @@
                                     <i class="{{$socialPlatform->social_icon}}"></i>
                                 </a>
                             @endif
-
                         @endforeach
                     </div>
                 @endif
-
-{{--
-                    <a href="mailto:richard.m.hpa@gmail.com" class="mx-2">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/richardhpa/" class="mx-2" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a> --}}
-
-
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="bg-black small text-center text-white-50">
             <div class="container">
-                <div class="col12">
+                <div class="col-12">
                     Copyright &copy; Richard Hpa Design <?php echo date("Y"); ?>
                 </div>
                 <div class="col-12">
                     Portfolio was created using a <a href="https://laravel.com/" target="_blank">Laravel</a> as a PHP framework, and <a href="https://reactjs.org/" target="_blank">React JS</a> for the backend admin dashboard.<br>
                     You can view the code for my portfolio <a href="https://github.com/RichardHpa/portfolioV3" target="_blank">here on GitHub</a>
                 </div>
-
-
             </div>
         </footer>
 

@@ -10835,6 +10835,34 @@ a.text-theme-color:focus {
   color: #fff;
 }
 
+.singleMasthead {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.singleMasthead img {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .singleMasthead {
+    height: 90vh;
+    padding: 0;
+  }
+}
+
+.image-background {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
 body {
   font-family: "Nunito";
   letter-spacing: 0.0625em;

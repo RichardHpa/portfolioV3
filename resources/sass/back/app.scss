@@ -160,3 +160,17 @@
     background-color: red;
     z-index: 100000;
 }
+
+.sections{
+    .sectionRow{
+        &:nth-child(even) {
+
+            .textSection{
+                order: 1;
+            }
+          .imgSection{
+              order: 2;
+          }
+        }
+    }
+}

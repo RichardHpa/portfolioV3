@@ -11,13 +11,14 @@ import EditProject from './Projects/Edit';
 import Socals from './Socials/Socials';
 import Info from './Info/Info';
 import Dashboard from './Dashboard/Dashboard';
+import Media from './Media/Media';
 
 const pages = [
     { 'id': 1, 'name': 'Dashboard', 'url': '/admin','icon': 'chart-pie' },
     { 'id': 2, 'name': 'Site Info', 'url': '/admin/info','icon': 'home' },
     { 'id': 3, 'name': 'Projects', 'url': '/admin/projects','icon': 'project-diagram' },
     { 'id': 4, 'name': 'Social Links', 'url': '/admin/socials','icon': 'share-alt' },
-    // { 'id': 5, 'name': 'Slides', 'url': '/admin/slides','icon': 'images' },
+    { 'id': 5, 'name': 'Media', 'url': '/admin/media','icon': 'images' },
     // { 'id': 6, 'name': 'Invoices', 'url': '/admin/invoices','icon': 'file-invoice-dollar' }
 ];
 
@@ -39,6 +40,7 @@ class App extends Component {
                                 <Route exact path='/admin/projects/create' component={ProjectsCreate} />
                                 <Route exact path='/admin/projects/edit/:id' component={EditProject} />
                                 <Route exact path='/admin/projects/view/:id' component={SingleProject} />
+                                <Route exact path='/admin/media' component={Media} />
                                 <Route exact path='/admin/info' component={Info} />
 
                             </Switch>

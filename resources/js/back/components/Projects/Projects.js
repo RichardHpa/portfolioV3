@@ -5,8 +5,8 @@ import Loader from '../Loader';
 import FormData from 'form-data';
 
 class Projects extends Component {
-    constructor () {
-      super()
+    constructor (props) {
+      super(props)
       this.state = {
         projects: [],
         pageLoaded: false,
@@ -121,7 +121,6 @@ class Projects extends Component {
     checkShuffle(num){
         const {shuffle, projects, draggingProject, showingTemp} = this.state;
         if(shuffle && draggingProject){
-            // console.log('enter '+num);
             if(showingTemp === false){
                 this.setState({
                   showingTemp: true,
@@ -140,8 +139,6 @@ class Projects extends Component {
                             break;
                         }
                     }
-
-
                 })
             }
         }

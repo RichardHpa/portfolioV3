@@ -119,7 +119,7 @@
                     <div class="row text-center">
                         <div class="col">
                             <h2 class="text-black mb-4">Projects</h2>
-                            <p>This Portfolio is a work in progress and only holds a handfull of the projects which I have created. I will be adding more projects as I go on but have a look at my <a href="https://github.com/RichardHpa/portfolioV3" target="_blank">here on GitHub</a> for more of my work.</p>
+                            <p>These are just a handful of projects that I have done over my time as a Freelance Web Designer. My github includes more industry and personal projects I have done so feel free to <a href="https://github.com/RichardHpa/" target="_blank">check it out here.</a></p>
                         </div>
                     </div>
                     @foreach($projects as $singleProject)

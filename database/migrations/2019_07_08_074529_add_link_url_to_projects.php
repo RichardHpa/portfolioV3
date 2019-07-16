@@ -19,11 +19,6 @@ class AddLinkUrlToProjects extends Migration
             $table->string('clean_url')->nullable()->unique()->after("project_name");
         });
 
-        // $projects = DB::connection('mysql')->table('projects')->get();
-        // foreach ($projects as $project) {
-        //     $project->clean_url = strtolower(str_replace(' ', '_', $project->project_name));
-        //     $project->save();
-        // }
         $projects = Project::orderBy('order')->get();
         foreach ($projects as $project) {
             $project->clean_url = strtolower(str_replace(' ', '_', $project->project_name));

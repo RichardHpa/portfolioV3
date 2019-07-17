@@ -4,6 +4,7 @@ import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import axios from 'axios';
 
+
 import {image64toCanvasRef, downloadBase64File, extractImageFileExtensionFromBase64, base64StringtoFile} from './ReusableUtils.js';
 
 const imageMaxSize = 1000000000;
@@ -31,6 +32,7 @@ class Uploader extends Component {
         this.onImageLoaded = this.onImageLoaded.bind(this);
         this.onCropComplete = this.onCropComplete.bind(this);
         this.cropImage = this.cropImage.bind(this);
+        this.closeUploader = this.closeUploader.bind(this);
     }
 
     verifyFile(files){
@@ -139,9 +141,9 @@ class Uploader extends Component {
         });
     }
 
-    cropImage(e){
-        e.preventDefault();
+    cropImage(){
         const {croppedURL, imgSrc} = this.state;
+
         let form = new FormData();
         const extention = extractImageFileExtensionFromBase64(imgSrc);
         const fileName = "previewFile"+ extention;
@@ -155,21 +157,30 @@ class Uploader extends Component {
             }
         })
         .then((response) => {
-            // console.log(response.data)
-            this.props.selectImage(response.data.mediaInfo.id);
+            console.log(response.data)
+            this.props.closeUploader(response.data);
         }).catch((error) => {
             console.log('error');
         });
     }
 
+    closeUploader(){
+        this.props.closeUploader();
+    }
+
+
     render () {
         const {imgSrc, hovering, croppedURL} = this.state;
         return (
-            <div className="container-fluid">
+            <div id="uploader">
+                <div className="uploaderCard">
+                <div id="uploaderClose" onClick={this.closeUploader}>
+                    X
+                </div>
                 {imgSrc !== null?
                     <div className="container">
                         <div className="row">
-                            <div className="col-12 col-md-9 text-center">
+                            <div className="col-12 col-md-9">
                                 <ReactCrop
                                     src={imgSrc}
                                     crop={this.state.crop}
@@ -187,7 +198,7 @@ class Uploader extends Component {
                             </div>
                         </div>
                     </div>
-                    :
+                :
                     <Dropzone
                         onDrop={this.handleDrop}
                         accept={acceptedFileTypes}
@@ -197,8 +208,8 @@ class Uploader extends Component {
                         onDragLeave={this.handleDragLeave}
                     >
                         {({getRootProps, getInputProps}) => (
-                            <section id="dropzoneSection">
-                                <div id="dropzone" {...getRootProps()} className={hovering? 'hovering': ''}>
+                            <section id="dropzone" className={hovering? 'hovering': ''}>
+                                <div {...getRootProps()}>
                                     <input {...getInputProps()} />
                                     <button className="btn btn-theme-color">Drag 'n' drop some files here, or click to select files</button>
                                 </div>
@@ -206,6 +217,7 @@ class Uploader extends Component {
                         )}
                     </Dropzone>
                 }
+                </div>
             </div>
         )
     }

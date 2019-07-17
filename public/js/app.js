@@ -103987,6 +103987,148 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/back/components/Media/MediaModal.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/back/components/Media/MediaModal.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Uploader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Uploader */ "./resources/js/back/components/Media/Uploader.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var MediaModal =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(MediaModal, _Component);
+
+  function MediaModal(props) {
+    var _this;
+
+    _classCallCheck(this, MediaModal);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MediaModal).call(this, props));
+    _this.state = {
+      media: [],
+      uploader: false
+    };
+    _this.closeUploader = _this.closeUploader.bind(_assertThisInitialized(_this));
+    _this.toggleUploader = _this.toggleUploader.bind(_assertThisInitialized(_this));
+    _this.handleSelectImage = _this.handleSelectImage.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(MediaModal, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/media').then(function (response) {
+        _this2.setState({
+          media: response.data
+        });
+      });
+    }
+  }, {
+    key: "closeUploader",
+    value: function closeUploader() {
+      this.props.closeUploader();
+    }
+  }, {
+    key: "toggleUploader",
+    value: function toggleUploader(e) {
+      e.preventDefault();
+      this.setState(function (prevState) {
+        return {
+          uploader: !prevState.uploader
+        };
+      });
+    }
+  }, {
+    key: "handleSelectImage",
+    value: function handleSelectImage(id) {
+      this.props.sendImage(id);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var _this$state = this.state,
+          media = _this$state.media,
+          uploader = _this$state.uploader;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "uploader"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "uploaderCard"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "uploaderContent d-flex flex-column"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "uploadHeader"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row border-bottom pb-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-11"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Choose an Image"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-theme-color",
+        onClick: this.toggleUploader
+      }, uploader ? 'Select an Image' : 'Upload new Image')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-1 text-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-2x fa-times closeBtn",
+        onClick: this.closeUploader
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "uploaderBody"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row h-100"
+      }, uploader ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Uploader__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        selectImage: this.handleSelectImage
+      }) : media.map(function (mediaItem, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-4 col-sm-2 mt-2",
+          key: i
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "/images/uploads/thumbnails/".concat(mediaItem.media_name, ".jpg"),
+          className: "img-fluid thumbImg",
+          onClick: _this3.handleSelectImage.bind(_this3, mediaItem.id)
+        }));
+      }))))));
+    }
+  }]);
+
+  return MediaModal;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (MediaModal);
+
+/***/ }),
+
 /***/ "./resources/js/back/components/Media/ReusableUtils.js":
 /*!*************************************************************!*\
   !*** ./resources/js/back/components/Media/ReusableUtils.js ***!
@@ -104075,6 +104217,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -104137,7 +104281,6 @@ function (_Component) {
     _this.onImageLoaded = _this.onImageLoaded.bind(_assertThisInitialized(_this));
     _this.onCropComplete = _this.onCropComplete.bind(_assertThisInitialized(_this));
     _this.cropImage = _this.cropImage.bind(_assertThisInitialized(_this));
-    _this.closeUploader = _this.closeUploader.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -104284,9 +104427,10 @@ function (_Component) {
     }
   }, {
     key: "cropImage",
-    value: function cropImage() {
+    value: function cropImage(e) {
       var _this3 = this;
 
+      e.preventDefault();
       var _this$state = this.state,
           croppedURL = _this$state.croppedURL,
           imgSrc = _this$state.imgSrc;
@@ -104302,17 +104446,11 @@ function (_Component) {
           'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
         }
       }).then(function (response) {
-        console.log(response.data);
-
-        _this3.props.closeUploader(response.data);
+        // console.log(response.data)
+        _this3.props.selectImage(response.data.mediaInfo.id);
       }).catch(function (error) {
         console.log('error');
       });
-    }
-  }, {
-    key: "closeUploader",
-    value: function closeUploader() {
-      this.props.closeUploader();
     }
   }, {
     key: "render",
@@ -104322,18 +104460,13 @@ function (_Component) {
           hovering = _this$state2.hovering,
           croppedURL = _this$state2.croppedURL;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        id: "uploader"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "uploaderCard"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        id: "uploaderClose",
-        onClick: this.closeUploader
-      }, "X"), imgSrc !== null ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "container-fluid"
+      }, imgSrc !== null ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "col-12 col-md-9"
+        className: "col-12 col-md-9 text-center"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_image_crop__WEBPACK_IMPORTED_MODULE_3___default.a, {
         src: imgSrc,
         crop: this.state.crop,
@@ -104364,12 +104497,15 @@ function (_Component) {
         var getRootProps = _ref.getRootProps,
             getInputProps = _ref.getInputProps;
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("section", {
-          id: "dropzone",
+          id: "dropzoneSection"
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", _extends({
+          id: "dropzone"
+        }, getRootProps(), {
           className: hovering ? 'hovering' : ''
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", getRootProps(), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", getInputProps()), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", getInputProps()), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           className: "btn btn-theme-color"
         }, "Drag 'n' drop some files here, or click to select files")));
-      })));
+      }));
     }
   }]);
 
@@ -104596,244 +104732,6 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/back/components/Projects/Modal.js":
-/*!********************************************************!*\
-  !*** ./resources/js/back/components/Projects/Modal.js ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_image_crop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-image-crop */ "./node_modules/react-image-crop/dist/ReactCrop.js");
-/* harmony import */ var react_image_crop__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_image_crop__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-image-crop/dist/ReactCrop.css */ "./node_modules/react-image-crop/dist/ReactCrop.css");
-/* harmony import */ var react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_3__);
-
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-
-var Modal =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Modal, _Component);
-
-  function Modal(props) {
-    var _this;
-
-    _classCallCheck(this, Modal);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Modal).call(this, props));
-    _this.state = {
-      crop: {
-        x: 20,
-        y: 10,
-        width: 40,
-        height: 40
-      }
-    };
-    _this.handleCloseClick = _this.handleCloseClick.bind(_assertThisInitialized(_this));
-    _this.onCropChange = _this.onCropChange.bind(_assertThisInitialized(_this));
-    _this.cropImage = _this.cropImage.bind(_assertThisInitialized(_this));
-    _this.onImageLoaded = _this.onImageLoaded.bind(_assertThisInitialized(_this));
-    _this.onCropComplete = _this.onCropComplete.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Modal, [{
-    key: "componentDidMount",
-    value: function componentDidMount(e) {
-      var handleModalCloseClick = this.props.handleModalCloseClick;
-      $(this.modal).modal({
-        show: true,
-        backdrop: 'static',
-        keyboard: false
-      });
-      $(this.modal).on('hidden.bs.modal', handleModalCloseClick);
-    }
-  }, {
-    key: "handleCloseClick",
-    value: function handleCloseClick() {
-      $(this.modal).modal('hide');
-      this.props.handleModalCloseClick();
-    }
-  }, {
-    key: "onCropChange",
-    value: function onCropChange(crop) {
-      this.setState({
-        crop: crop
-      });
-    }
-  }, {
-    key: "cropImage",
-    value: function cropImage() {
-      var croppedImageUrl = this.state.croppedImageUrl;
-      $(this.modal).modal('hide');
-      this.props.croppedImage(croppedImageUrl);
-    }
-  }, {
-    key: "onCropComplete",
-    value: function onCropComplete(crop, pixelCrop) {
-      this.makeClientCrop(crop, pixelCrop);
-    }
-  }, {
-    key: "makeClientCrop",
-    value: function () {
-      var _makeClientCrop = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(crop, pixelCrop) {
-        var croppedImageUrl;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!(this.imageRef && crop.width && crop.height)) {
-                  _context.next = 5;
-                  break;
-                }
-
-                _context.next = 3;
-                return this.getCroppedImg(this.imageRef, pixelCrop, 'newFile.jpeg');
-
-              case 3:
-                croppedImageUrl = _context.sent;
-                this.setState({
-                  croppedImageUrl: croppedImageUrl
-                });
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function makeClientCrop(_x, _x2) {
-        return _makeClientCrop.apply(this, arguments);
-      }
-
-      return makeClientCrop;
-    }()
-  }, {
-    key: "onImageLoaded",
-    value: function onImageLoaded(image, pixelCrop) {
-      this.imageRef = image;
-      var crop = this.state.crop;
-
-      if (crop.aspect && crop.height && crop.width) {
-        this.setState({
-          crop: _objectSpread({}, crop, {
-            height: null
-          })
-        });
-      } else {
-        this.makeClientCrop(crop, pixelCrop);
-      }
-    }
-  }, {
-    key: "getCroppedImg",
-    value: function getCroppedImg(image, pixelCrop, fileName) {
-      var canvas = document.createElement('canvas');
-      canvas.width = pixelCrop.width;
-      canvas.height = pixelCrop.height;
-      var ctx = canvas.getContext('2d');
-      ctx.drawImage(image, pixelCrop.x, pixelCrop.y, pixelCrop.width, pixelCrop.height, 0, 0, pixelCrop.width, pixelCrop.height);
-      return new Promise(function (resolve, reject) {
-        resolve(canvas.toDataURL());
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "modal fade",
-        ref: function ref(modal) {
-          return _this2.modal = modal;
-        },
-        id: "exampleModalLong",
-        role: "dialog",
-        "aria-labelledby": "exampleModalLongTitle",
-        "aria-hidden": "true"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "modal-dialog modal-dialog-centered modal-lg",
-        role: "document"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "modal-content"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "modal-header"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h5", {
-        className: "modal-title"
-      }, "Modal title"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-        type: "button",
-        className: "close",
-        "data-dismiss": "modal",
-        "aria-label": "Close"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-        "aria-hidden": "true"
-      }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "modal-body"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_image_crop__WEBPACK_IMPORTED_MODULE_2___default.a, {
-        src: this.props.originalImgURL,
-        crop: this.state.crop,
-        onChange: this.onCropChange,
-        onImageLoaded: this.onImageLoaded,
-        onComplete: this.onCropComplete
-      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "modal-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-        type: "button",
-        className: "btn btn-secondary",
-        onClick: this.handleCloseClick
-      }, "Cancel Cropping"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-        type: "button",
-        className: "btn btn-theme-color",
-        onClick: this.cropImage
-      }, "Save Crop")))));
-    }
-  }]);
-
-  return Modal;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (Modal);
-
-/***/ }),
-
 /***/ "./resources/js/back/components/Projects/ProjectForm.js":
 /*!**************************************************************!*\
   !*** ./resources/js/back/components/Projects/ProjectForm.js ***!
@@ -104852,15 +104750,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! form-data */ "./node_modules/form-data/lib/browser.js");
 /* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(form_data__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Modal */ "./resources/js/back/components/Projects/Modal.js");
-/* harmony import */ var _ReusableUtils_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ReusableUtils.js */ "./resources/js/back/components/Projects/ReusableUtils.js");
-/* harmony import */ var _validationUtil_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./validationUtil.js */ "./resources/js/back/components/Projects/validationUtil.js");
+/* harmony import */ var _Media_MediaModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Media/MediaModal */ "./resources/js/back/components/Media/MediaModal.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _validationUtil_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./validationUtil.js */ "./resources/js/back/components/Projects/validationUtil.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -104879,7 +104774,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -104903,9 +104797,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ProjectForm).call(this, props));
     _this.state = {
-      showModal: false,
-      src: null,
-      croppedURL: null,
+      mediaOpen: false,
       sendingData: false,
       errors: {},
       projectName: '',
@@ -104915,18 +104807,18 @@ function (_Component) {
       siteURL: '',
       action: '',
       updatedImage: false,
-      sectionNum: 2,
-      ready: false
+      sectionNum: 0,
+      ready: false,
+      media: null
     };
-    _this.handleModalShowClick = _this.handleModalShowClick.bind(_assertThisInitialized(_this));
-    _this.handleModalCloseClick = _this.handleModalCloseClick.bind(_assertThisInitialized(_this));
-    _this.handleCroppedImage = _this.handleCroppedImage.bind(_assertThisInitialized(_this));
     _this.validation = _this.validation.bind(_assertThisInitialized(_this));
     _this.handleFieldChange = _this.handleFieldChange.bind(_assertThisInitialized(_this));
-    _this.handleCreateNewProject = _this.handleCreateNewProject.bind(_assertThisInitialized(_this));
     _this.removeImage = _this.removeImage.bind(_assertThisInitialized(_this));
     _this.addSection = _this.addSection.bind(_assertThisInitialized(_this));
     _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
+    _this.openMedia = _this.openMedia.bind(_assertThisInitialized(_this));
+    _this.closeUploader = _this.closeUploader.bind(_assertThisInitialized(_this));
+    _this.getImage = _this.getImage.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -104954,7 +104846,6 @@ function (_Component) {
           projectName: this.props.project['project_name'],
           projectDescription: this.props.project['project_description'],
           projectBio: this.props.project['project_bio'],
-          croppedURL: "/images/uploads/heroImages/".concat(this.props.project['project_image'], ".jpg"),
           siteURL: siteURLVar,
           githubLink: githubUrlVar
         });
@@ -104994,7 +104885,7 @@ function (_Component) {
     value: function validation(event) {
       var errors = this.state.errors;
       var input = event.target.name;
-      var checkValidation = Object(_validationUtil_js__WEBPACK_IMPORTED_MODULE_9__["validate"])(event.target.value, event.target.dataset.validation);
+      var checkValidation = Object(_validationUtil_js__WEBPACK_IMPORTED_MODULE_8__["validate"])(event.target.value, event.target.dataset.validation);
 
       if (checkValidation !== 'valid') {
         errors[input] = checkValidation;
@@ -105013,133 +104904,11 @@ function (_Component) {
       this.setState(_defineProperty({}, event.target.name, event.target.value));
     }
   }, {
-    key: "handleModalShowClick",
-    value: function handleModalShowClick(e) {
-      e.preventDefault();
-
-      if (window.FileReader) {
-        var imageType = /^image\//;
-        var file = e.target.files[0],
-            reader = new FileReader(),
-            self = this;
-
-        if (!file || !imageType.test(file.type)) {
-          this.setState(function (prevState) {
-            return {
-              croppedURL: null,
-              errors: _objectSpread({}, prevState.errors, {
-                projectImage: 'No file uploaded/supported'
-              })
-            };
-          });
-          return;
-        }
-
-        reader.onload = function (r) {
-          self.setState({
-            src: r.target.result,
-            showModal: true
-          });
-        };
-
-        reader.readAsDataURL(file);
-      }
-    }
-  }, {
-    key: "handleModalCloseClick",
-    value: function handleModalCloseClick() {
-      this.setState({
-        showModal: false
-      });
-    }
-  }, {
-    key: "handleCroppedImage",
-    value: function handleCroppedImage(croppedImageURL) {
-      var updateImages = false;
-
-      if (this.props.action === '/api/projects/edit') {
-        updateImages = true;
-      }
-
-      this.setState(function (prevState) {
-        return {
-          croppedURL: croppedImageURL,
-          errors: _objectSpread({}, prevState.errors, {
-            projectImage: ''
-          }),
-          updatedImage: updateImages
-        };
-      });
-      this.handleModalCloseClick();
-    }
-  }, {
-    key: "handleCreateNewProject",
-    value: function handleCreateNewProject(e) {
-      var _this2 = this;
-
-      e.preventDefault();
-      var _this$state = this.state,
-          action = _this$state.action,
-          error = _this$state.error,
-          croppedURL = _this$state.croppedURL,
-          src = _this$state.src;
-      var history = this.props.history;
-
-      if (this.state.projectName && this.state.projectDescription && this.state.croppedURL) {
-        this.setState({
-          sendingData: true
-        });
-        var form = new form_data__WEBPACK_IMPORTED_MODULE_3___default.a();
-
-        if (src) {
-          var extention = Object(_ReusableUtils_js__WEBPACK_IMPORTED_MODULE_8__["extractImageFileExtensionFromBase64"])(src);
-          var fileName = "previewFile" + extention;
-          var newCroppedFile = Object(_ReusableUtils_js__WEBPACK_IMPORTED_MODULE_8__["base64StringtoFile"])(croppedURL, fileName);
-          form.append('file', newCroppedFile);
-        }
-
-        if (this.state.updatedImage === true) {
-          form.append('updateImage', true);
-        }
-
-        if (this.props.action === '/api/projects/edit') {
-          form.append('project_id', this.props.project['id']);
-        }
-
-        form.append('project_name', this.state.projectName);
-        form.append('project_description', this.state.projectDescription);
-        form.append('project_bio', this.state.projectBio);
-        form.append('project_github', this.state.githubLink);
-        form.append('project_link', this.state.siteURL);
-        axios__WEBPACK_IMPORTED_MODULE_5___default.a.post(action, form, {
-          headers: {
-            'accept': 'application/json',
-            'Accept-Language': 'en-US,en;q=0.8',
-            'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
-          }
-        }).then(function (response) {
-          console.log(response);
-
-          if (response['data']['message'] === 'success') {
-            _this2.setState({
-              sendingData: false
-            });
-
-            history.push('/admin/projects');
-          }
-        }).catch(function (error) {
-          console.log('error');
-        });
-      } else {
-        console.log('error');
-      }
-    }
-  }, {
     key: "removeImage",
     value: function removeImage(e) {
       e.preventDefault();
       this.setState({
-        croppedURL: null
+        media: null
       });
     }
   }, {
@@ -105157,18 +104926,100 @@ function (_Component) {
       });
     }
   }, {
+    key: "openMedia",
+    value: function openMedia() {
+      this.setState({
+        mediaOpen: true
+      });
+    }
+  }, {
+    key: "closeUploader",
+    value: function closeUploader() {
+      this.setState({
+        mediaOpen: false
+      });
+    }
+  }, {
+    key: "getImage",
+    value: function getImage(id) {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_6___default.a.get("/api/media/".concat(id)).then(function (response) {
+        console.log(response.data);
+
+        _this2.setState({
+          media: response.data,
+          pageLoaded: true,
+          mediaOpen: false
+        });
+      });
+    }
+  }, {
+    key: "handleCreateNewProject",
+    value: function handleCreateNewProject(e) {
+      e.preventDefault();
+      var _this$state = this.state,
+          action = _this$state.action,
+          error = _this$state.error,
+          media = _this$state.media;
+      var history = this.props.history; // if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
+      //     this.setState({
+      //         sendingData: true
+      //     });
+      //
+      //     let form = new FormData();
+      //     if(src){
+      //         const extention = extractImageFileExtensionFromBase64(src);
+      //         const fileName = "previewFile"+ extention;
+      //         const newCroppedFile = base64StringtoFile(croppedURL, fileName);
+      //         form.append('file', newCroppedFile);
+      //     }
+      //     if(this.state.updatedImage === true){
+      //         form.append('updateImage', true);
+      //     }
+      //     if(this.props.action === '/api/projects/edit'){
+      //         form.append('project_id', this.props.project['id'])
+      //     }
+      //     form.append('project_name', this.state.projectName);
+      //     form.append('project_description', this.state.projectDescription);
+      //     form.append('project_bio', this.state.projectBio);
+      //     form.append('project_github', this.state.githubLink);
+      //     form.append('project_link', this.state.siteURL);
+      //
+      //     axios.post(action, form, {
+      //         headers: {
+      //           'accept': 'application/json',
+      //           'Accept-Language': 'en-US,en;q=0.8',
+      //           'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
+      //         }
+      //     })
+      //     .then((response) => {
+      //         console.log(response)
+      //         if(response['data']['message'] === 'success'){
+      //             this.setState({
+      //                 sendingData: false
+      //             });
+      //             history.push('/admin/projects');
+      //         }
+      //     }).catch((error) => {
+      //         console.log('error');
+      //     });
+      // } else {
+      //     console.log('error');
+      // }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
       var _this$state2 = this.state,
-          showModal = _this$state2.showModal,
-          src = _this$state2.src,
           errors = _this$state2.errors,
-          croppedURL = _this$state2.croppedURL,
           sendingData = _this$state2.sendingData,
           sectionNum = _this$state2.sectionNum,
-          ready = _this$state2.ready;
+          ready = _this$state2.ready,
+          mediaOpen = _this$state2.mediaOpen,
+          media = _this$state2.media;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         autoComplete: "off",
         onSubmit: this.handleCreateNewProject
@@ -105251,33 +105102,24 @@ function (_Component) {
         className: "card h-100 p-2 mb-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Main Project Image"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "custom-file"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "customFile",
-        type: "file",
-        className: "custom-file-input " + (errors.projectImage ? 'is-invalid' : ''),
-        onClick: this.resetValue,
-        onChange: this.handleModalShowClick
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "custom-file-label",
-        htmlFor: "customFile"
-      }, "Choose file"), showModal ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Modal__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        handleModalCloseClick: this.handleModalCloseClick,
-        originalImgURL: src,
-        croppedImage: this.handleCroppedImage
-      }) : null, errors.projectImage ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "invalid-feedback"
-      }, errors.projectImage) : null)), croppedURL && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Main Project Image"), media !== null ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         alt: "Crop",
         className: "img-fluid",
-        src: croppedURL
+        src: "/images/uploads/thumbnails/".concat(media.media_name, ".jpg")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-theme-color btn-block mt-1",
         onClick: this.removeImage
-      }, "Remove Image")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Remove Image")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "placeholderImage",
+        onClick: this.openMedia
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "m-0"
+      }, "Upload an Image"))), mediaOpen && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Media_MediaModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        closeUploader: this.closeUploader,
+        sendImage: this.getImage
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "githubLink"
@@ -105673,69 +105515,6 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Projects);
-
-/***/ }),
-
-/***/ "./resources/js/back/components/Projects/ReusableUtils.js":
-/*!****************************************************************!*\
-  !*** ./resources/js/back/components/Projects/ReusableUtils.js ***!
-  \****************************************************************/
-/*! exports provided: base64StringtoFile, downloadBase64File, extractImageFileExtensionFromBase64, image64toCanvasRef */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "base64StringtoFile", function() { return base64StringtoFile; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "downloadBase64File", function() { return downloadBase64File; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extractImageFileExtensionFromBase64", function() { return extractImageFileExtensionFromBase64; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "image64toCanvasRef", function() { return image64toCanvasRef; });
-// A few JavaScript Functions for Images and Files
-// Author: Justin Mitchel
-// Source: https://kirr.co/ndywes
-// Convert a Base64-encoded string to a File object
-function base64StringtoFile(base64String, filename) {
-  var arr = base64String.split(','),
-      mime = arr[0].match(/:(.*?);/)[1],
-      bstr = atob(arr[1]),
-      n = bstr.length,
-      u8arr = new Uint8Array(n);
-
-  while (n--) {
-    u8arr[n] = bstr.charCodeAt(n);
-  }
-
-  return new File([u8arr], filename, {
-    type: mime
-  });
-} // Download a Base64-encoded file
-
-function downloadBase64File(base64Data, filename) {
-  var element = document.createElement('a');
-  element.setAttribute('href', base64Data);
-  element.setAttribute('download', filename);
-  element.style.display = 'none';
-  document.body.appendChild(element);
-  element.click();
-  document.body.removeChild(element);
-} // Extract an Base64 Image's File Extension
-
-function extractImageFileExtensionFromBase64(base64Data) {
-  return base64Data.substring('data:image/'.length, base64Data.indexOf(';base64'));
-} // Base64 Image to Canvas with a Crop
-
-function image64toCanvasRef(canvasRef, image64, pixelCrop) {
-  var canvas = canvasRef; // document.createElement('canvas');
-
-  canvas.width = pixelCrop.width;
-  canvas.height = pixelCrop.height;
-  var ctx = canvas.getContext('2d');
-  var image = new Image();
-  image.src = image64;
-
-  image.onload = function () {
-    ctx.drawImage(image, pixelCrop.x, pixelCrop.y, pixelCrop.width, pixelCrop.height, 0, 0, pixelCrop.width, pixelCrop.height);
-  };
-}
 
 /***/ }),
 

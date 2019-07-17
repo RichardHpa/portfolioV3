@@ -3,9 +3,11 @@ import 'babel-polyfill';
 import { Editor, EditorState } from 'draft-js';
 import FormData from 'form-data';
 import Loader from '../Loader';
-import MediaModal from '../Media/MediaModal';
+import Uploader from '../Media/Uploader';
 import axios from 'axios';
 import { Redirect} from 'react-router-dom';
+import Modal from './Modal';
+import {image64toCanvasRef, downloadBase64File, extractImageFileExtensionFromBase64, base64StringtoFile} from './ReusableUtils.js';
 
 import {validate} from './validationUtil.js';
 
@@ -13,7 +15,9 @@ class ProjectForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            mediaOpen: false,
+            showModal: false,
+            src : null,
+            croppedURL: null,
             sendingData: false,
             errors: {},
             projectName: '',
@@ -23,19 +27,19 @@ class ProjectForm extends Component {
             siteURL: '',
             action: '',
             updatedImage: false,
-            sectionNum: 0,
-            ready: false,
-            media: null
+            sectionNum: 2,
+            ready: false
         }
 
+        this.handleModalShowClick = this.handleModalShowClick.bind(this);
+        this.handleModalCloseClick = this.handleModalCloseClick.bind(this);
+        this.handleCroppedImage = this.handleCroppedImage.bind(this);
         this.validation = this.validation.bind(this);
         this.handleFieldChange = this.handleFieldChange.bind(this);
+        this.handleCreateNewProject = this.handleCreateNewProject.bind(this);
         this.removeImage = this.removeImage.bind(this);
         this.addSection = this.addSection.bind(this);
         this.onChange = this.onChange.bind(this);
-        this.openMedia = this.openMedia.bind(this);
-        this.closeUploader = this.closeUploader.bind(this);
-        this.getImage = this.getImage.bind(this);
     }
 
     componentDidMount () {
@@ -58,6 +62,7 @@ class ProjectForm extends Component {
                 projectName: this.props.project['project_name'],
                 projectDescription: this.props.project['project_description'],
                 projectBio: this.props.project['project_bio'],
+                croppedURL: `/images/uploads/heroImages/${this.props.project['project_image']}.jpg`,
                 siteURL: siteURLVar,
                 githubLink: githubUrlVar
             });
@@ -109,10 +114,108 @@ class ProjectForm extends Component {
         })
     }
 
+    handleModalShowClick(e){
+        e.preventDefault();
+        if(window.FileReader){
+            const imageType = /^image\//;
+            let file = e.target.files[0], reader = new FileReader(), self = this;
+            if (!file || !imageType.test(file.type)) {
+                this.setState(prevState => ({
+                    croppedURL: null,
+                    errors: {
+                        ...prevState.errors,
+                        projectImage: 'No file uploaded/supported'
+                    }
+                }))
+                return;
+            }
+            reader.onload = function(r){
+                self.setState({
+                    src: r.target.result,
+                    showModal: true
+                });
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    handleModalCloseClick(){
+        this.setState({
+            showModal: false
+        })
+    }
+
+    handleCroppedImage(croppedImageURL){
+        var updateImages = false;
+        if(this.props.action === '/api/projects/edit'){
+            updateImages = true;
+        }
+        this.setState(prevState => ({
+            croppedURL: croppedImageURL,
+            errors: {
+                ...prevState.errors,
+                projectImage: ''
+            },
+            updatedImage: updateImages
+        }))
+        this.handleModalCloseClick();
+    }
+
+    handleCreateNewProject(e){
+        e.preventDefault();
+        const { action, error, croppedURL, src} = this.state;
+        const { history } = this.props
+        if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
+            this.setState({
+                sendingData: true
+            });
+
+            let form = new FormData();
+            if(src){
+                const extention = extractImageFileExtensionFromBase64(src);
+                const fileName = "previewFile"+ extention;
+                const newCroppedFile = base64StringtoFile(croppedURL, fileName);
+                form.append('file', newCroppedFile);
+            }
+            if(this.state.updatedImage === true){
+                form.append('updateImage', true);
+            }
+            if(this.props.action === '/api/projects/edit'){
+                form.append('project_id', this.props.project['id'])
+            }
+            form.append('project_name', this.state.projectName);
+            form.append('project_description', this.state.projectDescription);
+            form.append('project_bio', this.state.projectBio);
+            form.append('project_github', this.state.githubLink);
+            form.append('project_link', this.state.siteURL);
+
+            axios.post(action, form, {
+                headers: {
+                  'accept': 'application/json',
+                  'Accept-Language': 'en-US,en;q=0.8',
+                  'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
+                }
+            })
+            .then((response) => {
+                console.log(response)
+                if(response['data']['message'] === 'success'){
+                    this.setState({
+                        sendingData: false
+                    });
+                    history.push('/admin/projects');
+                }
+            }).catch((error) => {
+                console.log('error');
+            });
+        } else {
+            console.log('error');
+        }
+    }
+
     removeImage(e){
         e.preventDefault();
         this.setState({
-            media: null
+            croppedURL: null
         })
     }
 
@@ -129,82 +232,8 @@ class ProjectForm extends Component {
         })
     }
 
-    openMedia(){
-        this.setState({
-            mediaOpen: true
-        })
-    }
-
-    closeUploader(){
-        this.setState({
-            mediaOpen: false
-        })
-    }
-
-    getImage(id){
-        axios.get(`/api/media/${id}`).then(response => {
-            console.log(response.data);
-            this.setState({
-                media: response.data,
-                pageLoaded: true,
-                mediaOpen: false
-            })
-        })
-    }
-
-    handleCreateNewProject(e){
-        e.preventDefault();
-        const {action, error, media} = this.state;
-        const { history } = this.props
-        // if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
-        //     this.setState({
-        //         sendingData: true
-        //     });
-        //
-        //     let form = new FormData();
-        //     if(src){
-        //         const extention = extractImageFileExtensionFromBase64(src);
-        //         const fileName = "previewFile"+ extention;
-        //         const newCroppedFile = base64StringtoFile(croppedURL, fileName);
-        //         form.append('file', newCroppedFile);
-        //     }
-        //     if(this.state.updatedImage === true){
-        //         form.append('updateImage', true);
-        //     }
-        //     if(this.props.action === '/api/projects/edit'){
-        //         form.append('project_id', this.props.project['id'])
-        //     }
-        //     form.append('project_name', this.state.projectName);
-        //     form.append('project_description', this.state.projectDescription);
-        //     form.append('project_bio', this.state.projectBio);
-        //     form.append('project_github', this.state.githubLink);
-        //     form.append('project_link', this.state.siteURL);
-        //
-        //     axios.post(action, form, {
-        //         headers: {
-        //           'accept': 'application/json',
-        //           'Accept-Language': 'en-US,en;q=0.8',
-        //           'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
-        //         }
-        //     })
-        //     .then((response) => {
-        //         console.log(response)
-        //         if(response['data']['message'] === 'success'){
-        //             this.setState({
-        //                 sendingData: false
-        //             });
-        //             history.push('/admin/projects');
-        //         }
-        //     }).catch((error) => {
-        //         console.log('error');
-        //     });
-        // } else {
-        //     console.log('error');
-        // }
-    }
-
     render(){
-        const {errors, sendingData, sectionNum, ready, mediaOpen, media}  = this.state;
+        const {showModal, src, errors, croppedURL, sendingData, sectionNum, ready}  = this.state;
         return(
             <form autoComplete="off" onSubmit={this.handleCreateNewProject}>
                 <div className="form-row">
@@ -293,24 +322,31 @@ class ProjectForm extends Component {
                             <div>
                                 <div className="form-group">
                                     <label>Main Project Image</label>
-                                    {
-                                        media !== null?
-                                        <div className="form-group">
-                                            <img alt="Crop" className="img-fluid" src={`/images/uploads/thumbnails/${media.media_name}.jpg`} />
-                                                <button className="btn btn-theme-color btn-block mt-1" onClick={this.removeImage}>Remove Image</button>
-                                        </div>
-                                        :
-                                        <div className="placeholderImage" onClick={this.openMedia}>
-                                            <p className="m-0">Upload an Image</p>
-                                        </div>
-                                    }
-
+                                    <div className="custom-file">
+                                        <input
+                                            id="customFile"
+                                            type="file"
+                                            className={"custom-file-input " + (errors.projectImage ? 'is-invalid' : '')}
+                                            onClick={this.resetValue}
+                                            onChange={this.handleModalShowClick}
+                                        />
+                                        <label className="custom-file-label" htmlFor="customFile">Choose file</label>
+                                        {showModal ? (<Modal
+                                            handleModalCloseClick={this.handleModalCloseClick}
+                                            originalImgURL={src}
+                                            croppedImage={this.handleCroppedImage}
+                                            />
+                                        ):null}
+                                        {errors.projectImage ? (<div className="invalid-feedback">
+                                            {errors.projectImage}
+                                        </div>):null}
+                                    </div>
                                 </div>
-                                {mediaOpen &&
-                                    <MediaModal
-                                        closeUploader={this.closeUploader}
-                                        sendImage={this.getImage}
-                                    />
+                                {croppedURL &&
+                                    <div className="form-group">
+                                        <img alt="Crop" className="img-fluid" src={croppedURL} />
+                                            <button className="btn btn-theme-color btn-block mt-1" onClick={this.removeImage}>Remove Image</button>
+                                    </div>
                                 }
                                 <div className="form-group">
                                     <label htmlFor="githubLink">Github Link</label>

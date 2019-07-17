@@ -13,8 +13,8 @@ class CreateMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('media', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('media_items', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('media_name');
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ class CreateMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media');
+        Schema::dropIfExists('media_items');
     }
 }

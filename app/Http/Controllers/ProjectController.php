@@ -9,6 +9,7 @@ use Intervention\Image\ImageManager;
 
 use App\Project;
 use App\Social;
+use App\Media;
 
 class ProjectController extends Controller
 {
@@ -25,6 +26,10 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('order')->get();
+        foreach ($projects as $project) {
+            $media = Media::where('id', '=', $project->media_id)->firstOrFail();
+            $project['project_image'] = $media->media_name;
+        }
         return $projects->toJson();
     }
 
@@ -70,25 +75,6 @@ class ProjectController extends Controller
         if ($validator->fails()) {
             $result =  'Validation Error';
         }
-        $manager = new ImageManager();
-        $heroImage = $manager->make($request['file']);
-        $imageName = uniqid();
-        $folder = 'images/uploads/heroImages';
-        if( ! is_dir($folder)){
-            mkdir($folder, 0777, true);
-        }
-        $heroImage->save($folder.'/'.$imageName.'.jpg', 100);
-
-        $thumbFolder = 'images/uploads/thumbnails';
-        if( ! is_dir($thumbFolder)){
-            mkdir($thumbFolder, 0777, true);
-        }
-        $thumbnailImage = $manager->make($request['file']);
-        $thumbnailImage->resize(600, null, function($constraint){
-            $constraint->aspectRatio();
-            $constraint->upsize();
-        });
-        $thumbnailImage->save($thumbFolder.'/'.$imageName.'.jpg', 100);
 
         $projectCount = Project::all()->count();
 
@@ -100,7 +86,7 @@ class ProjectController extends Controller
             'clean_url' => $cleanUrl,
             'project_description' => $request->project_description,
             'project_bio' => $request->project_bio,
-            'project_image' => $imageName,
+            'media_id' => $request->image_id,
             'github_link' => $request->project_github,
             'website_url' => $request->project_link
         ]);
@@ -122,6 +108,8 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::where('id', '=', $id)->firstOrFail();
+        $media = Media::where('id', '=', $project->media_id)->firstOrFail();
+        $project['project_image'] = $media->media_name;
         return $project->toJson();
     }
 
@@ -134,6 +122,8 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::where('id', '=', $id)->firstOrFail();
+        $media = Media::where('id', '=', $project->media_id)->firstOrFail();
+        $project['project_image'] = $media->media_name;
         return $project->toJson();
     }
 
@@ -205,15 +195,14 @@ class ProjectController extends Controller
     public function destroy(Request $request)
     {
         $project = Project::findOrFail($request->id);
-        $imageName = $project->project_image;
-        unlink("./images/uploads/heroImages/$imageName.jpg");
-        unlink("./images/uploads/thumbnails/$imageName.jpg");
         $project->delete();
         return 'success';
     }
 
     public function single($id){
         $project = Project::where('clean_url', '=', $id)->firstOrFail();
+        $media = Media::where('id', '=', $project->media_id)->firstOrFail();
+        $project['project_image'] = $media->media_name;
         $socials = Social::where('social_link', '!=', '')->orderBy('order')->get();
         return view('front/singleProject', compact('project', 'socials'));
     }

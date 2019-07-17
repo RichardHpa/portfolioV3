@@ -14,7 +14,7 @@ class AddOrderAndSocialsToUsersTable extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->smallInteger('order')->nullable()->unique()->after("id");
+            $table->smallInteger('order')->nullable()->unique()->after('id');
             $table->string('github_link')->nullable();
             $table->string('website_url')->nullable();
         });

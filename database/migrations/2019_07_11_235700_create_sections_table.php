@@ -14,7 +14,7 @@ class CreateSectionsTable extends Migration
     public function up()
     {
         Schema::create('sections', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')->references('id')->on('projects');
             $table->text('section_content');

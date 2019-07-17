@@ -36,6 +36,7 @@ class ProjectForm extends Component {
         this.openMedia = this.openMedia.bind(this);
         this.closeUploader = this.closeUploader.bind(this);
         this.getImage = this.getImage.bind(this);
+        this.handleCreateNewProject = this.handleCreateNewProject.bind(this);
     }
 
     componentDidMount () {
@@ -59,7 +60,10 @@ class ProjectForm extends Component {
                 projectDescription: this.props.project['project_description'],
                 projectBio: this.props.project['project_bio'],
                 siteURL: siteURLVar,
-                githubLink: githubUrlVar
+                githubLink: githubUrlVar,
+                media: {
+                    media_name: this.props.project['project_image']
+                }
             });
         }
         var editors = [];
@@ -156,51 +160,48 @@ class ProjectForm extends Component {
         e.preventDefault();
         const {action, error, media} = this.state;
         const { history } = this.props
-        // if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
-        //     this.setState({
-        //         sendingData: true
-        //     });
-        //
-        //     let form = new FormData();
-        //     if(src){
-        //         const extention = extractImageFileExtensionFromBase64(src);
-        //         const fileName = "previewFile"+ extention;
-        //         const newCroppedFile = base64StringtoFile(croppedURL, fileName);
-        //         form.append('file', newCroppedFile);
-        //     }
-        //     if(this.state.updatedImage === true){
-        //         form.append('updateImage', true);
-        //     }
-        //     if(this.props.action === '/api/projects/edit'){
-        //         form.append('project_id', this.props.project['id'])
-        //     }
-        //     form.append('project_name', this.state.projectName);
-        //     form.append('project_description', this.state.projectDescription);
-        //     form.append('project_bio', this.state.projectBio);
-        //     form.append('project_github', this.state.githubLink);
-        //     form.append('project_link', this.state.siteURL);
-        //
-        //     axios.post(action, form, {
-        //         headers: {
-        //           'accept': 'application/json',
-        //           'Accept-Language': 'en-US,en;q=0.8',
-        //           'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
-        //         }
-        //     })
-        //     .then((response) => {
-        //         console.log(response)
-        //         if(response['data']['message'] === 'success'){
-        //             this.setState({
-        //                 sendingData: false
-        //             });
-        //             history.push('/admin/projects');
-        //         }
-        //     }).catch((error) => {
-        //         console.log('error');
-        //     });
-        // } else {
-        //     console.log('error');
-        // }
+        if(this.state.projectName && this.state.projectDescription && this.state.media){
+            this.setState({
+                sendingData: true
+            });
+
+            let form = new FormData();
+            if(media){
+                form.append('image_id', media['id']);
+            }
+            if(this.state.updatedImage === true){
+                form.append('updateImage', true);
+            }
+            if(this.props.action === '/api/projects/edit'){
+                form.append('project_id', this.props.project['id'])
+            }
+            form.append('project_name', this.state.projectName);
+            form.append('project_description', this.state.projectDescription);
+            form.append('project_bio', this.state.projectBio);
+            form.append('project_github', this.state.githubLink);
+            form.append('project_link', this.state.siteURL);
+
+            axios.post(action, form, {
+                headers: {
+                  'accept': 'application/json',
+                  'Accept-Language': 'en-US,en;q=0.8',
+                  'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
+                }
+            })
+            .then((response) => {
+                console.log(response)
+                if(response['data']['message'] === 'success'){
+                    this.setState({
+                        sendingData: false
+                    });
+                    history.push('/admin/projects');
+                }
+            }).catch((error) => {
+                console.log('error');
+            });
+        } else {
+            console.log('error');
+        }
     }
 
     render(){

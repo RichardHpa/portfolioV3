@@ -104819,6 +104819,7 @@ function (_Component) {
     _this.openMedia = _this.openMedia.bind(_assertThisInitialized(_this));
     _this.closeUploader = _this.closeUploader.bind(_assertThisInitialized(_this));
     _this.getImage = _this.getImage.bind(_assertThisInitialized(_this));
+    _this.handleCreateNewProject = _this.handleCreateNewProject.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -104847,7 +104848,10 @@ function (_Component) {
           projectDescription: this.props.project['project_description'],
           projectBio: this.props.project['project_bio'],
           siteURL: siteURLVar,
-          githubLink: githubUrlVar
+          githubLink: githubUrlVar,
+          media: {
+            media_name: this.props.project['project_image']
+          }
         });
       }
 
@@ -104957,61 +104961,65 @@ function (_Component) {
   }, {
     key: "handleCreateNewProject",
     value: function handleCreateNewProject(e) {
+      var _this3 = this;
+
       e.preventDefault();
       var _this$state = this.state,
           action = _this$state.action,
           error = _this$state.error,
           media = _this$state.media;
-      var history = this.props.history; // if(this.state.projectName && this.state.projectDescription && this.state.croppedURL){
-      //     this.setState({
-      //         sendingData: true
-      //     });
-      //
-      //     let form = new FormData();
-      //     if(src){
-      //         const extention = extractImageFileExtensionFromBase64(src);
-      //         const fileName = "previewFile"+ extention;
-      //         const newCroppedFile = base64StringtoFile(croppedURL, fileName);
-      //         form.append('file', newCroppedFile);
-      //     }
-      //     if(this.state.updatedImage === true){
-      //         form.append('updateImage', true);
-      //     }
-      //     if(this.props.action === '/api/projects/edit'){
-      //         form.append('project_id', this.props.project['id'])
-      //     }
-      //     form.append('project_name', this.state.projectName);
-      //     form.append('project_description', this.state.projectDescription);
-      //     form.append('project_bio', this.state.projectBio);
-      //     form.append('project_github', this.state.githubLink);
-      //     form.append('project_link', this.state.siteURL);
-      //
-      //     axios.post(action, form, {
-      //         headers: {
-      //           'accept': 'application/json',
-      //           'Accept-Language': 'en-US,en;q=0.8',
-      //           'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
-      //         }
-      //     })
-      //     .then((response) => {
-      //         console.log(response)
-      //         if(response['data']['message'] === 'success'){
-      //             this.setState({
-      //                 sendingData: false
-      //             });
-      //             history.push('/admin/projects');
-      //         }
-      //     }).catch((error) => {
-      //         console.log('error');
-      //     });
-      // } else {
-      //     console.log('error');
-      // }
+      var history = this.props.history;
+
+      if (this.state.projectName && this.state.projectDescription && this.state.media) {
+        this.setState({
+          sendingData: true
+        });
+        var form = new form_data__WEBPACK_IMPORTED_MODULE_3___default.a();
+
+        if (media) {
+          form.append('image_id', media['id']);
+        }
+
+        if (this.state.updatedImage === true) {
+          form.append('updateImage', true);
+        }
+
+        if (this.props.action === '/api/projects/edit') {
+          form.append('project_id', this.props.project['id']);
+        }
+
+        form.append('project_name', this.state.projectName);
+        form.append('project_description', this.state.projectDescription);
+        form.append('project_bio', this.state.projectBio);
+        form.append('project_github', this.state.githubLink);
+        form.append('project_link', this.state.siteURL);
+        axios__WEBPACK_IMPORTED_MODULE_6___default.a.post(action, form, {
+          headers: {
+            'accept': 'application/json',
+            'Accept-Language': 'en-US,en;q=0.8',
+            'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
+          }
+        }).then(function (response) {
+          console.log(response);
+
+          if (response['data']['message'] === 'success') {
+            _this3.setState({
+              sendingData: false
+            });
+
+            history.push('/admin/projects');
+          }
+        }).catch(function (error) {
+          console.log('error');
+        });
+      } else {
+        console.log('error');
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var _this$state2 = this.state,
           errors = _this$state2.errors,
@@ -105084,8 +105092,8 @@ function (_Component) {
         }, "Add Image ", i))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12 col-md-6 textSection"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(draft_js__WEBPACK_IMPORTED_MODULE_2__["Editor"], {
-          editorState: _this3.state.editors[i].eState,
-          onChange: _this3.onChange.bind(_this3, i),
+          editorState: _this4.state.editors[i].eState,
+          onChange: _this4.onChange.bind(_this4, i),
           ref: i,
           placeholder: "Write about this section"
         })));

@@ -28,3 +28,6 @@ Route::get('socials', 'SocialController@index');
 Route::post('socials', 'SocialController@store');
 Route::post('socials/delete', 'SocialController@destroy');
 Route::post('socials/reorder', 'SocialController@reorder');
+
+Route::get('media', 'MediaController@index');
+Route::post('media', 'MediaController@store');

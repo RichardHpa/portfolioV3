@@ -103419,7 +103419,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Socials_Socials__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Socials/Socials */ "./resources/js/back/components/Socials/Socials.js");
 /* harmony import */ var _Info_Info__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Info/Info */ "./resources/js/back/components/Info/Info.js");
 /* harmony import */ var _Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Dashboard/Dashboard */ "./resources/js/back/components/Dashboard/Dashboard.js");
-/* harmony import */ var _Media_Media__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Media/Media */ "./resources/js/back/components/Media/Media.js");
+/* harmony import */ var _Media_Media__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Media/Media */ "./resources/js/back/components/Media/Media.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -103528,7 +103528,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/media",
-        component: _Media_Media__WEBPACK_IMPORTED_MODULE_13__["default"]
+        component: _Media_Media__WEBPACK_IMPORTED_MODULE_12__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/info",
@@ -103849,7 +103849,12 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Uploader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Uploader */ "./resources/js/back/components/Media/Uploader.js");
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Loader */ "./resources/js/back/components/Loader.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Uploader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Uploader */ "./resources/js/back/components/Media/Uploader.js");
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! form-data */ "./node_modules/form-data/lib/browser.js");
+/* harmony import */ var form_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(form_data__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -103871,6 +103876,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+
 var Media =
 /*#__PURE__*/
 function (_Component) {
@@ -103883,13 +103891,30 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Media).call(this, props));
     _this.state = {
+      media: [],
+      pageLoaded: false,
       uploaderOpen: false
     };
     _this.openMedia = _this.openMedia.bind(_assertThisInitialized(_this));
+    _this.closeUploader = _this.closeUploader.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Media, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/api/media').then(function (response) {
+        _this2.setState({
+          media: response.data,
+          pageLoaded: true
+        });
+
+        console.log(_this2.state.media);
+      });
+    }
+  }, {
     key: "openMedia",
     value: function openMedia(e) {
       e.preventDefault();
@@ -103898,23 +103923,60 @@ function (_Component) {
       });
     }
   }, {
+    key: "closeUploader",
+    value: function closeUploader(image) {
+      var media = this.state.media;
+      console.log(image);
+
+      if (image) {
+        media.push(image.mediaInfo);
+        this.setState({
+          media: media
+        });
+      }
+
+      this.setState({
+        uploaderOpen: false
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var uploaderOpen = this.state.uploaderOpen;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container ml-0 h-100"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Media"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn btn-theme-color",
-        onClick: this.openMedia
-      }, "Upload Image"))), uploaderOpen ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Uploader__WEBPACK_IMPORTED_MODULE_1__["default"], null) : '');
+      var _this$state = this.state,
+          media = _this$state.media,
+          uploaderOpen = _this$state.uploaderOpen,
+          pageLoaded = _this$state.pageLoaded;
+
+      if (!pageLoaded) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container ml-0 h-100"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Media"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-theme-color",
+          onClick: this.openMedia
+        }, "Upload Image"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, media.map(function (mediaItem, i) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "col-6 col-sm-4 col-md-3 mt-2",
+            key: i
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: "../images/uploads/thumbnails/".concat(mediaItem.media_name, ".jpg"),
+            className: "img-fluid"
+          }));
+        })), uploaderOpen ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Uploader__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          closeUploader: this.closeUploader
+        }) : '');
+      }
     }
   }]);
 
@@ -103997,11 +104059,29 @@ function image64toCanvasRef(canvasRef, image64, pixelCrop) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dropzone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dropzone */ "./node_modules/react-dropzone/dist/es/index.js");
-/* harmony import */ var _ReusableUtils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ReusableUtils.js */ "./resources/js/back/components/Media/ReusableUtils.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dropzone__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dropzone */ "./node_modules/react-dropzone/dist/es/index.js");
+/* harmony import */ var react_image_crop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-image-crop */ "./node_modules/react-image-crop/dist/ReactCrop.js");
+/* harmony import */ var react_image_crop__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_image_crop__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-image-crop/dist/ReactCrop.css */ "./node_modules/react-image-crop/dist/ReactCrop.css");
+/* harmony import */ var react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_image_crop_dist_ReactCrop_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _ReusableUtils_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ReusableUtils.js */ "./resources/js/back/components/Media/ReusableUtils.js");
+
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -104022,6 +104102,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+
 var imageMaxSize = 1000000000;
 var acceptedFileTypes = 'image/x-png, image/png, image/jpg, image/jpeg, image/gif';
 
@@ -104038,19 +104121,29 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Uploader).call(this, props));
     _this.state = {
       hovering: false,
-      imgSrc: null
+      imgSrc: null,
+      croppedURL: null,
+      crop: {
+        x: 20,
+        y: 10,
+        width: 40,
+        height: 40
+      }
     };
     _this.handleDrop = _this.handleDrop.bind(_assertThisInitialized(_this));
     _this.hover = _this.hover.bind(_assertThisInitialized(_this));
     _this.handleDragLeave = _this.handleDragLeave.bind(_assertThisInitialized(_this));
+    _this.onCropChange = _this.onCropChange.bind(_assertThisInitialized(_this));
+    _this.onImageLoaded = _this.onImageLoaded.bind(_assertThisInitialized(_this));
+    _this.onCropComplete = _this.onCropComplete.bind(_assertThisInitialized(_this));
+    _this.cropImage = _this.cropImage.bind(_assertThisInitialized(_this));
+    _this.closeUploader = _this.closeUploader.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Uploader, [{
     key: "verifyFile",
     value: function verifyFile(files) {
-      console.log(files);
-
       if (files && files.length > 0) {
         var currentFile = files[0];
         var currentFileType = currentFile.type;
@@ -104085,12 +104178,11 @@ function (_Component) {
           var currentFile = files[0];
           var myFileItemReader = new FileReader();
           myFileItemReader.addEventListener("load", function () {
-            // console.log(myFileItemReader.result)
             var myResult = myFileItemReader.result;
 
             _this2.setState({
               imgSrc: myResult,
-              imgSrcExt: Object(_ReusableUtils_js__WEBPACK_IMPORTED_MODULE_2__["extractImageFileExtensionFromBase64"])(myResult)
+              imgSrcExt: Object(_ReusableUtils_js__WEBPACK_IMPORTED_MODULE_6__["extractImageFileExtensionFromBase64"])(myResult)
             });
           }, false);
           myFileItemReader.readAsDataURL(currentFile);
@@ -104112,20 +104204,156 @@ function (_Component) {
       });
     }
   }, {
+    key: "onCropChange",
+    value: function onCropChange(crop) {
+      this.setState({
+        crop: crop
+      });
+    }
+  }, {
+    key: "onImageLoaded",
+    value: function onImageLoaded(image, pixelCrop) {
+      this.imageRef = image;
+      var crop = this.state.crop;
+
+      if (crop.aspect && crop.height && crop.width) {
+        this.setState({
+          crop: _objectSpread({}, crop, {
+            height: null
+          })
+        });
+      } else {
+        this.makeClientCrop(crop, pixelCrop);
+      }
+    }
+  }, {
+    key: "onCropComplete",
+    value: function onCropComplete(crop, pixelCrop) {
+      this.makeClientCrop(crop, pixelCrop);
+    }
+  }, {
+    key: "makeClientCrop",
+    value: function () {
+      var _makeClientCrop = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(crop, pixelCrop) {
+        var croppedURL;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!(this.imageRef && crop.width && crop.height)) {
+                  _context.next = 5;
+                  break;
+                }
+
+                _context.next = 3;
+                return this.getCroppedImg(this.imageRef, pixelCrop, 'newFile.jpeg');
+
+              case 3:
+                croppedURL = _context.sent;
+                this.setState({
+                  croppedURL: croppedURL
+                });
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function makeClientCrop(_x, _x2) {
+        return _makeClientCrop.apply(this, arguments);
+      }
+
+      return makeClientCrop;
+    }()
+  }, {
+    key: "getCroppedImg",
+    value: function getCroppedImg(image, pixelCrop, fileName) {
+      var canvas = document.createElement('canvas');
+      canvas.width = pixelCrop.width;
+      canvas.height = pixelCrop.height;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(image, pixelCrop.x, pixelCrop.y, pixelCrop.width, pixelCrop.height, 0, 0, pixelCrop.width, pixelCrop.height);
+      return new Promise(function (resolve, reject) {
+        resolve(canvas.toDataURL());
+      });
+    }
+  }, {
+    key: "cropImage",
+    value: function cropImage() {
+      var _this3 = this;
+
+      var _this$state = this.state,
+          croppedURL = _this$state.croppedURL,
+          imgSrc = _this$state.imgSrc;
+      var form = new FormData();
+      var extention = Object(_ReusableUtils_js__WEBPACK_IMPORTED_MODULE_6__["extractImageFileExtensionFromBase64"])(imgSrc);
+      var fileName = "previewFile" + extention;
+      var newCroppedFile = Object(_ReusableUtils_js__WEBPACK_IMPORTED_MODULE_6__["base64StringtoFile"])(croppedURL, fileName);
+      form.append('file', newCroppedFile);
+      axios__WEBPACK_IMPORTED_MODULE_5___default.a.post('/api/media', form, {
+        headers: {
+          'accept': 'application/json',
+          'Accept-Language': 'en-US,en;q=0.8',
+          'Content-Type': "multipart/form-data; boundary=".concat(form._boundary)
+        }
+      }).then(function (response) {
+        console.log(response.data);
+
+        _this3.props.closeUploader(response.data);
+      }).catch(function (error) {
+        console.log('error');
+      });
+    }
+  }, {
+    key: "closeUploader",
+    value: function closeUploader() {
+      this.props.closeUploader();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          imgSrc = _this$state.imgSrc,
-          hovering = _this$state.hovering;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var _this$state2 = this.state,
+          imgSrc = _this$state2.imgSrc,
+          hovering = _this$state2.hovering,
+          croppedURL = _this$state2.croppedURL;
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         id: "uploader"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "uploaderCard"
-      }, imgSrc !== null ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        id: "uploaderClose",
+        onClick: this.closeUploader
+      }, "X"), imgSrc !== null ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "container"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "col-12 col-md-9"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_image_crop__WEBPACK_IMPORTED_MODULE_3___default.a, {
         src: imgSrc,
-        className: "img-fluid dropzoneImg",
-        alt: "cropping Image"
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_dropzone__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        crop: this.state.crop,
+        onChange: this.onCropChange,
+        onImageLoaded: this.onImageLoaded,
+        onComplete: this.onCropComplete
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "col-12 col-md-3"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "card bg-light p-3 h-100"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+        className: "text-left d-none d-md-block"
+      }, "Preview Image"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+        src: croppedURL,
+        className: "img-fluid w-100 d-none d-md-block",
+        alt: "preview crop"
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        className: "btn btn-theme-color btn-block mt-3",
+        onClick: this.cropImage
+      }, "Crop Image"))))) : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_dropzone__WEBPACK_IMPORTED_MODULE_2__["default"], {
         onDrop: this.handleDrop,
         accept: acceptedFileTypes,
         multiple: false,
@@ -104135,10 +104363,10 @@ function (_Component) {
       }, function (_ref) {
         var getRootProps = _ref.getRootProps,
             getInputProps = _ref.getInputProps;
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("section", {
           id: "dropzone",
           className: hovering ? 'hovering' : ''
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", getRootProps(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", getInputProps()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", getRootProps(), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", getInputProps()), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           className: "btn btn-theme-color"
         }, "Drag 'n' drop some files here, or click to select files")));
       })));
@@ -104146,7 +104374,7 @@ function (_Component) {
   }]);
 
   return Uploader;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Uploader);
 

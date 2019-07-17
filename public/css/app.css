@@ -10941,15 +10941,23 @@ a.text-theme-color:focus {
 }
 
 #uploader .uploaderCard {
+  position: relative;
   background-color: white;
   width: 90vw;
-  height: 90vh;
+  height: auto;
+  min-height: 50vh;
+  max-height: 80vh;
   padding: 10px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#uploader .uploaderCard .dropzoneImg {
-  max-height: 100%;
+#uploader .uploaderCard #uploaderClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 #uploader .uploaderCard #dropzone {
@@ -10963,5 +10971,9 @@ a.text-theme-color:focus {
 
 #uploader .uploaderCard #dropzone.hovering {
   border: 1px dashed rgba(255, 0, 0, 0.5);
+}
+
+.ReactCrop {
+  width: 100%;
 }
 

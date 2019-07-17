@@ -1,5 +1,10 @@
 import React, {Component, useCallback} from 'react'
 import Dropzone from 'react-dropzone'
+import ReactCrop from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css';
+import axios from 'axios';
+
+
 import {image64toCanvasRef, downloadBase64File, extractImageFileExtensionFromBase64, base64StringtoFile} from './ReusableUtils.js';
 
 const imageMaxSize = 1000000000;
@@ -10,16 +15,27 @@ class Uploader extends Component {
         super(props);
         this.state = {
             hovering: false,
-            imgSrc: null
+            imgSrc: null,
+            croppedURL: null,
+            crop: {
+                x: 20,
+                y: 10,
+                width: 40,
+                height: 40
+            }
         }
 
         this.handleDrop = this.handleDrop.bind(this);
         this.hover = this.hover.bind(this);
         this.handleDragLeave = this.handleDragLeave.bind(this);
+        this.onCropChange = this.onCropChange.bind(this);
+        this.onImageLoaded = this.onImageLoaded.bind(this);
+        this.onCropComplete = this.onCropComplete.bind(this);
+        this.cropImage = this.cropImage.bind(this);
+        this.closeUploader = this.closeUploader.bind(this);
     }
 
     verifyFile(files){
-        console.log(files);
         if (files && files.length > 0){
             const currentFile = files[0]
             const currentFileType = currentFile.type
@@ -47,7 +63,6 @@ class Uploader extends Component {
                   const currentFile = files[0]
                  const myFileItemReader = new FileReader()
                  myFileItemReader.addEventListener("load", ()=>{
-                     // console.log(myFileItemReader.result)
                      const myResult = myFileItemReader.result
                      this.setState({
                          imgSrc: myResult,
@@ -72,14 +87,117 @@ class Uploader extends Component {
         })
     }
 
+    onCropChange(crop){
+        this.setState({ crop });
+    }
+
+    onImageLoaded(image, pixelCrop){
+        this.imageRef = image;
+        const { crop } = this.state;
+        if (crop.aspect && crop.height && crop.width) {
+          this.setState({
+            crop: { ...crop, height: null },
+          });
+        } else {
+          this.makeClientCrop(crop, pixelCrop);
+        }
+    }
+
+    onCropComplete(crop, pixelCrop){
+        this.makeClientCrop(crop, pixelCrop);
+    }
+
+    async makeClientCrop(crop, pixelCrop) {
+        if (this.imageRef && crop.width && crop.height) {
+            const croppedURL = await this.getCroppedImg(
+                this.imageRef,
+                pixelCrop,
+                'newFile.jpeg',
+            );
+            this.setState({ croppedURL });
+        }
+    }
+
+    getCroppedImg(image, pixelCrop, fileName) {
+        const canvas = document.createElement('canvas');
+        canvas.width = pixelCrop.width;
+        canvas.height = pixelCrop.height;
+        const ctx = canvas.getContext('2d');
+
+        ctx.drawImage(
+            image,
+            pixelCrop.x,
+            pixelCrop.y,
+            pixelCrop.width,
+            pixelCrop.height,
+            0,
+            0,
+            pixelCrop.width,
+            pixelCrop.height,
+        );
+
+        return new Promise((resolve, reject) => {
+            resolve(canvas.toDataURL());
+        });
+    }
+
+    cropImage(){
+        const {croppedURL, imgSrc} = this.state;
+
+        let form = new FormData();
+        const extention = extractImageFileExtensionFromBase64(imgSrc);
+        const fileName = "previewFile"+ extention;
+        const newCroppedFile = base64StringtoFile(croppedURL, fileName);
+        form.append('file', newCroppedFile);
+        axios.post('/api/media', form, {
+            headers: {
+              'accept': 'application/json',
+              'Accept-Language': 'en-US,en;q=0.8',
+              'Content-Type': `multipart/form-data; boundary=${form._boundary}`,
+            }
+        })
+        .then((response) => {
+            console.log(response.data)
+            this.props.closeUploader(response.data);
+        }).catch((error) => {
+            console.log('error');
+        });
+    }
+
+    closeUploader(){
+        this.props.closeUploader();
+    }
+
 
     render () {
-        const {imgSrc, hovering} = this.state;
+        const {imgSrc, hovering, croppedURL} = this.state;
         return (
             <div id="uploader">
                 <div className="uploaderCard">
+                <div id="uploaderClose" onClick={this.closeUploader}>
+                    X
+                </div>
                 {imgSrc !== null?
-                    <img src={imgSrc} className="img-fluid dropzoneImg" alt="cropping Image"/>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12 col-md-9">
+                                <ReactCrop
+                                    src={imgSrc}
+                                    crop={this.state.crop}
+                                    onChange={this.onCropChange}
+                                    onImageLoaded={this.onImageLoaded}
+                                    onComplete={this.onCropComplete}
+                                  />
+                            </div>
+                            <div className="col-12 col-md-3">
+                                <div className="card bg-light p-3 h-100">
+                                    <p className="text-left d-none d-md-block">Preview Image</p>
+                                    <img src={croppedURL} className="img-fluid w-100 d-none d-md-block" alt="preview crop"/>
+                                    <button className="btn btn-theme-color btn-block mt-3" onClick={this.cropImage}>Crop Image</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 :
                     <Dropzone
                         onDrop={this.handleDrop}

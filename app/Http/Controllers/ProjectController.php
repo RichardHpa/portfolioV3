@@ -147,32 +147,13 @@ class ProjectController extends Controller
             $result = 'Validation Error';
         }
 
-        if($request->updateImage == true){
-            $imageName = $project->project_image;
-            unlink("./images/uploads/heroImages/$imageName.jpg");
-            unlink("./images/uploads/thumbnails/$imageName.jpg");
-            $manager = new ImageManager();
-            $heroImage = $manager->make($request['file']);
-            $imageName = uniqid();
-            $folder = 'images/uploads/heroImages';
-            $heroImage->save($folder.'/'.$imageName.'.jpg', 100);
-
-            $thumbFolder = 'images/uploads/thumbnails';
-            $thumbnailImage = $manager->make($request['file']);
-            $thumbnailImage->resize(600, null, function($constraint){
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-            $thumbnailImage->save($thumbFolder.'/'.$imageName.'.jpg', 100);
-            $project->project_image = $imageName;
-        }
         $cleanUrl = strtolower(str_replace(' ', '_', $request->project_name));
-
 
         $project->project_name = $request->project_name;
         $project->clean_url = $cleanUrl;
         $project->project_description = $request->project_description;
         $project->project_bio = $request->project_bio;
+        $project->media_id = $request->image_id;
         $project->github_link = $request->project_github;
         $project->website_url = $request->project_link;
 

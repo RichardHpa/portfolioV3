@@ -104850,6 +104850,7 @@ function (_Component) {
           siteURL: siteURLVar,
           githubLink: githubUrlVar,
           media: {
+            id: this.props.project['media_id'],
             media_name: this.props.project['project_image']
           }
         });

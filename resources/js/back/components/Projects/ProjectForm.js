@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import 'babel-polyfill';
-import { Editor, EditorState } from 'draft-js';
 import FormData from 'form-data';
 import Loader from '../Loader';
+import SectionForm from './SectionForm';
 import MediaModal from '../Media/MediaModal';
 import axios from 'axios';
 import { Redirect} from 'react-router-dom';
@@ -13,7 +13,6 @@ class ProjectForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            mediaOpen: false,
             sendingData: false,
             errors: {},
             projectName: '',
@@ -25,7 +24,11 @@ class ProjectForm extends Component {
             updatedImage: false,
             sectionNum: 0,
             ready: false,
-            media: null
+            media: {
+                id: null,
+                media_name: null
+            },
+            editors: []
         }
 
         this.validation = this.validation.bind(this);
@@ -33,10 +36,9 @@ class ProjectForm extends Component {
         this.removeImage = this.removeImage.bind(this);
         this.addSection = this.addSection.bind(this);
         this.onChange = this.onChange.bind(this);
-        this.openMedia = this.openMedia.bind(this);
-        this.closeUploader = this.closeUploader.bind(this);
         this.getImage = this.getImage.bind(this);
         this.handleCreateNewProject = this.handleCreateNewProject.bind(this);
+        this.sectionEdited = this.sectionEdited.bind(this);
     }
 
     componentDidMount () {
@@ -69,10 +71,10 @@ class ProjectForm extends Component {
         }
         var editors = [];
         for (var i = 0; i < this.state.sectionNum; i++) {
-            editors.push({
-                editor: 'editor'+i,
-                eState: EditorState.createEmpty()
-            })
+            // editors.push({
+            //     editor: 'editor'+i,
+            //     eState: EditorState.createEmpty()
+            // })
         }
         this.setState({
             action: this.props.action,
@@ -117,7 +119,10 @@ class ProjectForm extends Component {
     removeImage(e){
         e.preventDefault();
         this.setState({
-            media: null
+            media: {
+                id: null,
+                media_name: null
+            }
         })
     }
 
@@ -125,41 +130,41 @@ class ProjectForm extends Component {
         e.preventDefault();
         const {editors} = this.state;
         editors.push({
-             editor: editors.length,
-              eState: EditorState.createEmpty()
+            sectionID: null,
+            mediaID: null,
+            editor: editors.length,
         });
         this.setState({
-            sectionNum: this.state.sectionNum + 1,
+            editors
+        })
+    }
+
+    sectionEdited(i, content){
+        // console.log(i, content);
+        const {editors} = this.state;
+        editors[i] = {
+            sectionID: editors[i].sectionID,
+            mediaID: content.imageID,
+            text: content.text
+        }
+
+        this.setState({
             editors: editors
-        })
-    }
-
-    openMedia(){
-        this.setState({
-            mediaOpen: true
-        })
-    }
-
-    closeUploader(){
-        this.setState({
-            mediaOpen: false
         })
     }
 
     getImage(id){
         axios.get(`/api/media/${id}`).then(response => {
-            console.log(response.data);
             this.setState({
                 media: response.data,
                 pageLoaded: true,
-                mediaOpen: false
             })
         })
     }
 
     handleCreateNewProject(e){
         e.preventDefault();
-        const {action, error, media} = this.state;
+        const {action, error, media, editors} = this.state;
         const { history } = this.props
         if(this.state.projectName && this.state.projectDescription && this.state.media){
             this.setState({
@@ -181,7 +186,8 @@ class ProjectForm extends Component {
             form.append('project_bio', this.state.projectBio);
             form.append('project_github', this.state.githubLink);
             form.append('project_link', this.state.siteURL);
-
+            const str_json = JSON.stringify(editors)
+            form.append('sections', str_json)
             axios.post(action, form, {
                 headers: {
                   'accept': 'application/json',
@@ -206,7 +212,7 @@ class ProjectForm extends Component {
     }
 
     render(){
-        const {errors, sendingData, sectionNum, ready, mediaOpen, media}  = this.state;
+        const {errors, sendingData, ready, mediaOpen, media, editors}  = this.state;
         return(
             <form autoComplete="off" onSubmit={this.handleCreateNewProject}>
                 <div className="form-row">
@@ -262,23 +268,14 @@ class ProjectForm extends Component {
                         </div>
                         {ready ?
                         <div className="sections">
-                            {Array.from(Array(sectionNum), (e, i) => {
-                                return <div className="row pt-3 sectionRow" key={i}>
-                                    <div className="col-12 col-md-6 imgSection">
-                                        <div className="card h-100 d-flex justify-content-center align-items-center p-2">
-                                            <button className="btn btn-theme-color">Add Image {i}</button>
-                                        </div>
-                                    </div>
-                                    <div className="col-12 col-md-6 textSection">
-                                        <Editor
-                                          editorState={this.state.editors[i].eState}
-                                          onChange={this.onChange.bind(this, i)}
-                                          ref={i}
-                                          placeholder="Write about this section"
-                                        />
-                                    </div>
-                                </div>
-                              })}
+                            {
+                                editors.map((editor, i) => (
+                                    <SectionForm
+                                        key={i}
+                                        editedContent={this.sectionEdited.bind(this, i)}
+                                    />
+                                ))
+                            }
                         </div>
                         : ''}
                         <div className="row pt-3">
@@ -296,24 +293,21 @@ class ProjectForm extends Component {
                                 <div className="form-group">
                                     <label>Main Project Image</label>
                                     {
-                                        media !== null?
+                                        media.id !== null?
                                         <div className="form-group">
                                             <img alt="Crop" className="img-fluid" src={`/images/uploads/thumbnails/${media.media_name}.jpg`} />
                                                 <button className="btn btn-theme-color btn-block mt-1" onClick={this.removeImage}>Remove Image</button>
                                         </div>
                                         :
-                                        <div className="placeholderImage" onClick={this.openMedia}>
+                                        <div className="placeholderImage">
                                             <p className="m-0">Upload an Image</p>
                                         </div>
                                     }
 
                                 </div>
-                                {mediaOpen &&
-                                    <MediaModal
-                                        closeUploader={this.closeUploader}
-                                        sendImage={this.getImage}
-                                    />
-                                }
+                                <MediaModal
+                                    sendImage={this.getImage}
+                                />
                                 <div className="form-group">
                                     <label htmlFor="githubLink">Github Link</label>
                                     <input

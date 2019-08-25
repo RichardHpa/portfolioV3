@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Loader from '../Loader';
 import axios from 'axios'
-import Uploader from './Uploader';
+import MediaModal from './MediaModal';
 import FormData from 'form-data';
 
 class Media extends Component {
@@ -12,8 +12,8 @@ class Media extends Component {
             pageLoaded: false,
             uploaderOpen: false
         }
-        this.openMedia = this.openMedia.bind(this);
-        this.closeUploader = this.closeUploader.bind(this);
+
+        this.getImage = this.getImage.bind(this);
     }
 
     componentDidMount () {
@@ -22,29 +22,42 @@ class Media extends Component {
                 media: response.data,
                 pageLoaded: true
             })
-            console.log(this.state.media);
         })
     }
 
-    openMedia(e){
-        e.preventDefault();
-        this.setState({
-            uploaderOpen: true
-        })
-    }
-
-    closeUploader(image){
+    getImage(id){
         const {media} = this.state;
-        console.log(image);
-        if(image){
-            media.push(image.mediaInfo);
+        axios.get(`/api/media/${id}`).then(response => {
+            media.push(response.data);
             this.setState({
                 media: media
             })
-        }
-        this.setState({
-            uploaderOpen: false
         })
+    }
+
+    deleteImage(imageID){
+        const {media} = this.state;
+        let form = new FormData();
+        form.append('id', imageID);
+        axios.post('/api/media/delete', form, {
+            headers: {
+              'accept': 'application/json',
+              'Accept-Language': 'en-US,en;q=0.8',
+            }
+        })
+        .then((response) => {
+            for (var i = 0; i < media.length; i++) {
+                if(media[i].id === response.data){
+                    media.splice(i,1);
+                    this.setState({
+                        media: media
+                    });
+                    break;
+                }
+            }
+        }).catch((error) => {
+            console.log('error');
+        });
     }
 
     render () {
@@ -64,21 +77,26 @@ class Media extends Component {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <button className="btn btn-theme-color" onClick={this.openMedia}>Upload Image</button>
+                            <MediaModal
+                                sendImage={this.getImage}
+                                btnText='Upload Image'
+                                uploaderOnly='true'
+                            />
                         </div>
                     </div>
                     <div className="row">
                         {
                             media.map((mediaItem, i) => (
                                 <div className="col-6 col-sm-4 col-md-3 mt-2" key={i}>
-                                    <img src={`../images/uploads/thumbnails/${mediaItem.media_name}.jpg`} className="img-fluid"/>
+                                    <img
+                                        src={`../images/uploads/thumbnails/${mediaItem.media_name}.jpg`}
+                                        className="img-fluid"
+                                        onClick={this.deleteImage.bind(this,mediaItem.id )}
+                                    />
                                 </div>
                             ))
                         }
                     </div>
-                    {
-                        uploaderOpen? <Uploader closeUploader={this.closeUploader}/> : ''
-                    }
                 </div>
             )
         }

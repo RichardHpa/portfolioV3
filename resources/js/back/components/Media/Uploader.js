@@ -155,10 +155,7 @@ class Uploader extends Component {
             }
         })
         .then((response) => {
-            // console.log(response.data)
             this.props.selectImage(response.data.mediaInfo.id);
-        }).catch((error) => {
-            console.log('error');
         });
     }
 

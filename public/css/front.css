@@ -10947,3 +10947,31 @@ footer {
   }
 }
 
+#sectionRows .row:nth-child(odd) .imgContainer {
+  order: 2;
+}
+
+@media screen and (min-width: 767px) {
+  #sectionRows .row:nth-child(odd) .imgContainer {
+    order: 1;
+  }
+}
+
+#sectionRows .row:nth-child(odd) .contentContainer {
+  order: 1;
+}
+
+@media screen and (min-width: 767px) {
+  #sectionRows .row:nth-child(odd) .contentContainer {
+    order: 2;
+  }
+}
+
+#sectionRows .row:nth-child(even) .imgContainer {
+  order: 2;
+}
+
+#sectionRows .row:nth-child(even) .contentContainer {
+  order: 1;
+}
+

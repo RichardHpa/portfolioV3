@@ -10,6 +10,7 @@ use Intervention\Image\ImageManager;
 use App\Project;
 use App\Social;
 use App\Media;
+use App\Section;
 
 class ProjectController extends Controller
 {
@@ -91,6 +92,15 @@ class ProjectController extends Controller
             'website_url' => $request->project_link
         ]);
 
+        $sections = json_decode($request->sections);
+        foreach ($sections as $section) {
+            $newSection = Section::create([
+                'project_id' => $project->id,
+                'section_content' => $section->text,
+                'section_image' => $section->mediaID
+            ]);
+        }
+
         $result = array(
             'message' => 'success',
             'projectID' => $project->id
@@ -136,7 +146,6 @@ class ProjectController extends Controller
      */
     public function update(Request $request)
     {
-        // Project::query()->update(['github_link' => 8]);
         $project = Project::where('id', '=', $request->project_id)->firstOrFail();
         $validator = Validator::make($request->all(), [
             'project_name' => 'required|min:10|max:100',
@@ -185,6 +194,14 @@ class ProjectController extends Controller
         $media = Media::where('id', '=', $project->media_id)->firstOrFail();
         $project['project_image'] = $media->media_name;
         $socials = Social::where('social_link', '!=', '')->orderBy('order')->get();
-        return view('front/singleProject', compact('project', 'socials'));
+
+        $sections = Section::where('project_id', '=', $project->id)->get();
+        foreach($sections as $section){
+            $sectionMedia = Media::where('id', '=', $section->section_image)->firstOrFail();
+            $section['image'] = $sectionMedia->media_name;
+        }
+        // die($sections);
+
+        return view('front/singleProject', compact('project', 'socials', 'sections'));
     }
 }

@@ -10887,12 +10887,10 @@ a.text-theme-color:focus {
 
 .sections .sectionRow:nth-child(even) .imgSection {
   order: 1;
-  padding: 10px;
 }
 
 @media screen and (min-width: 768px) {
   .sections .sectionRow:nth-child(even) .imgSection {
-    padding: 0;
     order: 2;
   }
 }

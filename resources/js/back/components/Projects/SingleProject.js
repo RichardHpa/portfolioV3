@@ -33,6 +33,8 @@ class SingleProject extends Component {
         const { history } = this.props
         let form = new FormData();
         form.append('id', this.state.project['id']);
+        console.log(form);
+
         axios.post('/api/projects/delete', form, {
             headers: {
               'accept': 'application/json',

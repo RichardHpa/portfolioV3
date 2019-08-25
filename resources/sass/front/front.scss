@@ -98,3 +98,28 @@ footer {
 
     }
 }
+
+#sectionRows{
+    .row:nth-child(odd){
+        .imgContainer{
+            order: 2;
+            @media screen and (min-width: 767px){
+                order: 1;
+            }
+        }
+        .contentContainer{
+            order: 1;
+            @media screen and (min-width: 767px){
+                order: 2;
+            }
+        }
+    }
+    .row:nth-child(even){
+        .imgContainer{
+            order: 2;
+        }
+        .contentContainer{
+            order: 1;
+        }
+    }
+}

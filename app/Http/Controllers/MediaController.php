@@ -112,8 +112,13 @@ class MediaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $media = Media::findOrFail($request->id);
+        $imageName = $media['media_name'];
+        unlink('images/uploads/heroImages/'.$imageName.'.jpg');
+        unlink('images/uploads/thumbnails/'.$imageName.'.jpg');
+        $media->delete();
+        return $request->id;
     }
 }

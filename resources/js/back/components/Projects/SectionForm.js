@@ -63,7 +63,6 @@ class SectionForm extends Component {
 
     render () {
         const {media}  = this.state;
-        // console.log(this.state);
         return (
             <div className="row pt-3 sectionRow">
                 <div className="col-12 col-md-6 imgSection">

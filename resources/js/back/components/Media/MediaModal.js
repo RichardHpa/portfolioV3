@@ -34,7 +34,6 @@ class MediaModal extends Component {
         this.setState({
             modelOpen: false
         })
-        this.props.closeUploader();
     }
 
     toggleUploader(e){
@@ -59,8 +58,13 @@ class MediaModal extends Component {
 
     render () {
         const {media, uploader, modelOpen} = this.state;
+        let btnStyle = 'btn-theme-color';
+        if(this.props.btnType === 'dashed'){
+            btnStyle = 'placeholderImage';
+        }
+
         if (!modelOpen) {
-          return <button className="btn btn-theme-color" onClick={this.openModal}>{this.props.btnText? this.props.btnText: 'Upload An Image'}</button>;
+          return <button className={`btn btn-block ${btnStyle}`} onClick={this.openModal}>{this.props.btnText? this.props.btnText: 'Upload An Image'}</button>;
         } else {
           return (
               <div id="uploader">

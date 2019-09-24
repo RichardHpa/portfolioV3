@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Input } from './Inputs/Input'
 
 const Header = () => (
     <nav className="navbar navbar-dark sticky-top bg-dark navbar-expand-lg pt-2">
@@ -10,7 +11,14 @@ const Header = () => (
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <form className="form-inline mr-auto ml-2">
-                <input id="searchBar" className="form-control mr-sm-2 p-2" type="search" placeholder="Search" aria-label="Search"/>
+                <Input
+                    type="search"
+                    placeholder="Search"
+                    classes="mr-sm-2 p-2"
+                    style="Dark"
+                    validation="required,min:2"
+                />
+
                 <button className="btn btn-outline-theme-color my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>

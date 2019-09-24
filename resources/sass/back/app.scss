@@ -161,21 +161,112 @@
     z-index: 100000;
 }
 
+
 .sections{
     .sectionRow{
-        &:nth-child(even) {
-            .textSection{
+        &:nth-child(even){
+            .imgSection{
                 order: 2;
                 @media screen and (min-width:768px){
                     order: 1;
                 }
             }
-          .imgSection{
-              order: 1;
-              @media screen and (min-width:768px){
-                  order: 2;
-              }
-          }
+        }
+    }
+}
+// .sectionRow{
+    // &:nth-child(odd) {
+    //     .textSection{
+    //         order: 2;
+    //         @media screen and (min-width:768px){
+    //             order: 1;
+    //         }
+    //     }
+    //   .imgSection{
+    //       order: 1;
+    //       @media screen and (min-width:768px){
+    //           order: 2;
+    //       }
+    //   }
+    // }
+//     .textSection{
+//         position: relative;
+//         .controls{
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             width: calc(100% - 15px);
+//             background-color: red;
+//             margin-left: 15px;
+//             margin-right: 15px;
+//         }
+//         .DraftEditor-root{
+//             // position: absolute;
+//             // top: 0;
+//             // left: 0;
+//         }
+//     }
+// }
+//     .textSection{
+//         overflow-y: hidden;
+//         .controls{
+//             margin-left: 5px;
+//             padding: 5px 0px 5px 5px;
+//             position: absolute;
+//             left: 0;
+//             top: -30px;
+//             transition: 0.5s;
+//             z-index: 100;
+//             width: 100%;
+//             background-color: red;
+//             &.open{
+//                 top: 0;
+//             }
+//             button{
+//
+//             }
+//         }
+//         .DraftEditor-root{
+//             width: 100%;
+//         }
+//     }
+
+
+.textSection{
+    .wrapper{
+        width: 100%;
+        min-height: 10px;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        .editorControls{
+            position: absolute;
+            top: 0;
+            transform: translateY(-100%);
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 5px;
+            transition: transform 0.5s;
+            &.open{
+                top: 0;
+                transform: translateY(0);
+            }
+            .editorButton{
+                color: #999;
+                cursor: pointer;
+                padding: 0px 16px;
+                display: inline-block;
+                border-right: 0.8px solid #ddd;
+                &:hover{
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+                &.editorButtonActive{
+                    color: #5890ff;
+                }
+            }
         }
     }
 }
@@ -186,8 +277,8 @@
     border: 1px solid #ddd;
     font-family: Georgia,serif;
     font-size: 14px;
-    padding: 15px;
-    min-height: 150px;
+    padding: 90px 15px;
+    height: 100%;
     margin-top: 10px;
     @media screen and (min-width:768px){
         margin-top: 0px;

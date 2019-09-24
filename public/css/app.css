@@ -10857,24 +10857,56 @@ a.text-theme-color:focus {
   z-index: 100000;
 }
 
-.sections .sectionRow:nth-child(even) .textSection {
+.sections .sectionRow:nth-child(even) .imgSection {
   order: 2;
 }
 
 @media screen and (min-width: 768px) {
-  .sections .sectionRow:nth-child(even) .textSection {
+  .sections .sectionRow:nth-child(even) .imgSection {
     order: 1;
   }
 }
 
-.sections .sectionRow:nth-child(even) .imgSection {
-  order: 1;
+.textSection .wrapper {
+  width: 100%;
+  min-height: 10px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-@media screen and (min-width: 768px) {
-  .sections .sectionRow:nth-child(even) .imgSection {
-    order: 2;
-  }
+.textSection .wrapper .editorControls {
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 5px;
+  transition: transform 0.5s;
+}
+
+.textSection .wrapper .editorControls.open {
+  top: 0;
+  transform: translateY(0);
+}
+
+.textSection .wrapper .editorControls .editorButton {
+  color: #999;
+  cursor: pointer;
+  padding: 0px 16px;
+  display: inline-block;
+  border-right: 0.8px solid #ddd;
+}
+
+.textSection .wrapper .editorControls .editorButton:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.textSection .wrapper .editorControls .editorButton.editorButtonActive {
+  color: #5890ff;
 }
 
 .DraftEditor-root {
@@ -10882,8 +10914,8 @@ a.text-theme-color:focus {
   border: 1px solid #ddd;
   font-family: Georgia,serif;
   font-size: 14px;
-  padding: 15px;
-  min-height: 150px;
+  padding: 90px 15px;
+  height: 100%;
   margin-top: 10px;
 }
 

@@ -14,17 +14,21 @@ class ProjectForm extends Component {
         this.state = {
             project: {},
             valid: false,
-            editors: []
+            sections: [{
+                sectionID: null,
+                mediaID: null,
+                section: 1,
+            }]
         }
 
         this.handleReceiveValue = this.handleReceiveValue.bind(this);
         this.handleCreateNewProject = this.handleCreateNewProject.bind(this);
         this.getImage = this.getImage.bind(this);
         this.removeImage = this.removeImage.bind(this);
+        this.addSection = this.addSection.bind(this);
     }
 
     componentDidMount () {
-        console.log(this.props.project);
         if(this.props.action === '/api/projects/edit'){
             this.setState({
                 project: this.props.project
@@ -61,9 +65,22 @@ class ProjectForm extends Component {
         })
     }
 
+    addSection(e){
+        e.preventDefault();
+        const {sections} = this.state;
+        sections.push({
+            sectionID: null,
+            mediaID: null,
+            section: sections.length,
+        });
+        this.setState({
+            sections
+        })
+    }
+
     handleCreateNewProject(e){
         e.preventDefault();
-        const { project, editors} = this.state;
+        const { project, sections} = this.state;
         const { history, action } = this.props
         if(project.project_name && project.project_description && project.project_bio && project.media_id){
             this.setState({
@@ -83,7 +100,7 @@ class ProjectForm extends Component {
 
             form.append('project_github', project.github_link);
             form.append('project_link', project.website_url);
-            const str_json = JSON.stringify(editors)
+            const str_json = JSON.stringify(sections)
             form.append('sections', str_json)
             axios.post(action, form, {
                 headers: {
@@ -109,7 +126,8 @@ class ProjectForm extends Component {
     }
 
     render(){
-        const { ready, sendingData, project, media }  = this.state;
+        const { ready, sendingData, project, media , sections}  = this.state;
+        console.log(sections);
         return(
             <form autoComplete="off" onSubmit={this.handleCreateNewProject}>
                 <div className="form-row">
@@ -139,18 +157,15 @@ class ProjectForm extends Component {
                             name="project_description"
                             value={project.project_description || ''}
                         />
-                        {ready ?
-                        <div className="sections">
+                            <div className="sections">
                             {
-                                editors.map((editor, i) => (
+                                sections.map((section, i) => (
                                     <SectionForm
                                         key={i}
-                                        editedContent={this.sectionEdited.bind(this, i)}
                                     />
                                 ))
                             }
-                        </div>
-                        : ''}
+                            </div>
                         <div className="row pt-3">
                             <div className="col d-flex justify-content-center">
                                 <button

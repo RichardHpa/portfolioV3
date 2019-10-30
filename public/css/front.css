@@ -10645,7 +10645,7 @@ a.text-theme-color:focus {
   height: 100vh;
   min-height: 35rem;
   padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("/images/nate-grant-346782-unsplash.jpg");
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(/images/nate-grant-346782-unsplash.jpg?a13d3e4ea75af2c18c74a1f44873db3b);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10686,7 +10686,7 @@ a.text-theme-color:focus {
 
   .masthead h2 {
     max-width: 40rem;
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
 }
 

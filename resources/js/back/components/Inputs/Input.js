@@ -152,12 +152,12 @@ class Textarea extends Component {
                 : ''
             }
             <textarea
-            className={`form-control ${extraClasses} ${valid ? '': 'is-invalid' }`}
-            rows={this.props.rows}
-            onBlur={this.checkValidation}
-            name={this.props.name}
-            value={this.props.value}
-            onChange={this.changeValue}
+                className={`form-control ${extraClasses} ${valid ? '': 'is-invalid' }`}
+                rows={this.props.rows}
+                onBlur={this.checkValidation}
+                name={this.props.name}
+                value={this.props.value}
+                onChange={this.changeValue}
             >
             </textarea>
             {
@@ -167,6 +167,62 @@ class Textarea extends Component {
                 </div>
                 : ''
             }
+            </div>
+        )
+    }
+}
+
+class Checkbox extends Component {
+    constructor () {
+        super();
+        this.state = {
+            checked: false
+        }
+
+        this.changeChecked = this.changeChecked.bind(this);
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.checked !== prevProps.checked) {
+            if(this.props.checked === 'yes'){
+                this.setState({
+                    checked: true
+                })
+            } else {
+                this.setState({
+                    checked: false
+                })
+            }
+        }
+    }
+
+    changeChecked(e){
+        this.setState({
+            checked: !this.state.checked
+        });
+        this.props.changeChecked()
+    }
+
+    render(){
+        return(
+            <div className="form-group">
+                {
+                    this.props.label?
+                    <label>{this.props.label}</label>
+                    : ''
+                }
+                <div>
+                    <label className="switch">
+                    <input
+                        type={this.props.type}
+                        name={this.props.name}
+                        className="form-check-input"
+                        checked={this.state.checked}
+                        onChange={this.changeChecked}
+                    />
+                      <span className="slider round"></span>
+                    </label>
+                </div>
             </div>
         )
     }
@@ -211,4 +267,4 @@ function validate(value, validationRules){
     return validInput;
 }
 
-export { Input, Textarea };
+export { Input, Textarea, Checkbox };

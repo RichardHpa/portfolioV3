@@ -8,15 +8,32 @@
     <header class="singleMasthead image-background">
         <img src="../images/uploads/heroImages/{{ $project->project_image }}.jpg" alt="hero image of {{$project->name}}" data-position="50% 50%" onload="backgroundLoaded(this)">
     </header>
-    <section class="mt-5">
+    <section class="mt-4">
         <div class="container">
             <div class="row">
-                <div class="col text-center">
-                    <h1 class="mx-auto my-0 text-uppercase">{{$project->project_name}}</h1>
+                <div class="col">
+                    <div class="d-flex justify-content-between">
+                        <h1 class="my-0 text-uppercase mb-4">{{$project->project_name}}</h1>
+                        <div>
+                            @if($project->github_link)
+                                <a href="{{$project->github_link}}" class="mx-2" target="_blank">
+                                    <i class="fab fa-github fa-2x"></i>
+                                </a>
+                            @endif
+                            @if($project->website_url)
+                                <a href="{{$project->website_url}}" class="mx-2" target="_blank">
+                                    <i class="fas fa-desktop fa-2x"></i>
+                                </a>
+                            @endif
+                        </div>
+                    </div>
+                    <p>{{$project->project_bio}}</p>
+
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col text-center">
+            <hr>
+            <div class="row my-5">
+                <div class="col-12 text-center">
                     {{$project->project_description}}
                 </div>
             </div>

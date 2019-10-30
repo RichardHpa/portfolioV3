@@ -92,14 +92,14 @@ class ProjectController extends Controller
             'website_url' => $request->project_link
         ]);
 
-        $sections = json_decode($request->sections);
-        foreach ($sections as $section) {
-            $newSection = Section::create([
-                'project_id' => $project->id,
-                'section_content' => $section->text,
-                'section_image' => $section->mediaID
-            ]);
-        }
+        // $sections = json_decode($request->sections);
+        // foreach ($sections as $section) {
+        //     $newSection = Section::create([
+        //         'project_id' => $project->id,
+        //         'section_content' => $section->text,
+        //         'section_image' => $section->mediaID
+        //     ]);
+        // }
 
         $result = array(
             'message' => 'success',
@@ -146,6 +146,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request)
     {
+        // return response()->json($request);
         $project = Project::where('id', '=', $request->project_id)->firstOrFail();
         $validator = Validator::make($request->all(), [
             'project_name' => 'required|min:10|max:100',
@@ -162,9 +163,20 @@ class ProjectController extends Controller
         $project->clean_url = $cleanUrl;
         $project->project_description = $request->project_description;
         $project->project_bio = $request->project_bio;
+        $project->public = $request->project_public;
         $project->media_id = $request->image_id;
-        $project->github_link = $request->project_github;
-        $project->website_url = $request->project_link;
+        if($request->project_github === 'null'){
+            $github = null;
+        } else {
+            $github = $request->project_github;
+        }
+        $project->github_link = $github;
+        if($request->project_link === 'null'){
+            $link = null;
+        } else {
+            $link = $request->project_link;
+        }
+        $project->website_url = $link;
 
         $project->save();
 
@@ -191,17 +203,21 @@ class ProjectController extends Controller
 
     public function single($id){
         $project = Project::where('clean_url', '=', $id)->firstOrFail();
-        $media = Media::where('id', '=', $project->media_id)->firstOrFail();
-        $project['project_image'] = $media->media_name;
-        $socials = Social::where('social_link', '!=', '')->orderBy('order')->get();
+        if($project->public === 'yes'){
+            $media = Media::where('id', '=', $project->media_id)->firstOrFail();
+            $project['project_image'] = $media->media_name;
+            $socials = Social::where('social_link', '!=', '')->orderBy('order')->get();
 
-        $sections = Section::where('project_id', '=', $project->id)->get();
-        foreach($sections as $section){
-            $sectionMedia = Media::where('id', '=', $section->section_image)->firstOrFail();
-            $section['image'] = $sectionMedia->media_name;
+            $sections = Section::where('project_id', '=', $project->id)->get();
+            foreach($sections as $section){
+                $sectionMedia = Media::where('id', '=', $section->section_image)->firstOrFail();
+                $section['image'] = $sectionMedia->media_name;
+            }
+
+            return view('front/singleProject', compact('project', 'socials', 'sections'));
+        } else {
+            abort(404);
         }
-        // die($sections);
 
-        return view('front/singleProject', compact('project', 'socials', 'sections'));
     }
 }

@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderBy('order')->get();
+        $projects = Project::orderBy('order')->where('public', '=', 'yes')->get();
         foreach ($projects as $project) {
             $media = Media::where('id', '=', $project->media_id)->firstOrFail();
             $project['project_image'] = $media->media_name;

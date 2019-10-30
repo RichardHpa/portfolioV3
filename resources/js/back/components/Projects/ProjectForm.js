@@ -4,7 +4,7 @@ import FormData from 'form-data';
 import Loader from '../Loader';
 import SectionForm from './SectionForm';
 import MediaModal from '../Media/MediaModal';
-import { Input, Textarea } from '../Inputs/Input';
+import { Input, Textarea, Checkbox } from '../Inputs/Input';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
@@ -26,6 +26,7 @@ class ProjectForm extends Component {
         this.getImage = this.getImage.bind(this);
         this.removeImage = this.removeImage.bind(this);
         this.addSection = this.addSection.bind(this);
+        this.handleChangeChecked = this.handleChangeChecked.bind(this);
     }
 
     componentDidMount () {
@@ -39,6 +40,18 @@ class ProjectForm extends Component {
     handleReceiveValue(result){
         let { project } = this.state;
         project[result.input] =  result.value;
+        this.setState({
+            project: project
+        })
+    }
+
+    handleChangeChecked(){
+        let { project } = this.state;
+        if(project.public === 'yes'){
+            project.public = 'no';
+        } else {
+            project.public = 'yes';
+        }
         this.setState({
             project: project
         })
@@ -100,6 +113,7 @@ class ProjectForm extends Component {
 
             form.append('project_github', project.github_link);
             form.append('project_link', project.website_url);
+            form.append('project_public', project.public)
             const str_json = JSON.stringify(sections)
             form.append('sections', str_json)
             axios.post(action, form, {
@@ -125,9 +139,11 @@ class ProjectForm extends Component {
         }
     }
 
+
+
     render(){
         const { ready, sendingData, project, media , sections}  = this.state;
-        console.log(sections);
+        // console.log(project);
         return(
             <form autoComplete="off" onSubmit={this.handleCreateNewProject}>
                 <div className="form-row">
@@ -205,10 +221,18 @@ class ProjectForm extends Component {
                                 <Input
                                     type="text"
                                     placeholder="Website URL"
-                                    label="Github Link"
+                                    label="Website URL"
                                     receiveInput={this.handleReceiveValue}
                                     name="website_url"
                                     value={project.website_url || ''}
+                                />
+
+                                <Checkbox
+                                    label="Public"
+                                    type="checkbox"
+                                    name="public"
+                                    checked={project.public}
+                                    changeChecked={this.handleChangeChecked}
                                 />
                             </div>
                             <button type="submit" className="btn btn-theme-color btn-block">{this.props.inputLabel}</button>

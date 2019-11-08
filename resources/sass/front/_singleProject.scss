@@ -1,20 +1,26 @@
 .singleMasthead {
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  min-height: 35rem;
-  padding: 15rem 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-  img{
-      display: none;
-  }
-  @media(min-width: 992px) {
-    height: 90vh;
-    padding: 0;
-  }
+    margin-top: 60px;
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    // min-height: 35rem;
+    // padding: 15rem 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    img{
+        display: none;
+    }
+    @media(min-width: 500px) {
+        height: 50vh;
+        padding: 0;
+    }
+    @media(min-width: 992px) {
+        margin-top: 0;
+        height: 90vh;
+        padding: 0;
+    }
 }
 
 .image-background{

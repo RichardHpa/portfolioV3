@@ -150,6 +150,7 @@
                                                 </strong>
                                             @endif
                                             <hr class="d-none d-lg-block ml-0">
+                                            <br>
                                             <strong>
                                                 <u>
                                                     <a target="" href="project/{{$singleProject->clean_url}}">Read More.</a>

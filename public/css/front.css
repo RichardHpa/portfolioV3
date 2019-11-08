@@ -10823,11 +10823,10 @@ a.text-theme-color:focus {
 }
 
 .singleMasthead {
+  margin-top: 60px;
   position: relative;
   width: 100%;
-  height: 90vh;
-  min-height: 35rem;
-  padding: 15rem 0;
+  height: 30vh;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10838,8 +10837,16 @@ a.text-theme-color:focus {
   display: none;
 }
 
+@media (min-width: 500px) {
+  .singleMasthead {
+    height: 50vh;
+    padding: 0;
+  }
+}
+
 @media (min-width: 992px) {
   .singleMasthead {
+    margin-top: 0;
     height: 90vh;
     padding: 0;
   }

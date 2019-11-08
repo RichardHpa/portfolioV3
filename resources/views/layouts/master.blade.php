@@ -127,5 +127,11 @@
                 </div>
             </div>
         </footer>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+
+        <script type="text/javascript" src="{{ asset('js/front.js') }}"></script>
     </body>
 </html>

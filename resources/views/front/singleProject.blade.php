@@ -34,7 +34,8 @@
             <hr>
             <div class="row my-5">
                 <div class="col-12 text-center">
-                    {{$project->project_description}}
+
+                    <?php echo nl2br($project->project_description); ?>
                 </div>
             </div>
             @if (count($sections) > 0)

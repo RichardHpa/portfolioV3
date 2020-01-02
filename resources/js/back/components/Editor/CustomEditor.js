@@ -18,6 +18,14 @@ class CustomEditor extends Component {
         this.toggleActive = this.toggleActive.bind(this);
     }
 
+    componentDidMount(){
+        if(this.props.showControls){
+            this.setState({
+                focused: true
+            })
+        }
+    }
+
     toggleInlineStyle(inlineStyle){
         this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, inlineStyle));
     }
@@ -37,9 +45,11 @@ class CustomEditor extends Component {
 
     toggleActive(){
         const { focused } = this.state;
-        this.setState({
-            focused: !focused
-        })
+        if(!this.props.showControls){
+            this.setState({
+                focused: !focused
+            })
+        }
     }
 
 
@@ -48,18 +58,18 @@ class CustomEditor extends Component {
         return(
             <div className="wrapper">
             <EditorControls
-            active={this.state.focused}
-            editorState={editorState}
-            onToggle={this.toggleInlineStyle}
-            onToggleBlockType={this.toggleBlockType}
+                active={this.state.focused}
+                editorState={editorState}
+                onToggle={this.toggleInlineStyle}
+                onToggleBlockType={this.toggleBlockType}
             />
             <Editor
-            editorState={editorState}
-            placeholder="Write about this section"
-            spellCheck={true}
-            onChange={this.onChange}
-            onFocus={this.toggleActive}
-            onBlur={this.toggleActive}
+                editorState={editorState}
+                placeholder="Write about this section"
+                spellCheck={true}
+                onChange={this.onChange}
+                onFocus={this.toggleActive}
+                onBlur={this.toggleActive}
             />
             </div>
         )

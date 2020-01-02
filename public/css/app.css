@@ -10924,7 +10924,7 @@ input:checked + .slider:before {
   }
 }
 
-.textSection .wrapper {
+.wrapper {
   width: 100%;
   min-height: 10px;
   height: 100%;
@@ -10932,7 +10932,7 @@ input:checked + .slider:before {
   overflow: hidden;
 }
 
-.textSection .wrapper .editorControls {
+.wrapper .editorControls {
   position: absolute;
   top: 0;
   transform: translateY(-100%);
@@ -10944,12 +10944,12 @@ input:checked + .slider:before {
   transition: transform 0.5s;
 }
 
-.textSection .wrapper .editorControls.open {
+.wrapper .editorControls.open {
   top: 0;
   transform: translateY(0);
 }
 
-.textSection .wrapper .editorControls .editorButton {
+.wrapper .editorControls .editorButton {
   color: #999;
   cursor: pointer;
   padding: 0px 16px;
@@ -10957,12 +10957,12 @@ input:checked + .slider:before {
   border-right: 0.8px solid #ddd;
 }
 
-.textSection .wrapper .editorControls .editorButton:hover {
+.wrapper .editorControls .editorButton:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-.textSection .wrapper .editorControls .editorButton.editorButtonActive {
+.wrapper .editorControls .editorButton.editorButtonActive {
   color: #5890ff;
 }
 

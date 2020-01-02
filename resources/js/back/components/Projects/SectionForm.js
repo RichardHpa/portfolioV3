@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { Editor, EditorState , RichUtils, convertFromRaw, convertToRaw} from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
 import MediaModal from '../Media/MediaModal';
@@ -31,7 +32,7 @@ class SectionForm extends Component {
     }
 
     handleChangeEditor(text){
-        
+
     }
 
     render () {

@@ -37003,6 +37003,9 @@ __webpack_require__(/*! jquery.easing */ "./node_modules/jquery.easing/jquery.ea
 
 __webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
 
+console.log('%cHey there, thanks for checking out the code for my site.', 'font-size: 1.5em;');
+console.log('%cMy portfolio is a custom built Content management system, using Laravel for handing the database and React JS for an admin dashboard. \nIf you are keen to chat, or are looking for a developer, I would love to talk, flick me an email at richard.m.hpa@gmail.com.', 'font-size: 1em;');
+
 (function ($) {
   "use strict"; // Start of use strict
   // Smooth scrolling using jQuery easing

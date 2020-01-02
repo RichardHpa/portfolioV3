@@ -40,20 +40,6 @@
                     <?php echo nl2br($project->project_description); ?>
                 </div>
             </div>
-            @if (count($sections) > 0)
-                <div id="sectionRows" class="mt-4">
-                    @foreach($sections as $section)
-                        <div class="row mt-2">
-                            <div class="col-12 col-md-6 imgContainer">
-                                <img src="../images/uploads/thumbnails/{{$section->image}}.jpg" alt="sub image of {{$project->name}}" class="img-fluid">
-                            </div>
-                            <div class="col-12 col-md-6 contentContainer">
-                                <?php echo html_entity_decode($section->section_content); ?>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
         </div>
     </section>
 

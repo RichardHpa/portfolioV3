@@ -2,6 +2,9 @@ require('jquery');
 require('jquery.easing');
 require('../bootstrap');
 
+console.log('%cHey there, thanks for checking out the code for my site.', 'font-size: 1.5em;');
+console.log('%cMy portfolio is a custom built Content management system, using Laravel for handing the database and React JS for an admin dashboard. \nIf you are keen to chat, or are looking for a developer, I would love to talk, flick me an email at richard.m.hpa@gmail.com.', 'font-size: 1em;');
+
 (function($) {
   "use strict"; // Start of use strict
 

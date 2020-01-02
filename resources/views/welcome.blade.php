@@ -92,26 +92,21 @@
         </header>
 
         <!-- About Section -->
-        <section id="about" class="about-section text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-10 mx-auto">
-                <h2 class="text-white mb-4">About Me</h2>
-                <p class="text-white-50">
-                    I am a Wellington based Web and User Experienced Designer.<br>
-                    Currently I am working as a Web and UX Design at Yoobee School of Design.
-                    In this role I teach adult students how to use the UX process to create a user friendly product, and then develop it using industry standards programming langauges.
-                    <br><br>
-                    Outside of Yoobee I am also a freelance designer.
-                    I have worked with a wide range of clients, all asking for different types of websites as well as different types of programming langauges and software.
-                    I have worked as a Design Intern and Contract Developer for <strong><u><a href="http://www.littleyellowbird.co.nz" target="_blank">Little Yellow Bird</a></u></strong>. They are a company which manufactures ethically made work attire. I was taked with creating their online store using a custom Shopify Theme as well as adding in additional functionality to their site.<br>
-			     <strong><u><a href="https://www.mrinz.ac.nz/" target="_blank">The Medicial Research Institute of New Zealand</a></u></strong> is another client of mine, having redesigned their website by creating them a custom Wordpress Theme, helps them show off the work which they are doing as well as keeping people up to date with new medical research tests which they recruiting for.<br>
-			    Other companies I have done some work for include, Creative HQ, Grow Wellington, <strong><u><a href="http://www.bgi.org.nz/" target="_blank">The Wellington Boys and Girls Institute</a></u></strong>, Breadcrumbs and I am currently working with the Wellington Health Tech Network in developing a website to help show their networking events which they are holding.
-                </p>
+        @if(isset($info['aboutHtml']))
+            <section id="about" class="about-section text-center">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-10 mx-auto">
+                    <h2 class="text-white mb-4">About Me</h2>
+                    <div class="text-white about-content">
+                        {!! $info['aboutHtml'] !!}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
+        @endif
+
 
         @if(count($projects) > 0)
             <!-- Projects Section -->

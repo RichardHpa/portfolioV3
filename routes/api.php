@@ -33,3 +33,6 @@ Route::get('media', 'MediaController@index');
 Route::post('media', 'MediaController@store');
 Route::get('media/{id}', 'MediaController@show');
 Route::post('media/delete', 'MediaController@destroy');
+
+Route::get('info', 'InfoController@index');
+Route::post('info', 'InfoController@store');

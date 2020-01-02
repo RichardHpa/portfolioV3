@@ -10,7 +10,6 @@ use Intervention\Image\ImageManager;
 use App\Project;
 use App\Social;
 use App\Media;
-use App\Section;
 
 class ProjectController extends Controller
 {
@@ -208,13 +207,8 @@ class ProjectController extends Controller
             $project['project_image'] = $media->media_name;
             $socials = Social::where('social_link', '!=', '')->orderBy('order')->get();
 
-            $sections = Section::where('project_id', '=', $project->id)->get();
-            foreach($sections as $section){
-                $sectionMedia = Media::where('id', '=', $section->section_image)->firstOrFail();
-                $section['image'] = $sectionMedia->media_name;
-            }
 
-            return view('front/singleProject', compact('project', 'socials', 'sections'));
+            return view('front/singleProject', compact('project', 'socials'));
         } else {
             abort(404);
         }
